@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "6ab7ce3851944f10b39a78250f377696",
+  "case": "PLUGIN-009",
+  "caseDigest": "e24e6d598dfd476dd8077c9f6cf0e7334b629baab901dfd67ec1aeb53dd19501",
+  "stage": "characterize",
+  "testId": "m13/PLUGIN-009 constrain plugin authority: undeclared requests fail without expansion",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "PLUGIN-009"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T17:11:14.261304+00:00",
+  "finishedUtc": "2026-10-12T17:11:15.771997+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE PLUGIN-009",
+  "markerFound": true,
+  "logPath": "state/evidence/6ab7ce3851944f10b39a78250f377696.log",
+  "logSha256": "7971985422cc9dd3d0b6f4324f4f5ee5baa652745ed46632705262675dc6856a",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "207fc5bb1c0b41b110eb62d1403d6da25569246a",
+    "statusSha256": "ead964b94bda4ebed60b6880472f36154e78d51acfef5b6e0552372778d630a9",
+    "trackedDiffSha256": "1a9b7d941ef06377a74f2cc16167669617946440a5d53f5a6aaf3e6ec2d77780",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "207fc5bb1c0b41b110eb62d1403d6da25569246a",
+    "statusSha256": "89722e3820a33cf180c4759f4590355a83151d04fd2ce8f7ac244c5373f12cb7",
+    "trackedDiffSha256": "1a9b7d941ef06377a74f2cc16167669617946440a5d53f5a6aaf3e6ec2d77780",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "1cec8b5807d747d0b997b568ac4b4297",
+  "case": "PLUGIN-005",
+  "caseDigest": "e3282aa7974b9ca2319cea32a5e300eaf229a22f02344006cfaa9f48a0dba4f7",
+  "stage": "fault",
+  "testId": "m13/PLUGIN-005 cancel external action: the lease survives until the tree is reconciled",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "PLUGIN-005"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T17:17:27.728623+00:00",
+  "finishedUtc": "2026-10-12T17:17:31.445505+00:00",
+  "exitCode": 1,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE PLUGIN-005",
+  "markerFound": true,
+  "logPath": "state/evidence/1cec8b5807d747d0b997b568ac4b4297.log",
+  "logSha256": "249716e81515350b2c78ce46c9d5aa8124bf1b0edabe3fdcc2cf73c7fb763c01",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "207fc5bb1c0b41b110eb62d1403d6da25569246a",
+    "statusSha256": "9ff53b1f2742c01e39792e8ae237d49ab05828102892f38fb23281feda9c7a42",
+    "trackedDiffSha256": "0e21387dd172e4fa55d571d512834f8e4730db7f4fa7c3faf232bd7264d77981",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "207fc5bb1c0b41b110eb62d1403d6da25569246a",
+    "statusSha256": "00ca545b852ab6d0d3faf77990d704f5a2e523c17a9bdb3850b1f40697b1df42",
+    "trackedDiffSha256": "0e21387dd172e4fa55d571d512834f8e4730db7f4fa7c3faf232bd7264d77981",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "f9d5bb8c0c994b24a099e7aa167b67a5",
+  "case": "PLUGIN-001",
+  "caseDigest": "2271bceab65fe6c46d683f1f0ad34cb336c12e14a2fa6e9982ceee5bc02575f4",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-001 negotiate versions: src/plugin/protocol.zig requires the major versions to match and refuses a plugin whose minor exceeds the core's, because a plugin built against a newer contract needs features the core does not have and the failure would otherwise surface in the middle of an action where it is harder to explain. The handshake returns an error rather than a handshake the caller could mistake for success, so an incompatible plugin results in no action starting. The test covers same-major-equal-minor, older minor, a higher major, a lower major, and a newer minor, and asserts the error rather than a negotiated version.",
+  "reviewedUtc": "2026-10-12T17:10:58.255973+00:00",
+  "records": [
+    "72bb1597bcf249d0b952f947a23e3911",
+    "580e7e748c5e45bdb612cec09b033d9f",
+    "76c68295a50d40ed88d40e954afb648a",
+    "5b6feb93321a49f685a6d96ddcbb1546"
+  ],
+  "recordDigests": {
+    "72bb1597bcf249d0b952f947a23e3911": "0b9012c5d299cf1203e19763ca12c7d05bba64262d5c5f9d9e7f76b328f933ab",
+    "580e7e748c5e45bdb612cec09b033d9f": "9c2b470ab86b23e6b0c69fce1476bfc6dec73df8097074b6e229e120d590bdad",
+    "76c68295a50d40ed88d40e954afb648a": "35f4215844989b3f9ee07a576201438815f9652a3c3f95e0a0a478b734bda14f",
+    "5b6feb93321a49f685a6d96ddcbb1546": "53ce7fe674859d739d52c1f155d7cb203cc02aa33dbf6a5602a7e490735e4f29"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

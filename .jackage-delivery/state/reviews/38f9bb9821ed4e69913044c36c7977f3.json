@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "38f9bb9821ed4e69913044c36c7977f3",
+  "case": "PLUGIN-005",
+  "caseDigest": "e3282aa7974b9ca2319cea32a5e300eaf229a22f02344006cfaa9f48a0dba4f7",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-005 cancel external action: asking a plugin to stop is not the same as it having stopped, so src/plugin/cancellation.zig makes cancellation a state the action passes through rather than one it lands in. The lease is held through cancelling and releaseLease refuses while the action is not terminal, because a lease released early is a working directory that can be collected while a process still writes to it - the cancellation causing the corruption it was meant to prevent. Only evidence that the process tree is gone makes the action terminal, and a plugin that never acknowledges leaves the action cancelling with its lease held, because that is what is known; nothing is guessed to make the bookkeeping tidier. Reaping an action that was never cancelling is refused so this cannot become a general-purpose status setter, cancelling an already-terminal action is refused so a completed action cannot be rewritten as cancelled, and releasing a lease that is not held is distinguished from releasing too early. Fault proof: dropping the terminal-state requirement lets the lease go while the tree runs and the refusal assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:19:34.946674+00:00",
+  "records": [
+    "b09983f97a9242f6a09479d8654cd2eb",
+    "1cec8b5807d747d0b997b568ac4b4297",
+    "cb27595ad3de43c7960b4862091e065d",
+    "0de9112f03d54fd48af80efe8f2db58f"
+  ],
+  "recordDigests": {
+    "b09983f97a9242f6a09479d8654cd2eb": "a786a7c452277606a741bbcf5ccfc0b878fd11b6288779c48aa3cd8b1eef2493",
+    "1cec8b5807d747d0b997b568ac4b4297": "cbc22d60b66f7cdcc5ce0add8513462f75b3584178f86f38b05b9e0d0afdaa10",
+    "cb27595ad3de43c7960b4862091e065d": "8507cac52dd8eac6421af959712ead2abca19a49cfcf2896b14f7394807c0cb2",
+    "0de9112f03d54fd48af80efe8f2db58f": "cfecedc5e5d1fea73d6f4a73326be71a08890d787c76143bf520578c5f0ab7c7"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "4aa0b9fb83b1446e9fed422ae38325e7",
+  "case": "PLUGIN-002",
+  "caseDigest": "18a69d01fe9cf6a54b86fc09482a661dd5803ad4d5055e63a0deb79a709333b7",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-002 bound frames: the length prefix in src/plugin/protocol.zig is validated inside the digit loop, so a huge declared length is refused on the way in rather than after being assembled, the header itself is read into a fixed buffer, and the body must be a complete JSON document before it is returned - nothing partial is ever handed to a dispatcher. The test exercises a valid frame, an eleven-digit declared length, a length that fits the header digits but exceeds the limit, a body that is not JSON, a truncated document, a body shorter than declared, a non-numeric header, an empty header, an empty stream, and a frame exactly at the limit, since a boundary that only works below itself is not a boundary. Fault proof: widening the bound a thousandfold accepts an above-limit frame and the oversized assertion fails (exit 1). The first attempt at this fault was a no-op because the in-loop check still fired - a passing run, not rejected evidence - and it was replaced with one that changes the behavior under test.",
+  "reviewedUtc": "2026-10-12T17:10:58.391824+00:00",
+  "records": [
+    "8d27cd8a244241bfaa620af365072bf2",
+    "3d0f95ec60094b28b21050e0370fef16",
+    "65999e6d29f64f4286e2f51aa78fe9df",
+    "33a3e6069fb14153a75241b6acceed69"
+  ],
+  "recordDigests": {
+    "8d27cd8a244241bfaa620af365072bf2": "9ca70930b930d55bb96b3edeb8c1deb34734f6341e3cb6b25fe61ad0606ccdce",
+    "3d0f95ec60094b28b21050e0370fef16": "a0cf3d06f82920e470d033732d07f6c92a1981d71b2d33a85a0ef2f3e3410221",
+    "65999e6d29f64f4286e2f51aa78fe9df": "c354bddec60ce3bead8ea305eb4f67192e7f44f5a0c3179313f1a419ad318cff",
+    "33a3e6069fb14153a75241b6acceed69": "a50fa025ed15ea7abbc1e6cc6c38ef5d9b0425789ab3c2bb93eeb08752e6233f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

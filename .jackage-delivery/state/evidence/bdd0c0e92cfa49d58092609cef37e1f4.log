@@ -1,0 +1,20 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'plugin.streams.test.m13/PLUGIN-003 separate diagnostics, m13/PLUGIN-004 backpressure' failed:
+       JCKG_EVIDENCE PLUGIN-003
+       JCKG_EVIDENCE PLUGIN-004
+       expected error.WouldBlock, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6e4d7897a in expectError__func_865 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\plugin\streams.zig:196:5: 0x7ff6e4d7a049 in test.m13/PLUGIN-003 separate diagnostics, m13/PLUGIN-004 backpressure (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.WouldBlock, channel.produce("{\"event\":\"c\"}"));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PLUGIN-003\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xf5d821ab --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xf5d821ab test -Dfilter=PLUGIN-003 --prefix C:\src\jackage\.zig-cache\test-prefix-PLUGIN-003

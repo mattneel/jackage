@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "4eb273e03bc24081b7b5ec6d0a1b740a",
+  "case": "PLUGIN-004",
+  "caseDigest": "a4813cd02297116078c52250c30fae4e597488edfed498e9c7bbcccc76785b3e",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-004 apply backpressure: a plugin can produce faster than the core reads, and src/plugin/streams.zig gives the two streams different behavior under pressure. Protocol frames are never dropped - a dropped frame desynchronizes the exchange, and a protocol that silently loses one is worse than one that stalls - so a full frame buffer returns a defined boundary and the producer waits, and consuming a frame is what lets it resume, which the test drives explicitly. Diagnostics are dropped oldest-first once their bounded buffer is full and the drop count is reported, because a log line is not worth stalling a build and the loss should be visible rather than implied. The test asserts the queued frames are exactly those produced, in order, with none lost. Fault proof: dropping the oldest protocol frame instead of applying backpressure makes the frame-sequence assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:23:24.171516+00:00",
+  "records": [
+    "02c42512acf34f3995a6758b38bc71d8",
+    "bdd0c0e92cfa49d58092609cef37e1f4",
+    "99500cc72d19409e97071e7598bd6852",
+    "a3885b21ddf74c4d81866b66c3ab42a9"
+  ],
+  "recordDigests": {
+    "02c42512acf34f3995a6758b38bc71d8": "e0c6c70ce3619f6bad67f763bcc6da69cf3d42e721e912daa57f0b9ab90d34f9",
+    "bdd0c0e92cfa49d58092609cef37e1f4": "702d58097162150166db841e1b5f0c78ae48eb74c3268970fd2bec3cf8995cf1",
+    "99500cc72d19409e97071e7598bd6852": "428485e4bbcefff058cdb7c2d8286c4b5ce67a78399566f7024cc3111c040c82",
+    "a3885b21ddf74c4d81866b66c3ab42a9": "e77f1bc67dcf232b2ef67c03da9f9f1392098fc29ee194ce62bbdb14fa5175e4"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

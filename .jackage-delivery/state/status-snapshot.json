@@ -1,7 +1,7 @@
 {
   "kind": "local-evidence-status",
   "productCompletionCertified": false,
-  "completedCases": 131,
+  "completedCases": 138,
   "totalCases": 188,
   "milestones": [
     {
@@ -124,7 +124,7 @@
     {
       "id": "M13",
       "title": "External backend contracts",
-      "completeCases": 0,
+      "completeCases": 7,
       "requiredCases": 10,
       "ownCasesComplete": false,
       "ready": true,

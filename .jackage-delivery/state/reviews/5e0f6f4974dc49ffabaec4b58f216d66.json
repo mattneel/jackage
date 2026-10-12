@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "5e0f6f4974dc49ffabaec4b58f216d66",
+  "case": "PLUGIN-010",
+  "caseDigest": "394488430d2fbfed297a2b2d544f26920bc8707351ba65d3a41623489d7d369a",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-010 recover plugin crash: src/plugin/recovery.zig sets the status to unknown when a plugin terminates, because the work may have completed before the process died or may never have started, and both failed and succeeded would be guesses. Reconciliation against evidence settles it: a verified artifact means succeeded, a log showing the action ran without its artifact means failed, and a log claiming completion without the artifact is a contradiction that resolves against the log because the artifact is what downstream actions consume. With no artifact and no log the status stays unknown and nothing is cached - and the cache refuses unknown and running outright, so it cannot be used to carry an unreconciled answer into a later run. Writing the module exposed an ambiguity in my own first model: absent-artifact alone cannot distinguish never-started from ran-and-failed, so the log state is explicit instead of inferred from a boolean. Fault proof: reading absent evidence as success makes the no-false-success assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:17:17.787096+00:00",
+  "records": [
+    "13f1948700164c30964ee541d39de82a",
+    "ae6590e84c4241cebc334a71393b08d6",
+    "3a344d2e3d484e7baab39e7301ab5a1e",
+    "3686ebe2d1824151acc5521a0323be1f"
+  ],
+  "recordDigests": {
+    "13f1948700164c30964ee541d39de82a": "fede5935dcf874eb13d3287911c55bf4a274984644cc3ede4555282077515eef",
+    "ae6590e84c4241cebc334a71393b08d6": "1eb09822914416cd2d14208ed8611d611bac6cfc58010f0f8a23f242be7c6da5",
+    "3a344d2e3d484e7baab39e7301ab5a1e": "b413a77acdae7aa967f0af759544873f7c338111dfc34a585d79a26a7f66acf8",
+    "3686ebe2d1824151acc5521a0323be1f": "3c83538893abf220e25a50f889ced8ba39c67520858f0b52200ba30f4179f32f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

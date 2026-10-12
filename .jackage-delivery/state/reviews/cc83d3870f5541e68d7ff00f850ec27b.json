@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cc83d3870f5541e68d7ff00f850ec27b",
+  "case": "PLUGIN-003",
+  "caseDigest": "139abdc439ac9793aec939ad9ade6b3e3956810f917d4b084776953df92f25e6",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-003 separate plugin diagnostics: stdout is the protocol and stderr is diagnostics, and src/plugin/streams.zig keeps them apart by refusing to parse a stdout line that is not a frame - it reports contamination rather than treating log text as an event or resynchronizing on whatever looks like a frame boundary inside a log line. Diagnostics are bounded before they are stored, so a plugin cannot make the core allocate without bound by never emitting a newline: an over-long line is truncated with the truncation recorded. The test covers a kept diagnostic, a truncated one, an accepted frame, a log line on stdout, an over-long frame on stdout, and an empty stdout line. Fault proof: quietly treating the contaminating line as a diagnostic makes the contamination assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:23:24.073977+00:00",
+  "records": [
+    "a0f556fe8cf542c1a7f20daea69fa033",
+    "f4cb89a8384d42289b80b3f9e566e391",
+    "83e8e5ecbae3449a82e93eeea85c86e9",
+    "3fa3be33ba8944fcbc3a6d520a33561c"
+  ],
+  "recordDigests": {
+    "a0f556fe8cf542c1a7f20daea69fa033": "c12dc611f07264f3e7947504647d5c00ee6e48e69d988c0be3aae420d4ecf1a1",
+    "f4cb89a8384d42289b80b3f9e566e391": "ca2e668430ed753daeabf9b6e47020db22b7f11b683211fbb49542c6208b9959",
+    "83e8e5ecbae3449a82e93eeea85c86e9": "187603363270996476d57fc001c9df627e3392af74a14bcdf5f32515c9c3858d",
+    "3fa3be33ba8944fcbc3a6d520a33561c": "9e275abfd0644c7c5273208e592c442b3323845deb50dd81e946aa99b79a5e98"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "1799251945514d26ac5c911390f09894",
+  "case": "PLUGIN-009",
+  "caseDigest": "e24e6d598dfd476dd8077c9f6cf0e7334b629baab901dfd67ec1aeb53dd19501",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-009 constrain plugin authority: src/plugin/authority.zig grants only what a manifest declares, and declares narrowly on purpose - a grant names a path and a set of modes, so a read declaration is not write access and covered-by-path with an ungranted mode is refused with the mode named, which tells the caller it needs a declaration rather than a different path. Containment is decided on normalized paths, so src/../../secrets is not inside src, and component-boundary matching keeps a prefix-sharing sibling out. Wildcard declarations are refused at evaluation so an allow-everything manifest cannot be written at all, and the decision names its basis, because a decision that cannot name its basis is not auditable. The test covers granted path and mode, an undeclared path, a mode mismatch, two escaping paths, an undeclared credential, two wildcard manifests, a prefix sibling, and an empty manifest. Fault proof: treating a declared read mode as granting every mode makes the write request succeed and the mode assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:14:38.076183+00:00",
+  "records": [
+    "6ab7ce3851944f10b39a78250f377696",
+    "303aed5d2b464464975d211376f96ccd",
+    "29a3049d82dd4715bf1f660ff9f9750f",
+    "175d869b8fe84dc5b6dc8291f615e531"
+  ],
+  "recordDigests": {
+    "6ab7ce3851944f10b39a78250f377696": "0db266d8ae7d4fa86efb7c9cfca22a0b7b044d25f54a96d1eea109d990aa915d",
+    "303aed5d2b464464975d211376f96ccd": "6ebae2371fdc3f6088d842bcd9bc5a26bd962e9ce4364c430e280e8f712707f8",
+    "29a3049d82dd4715bf1f660ff9f9750f": "2d36321d534a0ead064acff0133015e083c1c8c05095b1189757f080ddf737ce",
+    "175d869b8fe84dc5b6dc8291f615e531": "3fe20775a5dec3942cfc7b475fc1a35eddc347ef8b6e4fbf1217da63fe06fc0d"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

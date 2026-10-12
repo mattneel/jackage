@@ -1,0 +1,20 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'plugin.protocol.test.m13/PLUGIN-001 negotiate versions, m13/PLUGIN-002 bound frames' failed:
+       JCKG_EVIDENCE PLUGIN-001
+       JCKG_EVIDENCE PLUGIN-002
+       expected error.IncompatibleMajor, found .{ .core = .{ .major = 2, .minor = 5 }, .plugin = .{ .major = 3, .minor = 0 }, .negotiated = .{ .major = 2, .minor = 5 } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff615e78952 in expectError__func_865 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\plugin\protocol.zig:125:5: 0x7ff615e79419 in test.m13/PLUGIN-001 negotiate versions, m13/PLUGIN-002 bound frames (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.IncompatibleMajor, handshake(core, .{ .major = 3, .minor = 0 }));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PLUGIN-001\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x24e644a4 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x24e644a4 test -Dfilter=PLUGIN-001 --prefix C:\src\jackage\.zig-cache\test-prefix-PLUGIN-001
