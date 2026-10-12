@@ -1,0 +1,33 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'space.cache_policy.test.m12/SPACE-005 bound caches: eligible caches shrink and unsatisfied budgets stay explicit' failed:
+       JCKG_EVIDENCE SPACE-005
+       
+       ====== expected this output: =========
+       recent-eligible␃
+       
+       ======== instead found this: =========
+       pinned␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       recent-eligible
+       ^ ('\x72')
+       found:
+       pinned
+       ^ ('\x70')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff787f48a71 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\space\cache_policy.zig:147:5: 0x7ff787f491e4 in test.m12/SPACE-005 bound caches: eligible caches shrink and unsatisfied budgets stay explicit (jckg-tests_zcu.obj)
+           try std.testing.expectEqualStrings("recent-eligible", report.evicted[1]);
+           ^
+failed command: ".\\.zig-cache\\o\\e693f114bab27aae3eeb7daf8e6888b5\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x6b3b8b3d --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x6b3b8b3d test -Dfilter=SPACE-005 --prefix C:\src\jackage\.zig-cache\test-prefix-SPACE-005

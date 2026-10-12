@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "46c4d2b84e2245028c28ffb1a15cde7d",
+  "case": "SPACE-005",
+  "caseDigest": "6e204636604ed42db0cec361e5f0fd7ebd88d0cb4dae1122df4f87746e2b423d",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-005 bound caches: a cache is disposable by definition, so the substance is what may *not* be deleted and honesty about the budget. src/space/cache_policy.zig plans eviction oldest-first until the ceiling is met, while pinned caches (held by policy) and leased caches (bytes an action is reading right now) are never touched - the retained set is computed before any choice is made, so the report answers what could not be touched independently of what was evicted. When everything eligible is gone and the total is still over the ceiling, the report carries a shortfall in bytes rather than rounding the problem away: an unsatisfied budget that stays explicit is a fact somebody can act on. The plan is a description, not an action, which keeps a policy decision separable from a destructive one. Fault proof: treating pinned and leased caches as evictable makes the never-evict assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:35:38.659719+00:00",
+  "records": [
+    "2295978145d442ab934ad5d59ff38cad",
+    "d327ab4728f64bf2a09832add73de556",
+    "3033f6a56acd44b49c2cbc209a28b24a",
+    "66ab0e9751a04eeba476d03f5e8a0fea"
+  ],
+  "recordDigests": {
+    "2295978145d442ab934ad5d59ff38cad": "47b56febfd972dbdf122b714cf116d197421021338eeabcd758950df5be304cb",
+    "d327ab4728f64bf2a09832add73de556": "89eba736afd0c4dde468cca49a0075a69f2ef38c27511b6bfc4236cc6b62605c",
+    "3033f6a56acd44b49c2cbc209a28b24a": "9f09e1fdd9550384d576dcda0d24d4deb692a711c7a9952b6e9bb05954f46d44",
+    "66ab0e9751a04eeba476d03f5e8a0fea": "72800bf0575738e90fc189c7a032385662f77552ec09af56505962cd086bbdaf"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
