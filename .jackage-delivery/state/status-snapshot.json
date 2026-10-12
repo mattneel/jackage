@@ -1,7 +1,7 @@
 {
   "kind": "local-evidence-status",
   "productCompletionCertified": false,
-  "completedCases": 127,
+  "completedCases": 128,
   "totalCases": 188,
   "milestones": [
     {
@@ -115,7 +115,7 @@
     {
       "id": "M12",
       "title": "Workspace, cache, and reclaim lifecycle",
-      "completeCases": 5,
+      "completeCases": 6,
       "requiredCases": 12,
       "ownCasesComplete": false,
       "ready": true,

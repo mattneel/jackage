@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "8d5aaba6bd6a490b88ab530b611af277",
+  "case": "SPACE-008",
+  "caseDigest": "230f49fd9b72f4000399c1f8571350db1d190c43d47cf95cda8138d779ec8587",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-008 preserve source manifest: M09's plan answers what is under a directory minus what a build regenerates, which is a different question from what may leave the machine. src/selfhost/manifest_policy.zig makes both explicit: required inputs are kept even when the checkout's ignore rules would drop them (generated source a build needs is exactly this case), and prohibited paths are excluded even when present, because presence is not permission. A path that is both required and prohibited is refused rather than resolved - guessing which instruction wins is how secrets travel. A required input missing from the checkout is named rather than producing a silently incomplete snapshot. Prohibition rules are matched against normalized paths, so src/../.env is still prohibited, and containment compares whole components so a sibling beginning with the word 'secrets' is not excluded. The preview carries a reason per entry, so the list is readable before anything is copied. Running it found a real double free: the missing-required-input path hand-freed the partial lists that the errdefers already own; my disguised-path fixture also omitted the manifest's required inputs and was corrected rather than the code. Fault proof: matching no prohibition rule makes the exclusion assertions fail (exit 1; the first fault attempt did not compile, which is a compile error and not a fault, and was retaken); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:55:23.402308+00:00",
+  "records": [
+    "ae24ff5ee5034a85be0cd67cce1bfed1",
+    "e2ad41b5580a441a9213199c1473819c",
+    "8c3e50f29c0d4e61b040aaa11deb7171",
+    "b56b251ffb614e35aa02b4192f2832fb"
+  ],
+  "recordDigests": {
+    "ae24ff5ee5034a85be0cd67cce1bfed1": "f7d346abf9078dd55118dbec7dbe56ffd0a09ac9464d3e19e8427c9d7cbfd6b5",
+    "e2ad41b5580a441a9213199c1473819c": "51049d611c8d490d33edea1876ddf538ec23c46fc9a199f19e4c4cf6865d78d7",
+    "8c3e50f29c0d4e61b040aaa11deb7171": "0985cd8c28b5be23e76f828528e50fa72f4a87ec00b61f1d20a751aa07c25b24",
+    "b56b251ffb614e35aa02b4192f2832fb": "f60a132f3bb920641e55917098d5841ef6108fe0ac07ef883ee8cfc7db8447f4"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
