@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "4b45012aad074da39518957424e49fcb",
+  "case": "STRICT-001",
+  "caseDigest": "382d37bbabcc50bdbc568e14679f72f9e2ff904673cd5d76e81f226729666367",
+  "reviewer": "OMP agent (M08 sandbox)",
+  "note": "STRICT-001 deny undeclared filesystem, recorded in the declared Linux environment. The sandbox is built from tmpfs mounts only (host bind mounts are refused in this unprivileged user namespace), the logical root is remounted read-only after everything is mounted, and the action is chrooted into it, so the host filesystem is not reachable at all. Evidence: the probe attempts three undeclared writes and four host-file reads; all are refused (held=true). Fault proof: leaving the logical root writable makes the case fail (exit 1), and the revert was byte-identical (diff clean, no FAULT markers). The probe's candidate paths deliberately exclude /tmp, which the sandbox declares as its own scratch - asserting otherwise would be a false finding.",
+  "reviewedUtc": "2026-10-12T14:59:06.211368+00:00",
+  "records": [
+    "f14b9d58d96d44e1a4cf2749ca9440a5",
+    "7c4a2028b18f40f4b3d6ae1c0f2ae0c3",
+    "41a76bae33bc48c38362aa46a0064927",
+    "419df97f89cf4af6b23ff3b05f280a62"
+  ],
+  "recordDigests": {
+    "f14b9d58d96d44e1a4cf2749ca9440a5": "cc21936d26fae47539d33f76d759a4b25a179c404962fd76aa798f785eb3d40b",
+    "7c4a2028b18f40f4b3d6ae1c0f2ae0c3": "951696ad465d1635eae10eb88ef0f7a69d5051497f68c6367121b1078f774736",
+    "41a76bae33bc48c38362aa46a0064927": "75d512505c32a2c70ddf39d1c9533e3c1f53d13edb915855bae2827eff9bbf42",
+    "419df97f89cf4af6b23ff3b05f280a62": "12eca13d85046c7689c6ae49c501019244be37fc561504ef7371e32cfa99b446"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

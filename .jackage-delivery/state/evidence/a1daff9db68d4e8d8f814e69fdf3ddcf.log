@@ -1,0 +1,21 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE STRICT-009
+transport: command=[set -eu; mkdir -p /tmp/jckg-cross; printf 'jackage-cross-boundary\r\nsecond line, no trailing newline' > /tmp/jckg-cross/input.txt; readlink -f /tmp/jckg-cross/input.txt; stat -f -c %T /tmp/jckg-cross]
+transport: command=[set -eu; printf 'action ran on %s\n' "$(uname -s)" >&2; sha256sum '/tmp/jckg-cross/input.txt' | cut -d' ' -f1]
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-STRICT-009\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x8df40430 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 worker.cross_tests.test.m08/STRICT-009 cross Windows to Linux: the declared transport runs a Linux action...JCKG_EVIDENCE STRICT-009
+transport: command=[set -eu; mkdir -p /tmp/jckg-cross; printf 'jackage-cross-boundary\r\nsecond line, no trailing newline' > /tmp/jckg-cross/input.txt; readlink -f /tmp/jckg-cross/input.txt; stat -f -c %T /tmp/jckg-cross]
+transport: command=[set -eu; printf 'action ran on %s\n' "$(uname -s)" >&2; sha256sum '/tmp/jckg-cross/input.txt' | cut -d' ' -f1]
+OK
+All 5 tests passed.

@@ -1,0 +1,14 @@
+worker
++- install jckg-worker
+   +- compile exe jckg-worker debug x86_64-linux-musl 1 errors
+src/worker/execute.zig:183:11: error: unused local constant
+    const root = logical_root_z;
+          ^~~~
+error: 1 compilation errors
+failed command: /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/zig build-exe -Odebug -target x86_64-linux-musl -mcpu baseline -Mroot=src/worker_entry.zig --cache-dir /tmp/jckg-strict-cache --global-cache-dir /home/autark/.cache/zig --build-root . --name jckg-worker --zig-lib-dir /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/ --listen=-
+
+Build Summary: 3/6 steps succeeded (1 failed)
+worker transitive failure
++- install jckg-worker transitive failure
+   +- compile exe jckg-worker debug x86_64-linux-musl 1 errors
+

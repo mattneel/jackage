@@ -1,0 +1,28 @@
+strict suite failed to build:
+strict-test
++- run test strict-tests 1 pass, 1 fail (2 total)
+error: 'worker.strict_tests.test.STRICT-004 use stable logical paths: the action never sees host paths' failed:
+       JCKG_EVIDENCE STRICT-004
+       harness: sent secret and handshake, awaiting the worker's
+       harness: handshake answered
+       harness: sent auth, awaiting the response
+       harness: authenticated
+       harness: sent run, reading events
+       worker said: runner: plan accepted, applying mounts
+       harness: response received
+       harness: waiting for the worker to exit
+       harness: worker exited
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:584:14: 0x125c619 in expect (std.zig)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:360:13: 0x125c848 in body (strict_tests_entry.zig)
+                   try testing.expect(std.mem.indexOf(u8, first.events, "/jckg/workspace") != null);
+                   ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:276:5: 0x125d117 in requireLinuxOrRefusal__func_955 (strict_tests_entry.zig)
+           try body();
+           ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:350:5: 0x125d19c in test.STRICT-004 use stable logical paths: the action never sees host paths (strict_tests_entry.zig)
+           try requireLinuxOrRefusal(struct {
+           ^
+failed command: /tmp/jckg-strict-cache/o/e943ee5dc28cbe5a90fb48d34b442e79/strict-tests --cache-dir=/tmp/jckg-strict-cache --seed=0x7d8fc8ea --listen=-
+

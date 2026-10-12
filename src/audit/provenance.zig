@@ -294,8 +294,22 @@ test "m00/AUD-007 inspect dependency provenance" {
     const pinned = provenance.toolchain_sha256 orelse return error.MissingToolchainPin;
     try std.testing.expectEqualStrings(recorded_compiler_archive_sha256, pinned[0..]);
 
-    // No project licence exists yet: a gap is recorded, not invented.
-    try std.testing.expect(provenance.project_license == null);
+    // The checkout declares a licence (MIT). The audit reports what is there
+    // rather than inventing or ignoring it: when the file is absent the field is
+    // null, and when it is present the detected licence text is recorded. The
+    // MIT file was added when the repository was published, and this assertion
+    // follows the checkout.
+    try std.testing.expect(provenance.project_license != null);
+    if (provenance.project_license) |license| {
+        // The field records the licence file the audit found, not its text, so the
+        // assertion is about detection; the file's content is checked separately
+        // by reading it.
+        try std.testing.expectEqualStrings("LICENSE", license);
+        const text_bytes = try cwd.readFileAlloc(io, license, gpa, .unlimited);
+        defer gpa.free(text_bytes);
+        try std.testing.expect(std.mem.indexOf(u8, text_bytes, "MIT License") != null);
+        try std.testing.expect(std.mem.indexOf(u8, text_bytes, "Permission is hereby granted") != null);
+    }
 
     // The Windows bootstrap toolchain ships its own licence inside the
     // checkout; the declared Linux environment keeps its toolchain outside the

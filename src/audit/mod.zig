@@ -166,7 +166,13 @@ test "m00/audit report assembles observed values" {
     try std.testing.expectEqual(host.osFromBuiltin(@import("builtin").os.tag), observed.host_facts.os);
     try std.testing.expectEqual(host.archFromBuiltin(@import("builtin").cpu.arch), observed.host_facts.arch);
     try std.testing.expectEqual(@as(usize, 0), observed.inputs.dependencyCount());
-    try std.testing.expect(observed.inputs.project_license == null);
+    // The checkout now declares a licence (MIT, added when the repository was
+    // published), so the assembled report carries the detected file rather than a
+    // gap. The audit reports what exists; this assertion follows the checkout.
+    try std.testing.expect(observed.inputs.project_license != null);
+    if (observed.inputs.project_license) |license| {
+        try std.testing.expectEqualStrings("LICENSE", license);
+    }
     try std.testing.expect(observed.sources.find("src/main.zig") != null);
     try std.testing.expect(observed.sources.totalTestBlocks() >= 3);
 
@@ -199,7 +205,10 @@ test "m00/audit report assembles observed values" {
     try std.testing.expect(preservation.object.get("recordVerified").?.bool);
     const provenance_value = root.object.get("provenance").?;
     try std.testing.expectEqual(@as(i64, 0), provenance_value.object.get("dependencies").?.integer);
-    try std.testing.expect(provenance_value.object.get("projectLicense").? == .null);
+    // The published checkout carries an MIT LICENSE, so the JSON report names the
+    // detected file. The field is a string when a licence exists and null when it
+    // does not; this asserts the observed case.
+    try std.testing.expectEqualStrings("LICENSE", provenance_value.object.get("projectLicense").?.string);
     try std.testing.expectEqualStrings(
         "ec5d64aae44b54ce8425ecd7b40f1fa5c8061d1dc80939b02ed036513d69ae67",
         provenance_value.object.get("toolchainSha256").?.string,

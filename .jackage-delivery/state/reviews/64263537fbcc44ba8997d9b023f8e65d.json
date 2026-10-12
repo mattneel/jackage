@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "64263537fbcc44ba8997d9b023f8e65d",
+  "case": "STRICT-002",
+  "caseDigest": "2145c500d51f36cb5bdbca9f0ac61e2ff20b51e2d99c1993ff6360e0ec6c142d",
+  "reviewer": "OMP agent (M08 sandbox)",
+  "note": "STRICT-002 deny network, recorded in the declared Linux environment. The worker is launched with unshare --net, so the action runs in a fresh network namespace with no route out. Evidence is behavioural rather than an inventory: the probe opens a TCP socket and attempts a real connection to 1.1.1.1:53, and the case passes when the sandbox refuses it ('the refused connection is the finding'). An earlier /proc/net/dev inventory check was abandoned: it reports what the kernel lists, which is weaker evidence, and inside a chroot with only procfs mounted it read as empty rather than isolated. Fault proof: dropping the --net flag makes the connection succeed and the case fail (exit 1); revert byte-identical (diff clean).",
+  "reviewedUtc": "2026-10-12T14:59:53.720907+00:00",
+  "records": [
+    "a91a017713da4cb5841b31f21918ee99",
+    "e7de5010031844e88ba65a5bb24ec09d",
+    "5aa27c00d57c4a21b918f98031fe53f6",
+    "8411fdad7b8441c6970ba19bee11a163"
+  ],
+  "recordDigests": {
+    "a91a017713da4cb5841b31f21918ee99": "36aaa028dc4e96bb9b054a3b8898919eddc137f3c4aa62bf41033942edc00cbc",
+    "e7de5010031844e88ba65a5bb24ec09d": "4a2fa4b4a76056efcca69733cb1ea28fca77333b256ea90887b763c741c6e357",
+    "5aa27c00d57c4a21b918f98031fe53f6": "324b2553c42f049b5248a48ef136110f461a7ce96ae4562e234fa7f6a0ad1895",
+    "8411fdad7b8441c6970ba19bee11a163": "6e156c334f2e4d5c48d12dce9f01b478299d3090d21e3a1afa6c9f3d53db8bc0"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

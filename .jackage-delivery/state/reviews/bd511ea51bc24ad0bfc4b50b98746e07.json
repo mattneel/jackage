@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "bd511ea51bc24ad0bfc4b50b98746e07",
+  "case": "STRICT-004",
+  "caseDigest": "392fbc3aebc7d0acf90ef4bc470745f41c664f28f631b243fc69947c88bd509e",
+  "reviewer": "OMP agent (M08 sandbox)",
+  "note": "STRICT-004 use stable logical paths, recorded in the declared Linux environment. The action's view is the logical tree: the chroot root is /jckg and the action's paths begin with /jckg, so the physical layout repeats the prefix and the action's cwd is exactly /jckg/workspace whatever the host workspace is. The test runs the same check twice against two different host workspaces and requires the observed path to be identical both times - which is what makes two builds comparable - and requires the host path to be absent. Fault proof: pointing the action's cwd at / makes the logical-paths assertion fail (exit 1); revert restored the exact line, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:01:14.329948+00:00",
+  "records": [
+    "069d0b63d6444b728363acff90d4c61d",
+    "3e84e8b7e979416da1167df811371d64",
+    "0a5b0fa8346847eb9abcf04d13ffcec6",
+    "058f7ebe2b034544a5b9af2c908374e1"
+  ],
+  "recordDigests": {
+    "069d0b63d6444b728363acff90d4c61d": "82a0e1538fb0db86821393abd1ea13f6b9acad9c762316216b2d12d20766cd4c",
+    "3e84e8b7e979416da1167df811371d64": "7b2685602e133ee86a6fe44a5448d7c4be63f4dd671d0de32be3ee32547bc836",
+    "0a5b0fa8346847eb9abcf04d13ffcec6": "1c7d8f4cdf265a8ac003e76818fcc6fa5d7142b98d939214bce2a51a090bb87d",
+    "058f7ebe2b034544a5b9af2c908374e1": "cb6a755878e6e8fcfa1551975795ae0800436f08e86cb590b92657d8e343e1b5"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,7 +1,7 @@
 {
   "kind": "local-evidence-status",
   "productCompletionCertified": false,
-  "completedCases": 94,
+  "completedCases": 100,
   "totalCases": 188,
   "milestones": [
     {
@@ -79,11 +79,11 @@
     {
       "id": "M08",
       "title": "Strict Linux execution and verified transport",
-      "completeCases": 4,
+      "completeCases": 10,
       "requiredCases": 10,
-      "ownCasesComplete": false,
+      "ownCasesComplete": true,
       "ready": true,
-      "completeWithPrerequisites": false
+      "completeWithPrerequisites": true
     },
     {
       "id": "M09",
@@ -91,7 +91,7 @@
       "completeCases": 0,
       "requiredCases": 8,
       "ownCasesComplete": false,
-      "ready": false,
+      "ready": true,
       "completeWithPrerequisites": false
     },
     {
@@ -118,7 +118,7 @@
       "completeCases": 0,
       "requiredCases": 12,
       "ownCasesComplete": false,
-      "ready": false,
+      "ready": true,
       "completeWithPrerequisites": false
     },
     {

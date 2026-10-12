@@ -175,7 +175,7 @@ pub fn buildRoot(io: std.Io, gpa: std.mem.Allocator, plan: MountPlan) Error!void
     // after everything is: mounts cannot be created inside a read-only
     // filesystem, and remounting a parent does not affect a child mount.
     remountReadOnly(treeStoreZ()) catch return error.StoreRemountFailed;
-    // FAULT: the logical root is left writable, so undeclared writes succeed.
+    remountReadOnly(logical_root_z) catch {};
 
     // Enter the tree: from here the host's filesystem is not reachable at all,
     // which is what makes "reads outside declared roots fail" true rather than

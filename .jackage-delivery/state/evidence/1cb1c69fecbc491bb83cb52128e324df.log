@@ -1,0 +1,28 @@
+strict suite failed to build:
+strict-test
++- run test strict-tests 1 pass, 1 fail (2 total)
+error: 'worker.strict_tests.test.STRICT-005 enforce resources: the declared process limit refuses excess children' failed:
+       JCKG_EVIDENCE STRICT-005
+       harness: sent secret and handshake, awaiting the worker's
+       harness: handshake answered
+       harness: sent auth, awaiting the response
+       harness: authenticated
+       harness: sent run, reading events
+       worker said: runner: plan accepted, applying mounts
+       harness: response received
+       harness: waiting for the worker to exit
+       harness: worker exited
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:584:14: 0x125c619 in expect (std.zig)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:382:13: 0x125c848 in body (strict_tests_entry.zig)
+                   try testing.expect(std.mem.indexOf(u8, limited.events, "\"held\":true") != null);
+                   ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:276:5: 0x125cf37 in requireLinuxOrRefusal__func_955 (strict_tests_entry.zig)
+           try body();
+           ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:373:5: 0x125cfbc in test.STRICT-005 enforce resources: the declared process limit refuses excess children (strict_tests_entry.zig)
+           try requireLinuxOrRefusal(struct {
+           ^
+failed command: /tmp/jckg-strict-cache/o/3c54086d81b39fdf64c6710791e33e62/strict-tests --cache-dir=/tmp/jckg-strict-cache --seed=0x1f678cb8 --listen=-
+

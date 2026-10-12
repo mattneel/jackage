@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3a408927c07640228d6ed74b7b1d18c3",
+  "case": "STRICT-005",
+  "caseDigest": "a81d5b4ad5a58cb165b1d9a37ed38d820d9fde781d85b1dc7f026e7a29a143ee",
+  "reviewer": "OMP agent (M08 sandbox)",
+  "note": "STRICT-005 enforce resources, recorded in the declared Linux environment. Limits belong to the action, not the worker: the child applies RLIMIT_NPROC and RLIMIT_AS from the plan with raw syscalls immediately before exec, because applying them in the worker also constrained the worker's own fork. The probe asks for 8 GiB and touches a page per megabyte so the allocation cannot be optimised into an unreserved mapping; the case passes when the declared limit refuses it. The process namespace is asserted in the same case, since a limit is only observable when the action cannot see the host's processes. Fault proof: dropping the two setrlimit calls makes the allocation succeed and the case fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:01:47.349057+00:00",
+  "records": [
+    "e481ac7e0c9c4396ae9de45069daad62",
+    "1cb1c69fecbc491bb83cb52128e324df",
+    "aea2f59ed3f6495ba4d6927212364d28",
+    "78d82214b9e54d1e96496016bb843fa1"
+  ],
+  "recordDigests": {
+    "e481ac7e0c9c4396ae9de45069daad62": "5355126782a778d71647682f812ddf61895c189173c1f84b3dbf7b3b93638fdc",
+    "1cb1c69fecbc491bb83cb52128e324df": "3cfe707aebbd327cc2cf8e70658fc00d1533994ffeb4db200d63dfbf9c7ab516",
+    "aea2f59ed3f6495ba4d6927212364d28": "c403264bdd74bc9de82948ce8b55e695dbe288ce08a065429dd411a952c8b3e3",
+    "78d82214b9e54d1e96496016bb843fa1": "ebaa341a2f269cfbbd3563fd58d531d0309b634cdfb504b75d4a8dc2e793bd5a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

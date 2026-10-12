@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "7d41f6ed2b3e4777bc20a69cd2fc238e",
+  "case": "STRICT-003",
+  "caseDigest": "1baaa6e92ebe3b4ef9b4c2b994d577ea1cdf26f94033a7b44fbca0b8ded2329d",
+  "reviewer": "OMP agent (M08 sandbox)",
+  "note": "STRICT-003 isolate writable state, recorded in the declared Linux environment. The action's world is built from tmpfs mounts: the workspace is the one writable location, the store is remounted read-only after its contents are copied in, and /tmp is a fresh tmpfs rather than the host's. The case asserts both halves - a write to the declared workspace succeeds, and a write to the store is refused - so a sandbox that made everything read-only would fail it. Fault proof: leaving the store writable makes the store write succeed and the case fail (exit 1); the revert restored the exact line and no FAULT markers remain. Ordering is load-bearing and documented: a mount cannot be created inside a read-only filesystem, so the read-only remounts come after everything is mounted, and remounting a parent does not affect a child mount.",
+  "reviewedUtc": "2026-10-12T15:00:25.228846+00:00",
+  "records": [
+    "31a7ab37089d43eb9b5996dff44860ad",
+    "99ef6aa711fc4c6d9dfafb1ef03cc293",
+    "383ad68eea0d48ddb3677ed95e2bcf34",
+    "80994916fbbc411bb0e3e4457d4a2bce"
+  ],
+  "recordDigests": {
+    "31a7ab37089d43eb9b5996dff44860ad": "0da5cb258c6f9fa6351ba6bcd7457565760f7c91723e3029d1bee08ae57e158c",
+    "99ef6aa711fc4c6d9dfafb1ef03cc293": "2e727f573e80119797fd28da20524e8c74546a476c7afb8cbaab1820b4ac123e",
+    "383ad68eea0d48ddb3677ed95e2bcf34": "3ea91d1723321001db2d730486041ca8f77c0765e65b904a76c99fb1a3115f2f",
+    "80994916fbbc411bb0e3e4457d4a2bce": "d881543a9b5a635013e7e480e963ffbc60a0d6a94ded1a750627117075c34ca1"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

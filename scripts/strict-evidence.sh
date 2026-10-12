@@ -15,6 +15,13 @@ script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 repo_root=$(CDPATH= cd -- "$script_dir/.." && pwd)
 kit=/mnt/c/src/jackage/.jackage-delivery
 
+# A regression is the *unfiltered* suite against the finished case, so it runs the
+# whole sandbox suite; characterize, fault and green run the case alone.
+filter=$case_id
+if [ "$stage" = "regression" ]; then
+    filter=""
+fi
+
 cd "$repo_root"
 exec python3 "$kit/tools/delivery.py" run \
     --case "$case_id" \
@@ -22,4 +29,4 @@ exec python3 "$kit/tools/delivery.py" run \
     --test-id "$case_id" \
     --marker "JCKG_EVIDENCE $case_id" \
     --cwd . \
-    -- sh scripts/strict-test.sh "$case_id"
+    -- sh scripts/strict-test.sh $filter

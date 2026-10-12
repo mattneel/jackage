@@ -1,0 +1,19 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'worker.cross_tests.test.m08/STRICT-009 cross Windows to Linux: the declared transport runs a Linux action' failed:
+       JCKG_EVIDENCE STRICT-009
+       transport: command=[set -eu; mkdir -p /mnt/c/src/jackage/.jckg-cross; printf 'jackage-cross-boundary\r\nsecond line, no trailing newline' > /mnt/c/src/jackage/.jckg-cross/input.txt; readlink -f /mnt/c/src/jackage/.jckg-cross/input.txt; stat -f -c %T /mnt/c/src/jackage/.jckg-cross]
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff60332953f in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\worker\cross_tests.zig:113:5: 0x7ff603329c89 in test.m08/STRICT-009 cross Windows to Linux: the declared transport runs a Linux action (jckg-tests_zcu.obj)
+           try testing.expect(!std.mem.startsWith(u8, input_path, "/mnt/"));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-STRICT-009\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x3ab6a5e3 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x3ab6a5e3 test -Dfilter=STRICT-009 --prefix C:\src\jackage\.zig-cache\test-prefix-STRICT-009

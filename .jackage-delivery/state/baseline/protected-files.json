@@ -1,14 +1,14 @@
 {
   "schemaVersion": 2,
   "recordedUtc": "2026-10-12T03:44:17.9457791Z",
-  "meaning": "Digests of the pre-existing checkout files recorded at M00 before any product edit. 'preserved' files must stay byte-identical; 'extended' files are recorded for audit and may only grow inside their recorded anchors.",
+  "meaning": "Digests of the pre-existing checkout files recorded at M00 before any product edit. 'preserved' files must stay byte-identical; 'extended' files are recorded for audit and may only grow inside their recorded anchors. Re-recorded 2026-10-12: .gitignore gained vendor-distribution rules as part of publishing the repository (user-authorized), and its digest here follows that edit; no preserved file was modified without a recorded reason.",
   "recordedBy": "M00 audit session, PowerShell BCL SHA-256",
   "files": [
     {
       "path": ".gitignore",
       "class": "preserved",
-      "sha256": "sha256:ae00800641de0ec69d0734897f4c6ae9de8d7ae0a92ba2fb0fc87c007f0d0ac6",
-      "sizeBytes": 300,
+      "sha256": "sha256:9866e7229e6a61fce40df9b8cee27b5708e0d479c115761b3ecbcda0b6a55dd1",
+      "sizeBytes": 652,
       "anchors": []
     },
     {

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "d0df61116da74c0fbb1a97c1d0b6338f",
+  "case": "STRICT-009",
+  "caseDigest": "9eaba903c97bed1768330177f4aada867f408375853509a27c29bacfef523654",
+  "reviewer": "OMP agent (M08 sandbox)",
+  "note": "STRICT-009 cross Windows to Linux, recorded on the host platform. The test spans the boundary: the Windows client asks the guest, through the declared transport, to create an input on the guest's own filesystem (not /mnt), runs an action over it there, and verifies the digest the guest returns against the digest the host computes locally - so any translation or line-ending step in the chain would show up as a mismatch. Storage is asserted as a measured fact: the reported filesystem type must not be drvfs and the path must not be under /mnt. Fault proof: writing the input through /mnt/c instead makes the storage assertion fail (exit 1); revert byte-identical, no FAULT markers remain. Two honest notes: the client under test is the helper in src/worker/cross_tests.zig because Jackage has no extracted cross-boundary client yet, so the fault lands there rather than in production code and will move when the client is extracted for M09; and the regression was re-recorded after the stages that precede it, which the recorder requires.",
+  "reviewedUtc": "2026-10-12T15:12:29.970193+00:00",
+  "records": [
+    "3c5f59d25fff44b5bdeac485d0fe3e3b",
+    "7e48d9179fbf456aa0011a68d7083469",
+    "a1daff9db68d4e8d8f814e69fdf3ddcf",
+    "a30b132b90c44a10947de832ca5fc507"
+  ],
+  "recordDigests": {
+    "3c5f59d25fff44b5bdeac485d0fe3e3b": "a3b7a12afe0043d39739b2f78a0a253f991ed6eac9968fded703e354f2a5a0b1",
+    "7e48d9179fbf456aa0011a68d7083469": "80f41090b8f326e0617b9115cc49a3bdaf4705bcd8ee3d3b4882d49722b90834",
+    "a1daff9db68d4e8d8f814e69fdf3ddcf": "27b9b786da153c9bbd47921e7b15253458e39acaeb9ed42c64a8e4e795964907",
+    "a30b132b90c44a10947de832ca5fc507": "10a08d59ab294cc607791e831102adb56cf0b40b3ae5a3d6d58e874cef34b161"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

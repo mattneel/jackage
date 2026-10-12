@@ -1,0 +1,135 @@
+test
++- run test jckg-tests 113 pass, 3 fail (116 total)
+JCKG_EVIDENCE AUD-005
+JCKG_EVIDENCE AUD-008
+JCKG_EVIDENCE CLI-009
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CLI-006
+JCKG_EVIDENCE CLI-010
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+JCKG_EVIDENCE CLI-001
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-008
+JCKG_EVIDENCE CLI-002
+JCKG_EVIDENCE CLI-003
+JCKG_EVIDENCE CLI-005
+JCKG_EVIDENCE CLI-007
+JCKG_EVIDENCE CLI-009
+JCKG_EVIDENCE CLI-010
+JCKG_EVIDENCE PLAN-008
+JCKG_EVIDENCE PLAN-011
+JCKG_EVIDENCE PLAN-005
+JCKG_EVIDENCE PLAN-006
+JCKG_EVIDENCE PLAN-007
+JCKG_EVIDENCE PLAN-004
+JCKG_EVIDENCE PLAN-009
+JCKG_EVIDENCE PLAN-010
+JCKG_EVIDENCE PLAN-001
+JCKG_EVIDENCE PLAN-002
+JCKG_EVIDENCE PLAN-003
+JCKG_EVIDENCE TRUST-010
+JCKG_EVIDENCE TRUST-009
+JCKG_EVIDENCE TRUST-011
+JCKG_EVIDENCE TRUST-012
+JCKG_EVIDENCE STRICT-007
+JCKG_EVIDENCE STRICT-008
+JCKG_EVIDENCE TRUST-003
+JCKG_EVIDENCE TRUST-002
+JCKG_EVIDENCE TRUST-004
+JCKG_EVIDENCE TRUST-005
+JCKG_EVIDENCE TRUST-006
+JCKG_EVIDENCE TRUST-008
+JCKG_EVIDENCE TRUST-001
+JCKG_EVIDENCE TRUST-007
+JCKG_EVIDENCE STRICT-006
+JCKG_EVIDENCE STRICT-010
+JCKG_EVIDENCE STRICT-009
+transport: command=[set -eu; mkdir -p /tmp/jckg-cross; printf 'jackage-cross-boundary\r\nsecond line, no trailing newline' > /tmp/jckg-cross/input.txt; readlink -f /tmp/jckg-cross/input.txt; stat -f -c %T /tmp/jckg-cross]
+transport: command=[set -eu; printf 'action ran on %s\n' "$(uname -s)" >&2; sha256sum '/tmp/jckg-cross/input.txt' | cut -d' ' -f1]
+JCKG_EVIDENCE PROFILE-001
+JCKG_EVIDENCE PROFILE-002
+JCKG_EVIDENCE PROFILE-003
+JCKG_EVIDENCE PROFILE-004
+JCKG_EVIDENCE PROFILE-005
+JCKG_EVIDENCE PROFILE-006
+JCKG_EVIDENCE PROFILE-007
+JCKG_EVIDENCE PROFILE-008
+JCKG_EVIDENCE PROFILE-009
+JCKG_EVIDENCE PROFILE-010
+JCKG_EVIDENCE EXE-001
+JCKG_EVIDENCE EXE-002
+JCKG_EVIDENCE EXE-003
+JCKG_EVIDENCE EXE-004
+JCKG_EVIDENCE EXE-005
+JCKG_EVIDENCE EXE-006
+JCKG_EVIDENCE EXE-007
+JCKG_EVIDENCE EXE-008
+JCKG_EVIDENCE EXE-009
+JCKG_EVIDENCE EXE-010
+JCKG_EVIDENCE EVAL-001
+JCKG_EVIDENCE EVAL-002
+JCKG_EVIDENCE EVAL-003
+JCKG_EVIDENCE EVAL-004
+JCKG_EVIDENCE EVAL-005
+JCKG_EVIDENCE EVAL-006
+JCKG_EVIDENCE EVAL-007
+JCKG_EVIDENCE EVAL-008
+JCKG_EVIDENCE EVAL-009
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+error: 'audit.mod.test.m00/audit report assembles observed values' failed:
+       JCKG_EVIDENCE M00-REPORT
+       C:\src\jackage\src\audit\manifest.zig:155:68: 0x7ff63e12eb80 in verify (jckg-tests_zcu.obj)
+                       if (!std.mem.eql(u8, &actual, &record.digest_hex)) return error.ContentChanged;
+                                                                          ^
+       C:\src\jackage\src\audit\mod.zig:142:44: 0x7ff63e14ee24 in audit (jckg-tests_zcu.obj)
+           manifest.verify(io, dir, record) catch return error.InvalidPreservationRecord;
+                                                  ^
+       C:\src\jackage\src\audit\mod.zig:160:20: 0x7ff63e14f9d9 in test.m00/audit report assembles observed values (jckg-tests_zcu.obj)
+           var observed = try audit(io, gpa, "0.18.0-dev.146+35accc06e\n");
+                          ^
+error: 'audit.provenance.test.m00/AUD-007 inspect dependency provenance' failed:
+       JCKG_EVIDENCE AUD-002
+       JCKG_EVIDENCE AUD-003
+       JCKG_EVIDENCE AUD-006
+       JCKG_EVIDENCE AUD-004
+       JCKG_EVIDENCE AUD-007
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff63db68bef in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\audit\provenance.zig:298:5: 0x7ff63e137a5c in test.m00/AUD-007 inspect dependency provenance (jckg-tests_zcu.obj)
+           try std.testing.expect(provenance.project_license == null);
+           ^
+error: 'audit.manifest.test.AUD-001 preserve the existing checkout' failed:
+       JCKG_EVIDENCE AUD-001
+       C:\src\jackage\src\audit\manifest.zig:155:68: 0x7ff63e12eb80 in verify (jckg-tests_zcu.obj)
+                       if (!std.mem.eql(u8, &actual, &record.digest_hex)) return error.ContentChanged;
+                                                                          ^
+       C:\src\jackage\src\audit\manifest.zig:201:5: 0x7ff63e12d40e in test.AUD-001 preserve the existing checkout (jckg-tests_zcu.obj)
+           try verify(io, cwd, manifest);
+           ^
+failed command: ".\\.zig-cache\\o\\591408563905d137892659b596e5f4dc\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xa25d2c8a --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 113/116 tests passed (3 failed)
+test transitive failure
++- run test jckg-tests 113 pass, 3 fail (116 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xa25d2c8a test --prefix C:\src\jackage\zig-out

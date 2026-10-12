@@ -1,0 +1,37 @@
+strict suite failed to build:
+strict-test
++- run test strict-tests 1 pass, 1 fail (2 total)
+error: 'worker.strict_tests.test.STRICT-003 isolate writable state: the declared root is writable, the store is not' failed:
+       JCKG_EVIDENCE STRICT-003
+       harness: sent secret and handshake, awaiting the worker's
+       harness: handshake answered
+       harness: sent auth, awaiting the response
+       harness: authenticated
+       harness: sent run, reading events
+       worker said: runner: plan accepted, applying mounts
+       harness: response received
+       harness: waiting for the worker to exit
+       harness: worker exited
+       harness: sent secret and handshake, awaiting the worker's
+       harness: handshake answered
+       harness: sent auth, awaiting the response
+       harness: authenticated
+       harness: sent run, reading events
+       worker said: runner: plan accepted, applying mounts
+       harness: response received
+       harness: waiting for the worker to exit
+       harness: worker exited
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:584:14: 0x125c619 in expect (std.zig)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:342:13: 0x125caef in body (strict_tests_entry.zig)
+                   try testing.expect(std.mem.indexOf(u8, store.events, "\"held\":true") != null);
+                   ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:276:5: 0x125cfa7 in requireLinuxOrRefusal__func_955 (strict_tests_entry.zig)
+           try body();
+           ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:330:5: 0x125d02c in test.STRICT-003 isolate writable state: the declared root is writable, the store is not (strict_tests_entry.zig)
+           try requireLinuxOrRefusal(struct {
+           ^
+failed command: /tmp/jckg-strict-cache/o/f4e12d1e25ffedaa56f19d8b8e654365/strict-tests --cache-dir=/tmp/jckg-strict-cache --seed=0x9e4e691b --listen=-
+
