@@ -1,0 +1,15 @@
+1/2 strict_tests_entry.test_0...OK
+2/2 package.docker_tests.test.m10/PACK-009 inspect real image: a container runtime starts a Jackage image...JCKG_EVIDENCE PACK-009
+runtime: command failed: /usr/bin/docker load -i /tmp/jckg-package-image.tar && /usr/bin/docker run --rm jpackage/probe:test
+stderr: docker: Error response from daemon: apply layer error for "": wrong diff id calculated on extraction "sha256:ce4976afe9cd8b10c695b7e5f88cda191723a74085840ba00c20de6bbbe9a9d3"
+
+Run 'docker run --help' for more information
+
+FAIL (RuntimeCommandFailed)
+/home/autark/jckg/dev/src/package/docker_tests.zig:54:9: 0x124f357 in runCommand (strict_tests_entry.zig)
+        return error.RuntimeCommandFailed;
+        ^
+/home/autark/jckg/dev/src/package/docker_tests.zig:135:25: 0x1250c17 in test.m10/PACK-009 inspect real image: a container runtime starts a Jackage image (strict_tests_entry.zig)
+    const load_output = try runCommand(gpa, io, load);
+                        ^
+1 passed; 0 skipped; 1 failed.

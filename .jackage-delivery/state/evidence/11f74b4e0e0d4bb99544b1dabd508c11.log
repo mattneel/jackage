@@ -1,0 +1,10 @@
+strict suite failed to build:
+strict-build
++- install strict-tests
+   +- compile test strict-tests debug native 1 errors
+src/package/docker_tests.zig:106:16: error: expected ',' after initializer
+        .{"0".*64});
+               ^~
+error: 1 compilation errors
+failed command: /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/zig test -Odebug -Mroot=src/strict_tests_entry.zig --test-filter PACK-009 --cache-dir /tmp/jckg-strict-cache --global-cache-dir /home/autark/.cache/zig --build-root . --name strict-tests --zig-lib-dir /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/ --listen=-
+

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "0ddca026517446ba88a31a684caedaba",
+  "case": "PACK-009",
+  "caseDigest": "697d87c0755691670c27e6ca52f0066bbb04fad9fbd8aec656cdafa5ec009942",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-009 inspect real image: a real container runtime (docker 29.2.1, overlayfs) loads an image whose layer and configuration were produced by the product's own tar writer and declared configuration, starts it, and runs the declared entry point. Nothing is asserted about our own parser: the runtime chooses the image's filesystem, isolation, and process environment, and it is the thing doing the running. The entry point is the statically linked probe the sandbox already builds, so a missing dependency could only mean the layer is wrong rather than a host library being absent. The declared dependency is checked by *exporting* the image through the runtime and listing its filesystem, which is evidence the runtime produces rather than the test asserting about its own output. The runtime's own validation is load-bearing too: it checks the layer's diff id against the configuration, so a mismatched image is refused before anything runs - which is exactly what the fault does (declaring a bogus diff id), and the case fails on it (exit 1). Revert byte-identical against a backup, no FAULT markers remain. Recorded in the declared Linux environment.",
+  "reviewedUtc": "2026-10-12T16:13:00.309088+00:00",
+  "records": [
+    "ce10d8a4e2a14a03bd3298a63428a3d7",
+    "c876ea9d593348a3a1c1b4e88e0ef57a",
+    "008edfe770994a2696b2213bb8e30ac0",
+    "ed784503b2c345b8b032655b3cc36ee0"
+  ],
+  "recordDigests": {
+    "ce10d8a4e2a14a03bd3298a63428a3d7": "8b4b815ad7bd6ae14b3531cdd39dff390479a68b95b345b2b81785adc003dd0c",
+    "c876ea9d593348a3a1c1b4e88e0ef57a": "7dfab814019902b8c53a84ea5bdefbd72cec0801adc8ef5a682b44b4fab0ec77",
+    "008edfe770994a2696b2213bb8e30ac0": "bbe8b29aca6ec3a6cf009eb29b3e09778db1d095f9ee83db2b2b298fedf36ce8",
+    "ed784503b2c345b8b032655b3cc36ee0": "a01626db779b39d2f6f82c496daa8f04a28059b4234ce5296b24594ebf84aa79"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "118f4fafa8ed4f8080ad4e19c93dc48d",
+  "case": "PACK-009",
+  "caseDigest": "697d87c0755691670c27e6ca52f0066bbb04fad9fbd8aec656cdafa5ec009942",
+  "stage": "fault",
+  "testId": "PACK-009",
+  "platformRole": "linux-x86_64",
+  "actualPlatform": "linux-x86_64",
+  "command": [
+    "sh",
+    "scripts/strict-test.sh",
+    "PACK-009"
+  ],
+  "cwd": "/home/autark/jckg/dev",
+  "startedUtc": "2026-10-12T16:12:18.256472+00:00",
+  "finishedUtc": "2026-10-12T16:12:18.622514+00:00",
+  "exitCode": 1,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE PACK-009",
+  "markerFound": false,
+  "logPath": "state/evidence/118f4fafa8ed4f8080ad4e19c93dc48d.log",
+  "logSha256": "28292efa24c690341652ec0609134de239891400865bb17cb16eea5947e88efa",
+  "acceptedObservation": false,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

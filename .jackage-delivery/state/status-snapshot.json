@@ -1,7 +1,7 @@
 {
   "kind": "local-evidence-status",
   "productCompletionCertified": false,
-  "completedCases": 116,
+  "completedCases": 117,
   "totalCases": 188,
   "milestones": [
     {
@@ -97,11 +97,11 @@
     {
       "id": "M10",
       "title": "Portable and OCI package backends",
-      "completeCases": 8,
+      "completeCases": 9,
       "requiredCases": 9,
-      "ownCasesComplete": false,
+      "ownCasesComplete": true,
       "ready": true,
-      "completeWithPrerequisites": false
+      "completeWithPrerequisites": true
     },
     {
       "id": "M11",
@@ -109,7 +109,7 @@
       "completeCases": 0,
       "requiredCases": 12,
       "ownCasesComplete": false,
-      "ready": false,
+      "ready": true,
       "completeWithPrerequisites": false
     },
     {
@@ -127,7 +127,7 @@
       "completeCases": 0,
       "requiredCases": 10,
       "ownCasesComplete": false,
-      "ready": false,
+      "ready": true,
       "completeWithPrerequisites": false
     },
     {
@@ -136,7 +136,7 @@
       "completeCases": 0,
       "requiredCases": 11,
       "ownCasesComplete": false,
-      "ready": false,
+      "ready": true,
       "completeWithPrerequisites": false
     },
     {

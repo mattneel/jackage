@@ -587,3 +587,31 @@ belong to the later reproducibility milestone, and this is the observation it st
 `install` command and the `jckgx` binary onto that path is the remaining self-hosting work;
 the binary's root convention is defined by that install command, which is why it was
 deferred rather than invented ahead of it.
+
+## M10 complete: eleven milestones gate-green
+
+Gates M00 through M10 all exit 0; 117 of 188 cases are complete. The package backends
+are evidenced end to end: deterministic ZIP and tar writers whose policy comes from the
+declaration rather than the host, a round trip through the product's own validator, a
+package planner that describes work as ordinary validated actions, an OCI layout whose
+descriptors are verified for existence, digest, and size, a multi-platform index where
+each descriptor carries the platform it was built for, runtime-closure selection that
+keeps build-only inputs out of a payload, signing as a separate action with an explicit
+policy the signature covers, and a real container runtime starting a Jackage-produced
+image.
+
+**The last case is worth its own line.** PACK-009 hands an image built from our tar
+writer and declared configuration to docker, which starts it and runs the declared entry
+point - the statically linked probe, so a missing dependency could only mean the layer is
+wrong. The declared dependency is checked by *exporting* the image through the runtime,
+and the runtime's own diff-id validation is what the fault defeats. Recorded in the
+declared Linux environment.
+
+Two operational fixes made along the way, both about running the right thing:
+`scripts/strict-test.sh` now runs the *installed* binary rather than a `find | head -1`
+cache guess (a stale artifact had silently run an older suite), and it uses the
+`strict-build` step so a filtered run rebuilds before executing.
+
+Ledger note: the session's own instrumentation caused several false conclusions today
+("the environment is hostile", "the worker hangs"); each was resolved by measuring
+instead of assuming, and the fixes are recorded with the symptoms that misled it.

@@ -44,9 +44,9 @@ mkdir -p "$cache_dir"
 build_log=$(mktemp)
 status=0
 if [ -n "$filter" ]; then
-    "$zig" build strict-test -Dfilter="$filter" --cache-dir "$cache_dir" --summary none >"$build_log" 2>&1 || status=$?
+    "$zig" build strict-build -Dfilter="$filter" --cache-dir "$cache_dir" --summary none >"$build_log" 2>&1 || status=$?
 else
-    "$zig" build strict-test --cache-dir "$cache_dir" --summary none >"$build_log" 2>&1 || status=$?
+    "$zig" build strict-build --cache-dir "$cache_dir" --summary none >"$build_log" 2>&1 || status=$?
 fi
 if [ "$status" -ne 0 ]; then
     # The build log is the diagnosis; hiding it behind a redirect cost an hour of
@@ -56,9 +56,12 @@ if [ "$status" -ne 0 ]; then
     exit "$status"
 fi
 
-binary=$(find "$cache_dir" -name strict-tests -type f | head -1)
-if [ -z "$binary" ]; then
-    echo "strict test binary not found under $cache_dir" >&2
+# The *installed* binary, not a cache lookup: several builds leave several
+# `strict-tests` artifacts in the cache, and `find | head -1` can hand back a stale
+# one - which silently runs a suite from before the current source.
+binary="$repo_root/zig-out/bin/strict-tests"
+if [ ! -x "$binary" ]; then
+    echo "strict test binary not installed at $binary" >&2
     exit 2
 fi
 "$binary"
