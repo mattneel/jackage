@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "989142cd670347d5b60f1b73b4419daa",
+  "case": "FACTORY-003",
+  "caseDigest": "7542f11d22a87e3fcb227be94dc3ff24ec3fcbd6a9437c5c41bb01d256d5d2fa",
+  "stage": "green",
+  "testId": "m16/FACTORY-003 preserve agent secrets: a strict build cannot read provider credentials",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "FACTORY-003"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T18:50:25.338589+00:00",
+  "finishedUtc": "2026-10-12T18:50:29.343910+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE FACTORY-003",
+  "markerFound": true,
+  "logPath": "state/evidence/989142cd670347d5b60f1b73b4419daa.log",
+  "logSha256": "92d5327669f43883b1cbe2a306b02c797524111a75756e86eb1e0c624aa2a630",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "00a94d397f369d8142b07e1f1e5f10936bf08f68",
+    "statusSha256": "1c9b206c265b2565282c6fd66c261a58b6dc2e0d4a2032f53844e3f6a19cf243",
+    "trackedDiffSha256": "e5660b359f2e3299dc0c356879f720f1744e5056919ad724b5fc48b5b5c91816",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "00a94d397f369d8142b07e1f1e5f10936bf08f68",
+    "statusSha256": "73d42c83322f25918e0e32834a99660b5342f3e3e629326eb6bedf7ad48813e9",
+    "trackedDiffSha256": "e5660b359f2e3299dc0c356879f720f1744e5056919ad724b5fc48b5b5c91816",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

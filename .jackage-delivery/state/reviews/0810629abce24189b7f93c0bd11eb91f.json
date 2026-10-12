@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "0810629abce24189b7f93c0bd11eb91f",
+  "case": "IMAGE-005",
+  "caseDigest": "fb037d3596549910b7cdff1f9661327b1cc94f7a2d146fa08f47c320a06481c8",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-005 validate ext4 image: src/images/ext4.zig puts the exported rootfs into a disposable ext4 image, reads the contents and modes back with debugfs so looking at bytes needs no privileges, and then performs a real loop mount through sudo and reads the same file through the kernel's interpretation of the filesystem, unmounting afterwards with the mount point checked empty. The contract's owner-execute bit is compared exactly in both directions, because a declared plain file that gained one is not the declared payload either. Evidence is recorded inside the WSL2 guest, so actualPlatform is linux-x86_64. As with IMAGE-004, the test is skipped rather than failed on hosts the case does not name, so the host suite stays green while the platform evidence remains the guest's. Fault proof: disabling the digest comparison lets a mismatched filesystem pass inspection and the assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:55:22.762539+00:00",
+  "records": [
+    "b35403f741fe4400a25792050c945953",
+    "89169c58df2247e0af7025d2882bfaf0",
+    "4ef2ec1fc8194eb98d51e31eb8e29b7a",
+    "6cd9af87f51b46bd91866678843e1ea1"
+  ],
+  "recordDigests": {
+    "b35403f741fe4400a25792050c945953": "9520602ac439a76f11f12155eb28079e6ade761d35fbabb20ac278a0c7410da6",
+    "89169c58df2247e0af7025d2882bfaf0": "3cfdba1ada3f1ce4448da55d4a061a335b8a1c7dca5ff24730603d8a2dce8d14",
+    "4ef2ec1fc8194eb98d51e31eb8e29b7a": "f3e35b5edcf8c4f02e0655222105d02b3c833a9083f36561cd6814a0c290ba16",
+    "6cd9af87f51b46bd91866678843e1ea1": "6833b1248a28bba9e1cb71bed96e02eda7da190e50d4a154a6be381cbae0d92d"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

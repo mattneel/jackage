@@ -1,0 +1,99 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total); 3 leaks
+error: 'factory.strict_environment.test.m16/FACTORY-003 preserve agent secrets: a strict build cannot read provider credentials' failed:
+       JCKG_EVIDENCE FACTORY-003
+       expected error.CredentialInDeclaration, found .{ .variables = { { 79, 80, 69, 78, 65, 73, 95, 65, 80, 73, 95, 75, 69, 89, 61, 115, 107, 45, 115, 101, 99, 114, 101, 116, 45, 118, 97, 108, 117, 101 }, { 80, 65, 84, 72, 61, 47, 117, 115, 114, 47, 98, 105, 110, 58, 47, 98, 105, 110 } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff7257d8992 in expectError__func_865 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\factory\strict_environment.zig:268:5: 0x7ff7257d9460 in test.m16/FACTORY-003 preserve agent secrets: a strict build cannot read provider credentials (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.CredentialInDeclaration, strict(gpa, &host, asking));
+           ^
+       [SafeAllocator] (err): leaked [addr: 1441578, len: 32 (0x20) align: 8] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:756:52: 0x7ff7257dc4f1 in toOwnedSlice (jckg-tests_zcu.obj)
+                   const new_memory = try gpa.alignedAlloc(T, alignment, self.items.len);
+                                                          ^
+       C:\src\jackage\src\factory\strict_environment.zig:122:54: 0x7ff7257e7a6d in strict (jckg-tests_zcu.obj)
+           return .{ .variables = try variables.toOwnedSlice(gpa) };
+                                                            ^
+       C:\src\jackage\src\factory\strict_environment.zig:268:70: 0x7ff7257d92f0 in test.m16/FACTORY-003 preserve agent secrets: a strict build cannot read provider credentials (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.CredentialInDeclaration, strict(gpa, &host, asking));
+                                                                            ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff72565d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff72565d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff72565b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff72565b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff7257ef097 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 14414c0, len: 18 (0x12) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:512:27: 0x7ff7257e8625 in print__func_904 (jckg-tests_zcu.obj)
+           return aw.toOwnedSlice();
+                                 ^
+       C:/src/jackage/tools/zig/lib/std/fmt.zig:626:21: 0x7ff7257e8378 in allocPrint__func_903 (jckg-tests_zcu.obj)
+           return gpa.print(fmt, args);
+                           ^
+       C:\src\jackage\src\factory\strict_environment.zig:116:57: 0x7ff7257e7744 in strict (jckg-tests_zcu.obj)
+               try variables.append(gpa, try std.fmt.allocPrint(gpa, "{s}={s}", .{ name, value }));
+                                                               ^
+       C:\src\jackage\src\factory\strict_environment.zig:268:70: 0x7ff7257d92f0 in test.m16/FACTORY-003 preserve agent secrets: a strict build cannot read provider credentials (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.CredentialInDeclaration, strict(gpa, &host, asking));
+                                                                            ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff72565d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff72565d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff72565b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff72565b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 1441260, len: 30 (0x1e) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:512:27: 0x7ff7257e8625 in print__func_904 (jckg-tests_zcu.obj)
+           return aw.toOwnedSlice();
+                                 ^
+       C:/src/jackage/tools/zig/lib/std/fmt.zig:626:21: 0x7ff7257e8378 in allocPrint__func_903 (jckg-tests_zcu.obj)
+           return gpa.print(fmt, args);
+                           ^
+       C:\src\jackage\src\factory\strict_environment.zig:116:57: 0x7ff7257e7744 in strict (jckg-tests_zcu.obj)
+               try variables.append(gpa, try std.fmt.allocPrint(gpa, "{s}={s}", .{ name, value }));
+                                                               ^
+       C:\src\jackage\src\factory\strict_environment.zig:268:70: 0x7ff7257d92f0 in test.m16/FACTORY-003 preserve agent secrets: a strict build cannot read provider credentials (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.CredentialInDeclaration, strict(gpa, &host, asking));
+                                                                            ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff72565d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff72565d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff72565b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff72565b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       (additional stack frames may have been skipped...)
+failed command: ".\\.zig-cache\\o\\b23dedf8742748e5533da47c04421b41\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xe5715150 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total); 3 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xe5715150 test -Dfilter=FACTORY-003 --prefix C:\src\jackage\.zig-cache\test-prefix-FACTORY-003

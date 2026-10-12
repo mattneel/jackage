@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "db84c23d3f974424a6b2ef91ee85fe82",
+  "case": "IMAGE-004",
+  "caseDigest": "0257b67303643003f42c13f30b3090e0b950ae9411acc09b16fb20500f56e9a5",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-004 build root filesystem: src/images/rootfs.zig exports a locked runtime manifest as a tree and checks closure in both directions - every declared object present with the digest the manifest declared, and nothing undeclared in the tree, which is the direction that rots because a directory listing collects whatever was lying around. Paths that escape the destination are refused before anything is written, the executable bit comes from the manifest rather than the umask, and the entry point is actually run from the exported tree. Evidence is recorded inside the WSL2 guest, so actualPlatform is linux-x86_64. One portability fix followed from running the host suite: the permission type differs per platform, so the mode is applied through the guarded comptime form the repository already uses, and the test is skipped rather than failed on hosts the case does not name - the platform evidence remains the guest's. Fault proof: dropping the executable requirement exports a rootfs whose entry point cannot run and the refusal assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:55:22.652171+00:00",
+  "records": [
+    "4950cd04b41a4be2beab88185f22ffcc",
+    "0542409393dc48b3a1fb9027438d76f8",
+    "40fcbf7cd8f44391894329096c500fba",
+    "08300699e71b4c68963794fde5bd67ad"
+  ],
+  "recordDigests": {
+    "4950cd04b41a4be2beab88185f22ffcc": "005b7f3550251428040a49a27dc3246c1f2b817df5716e742075ef17f0050fe0",
+    "0542409393dc48b3a1fb9027438d76f8": "8237e98d4ec048ac9eacef576949c7e8d25ab6ea31e38bdce314a02300f3fce5",
+    "40fcbf7cd8f44391894329096c500fba": "05f29ffc518220372f207a757d6ad944d8be3ee3c5962c8284b045d960b941aa",
+    "08300699e71b4c68963794fde5bd67ad": "976e7c39494cc66c88cc5f1da691828b2d093928faf98bbb4bed1c917490cb48"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

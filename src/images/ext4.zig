@@ -256,6 +256,9 @@ pub fn mountAndRead(
 }
 
 test "m15/IMAGE-005 validate ext4 image: contents and metadata satisfy the declared payload contract" {
+    // The case's platform is Linux and its evidence is recorded there; on any other
+    // host the test is skipped rather than failed, so the host suite still passes.
+    if (@import("builtin").os.tag != .linux) return error.SkipZigTest;
     std.debug.print("JCKG_EVIDENCE IMAGE-005\n", .{});
     const gpa = std.testing.allocator;
     const io = std.testing.io;

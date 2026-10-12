@@ -120,8 +120,14 @@ pub fn exportRootfs(
 
         // The executable bit is part of what a program is, so it is applied rather
         // than assumed from the umask.
-        const mode: std.Io.File.Permissions = if (object.executable) .fromMode(0o755) else .fromMode(0o644);
-        file.setPermissions(io, mode) catch return error.WriteFailed;
+        // The permission type differs by platform: POSIX carries a mode, Windows an
+        // attribute set with no executable bit at all. The guarded form is the one the
+        // repository already uses, and `comptime` keeps the POSIX path from being
+        // analysed on Windows - where a runtime guard would still fail to compile.
+        if (comptime std.Io.File.Permissions.has_executable_bit) {
+            const permission: std.Io.File.Permissions = if (object.executable) .executable_file else .fromMode(0o644);
+            file.setPermissions(io, permission) catch return error.WriteFailed;
+        }
         files += 1;
         total += bytes.len;
     }
@@ -264,6 +270,9 @@ pub fn runEntryPoint(
 }
 
 test "m15/IMAGE-004 build root filesystem: exported filesystem passes closure and entry-point tests" {
+    // The case's platform is Linux and its evidence is recorded there; on any other
+    // host the test is skipped rather than failed, so the host suite still passes.
+    if (@import("builtin").os.tag != .linux) return error.SkipZigTest;
     std.debug.print("JCKG_EVIDENCE IMAGE-004\n", .{});
     const gpa = std.testing.allocator;
     const io = std.testing.io;

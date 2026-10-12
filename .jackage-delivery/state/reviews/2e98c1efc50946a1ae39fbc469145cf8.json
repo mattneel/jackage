@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "2e98c1efc50946a1ae39fbc469145cf8",
+  "case": "FACTORY-003",
+  "caseDigest": "7542f11d22a87e3fcb227be94dc3ff24ec3fcbd6a9437c5c41bb01d256d5d2fa",
+  "reviewer": "OMP agent (M16 agent-native factory and migration)",
+  "note": "FACTORY-003 preserve agent secrets: src/factory/strict_environment.zig gives a strict build an allow-list rather than a filtered host environment, because filtering hands over everything not recognised as a credential and the next credential does not exist yet - a build gets exactly what its declaration names, so an unknown variable is absent by construction. A declaration that asks for a credential is refused rather than trimmed, in both the allow-list and the values it sets. Nothing is redacted: a redacted value is still a value, so credentials are removed and a name that was in the host's environment simply does not exist for the build. The guarantee is checked twice, because two different claims are involved: the environment map is what this code believes, and a process spawned with it is what the operating system hands over - the test spawns a real child (cmd /c set on Windows, env on Linux) and asserts no credential name reached it while the allowed names did, so a child with an empty environment cannot pass by having nothing. Two process findings: my first registration of this module silently did nothing because the anchor I replaced did not exist, which made the characterization stage a vacuous pass on an unregistered test - caught, re-taken, and the registration now verifies itself; and the host regression then caught a real platform bug in an earlier module, because fromMode is POSIX-only and the portable form is the guarded one the repository already uses. Fault proof: recognising nothing as a credential lets a declaration ask for one and the refusal assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:55:22.540009+00:00",
+  "records": [
+    "0035d1dd6184491690488da515c22b54",
+    "c34a06dd4c374237b97ca2b12028302e",
+    "989142cd670347d5b60f1b73b4419daa",
+    "3daeb14dbaa94d70bfe5f2314ae633a8"
+  ],
+  "recordDigests": {
+    "0035d1dd6184491690488da515c22b54": "a71e40876bd7f975db94f53edc6474b3a7cb58082c926a2aeb36d4b7e2e2b4a6",
+    "c34a06dd4c374237b97ca2b12028302e": "4919066c6f5dc25a621b06de614c2390ca4b1fc82e95f7bf697d7fc3057d8c04",
+    "989142cd670347d5b60f1b73b4419daa": "eed98bd4db40ab3a935eb8d16de64f86cf6b993997767e74889511eda04ba0fc",
+    "3daeb14dbaa94d70bfe5f2314ae633a8": "83c850128475beb9e19130cf7806fa1b338074edb6fb8791c8d9513c4a14df7a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
