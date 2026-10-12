@@ -615,3 +615,26 @@ cache guess (a stale artifact had silently run an older suite), and it uses the
 Ledger note: the session's own instrumentation caused several false conclusions today
 ("the environment is hostile", "the worker hangs"); each was resolved by measuring
 instead of assuming, and the fixes are recorded with the symptoms that misled it.
+
+## M11 in progress: the native matrix, and what is honestly blocked
+
+Two cases are complete: PLAT-012 (SDK perimeter and redistribution policy) and PLAT-008
+(a real `.deb` accepted by `dpkg-deb`, installed through `dpkg` into a disposable root,
+run, and removed), both recorded in the declared Linux environment.
+
+Measured availability, so the next unit does not re-derive it:
+
+| Environment | Available | Cases |
+|---|---|---|
+| Windows x86_64 (host) | yes | PLAT-001, PLAT-007; MSIX tooling (`makeappx`) absent, so PLAT-010 is blocked |
+| Linux x86_64 (guest) | yes: `dpkg-deb`, `dpkg`, `fakeroot`, docker | PLAT-003; PLAT-008 done |
+| Linux aarch64, macOS (x86_64 and aarch64), Windows aarch64 | no | PLAT-002, PLAT-004, PLAT-005, PLAT-006, PLAT-011 blocked |
+| RPM tooling (`rpm`, `rpmbuild`) | no | PLAT-009 blocked (installing system packages would be a machine change without authorization) |
+
+`src/platform/native_smoke.zig` holds a drafted install → rollback → run smoke for
+PLAT-001 and PLAT-003. It is **not registered** in any test entry yet, so it is inert and
+the suite is unaffected; the wiring step needs the profile fixture's exact API verified
+(`artifact.Artifact` fields, `Manager.install`, `prepareTransient`, and the store's
+blob/staging write), which M06's private fixture in `src/profile/tests.zig` already
+demonstrates. The build half of those two cases is covered by the packaging backends'
+own native cases; the module covers install, rollback, and run.
