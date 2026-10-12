@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "9fbf0a85a6f44d85ae4adcd80fe84fcc",
+  "case": "PACK-007",
+  "caseDigest": "f1611d8e26a3bcf85dbb5007cba0ad652edbf10756a98604f3513bda7bffa711",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-007 exclude build-only inputs: src/package/closure.zig computes the runtime closure by following only runtime edges, and the rule that makes it more than a filter is transitive - nothing behind a build edge enters, not even the *runtime* dependencies of the build tool. The test's graph is the shape that catches a filter-based implementation: the product needs a compiler (build) whose own libraries are runtime-labelled, and the assertion is that neither the compiler nor those libraries appear in the payload. The build closure is computed too and asserted strictly larger, so the two notions are distinguishable rather than one list under two names. An edge naming an undeclared dependency is refused rather than ignored - silently dropping it is how an image ships missing the library it needed - and an undeclared root is a separate error. Fault proof: following build edges as well makes the compiler enter the payload and the case fail (exit 1), which is exactly the regression a release image must not have; revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:05:44.702466+00:00",
+  "records": [
+    "05492e6eb00347f8ac31f4ef2b150465",
+    "3804173db2664e92a16476d6b46d699e",
+    "05b7ad7f421c4a29a8f3370964a65962",
+    "16b4bb8491c1462dbe3d619ae198ff46"
+  ],
+  "recordDigests": {
+    "05492e6eb00347f8ac31f4ef2b150465": "9061725dfce6a20c71e08e43eb1a977b8b2095bb3f45c89e2f53f699777da2bc",
+    "3804173db2664e92a16476d6b46d699e": "0d566b387bff7e3cb065260a07affef26f46341c06b683ff2f979d987bbbb2cc",
+    "05b7ad7f421c4a29a8f3370964a65962": "26d20460795b5dc73c013c0b97401a02f7f6360494c9fbc64cf74410bead1b70",
+    "16b4bb8491c1462dbe3d619ae198ff46": "fd6e9054d6ff8e7b3c7ff1cb58f5893edff71b3df0cb2bd8e124fb7c6e16d292"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,7 +1,7 @@
 {
   "kind": "local-evidence-status",
   "productCompletionCertified": false,
-  "completedCases": 114,
+  "completedCases": 115,
   "totalCases": 188,
   "milestones": [
     {
@@ -97,7 +97,7 @@
     {
       "id": "M10",
       "title": "Portable and OCI package backends",
-      "completeCases": 6,
+      "completeCases": 7,
       "requiredCases": 9,
       "ownCasesComplete": false,
       "ready": true,

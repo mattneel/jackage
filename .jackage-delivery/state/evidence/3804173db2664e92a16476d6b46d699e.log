@@ -1,0 +1,22 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'package.closure.test.m10/PACK-007 exclude build-only inputs: only the runtime closure enters the payload' failed:
+       JCKG_EVIDENCE PACK-007
+       expected 3, found 5
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6800c885a in expectEqualInner__func_862 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6800c8bab in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\package\closure.zig:167:5: 0x7ff6800c8c4f in test.m10/PACK-007 exclude build-only inputs: only the runtime closure enters the payload (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 3), closure.names.len);
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PACK-007\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x918d7d --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x918d7d test -Dfilter=PACK-007 --prefix C:\src\jackage\.zig-cache\test-prefix-PACK-007
