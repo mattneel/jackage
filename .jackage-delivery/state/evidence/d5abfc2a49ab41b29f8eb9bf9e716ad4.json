@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "d5abfc2a49ab41b29f8eb9bf9e716ad4",
+  "case": "SPACE-010",
+  "caseDigest": "d0fbca299cc5fb305fb84d45f2e9e8b4996b36beda45db398d01faab9c411d3f",
+  "stage": "characterize",
+  "testId": "m12/SPACE-010 deliver watcher events: write, atomic replacement, rename, and delete are observed",
+  "platformRole": "linux-x86_64",
+  "actualPlatform": "linux-x86_64",
+  "command": [
+    "sh",
+    "scripts/test.sh",
+    "SPACE-010"
+  ],
+  "cwd": "/home/autark/jckg/dev",
+  "startedUtc": "2026-10-12T18:17:01.061999+00:00",
+  "finishedUtc": "2026-10-12T18:17:03.866144+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE SPACE-010",
+  "markerFound": true,
+  "logPath": "state/evidence/d5abfc2a49ab41b29f8eb9bf9e716ad4.log",
+  "logSha256": "c42967478f410dc8c57d140ed28bebf1f5e2de60ca6e25b27343aeac749da4a0",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

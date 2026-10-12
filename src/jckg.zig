@@ -70,6 +70,7 @@ test {
     _ = @import("space/platform_caches.zig");
     _ = @import("space/source_protection.zig");
     _ = @import("space/roots.zig");
+    _ = @import("space/watcher.zig");
     _ = @import("space/snapshot_capture.zig");
     _ = @import("platform/perimeter.zig");
     _ = @import("platform/windows_fs.zig");

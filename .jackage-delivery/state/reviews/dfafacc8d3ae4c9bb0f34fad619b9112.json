@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "dfafacc8d3ae4c9bb0f34fad619b9112",
+  "case": "SPACE-010",
+  "caseDigest": "d0fbca299cc5fb305fb84d45f2e9e8b4996b36beda45db398d01faab9c411d3f",
+  "reviewer": "OMP agent (M12 workspace, cache, and reclaim)",
+  "note": "SPACE-010 deliver watcher events: an editor's operations are not all writes - a save may be an ordinary write, an atomic replacement (write a temporary file and rename it over the target), a rename, or a delete - and src/space/watcher.zig speaks inotify directly so the events are the kernel's and the masks are the kernel's, with the mask-to-kind mapping documented beside it. The module is Linux-only and says so at compile time: elsewhere the type resolves to a stub whose methods return Unsupported, so a machine without the mechanism cannot be mistaken for a workspace without changes. It found two real bugs by being run: the first was an unaligned view of the event buffer, which panicked rather than misbehaving quietly and is now an aligned copy; the second was worse and was caught by the test - one read returns several events and the first version returned only the first, so the second half of a rename was dropped, which is exactly the half a sync needs to know where a file went. The test drives the four operations on a native Linux workspace and looks for the documented change in each batch rather than dictating the count, because the kernel legitimately reports a save as a creation and a close-write. Evidence is recorded inside the WSL2 guest, so actualPlatform is genuinely linux-x86_64. Fault proof: returning only the first event of a read makes the rename assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:17:27.726283+00:00",
+  "records": [
+    "d5abfc2a49ab41b29f8eb9bf9e716ad4",
+    "1971ed78ec92479682883fd7f55625d1",
+    "9c91abd873c94a8798ca3a790cae6a92",
+    "3ef26a7859d943d88c1ad762d9e13ce6"
+  ],
+  "recordDigests": {
+    "d5abfc2a49ab41b29f8eb9bf9e716ad4": "d727c130d5645b9dd073fb671af5cf331a7c8e066496d6695d2edef93cb0233e",
+    "1971ed78ec92479682883fd7f55625d1": "d7dfc1161e4516c541e6a2a8d0ee03ff1e8e3efb3b68c7c768575a1e59589eb4",
+    "9c91abd873c94a8798ca3a790cae6a92": "c5ef55be6a0d07ab90e5d93b80a946ac5e27044d131bd6a2e796224220f0fd14",
+    "3ef26a7859d943d88c1ad762d9e13ce6": "a3ed630d6caa995985d7bc68959cbc2d5fe78947f32c674ac8a57ead1e1d8561"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
