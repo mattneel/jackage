@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3b082f12f83d444682d62929ac35f5be",
+  "case": "PLAT-001",
+  "caseDigest": "778224545cee367506b154cdc42c9f58bab5bdc7c6e0a6fee7213ee4a85018b0",
+  "reviewer": "OMP agent (M11 platform matrix)",
+  "note": "PLAT-001 run Windows x86_64: the smoke runs on the actual host and asserts what the native platform did rather than what a fixture expects. A program is published into a store as an artifact, installed as a profile generation, and run through the profile runner; the program is the built client itself, so the product starts itself natively and answers a subcommand. A second generation is installed and the profile is rolled back to the first, with the active generation read back and compared both ways, so a rollback that silently stayed put would be caught. Platform details come from the product's own host detection (windows/x86_64) rather than from a constant in the test. The build half of the case is covered by the packaging backends' native cases. Fault proof: making rollback report success without moving the active pointer fails the rollback assertion (exit 1); revert byte-identical against a backup, no FAULT markers remain. Recorded on the host platform.",
+  "reviewedUtc": "2026-10-12T16:26:09.716631+00:00",
+  "records": [
+    "71fce354f4a34f35ab79787bd55044a1",
+    "a620426591a843a48d7dc4d468d40a69",
+    "e9adb803aec441c792465214edff7372",
+    "1d679b96f05c48768ac4b921f14e92d6"
+  ],
+  "recordDigests": {
+    "71fce354f4a34f35ab79787bd55044a1": "b0a1788a6247f0aca93938e72d272e5f1430769c7f9c6e59d4e31ffbe62c3704",
+    "a620426591a843a48d7dc4d468d40a69": "90e22e0fca8bb64b45b13093e1b8ea036c413b3d4dbeef529ce3e0ace8424585",
+    "e9adb803aec441c792465214edff7372": "dbf6765e5845242e484aa925867980b6b87a6e93ee756b6711c422a7988174ad",
+    "1d679b96f05c48768ac4b921f14e92d6": "183823f3a2ed3522ee30b42650938869355b53ebda797df085c9bf9ea4d7aa0c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

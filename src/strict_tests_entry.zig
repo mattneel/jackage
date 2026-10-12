@@ -6,5 +6,6 @@
 test {
     _ = @import("package/docker_tests.zig");
     _ = @import("platform/debian.zig");
+    _ = @import("platform/native_smoke.zig");
     _ = @import("worker/strict_tests.zig");
 }

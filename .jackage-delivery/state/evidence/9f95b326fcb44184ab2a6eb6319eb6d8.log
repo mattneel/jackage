@@ -1,0 +1,26 @@
+1/3 strict_tests_entry.test_0...OK
+2/3 platform.native_smoke.test.m11/PLAT-003 run Linux x86_64: install, rollback, and run natively...JCKG_EVIDENCE PLAT-003
+
+====== expected this output: =========
+c00190060bd985e7128b452947509a5a␃
+
+======== instead found this: =========
+3dad908fbdafcef6872267f066fadbd9␃
+
+======================================
+First difference occurs on line 1:
+expected:
+c00190060bd985e7128b452947509a5a
+^ ('\x63')
+found:
+3dad908fbdafcef6872267f066fadbd9
+^ ('\x33')
+FAIL (TestExpectedEqual)
+/home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:696:9: 0x12a99f5 in expectEqualStrings (std.zig)
+        return error.TestExpectedEqual;
+        ^
+/home/autark/jckg/dev/src/platform/native_smoke.zig:235:5: 0x12aaa5a in test.m11/PLAT-003 run Linux x86_64: install, rollback, and run natively (strict_tests_entry.zig)
+    try std.testing.expectEqualStrings(outcome.first_generation, outcome.active_after_rollback);
+    ^
+3/3 exec.mod.test_0...OK
+2 passed; 0 skipped; 1 failed.

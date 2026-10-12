@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b6f5502a14ac46d0ac5c67b696311ce0",
+  "case": "PLAT-003",
+  "caseDigest": "4f72e09e42590fec237f24293cd3a8e312105f0e74c2e26ccd2d402dbc9cb81a",
+  "reviewer": "OMP agent (M11 platform matrix)",
+  "note": "PLAT-003 run Linux x86_64: the same smoke as PLAT-001, on the actual Linux environment, so the two cases disagree only in the platform rather than in what is asserted. The program the artifact supplies is /bin/true - a tiny system program, chosen because the point is that the platform ran something the package carried, and the container/executor questions belong to M08's strict cases. The run goes through the profile runner, the exit status is the platform's own, two generations are installed, and the rollback is read back and compared both ways. Platform details come from the product's host detection (linux/x86_64) rather than from a constant. Fault proof: rollback reporting success without moving the active pointer fails the assertion (exit 1), the same fault as PLAT-001, reverted byte-identically with no FAULT markers left. Recorded in the declared Linux environment.",
+  "reviewedUtc": "2026-10-12T16:26:56.446425+00:00",
+  "records": [
+    "1536b3c2a45244768b1138f3417c6f59",
+    "9f95b326fcb44184ab2a6eb6319eb6d8",
+    "790e51ff338946f38f1ffdb4908a3fdb",
+    "c4347f9486774c15bdae64bbc82014fd"
+  ],
+  "recordDigests": {
+    "1536b3c2a45244768b1138f3417c6f59": "87bfdbdfaf3156628779ab1e5e0084f2590e801ca04aec194a31c774e518a74c",
+    "9f95b326fcb44184ab2a6eb6319eb6d8": "753251d2d1b575bfc9445ac512242fec039f5624960c15a8f10a1f26fa490bbb",
+    "790e51ff338946f38f1ffdb4908a3fdb": "59c074816559b3902f4263a9ae6929ebda0394dfda045b42e58430238ec731b7",
+    "c4347f9486774c15bdae64bbc82014fd": "eae6fca225cb85bcf4f1d56dc2d467071b708a69c0a85f601115d66ac9ce9aa0"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
