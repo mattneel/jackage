@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE PACK-005
+failed command: ".\\.zig-cache\\o\\197b7be9a8851c035821cd61d906a1b4\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x698a75d8 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 package.oci.test.m10/PACK-005 construct OCI layout: descriptors are verified against their blobs...JCKG_EVIDENCE PACK-005
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

@@ -1,0 +1,31 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'package.oci.test.m10/PACK-005 construct OCI layout: descriptors are verified against their blobs' failed:
+       JCKG_EVIDENCE PACK-005
+       expected error.DescriptorDigestMismatch, found error.InvalidLayout
+       C:\src\jackage\src\core\canonical.zig:215:9: 0x7ff6f865e87f in fail (jckg-tests_zcu.obj)
+               return code;
+               ^
+       C:\src\jackage\src\core\canonical.zig:236:9: 0x7ff6f8640a80 in parseValue (jckg-tests_zcu.obj)
+               return switch (byte) {
+               ^
+       C:\src\jackage\src\core\canonical.zig:454:19: 0x7ff6f863fb41 in parse (jckg-tests_zcu.obj)
+           const value = try parser.parseValue(0);
+                         ^
+       C:\src\jackage\src\package\oci.zig:232:93: 0x7ff6f8641dbf in validate (jckg-tests_zcu.obj)
+                   const manifest = canonical.parse(arena, manifest_file.bytes, &diagnostic) catch return error.InvalidLayout;
+                                                                                                   ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff6f8638cdb in expectError__func_873 (jckg-tests_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\package\oci.zig:345:5: 0x7ff6f863a37f in test.m10/PACK-005 construct OCI layout: descriptors are verified against their blobs (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.DescriptorDigestMismatch, validate(gpa, .{ .files = tampered }));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PACK-005\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x1671d10d --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x1671d10d test -Dfilter=PACK-005 --prefix C:\src\jackage\.zig-cache\test-prefix-PACK-005

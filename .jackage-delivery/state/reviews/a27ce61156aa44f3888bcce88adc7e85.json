@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "a27ce61156aa44f3888bcce88adc7e85",
+  "case": "PACK-005",
+  "caseDigest": "4faa220e8cd9203357d676efaa91ad3d60e26befd967cc2ce5dd8dca2090cf17",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-005 construct OCI layout: src/package/oci.zig builds the image-layout specification - content-addressed blobs under blobs/sha256/, an index, a manifest, a config, and the oci-layout marker - and then validates it before anyone else sees it. Every descriptor in the index and manifest must have its blob present, the blob must hash to the described digest, and its length must match the described size: the third leg matters because a descriptor with a right digest and a wrong size is a document disagreeing with itself. Documents are built after their inputs so digests are computed from bytes already in hand, and the layout's JSON goes through the product's canonical encoder, which is deterministic as a side effect. The test asserts the blob set, that validation covers every descriptor, that the index records the platform (the hook PACK-006 needs), and two refusals: a same-length corrupted blob fails the digest check rather than the size check - a shorter tampered blob would only prove the weak check works - and a layout missing a referenced blob is refused before anything else. Fault proof: skipping the digest comparison lets a same-length corruption pass and the case fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:00:12.029690+00:00",
+  "records": [
+    "cd2ff674bb834a5cb78ac954a3d53201",
+    "339eff187bce40efaa5eea33fefeb01a",
+    "85ff9d3e23a24a389151fdb3e0b86737",
+    "9aea12f07b064dc9a3ac2fbb96d7ad41"
+  ],
+  "recordDigests": {
+    "cd2ff674bb834a5cb78ac954a3d53201": "b0caf42a76c4ed6a9272cf01bc6700809cc2748ff7e0891c0c5ec52f45835ebf",
+    "339eff187bce40efaa5eea33fefeb01a": "02be6c1e231c96fd07325186d5c2783c452c519b2fef54ff614e6d4afee42927",
+    "85ff9d3e23a24a389151fdb3e0b86737": "1f75473df23026677f7f715a17fd29ceb34ce413dcb4974b78814077849a40b3",
+    "9aea12f07b064dc9a3ac2fbb96d7ad41": "aba5f9692c886b75cb0d2516b3ba4c2210782a5a0bae41ec4509c084ea5e23f2"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

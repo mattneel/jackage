@@ -45,6 +45,7 @@ test {
     _ = @import("exec/mod.zig");
     _ = @import("plan/cache.zig");
     _ = @import("plan/lockfile.zig");
+    _ = @import("package/oci.zig");
     _ = @import("package/plan.zig");
     _ = @import("package/roundtrip.zig");
     _ = @import("package/tar.zig");
