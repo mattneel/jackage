@@ -1,0 +1,22 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'space.lease_race.test.m12/SPACE-003 race leases safely: a lease taken after selection keeps its object' failed:
+       JCKG_EVIDENCE SPACE-003
+       expected 1, found 2
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6018b89fa in expectEqualInner__func_862 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6018b998c in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\space\lease_race.zig:200:5: 0x7ff6018b9a8b in test.m12/SPACE-003 race leases safely: a lease taken after selection keeps its object (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 1), report.deleted.len);
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-SPACE-003\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xa1889cc2 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xa1889cc2 test -Dfilter=SPACE-003 --prefix C:\src\jackage\.zig-cache\test-prefix-SPACE-003

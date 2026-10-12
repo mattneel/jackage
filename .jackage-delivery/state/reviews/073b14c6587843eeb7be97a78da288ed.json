@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "073b14c6587843eeb7be97a78da288ed",
+  "case": "SPACE-003",
+  "caseDigest": "5241a0bcce1d72a1adc97848695fab6ffb6781fbfb6b95890ade658870e562da",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-003 race leases safely: selection and deletion are two moments and only the first is safe to trust, because an action starting between them holds a lease the selection never saw. src/space/lease_race.zig makes applying a plan re-read the lease table per candidate: a candidate that acquired a lease since selection is retained, named in the report, and its bytes are not counted as reclaimed, so the race is visible in the record rather than an intermittent failure debugged later. The reverse direction is handled too - leasing an object already marked for deletion returns a distinct error so the action retries before execution instead of reading doomed bytes, and that is distinguished from leasing something that does not exist. The test drives the race explicitly: select, lease, apply, and then the safe retry sequence of release and collect again. Fault proof: skipping the apply-time re-check deletes the raced object and the survival assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:05:42.659252+00:00",
+  "records": [
+    "9c0e79bb77934212bc68aebe96db6ff3",
+    "7182aa0c84d3495a86c19a20c67ee1d6",
+    "19b971db13e643519a6743fcab244567",
+    "151ac05ef9fa46a185a4a6164747aa34"
+  ],
+  "recordDigests": {
+    "9c0e79bb77934212bc68aebe96db6ff3": "2590d441e44dd68cf8964f41e91fc1d17302dc41d0dfc77c1d0e952763ae754a",
+    "7182aa0c84d3495a86c19a20c67ee1d6": "89317b541a927ad6722e665589dec57d27917cf76bb708487775545c25bc3594",
+    "19b971db13e643519a6743fcab244567": "9e68f9b71471bd2e35b7d2f50d10d1373d106a617b3d787df130f58c08de0fca",
+    "151ac05ef9fa46a185a4a6164747aa34": "e991cd09f755f22c47ab08ead583a7b455a546c2649a3b18e1f5246a1aa6591e"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
