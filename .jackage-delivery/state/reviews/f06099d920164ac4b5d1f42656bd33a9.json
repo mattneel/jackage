@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "f06099d920164ac4b5d1f42656bd33a9",
+  "case": "SPACE-006",
+  "caseDigest": "e37e6f3c2c897b04fcad5571adacdded9be6d32036beb28a7190fad08924d622",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-006 separate platform caches: a compiler cache is bound to the platform that produced it - object files, debug paths, and recorded flags - so a Windows cache staged under a Linux build is either refused or, worse, accepted for a translation unit that was never compiled that way; and a cache written into a source tree is copied by every subsequent snapshot, making a wrong cache a permanent part of the project. src/space/platform_caches.zig routes each entry to the root belonging to the platform that produced it, refuses an entry claiming another platform's root, refuses any path that resolves inside a source root, and refuses roots it does not own, each with its reason. Paths are normalized before routing, so a cache path reaching the source tree through .. is refused rather than trusted; byte counts are reported per platform so a shared cache size is never presented as one platform's. My fixture again needed one more .. component than I first wrote; the implementation was right and the fixture was corrected. Nothing is copied here - the plan is the description and the refusals are the safety property. Fault proof: not enforcing ownership lets the Windows cache land in the Linux root and the placement assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:02:43.297742+00:00",
+  "records": [
+    "1af8944a2c674f40ad71a92656cdb165",
+    "81468f887b584864b06dfd0f1275b83e",
+    "154bd8c810024a58b18098eb3af1e3bd",
+    "6839bdc03ad94be3a75172e71c6503b5"
+  ],
+  "recordDigests": {
+    "1af8944a2c674f40ad71a92656cdb165": "b1a104c7427b07d56851ec9920617c4c71f1380750ffce3371bc50107360e369",
+    "81468f887b584864b06dfd0f1275b83e": "f9a3252139fb074d302548191af387aa64b8076857d4bab1e510aa2f9217dfef",
+    "154bd8c810024a58b18098eb3af1e3bd": "62b51c22d39459c9d6ef85ef65debefa7b3865c9a3501a1f3163f9e5a05ff28a",
+    "6839bdc03ad94be3a75172e71c6503b5": "3d3545b202121d5598aa13365511dc4844a786fbb8e32a519a790cb98ac5563b"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
