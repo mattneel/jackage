@@ -1,7 +1,7 @@
 {
   "kind": "local-evidence-status",
   "productCompletionCertified": false,
-  "completedCases": 121,
+  "completedCases": 122,
   "totalCases": 188,
   "milestones": [
     {
@@ -106,7 +106,7 @@
     {
       "id": "M11",
       "title": "Native platform matrix and packages",
-      "completeCases": 4,
+      "completeCases": 5,
       "requiredCases": 12,
       "ownCasesComplete": false,
       "ready": true,

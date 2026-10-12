@@ -1,0 +1,22 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'platform.windows_fs.test.m11/PLAT-007 validate Windows filesystem: supported paths work and unsafe ones fail explicitly' failed:
+       JCKG_EVIDENCE PLAT-007
+       PLAT-007 long path supported: false (error: created 18 of 24 components)
+       PLAT-007 unicode round trip: true
+       PLAT-007 reparse created: false (error: PermissionDenied)
+       PLAT-007 delete of open file failed with: AccessDenied
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6c67ca5af in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\platform\windows_fs.zig:217:5: 0x7ff6c67caf9e in test.m11/PLAT-007 validate Windows filesystem: supported paths work and unsafe ones fail explicitly (jckg-tests_zcu.obj)
+           try std.testing.expect(found.policy_matched_platform);
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PLAT-007\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x41ef50ff --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 6/7 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x41ef50ff test -Dfilter=PLAT-007 --prefix C:\src\jackage\.zig-cache\test-prefix-PLAT-007

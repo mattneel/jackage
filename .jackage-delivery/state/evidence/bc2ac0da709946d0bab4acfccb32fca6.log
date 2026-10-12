@@ -1,0 +1,25 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE PLAT-007
+PLAT-007 long path supported: false (error: created 18 of 24 components)
+PLAT-007 unicode round trip: true
+PLAT-007 reparse created: false (error: PermissionDenied)
+PLAT-007 delete of open file failed with: AccessDenied
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PLAT-007\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xcd671f0d --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 platform.windows_fs.test.m11/PLAT-007 validate Windows filesystem: supported paths work and unsafe ones fail explicitly...JCKG_EVIDENCE PLAT-007
+PLAT-007 long path supported: false (error: created 18 of 24 components)
+PLAT-007 unicode round trip: true
+PLAT-007 reparse created: false (error: PermissionDenied)
+PLAT-007 delete of open file failed with: AccessDenied
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

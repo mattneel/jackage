@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "11974806ac39414eb1b730b512bb2b8c",
+  "case": "PLAT-007",
+  "caseDigest": "b2fe250b9a02e229a31f22cd8ec4df84b45c12d2c815001461c22db5fb8cb0f0",
+  "reviewer": "OMP agent (M11 platform matrix)",
+  "note": "PLAT-007 validate Windows filesystem: the test does both halves the case asks for - supported cases work, unsafe cases fail explicitly - and records what this machine actually did rather than what documentation promises. Measured on the host: a non-ASCII name (café-日本語-δ.txt) round-trips byte for byte; a path far beyond the historical MAX_PATH was accepted by the product's own policy but the platform stopped after 18 components, an explicit and recorded refusal rather than a half-built tree; creating a reparse point was refused with PermissionDenied (no developer mode on this machine), which is an explicit answer; and deleting a *running* executable failed with AccessDenied - the locked-executable case the case names. That last one replaced a first attempt that opened a file and deleted it: Windows allows that because the handle is opened with share-delete, so the test now starts a copy of the program and deletes it while it runs, which is the lock that matters. Fault proof: making the portable path policy refuse paths its own limit allows fails the policy assertion (exit 1); revert byte-identical against a backup, no FAULT markers remain. Recorded on the host platform.",
+  "reviewedUtc": "2026-10-12T16:32:10.776371+00:00",
+  "records": [
+    "b89ce28c79964b4a8e11d80b306b77d1",
+    "bf310b3ae1ec46368f85d84d3bcd9655",
+    "bc2ac0da709946d0bab4acfccb32fca6",
+    "dd9fd6b9a9294b9bb75836d847de6cdb"
+  ],
+  "recordDigests": {
+    "b89ce28c79964b4a8e11d80b306b77d1": "af280889e38a95f62636cae7121b04aaf3f72d61ca7dcb6a47e5408b4a18efd0",
+    "bf310b3ae1ec46368f85d84d3bcd9655": "b1d2a8c5409412b9713d6a7b57b1db2e113d235dd3959b97d37a8d6b277adfde",
+    "bc2ac0da709946d0bab4acfccb32fca6": "236ec78d5b0dc8bf7838c216ffaeab2e5de2e322a5bed6701954090448722278",
+    "dd9fd6b9a9294b9bb75836d847de6cdb": "972361df007dcc0ae413a01a29363ac11947367a24cf19a61bcb5a1ba8f8b0b3"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
