@@ -1,0 +1,21 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE GH-002
+JCKG_EVIDENCE GH-003
+JCKG_EVIDENCE GH-004
+failed command: ".\\.zig-cache\\o\\45c3df86a24aad09706147b52b36e0d8\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xccad743c --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 channels.install.test.m14/GH-002 pages-only channel, m14/GH-003 releases-only channel, m14/GH-004 hybrid channel...JCKG_EVIDENCE GH-002
+JCKG_EVIDENCE GH-003
+JCKG_EVIDENCE GH-004
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

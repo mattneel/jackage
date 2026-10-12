@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "850faeb3f2b04b899bfe8b3b922cd440",
+  "case": "GH-006",
+  "caseDigest": "b7db9e7231290987a42a2afcc596b1fa46db4a2b007ab3941e78683d5944d6b3",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-006 handle changed locator: a repository that moved is the same repository, and src/channels/refresh.zig separates location from identity so the lockfile's decision survives the move. Identity is checked before location, and the digest is the identity: a locator serving different bytes is refused however plausible its address and channel look, because 'the same package in a new place' and 'a different package in the old package's place' are the same observation from here and only the digest tells them apart. The channel is the authorization: identical bytes on a channel nobody granted are refused, because the bytes being right does not make the authorization right. A different package wearing the locked name is refused before either check. The test covers the unchanged locator, the moved locator with the same digest, a digest substitution, a channel change with identical bytes, and a package-name substitution. Fault proof: accepting any locator makes the substitution assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:50:02.591415+00:00",
+  "records": [
+    "2b0c5e0ec27b4879b91fe62d3403df0c",
+    "fac149e7827a407e945f9bdbb41ac732",
+    "a05c2c92245549aea328023eebe7c22f",
+    "9e7d535d854945edbd93b66094e94f12"
+  ],
+  "recordDigests": {
+    "2b0c5e0ec27b4879b91fe62d3403df0c": "4f4e210ef63d2cb5bcdfa10357d0e6de4fc8d80f49b3ecaa8cd5aaa87dbcd32c",
+    "fac149e7827a407e945f9bdbb41ac732": "11b282b137f8b702ed66e0ae343a728e8937467fcfb004261b9a73b4919c1f58",
+    "a05c2c92245549aea328023eebe7c22f": "2345eb615686abacb1a0a4682b59e8c3c762057f07f0485d75dc81e18cf9131c",
+    "9e7d535d854945edbd93b66094e94f12": "02027954e0cbddffd93bc9d1572db1336363b1244db540540139feb5658e295a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "f30267267f0f47c6a23080662c7761f9",
+  "case": "GH-002",
+  "caseDigest": "ce5a1339c0cd3a93b701e2ab29faee57fedb0711502d886c002855347890c0fc",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-002 use Pages-only channel: src/channels/install.zig resolves a package from a static host alone - the metadata is fetched at its pinned digest, read back from the store so the bytes parsed are exactly the bytes the digest covers, and each asset is fetched at the digest the metadata itself declared. The fixture is a real HTTP server, and the test asserts the host served exactly one metadata document and two assets, so the install went through the static path with no other request rather than through some helper that happened to work. Relative asset URLs are resolved against the channel base and a relative URL that is not rooted there is refused, so a metadata document cannot reach outside its channel by accident. Fault proof: resolving a root-relative asset URL against the host root instead of the channel base makes the asset fetch fail and the install assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:45:22.990464+00:00",
+  "records": [
+    "f4af51b670be4906a8ef1499b2a696b4",
+    "d3d6738586e84b84a16c43995002a6c6",
+    "089e325405b34d03826e613ef7ea889b",
+    "46fdef6b596b4093a87f818eb10636c2"
+  ],
+  "recordDigests": {
+    "f4af51b670be4906a8ef1499b2a696b4": "146db30069ad6d6092875d72aa26f27ab08c41c5d4835977e7b0bb6c3800a0ff",
+    "d3d6738586e84b84a16c43995002a6c6": "df817de07432bd315b12783ca8483d94c0a38d23068176482d43c939b52954a4",
+    "089e325405b34d03826e613ef7ea889b": "7a38d0b84a6b5cfd83318424a630cb78b1b5a003faf109da875e61d6de9f8942",
+    "46fdef6b596b4093a87f818eb10636c2": "c23f6682faa29e5db122e272afde63d704e7c13b50630e94c78fbce87b9c1f18"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

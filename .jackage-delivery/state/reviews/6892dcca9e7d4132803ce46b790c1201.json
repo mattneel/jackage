@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "6892dcca9e7d4132803ce46b790c1201",
+  "case": "GH-005",
+  "caseDigest": "444864c87c4cd61d79eb6cb305c1cdec8b64d372784f2b4786f4e37fa7bf52ca",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-005 handle rate limits: src/channels/refresh.zig walks every page of a channel's metadata, and each page pins its successor by digest - the first pin comes from the channel and every later one from a page that was itself verified - so the walk never fetches anything on trust, and a page may name its successor relatively so a static host need not know its own public address. The walk ends only when a page declares no next page, and a page that cannot be fetched ends the refresh with an error rather than returning what was gathered: a partial list would resolve the packages it happens to contain and report every other package as unknown, which looks exactly like a package that was never published. The rate limit is handled by the download client's own bounded retry, and the attempts it reports are counted into the result, so the budget is one policy in one place rather than two layers - I discovered this by measuring: my first draft layered its own retry and the attempt count showed the client had already done the work, so the redundant layer was removed instead of the assertion being relaxed. Fault proof: stopping the walk at the first page makes the last-page package unresolvable and the assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:50:02.474842+00:00",
+  "records": [
+    "7f035a8a47e646e6bc2b4659ea19c260",
+    "5e84e21be80943f7a07706bdd89ad2c4",
+    "1dc25a8cdf2544d8bd7439f05bdc6ec4",
+    "d92dfa3627ba4f87881b3bc2cddf85e0"
+  ],
+  "recordDigests": {
+    "7f035a8a47e646e6bc2b4659ea19c260": "9b45ad7a4c0b8c7fcdb8c0543acf47546c3a93d3830913e66428897b4e88b7d1",
+    "5e84e21be80943f7a07706bdd89ad2c4": "dfdda7dbeb48c86aaeca7a39fd1482de35c36c8f167a6041839703eed7fc3bd7",
+    "1dc25a8cdf2544d8bd7439f05bdc6ec4": "35cb6c8aa22ca86aa104763ca32b6e67a58ffdddc8df659d45d24e61eb5d4309",
+    "d92dfa3627ba4f87881b3bc2cddf85e0": "dd982ee2035d5293772bdaf46dddf42ac56e37042b4907db664566291df634cb"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

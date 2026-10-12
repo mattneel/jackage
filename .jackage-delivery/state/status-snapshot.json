@@ -1,7 +1,7 @@
 {
   "kind": "local-evidence-status",
   "productCompletionCertified": false,
-  "completedCases": 144,
+  "completedCases": 149,
   "totalCases": 188,
   "milestones": [
     {
@@ -133,7 +133,7 @@
     {
       "id": "M14",
       "title": "GitHub channels and authorized publication",
-      "completeCases": 3,
+      "completeCases": 8,
       "requiredCases": 11,
       "ownCasesComplete": false,
       "ready": true,

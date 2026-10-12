@@ -1,0 +1,26 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'channels.install.test.m14/GH-002 pages-only channel, m14/GH-003 releases-only channel, m14/GH-004 hybrid channel' failed:
+       JCKG_EVIDENCE GH-002
+       JCKG_EVIDENCE GH-003
+       JCKG_EVIDENCE GH-004
+       C:\src\jackage\src\trust\download.zig:184:32: 0x7ff6b4a59ee0 in downloadAttempt (jckg-tests_zcu.obj)
+                   if (status != 200) return error.UnexpectedStatus;
+                                      ^
+       C:\src\jackage\src\trust\download.zig:114:74: 0x7ff6b4a5b086 in download (jckg-tests_zcu.obj)
+                       if (!transient or attempt >= request.retry.max_attempts) return err;
+                                                                                ^
+       C:\src\jackage\src\channels\install.zig:186:18: 0x7ff6b4a5c08f in install (jckg-tests_zcu.obj)
+               }) catch return error.AssetUnavailable;
+                        ^
+       C:\src\jackage\src\channels\install.zig:247:29: 0x7ff6b4a1d17b in test.m14/GH-002 pages-only channel, m14/GH-003 releases-only channel, m14/GH-004 hybrid channel (jckg-tests_zcu.obj)
+           const pages_installed = try install(gpa, &client, store, .{
+                                   ^
+failed command: ".\\.zig-cache\\o\\850fda10f85a6821d569a9dc2a483495\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x2e21e1ea --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x2e21e1ea test -Dfilter=GH-002 --prefix C:\src\jackage\.zig-cache\test-prefix-GH-002

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "a72c46acde964845ac3d8be546c9aa0f",
+  "case": "GH-004",
+  "caseDigest": "60d7086c4666747c39beb5b1b77b0758ad49d73bacadb2f3693285fd665db910",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-004 use hybrid channel: static metadata naming absolute release asset URLs on a different origin. src/channels/install.zig treats an absolute URL as-is and a relative one against the channel base, so a hybrid channel is not a special case - and the test compares the artifacts rather than the routes, asserting the hybrid install produced the identical digest the static install produced. The second half is the offline rerun: after both installs, a rerun with reuse_verified issues no requests at all, asserted against the fixtures' own request counters, so offline is measured rather than promised, and the metadata document is re-imported into the store during that rerun to show a store write is not a network request. Fault proof: breaking relative URL resolution makes the hybrid install fail and the digest comparison never run (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:45:23.201996+00:00",
+  "records": [
+    "03d1b0106ae84c2eb946e8aa7b01079d",
+    "323b3ebf8dbf4e9384d9685a89761820",
+    "9467d354f777484783f40de469173764",
+    "7cb6acb23db1499caf285a8af2dd6478"
+  ],
+  "recordDigests": {
+    "03d1b0106ae84c2eb946e8aa7b01079d": "25ff6af44cfa98931a536f470df36a4bb5a04656038422a13100737e03cd9577",
+    "323b3ebf8dbf4e9384d9685a89761820": "11efdfc9660da5db243ce72c4c0f0922f10f2836441586a6a30f99d56edffe56",
+    "9467d354f777484783f40de469173764": "acd7e7f3b76d24a5194d50a4b3e8435f6bca15db3c725f601639642d3ebffd4c",
+    "7cb6acb23db1499caf285a8af2dd6478": "c7f7b51094deeb85ca168d6cef4d122a05691abb7192924d0d59769842367c0c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

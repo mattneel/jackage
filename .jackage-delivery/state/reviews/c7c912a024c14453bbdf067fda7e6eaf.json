@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c7c912a024c14453bbdf067fda7e6eaf",
+  "case": "GH-003",
+  "caseDigest": "0b77f4dd2ef1bba002d2b5663fbbb573a6c33fe41390649fff2abe0006e0e72f",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-003 use Releases-only channel: the same install path in src/channels/install.zig works from a versioned channel with no static metadata document at all - the metadata lives inside the release and names assets by digest, so the core never learns what a release is and needs nothing beyond the URLs it is given. The test serves the release shape from its own fixture and checks the install produced the same artifacts as the static shape, which is the property that matters: the core's behavior does not depend on which transport a channel chose. Fault proof: breaking relative URL resolution against the channel base makes the release install fail its asset fetch and the assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:45:23.096288+00:00",
+  "records": [
+    "e75374698abc4e39a477aab4f79721e5",
+    "0b5e1e60b9784a7498c56327e24d2f4a",
+    "6ae4bb66c43c4770ae04b49965aa80df",
+    "1f303a60e34645fba5c44839eb244d71"
+  ],
+  "recordDigests": {
+    "e75374698abc4e39a477aab4f79721e5": "c27cfc3605e90d48d4797bd76a0b008a82817ddf3c6042ef43755f06a12a1cd0",
+    "0b5e1e60b9784a7498c56327e24d2f4a": "85d0f879cb7b023cfcac4912abe622a2e2d441803b75879fd7cfbcccfbdef369",
+    "6ae4bb66c43c4770ae04b49965aa80df": "26e53afedf7c349127f41889f091c086300a660091bbceda764dfd2bc7995150",
+    "1f303a60e34645fba5c44839eb244d71": "9a75c2188d6b342929ab0f4513b24f6e73a5e35393cf7ea91171f06b4e04114a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

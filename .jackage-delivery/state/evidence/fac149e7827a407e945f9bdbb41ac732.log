@@ -1,0 +1,20 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'channels.refresh.test.m14/GH-005 handle rate limits, m14/GH-006 handle changed locator' failed:
+       JCKG_EVIDENCE GH-005
+       JCKG_EVIDENCE GH-006
+       expected error.DigestChanged, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff651d0b7da in expectError__func_886 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\channels\refresh.zig:446:5: 0x7ff651d13c84 in test.m14/GH-005 handle rate limits, m14/GH-006 handle changed locator (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.DigestChanged, resolveLocked(gpa, lock, .{
+           ^
+failed command: ".\\.zig-cache\\o\\5b976105a65750bd5c29e7e8202611c0\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x38a9b80e --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x38a9b80e test -Dfilter=GH-005 --prefix C:\src\jackage\.zig-cache\test-prefix-GH-005
