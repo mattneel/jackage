@@ -54,6 +54,7 @@ test {
     _ = @import("plugin/protocol.zig");
     _ = @import("plugin/cancellation.zig");
     _ = @import("plugin/recovery.zig");
+    _ = @import("plugin/interchange.zig");
     _ = @import("plugin/streams.zig");
     _ = @import("space/lease_race.zig");
     _ = @import("space/platform_caches.zig");

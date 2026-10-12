@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "54804cbf4cf94f4e95c34732869730ce",
+  "case": "PLUGIN-006",
+  "caseDigest": "5027710616372b0c904b29778c43992da033b057ac9b7be10593a60b55d5c024",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-006 interchange executors: src/plugin/interchange.zig runs one conformance suite against two independent executor implementations and compares their results as values across implementations rather than asserting per implementation, so a divergence fails the suite instead of being described. A required capability an executor has not declared is refused before anything is allocated or run, so an incomplete implementation cannot pass by staying quiet, and each executor states its own limitations - the local one cannot isolate, the sandboxed one can - rather than claiming full support. Fault proof: making the second implementation behave differently makes the cross-implementation comparison fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:30:43.430151+00:00",
+  "records": [
+    "dc9ce85384d240cab245b2c66279bd3b",
+    "581a67d0be3d4cfb9d66c7edf06b9434",
+    "265f73feccb5461fb911e89233edcbee",
+    "adfb6936553c40fa814b0b6ff0ee2909"
+  ],
+  "recordDigests": {
+    "dc9ce85384d240cab245b2c66279bd3b": "b8fc8e27966a5c7744cb4d737c9041e0afd9ba890767d36bd2c6c67751b98431",
+    "581a67d0be3d4cfb9d66c7edf06b9434": "c69e14d916eb2dd519bb62f458f1c5999e5e44a9add0af327a02815cca626eec",
+    "265f73feccb5461fb911e89233edcbee": "c47bc0f0e425dce500851f24afb2658f1a43e2ac0a2563c24e220765d2685cc7",
+    "adfb6936553c40fa814b0b6ff0ee2909": "728c75b4c974bfab593856e89f57588e7bccfc2117ffbf62ada657457362252f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'plugin.interchange.test.m13/PLUGIN-008 interchange repositories' failed:
+       JCKG_EVIDENCE PLUGIN-008
+       expected .rejected_digest, found .accepted
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7749f8bf0 in expectEqualInner__func_864 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7749f95dd in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\plugin\interchange.zig:466:5: 0x7ff7749f9766 in test.m13/PLUGIN-008 interchange repositories (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(TrustDecision.rejected_digest, decide(gpa, pair.publicKey(), metadata, tampered));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PLUGIN-008\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x1d2fbb5d --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x1d2fbb5d test -Dfilter=PLUGIN-008 --prefix C:\src\jackage\.zig-cache\test-prefix-PLUGIN-008

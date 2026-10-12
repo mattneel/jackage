@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "132a476d635141fa937b65c6f5f1df55",
+  "case": "PLUGIN-008",
+  "caseDigest": "ed60be6bc2a6955d27d6e829191074af9f9264f0a285f573305b92e0b61ea5bc",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-008 interchange repositories: the conformance suite in src/plugin/interchange.zig applies one trust decision to bytes from any transport - the metadata signature is verified with a real Ed25519 key from trust/keys.zig and the asset against the digest the metadata declared - so 'identical trust behavior' means both transports produce bytes that verify and a tampered asset is rejected by both for the same reason. A tampered asset is rejected on the digest rather than incidentally, metadata signed by a different key is rejected on the signature whatever the asset says, and an unknown key is a separate answer from an invalid signature. A transport asked for something it does not serve fails as a transport failure, which is deliberately not a trust failure: a broken channel and a hostile one are different problems. Fault proof: skipping the asset digest check accepts the tampered asset and the rejection assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:30:43.706212+00:00",
+  "records": [
+    "49ace3eaf07d439c8d405a15755f3377",
+    "b6c25d73f76d4ff7af85b106ceef4dac",
+    "61515a3f58de47bba6e520e09b8a15bf",
+    "98d3fe36b066451c99fb6b9bec37803c"
+  ],
+  "recordDigests": {
+    "49ace3eaf07d439c8d405a15755f3377": "fa3e29a5989ad47049905eacbd0a65c5e440025a85d6aac9b6caaf61601f0bf6",
+    "b6c25d73f76d4ff7af85b106ceef4dac": "3fe5b2bb0c2269f58d40ef11e2ea6af81c7f570883d8d7342ba7c493bfb7e536",
+    "61515a3f58de47bba6e520e09b8a15bf": "8aae1a542ca1baf009097f9e1bd4e16074b72b48b41de52f5d6cda2368d37c56",
+    "98d3fe36b066451c99fb6b9bec37803c": "b265d3cb187c9799d39012fcfc8dce50fdcac11f925a825aca4ed9029cec51ed"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

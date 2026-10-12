@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "265f73feccb5461fb911e89233edcbee",
+  "case": "PLUGIN-006",
+  "caseDigest": "5027710616372b0c904b29778c43992da033b057ac9b7be10593a60b55d5c024",
+  "stage": "green",
+  "testId": "m13/PLUGIN-006 interchange executors",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "PLUGIN-006"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T17:25:54.337475+00:00",
+  "finishedUtc": "2026-10-12T17:25:57.971972+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE PLUGIN-006",
+  "markerFound": true,
+  "logPath": "state/evidence/265f73feccb5461fb911e89233edcbee.log",
+  "logSha256": "9be45c89c9eadd058784519fa001e15263b0de2321e66f2b6f1356c75fd9db71",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "5c1231d83d5641c5323336d7e2c759d53d03fa89",
+    "statusSha256": "31187b3c35dd4ef34d13aac284876778942b44c438d4df66f3587b0bda739e1b",
+    "trackedDiffSha256": "a534a33c8ede114bfaa132af3eea0bd4536a6dd7075beb1a72786cbcf14ccbed",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "5c1231d83d5641c5323336d7e2c759d53d03fa89",
+    "statusSha256": "2b10a26864b58fa9ba1c7038ebe8d4da3853ca518741bc2f6c6be28c701a907e",
+    "trackedDiffSha256": "a534a33c8ede114bfaa132af3eea0bd4536a6dd7075beb1a72786cbcf14ccbed",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

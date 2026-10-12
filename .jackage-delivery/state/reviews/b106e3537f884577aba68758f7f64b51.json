@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b106e3537f884577aba68758f7f64b51",
+  "case": "PLUGIN-007",
+  "caseDigest": "f315a0bc46943bbf780a9950436f2606e6e91b5a0e22e4697523e3c6a09cc136",
+  "reviewer": "OMP agent (M13 external backend contracts)",
+  "note": "PLUGIN-007 interchange package plugins: two implementations describe the same package actions, and src/plugin/interchange.zig checks the property the contract exists for - that the plans are data. assertDeclarative round-trips a plan through JSON, which a plan carrying a host callback cannot survive, so 'declarative' is enforced structurally rather than asserted in prose; and assertWithinPolicy runs every step's target through the authority policy, so a plan that reaches outside the manifest it declared is refused before execution. The test covers two independent plans, their agreement, a policy-covered plan, and a step escaping to a path outside the manifest. Fault proof: skipping the policy check makes the escaping step succeed and the refusal assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:30:43.559770+00:00",
+  "records": [
+    "b27e9efe47c64ffe9732278e552533a3",
+    "8e4ed489b14643e8b0062a96294c9509",
+    "1cee56cdfc8e4b9ab0bdd4c8880b64d9",
+    "06436fe900da48c7b1842f94337dc16a"
+  ],
+  "recordDigests": {
+    "b27e9efe47c64ffe9732278e552533a3": "c49596ad6bfb0dbf751663e91c0c06f3ef69c390043160684f7924426a9e51f8",
+    "8e4ed489b14643e8b0062a96294c9509": "571be92ffa4794efaa3bfea250f904052756fc350f99f44fff0b46dcbdef65cf",
+    "1cee56cdfc8e4b9ab0bdd4c8880b64d9": "f2dffffec022c1fd0afd998efcfb5fe04bccd2560c97276599437dd9cc0cbcee",
+    "06436fe900da48c7b1842f94337dc16a": "8458701536d48f821cf7d84d7c573d030db329661aea4217727497692cff75ba"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

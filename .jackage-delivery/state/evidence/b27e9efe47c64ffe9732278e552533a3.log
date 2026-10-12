@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE PLUGIN-007
+failed command: ".\\.zig-cache\\o\\63962785d8ebfe046256a8cacf6da3c5\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x5934ab36 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 plugin.interchange.test.m13/PLUGIN-007 interchange package plugins...JCKG_EVIDENCE PLUGIN-007
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.
