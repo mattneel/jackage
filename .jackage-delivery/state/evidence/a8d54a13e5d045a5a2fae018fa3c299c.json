@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "a8d54a13e5d045a5a2fae018fa3c299c",
+  "case": "IMAGE-002",
+  "caseDigest": "aa0bd0013040681975c1f50a7be4fc801b805958794ff942e78974f0df67e056",
+  "stage": "fault",
+  "testId": "m15/IMAGE-002 run development image: declared tools execute on native guest storage",
+  "platformRole": "linux-x86_64",
+  "actualPlatform": "linux-x86_64",
+  "command": [
+    "sh",
+    "scripts/test.sh",
+    "IMAGE-002"
+  ],
+  "cwd": "/home/autark/jckg/dev",
+  "startedUtc": "2026-10-12T18:36:53.660386+00:00",
+  "finishedUtc": "2026-10-12T18:39:16.966916+00:00",
+  "exitCode": 1,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE IMAGE-002",
+  "markerFound": true,
+  "logPath": "state/evidence/a8d54a13e5d045a5a2fae018fa3c299c.log",
+  "logSha256": "ed2066cc046386e9b074337e8689bf4f7a6f658a30d4a8287db5aa3b61cc0955",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

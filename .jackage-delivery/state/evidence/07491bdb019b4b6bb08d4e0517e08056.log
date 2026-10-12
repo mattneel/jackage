@@ -1,0 +1,12 @@
+=== eval-tests ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 images.container_runtime.test.m15/IMAGE-002 run development image: declared tools execute on native guest storage...JCKG_EVIDENCE IMAGE-002
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

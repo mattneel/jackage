@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3f16a96ef2894116bded7b602bf66b29",
+  "case": "IMAGE-002",
+  "caseDigest": "aa0bd0013040681975c1f50a7be4fc801b805958794ff942e78974f0df67e056",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-002 run development image: src/images/container_runtime.zig generates a Dockerfile from the declaration, takes the pinned toolchain from the build context and verifies it against the digest scripts/fetch-zig-linux.sh records, then builds a real Jackage fixture and runs its tests inside the container. Delivering the toolchain from the context rather than re-fetching it inside the image was a decision made from evidence: a download inside the container produced a tarball that failed the very same digest check, and refusing that is far easier than debugging it - the image now needs no network at all. The context is checked to be outside a Windows mount before anything is built, because a build whose filesystem operations travel through the translation layer is exactly what the declared environment exists to avoid. The exit code is load-bearing and tested: a fixture whose test fails makes the same command fail, which matters because Zig's build runner withholds a passing test's output, so a run that reported success for everything would be indistinguishable from one that reported nothing. Evidence is recorded inside the WSL2 guest, so actualPlatform is genuinely linux-x86_64. Fault proof: reporting the container's exit code as success makes the failing-fixture assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:47:42.195258+00:00",
+  "records": [
+    "07491bdb019b4b6bb08d4e0517e08056",
+    "a8d54a13e5d045a5a2fae018fa3c299c",
+    "feb502db565b4d3ba82c9dc385f6ae24",
+    "cdb645d6a13c4b3bbde69766e5c161ed"
+  ],
+  "recordDigests": {
+    "07491bdb019b4b6bb08d4e0517e08056": "2fbe57a883345d2acbf841d29028c5ead1b350197bb05fe6c1c6eb9313e916b4",
+    "a8d54a13e5d045a5a2fae018fa3c299c": "c0ec61283d1cd4519cc1860e76c9c83875f9794b63f62c653f72ebbecf4cbc7e",
+    "feb502db565b4d3ba82c9dc385f6ae24": "ebf0191cb3e9b451d033ce9651e934ef9a020bf3ec45f25d18a29606a9ec729f",
+    "cdb645d6a13c4b3bbde69766e5c161ed": "ae15c3aee9fd756a4f918e7c9c54d08a881df07dd53d81297c0fadb60a4e8fe6"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

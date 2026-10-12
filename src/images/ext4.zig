@@ -60,7 +60,7 @@ pub const RunOutput = struct {
 };
 
 /// Runs a command in the guest, capturing both streams.
-fn run(gpa: std.mem.Allocator, io: std.Io, argv: []const []const u8) Error!RunOutput {
+pub fn run(gpa: std.mem.Allocator, io: std.Io, argv: []const []const u8) Error!RunOutput {
     var child = std.process.spawn(io, .{
         .argv = argv,
         .stdin = .ignore,

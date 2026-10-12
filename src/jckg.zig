@@ -54,6 +54,7 @@ test {
     _ = @import("images/dev_environment.zig");
     _ = @import("images/layer_scan.zig");
     _ = @import("images/release_image.zig");
+    _ = @import("images/container_runtime.zig");
     _ = @import("images/ext4.zig");
     _ = @import("images/rootfs.zig");
     _ = @import("images/reproducibility.zig");
