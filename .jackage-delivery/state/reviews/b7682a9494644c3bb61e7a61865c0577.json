@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b7682a9494644c3bb61e7a61865c0577",
+  "case": "PACK-004",
+  "caseDigest": "4f7f8c547a8063e97e0e103164772d8ca879b06e62074b2192b51ed5d68d154a",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-004 round-trip tree: the archive is read back by the *product* validator - trust/archive.zig, the same reader the download path uses - and the extracted tree digest is compared with the digest of the tree that was declared, so the two writers are trustworthy because the product can read what they wrote. The executable bit is part of that identity and is asserted to survive; implicit directories are asserted too, because the validator records the directories a file's path implies and an expectation that omitted them would have been wrong about the product rather than the archive. A truncated archive is asserted to be refused with error.TruncatedArchive. Scope, measured rather than assumed: the validator accepts regular files and directories and refuses symbolic links (error.UnsupportedEntry) because it was written for the download path; the round trip therefore covers the validator's supported set and links are covered by the tar writer's own case, with the limitation recorded rather than papered over. Fault proof: ignoring the declared mode loses the executable bit and the identity comparison fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:50:37.367858+00:00",
+  "records": [
+    "5db2622bab1b487a8ef1905e93f11baf",
+    "a78527c768884f02bda06ca02d04317c",
+    "8c72925c76204bb1ae56209eaf02dd4b",
+    "568670a8a74c409caa642b53bdee71a4"
+  ],
+  "recordDigests": {
+    "5db2622bab1b487a8ef1905e93f11baf": "ce3f724a18ee9f16ae3ead787f53887fe1657632db322da55e90daf196721a3e",
+    "a78527c768884f02bda06ca02d04317c": "1f49805e11dd4125aec8277e614e6b47f251eeffbf305d2d55d2bc8896f26b87",
+    "8c72925c76204bb1ae56209eaf02dd4b": "12b50d96257e9ee36c7bc4e9b962a1bcbd95f6a87130af1bb133fe8404e9553c",
+    "568670a8a74c409caa642b53bdee71a4": "d7398db9a07cb62b9d53af75298616b9a3498ffad0221ad0fc8fc402cd6cb6d3"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

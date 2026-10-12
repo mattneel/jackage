@@ -1,0 +1,33 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'package.roundtrip.test.m10/PACK-004 round-trip tree: extraction reproduces the declared tree identity' failed:
+       JCKG_EVIDENCE PACK-004
+       
+       ====== expected this output: =========
+       sha256:91a9ce3a57ca7a59be103359375e031bc7b18bb9b33280a468d46364802c9b94␃
+       
+       ======== instead found this: =========
+       sha256:1db86db261a62e2001d789c61cad3dcde73a4aea16bcde600deca479dec97773␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       sha256:91a9ce3a57ca7a59be103359375e031bc7b18bb9b33280a468d46364802c9b94
+              ^ ('\x39')
+       found:
+       sha256:1db86db261a62e2001d789c61cad3dcde73a4aea16bcde600deca479dec97773
+              ^ ('\x31')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff75d2c0431 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\package\roundtrip.zig:87:5: 0x7ff75d2c19ae in test.m10/PACK-004 round-trip tree: extraction reproduces the declared tree identity (jckg-tests_zcu.obj)
+           try std.testing.expectEqualStrings(
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PACK-004\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x87fe9803 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x87fe9803 test -Dfilter=PACK-004 --prefix C:\src\jackage\.zig-cache\test-prefix-PACK-004
