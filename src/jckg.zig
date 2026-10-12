@@ -48,6 +48,7 @@ test {
     _ = @import("package/closure.zig");
     _ = @import("package/oci.zig");
     _ = @import("package/plan.zig");
+    _ = @import("package/signing.zig");
     _ = @import("package/roundtrip.zig");
     _ = @import("package/tar.zig");
     _ = @import("package/zip.zig");

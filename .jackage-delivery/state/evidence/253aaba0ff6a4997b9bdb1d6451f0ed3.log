@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE PACK-008
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PACK-008\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x20ab92bb --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 package.signing.test.m10/PACK-008 separate signing: signed and unsigned identities stay distinct...JCKG_EVIDENCE PACK-008
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

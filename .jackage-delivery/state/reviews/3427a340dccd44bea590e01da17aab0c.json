@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3427a340dccd44bea590e01da17aab0c",
+  "case": "PACK-008",
+  "caseDigest": "dc9dea8e5b830fed641a77ce184cc6d699bf45439d18cd1ac08e89f58c441d26",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-008 separate signing: two identities stay distinct and cannot be confused - the payload's digest, unchanged by signing and reproducible from the same bytes, and the envelope's digest, which is a different artifact and the thing a channel publishes. src/package/signing.zig signs with the pinned standard library's Ed25519 through trust/keys.zig, so the envelope is verified by the same key material and code path the rest of the product trusts, with a deterministic label-derived test key standing in for release authority. The policy is explicit and *covered by the signature*: swapping it or changing the payload digest invalidates the envelope rather than re-asserting something else, which is the assertion that makes the policy meaningful; an unnamed policy is refused before anything is produced. Signing is an action that takes the payload's identity as input rather than recomputing it from possibly different bytes. Fault proof: leaving the policy and signer outside the signed bytes lets an envelope be re-labelled and the swapped-policy assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:08:49.437507+00:00",
+  "records": [
+    "7f00fd52c46843878936bd9936ad469b",
+    "12bc29220b77429286a432ed6031c49e",
+    "253aaba0ff6a4997b9bdb1d6451f0ed3",
+    "0ee376728c0c4835bfb514921c9c1e26"
+  ],
+  "recordDigests": {
+    "7f00fd52c46843878936bd9936ad469b": "3ddfd6d6ddaa81a08e5580402410768066407c90f32232da238eccdb2684d1ba",
+    "12bc29220b77429286a432ed6031c49e": "65722e22cd8121d0476910d0bf5ca9559b5d1e1d5e3a664bc0bed48de122222b",
+    "253aaba0ff6a4997b9bdb1d6451f0ed3": "748ebf03178be3b32a22d94773ce18514a53f6ede519ca9129732f8f6bc3fc82",
+    "0ee376728c0c4835bfb514921c9c1e26": "75b6432c2c430f315fa7c556bd802a4f621208c74f642ae09f34b10cc370170f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
