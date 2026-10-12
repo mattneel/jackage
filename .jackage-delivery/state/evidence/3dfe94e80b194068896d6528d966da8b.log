@@ -1,0 +1,18 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'selfhost.environment.test.m09/SELF-001 realize own environment: every tool comes from a declared verified input' failed:
+       JCKG_EVIDENCE SELF-001
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff79b6890ff in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\selfhost\environment.zig:184:5: 0x7ff79b68aa9e in test.m09/SELF-001 realize own environment: every tool comes from a declared verified input (jckg-tests_zcu.obj)
+           try std.testing.expect(!wrong.realized());
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-SELF-001\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xe848e0d7 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xe848e0d7 test -Dfilter=SELF-001 --prefix C:\src\jackage\.zig-cache\test-prefix-SELF-001

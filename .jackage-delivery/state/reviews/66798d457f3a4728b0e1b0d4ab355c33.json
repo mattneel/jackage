@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "66798d457f3a4728b0e1b0d4ab355c33",
+  "case": "SELF-001",
+  "caseDigest": "8a0c8c93c8545aba4c29dc226fe27982c492f834914c7e1ba81e25f7979d8455",
+  "reviewer": "OMP agent (M09 self-hosting)",
+  "note": "SELF-001 realize own environment: a tool counts as present only when its bytes match the digest the recipe declares for it, which is what makes the environment 'realized from declared verified inputs' rather than 'whatever is installed'. src/selfhost/environment.zig reports exhaustively rather than fail-fast, because a caller fixing an environment wants the whole list. Missing and mismatch are deliberately distinct: missing says fetch or build it, mismatch says the thing present is not the declared tool - a substituted toolchain or a corrupted artifact - and a build must not proceed on the second. Undeclared tools are refused (error.UndeclaredTool) rather than accepted into the environment, so the environment cannot come to depend on something the lock does not describe. Fault proof: treating 'present' as 'realized' makes the mismatch assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:28:08.047254+00:00",
+  "records": [
+    "7d008782d2504a3898a82b3e64df721c",
+    "3dfe94e80b194068896d6528d966da8b",
+    "92361c91ef424426bfbc7a774786cb62",
+    "241a77deba9e422cb8bd159fc4f19126"
+  ],
+  "recordDigests": {
+    "7d008782d2504a3898a82b3e64df721c": "f86755221cf33995892a31d972f06fb394043d3f39e0c4e2d1b579ada4791c8c",
+    "3dfe94e80b194068896d6528d966da8b": "73825e2667bf8b0b885f25811ad77789f9aac0a094689e225a9b82d0532a391d",
+    "92361c91ef424426bfbc7a774786cb62": "98a522304a6a69cbb82e91a3072e3475e7034b72a41105a02ce02a75a4218d66",
+    "241a77deba9e422cb8bd159fc4f19126": "8e0a3cf1751aced75017d9ada4baae4384690adf0110b92f356425bf9e64145b"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

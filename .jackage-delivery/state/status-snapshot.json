@@ -1,7 +1,7 @@
 {
   "kind": "local-evidence-status",
   "productCompletionCertified": false,
-  "completedCases": 104,
+  "completedCases": 105,
   "totalCases": 188,
   "milestones": [
     {
@@ -88,7 +88,7 @@
     {
       "id": "M09",
       "title": "Jackage self-hosting",
-      "completeCases": 4,
+      "completeCases": 5,
       "requiredCases": 8,
       "ownCasesComplete": false,
       "ready": true,

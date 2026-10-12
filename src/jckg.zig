@@ -58,6 +58,7 @@ test {
     _ = @import("worker/controller.zig");
     _ = @import("selfhost/bootstrap.zig");
     _ = @import("selfhost/snapshot.zig");
+    _ = @import("selfhost/environment.zig");
     _ = @import("selfhost/stages.zig");
     _ = @import("worker/cross_tests.zig");
     _ = @import("worker/frames.zig");
