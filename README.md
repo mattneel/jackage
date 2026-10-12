@@ -1,26 +1,37 @@
 # Jackage
 
+[![License: MIT](https://img.shields.io/github/license/mattneel/jackage)](LICENSE)
+[![Zig 0.18.0-dev.146](https://img.shields.io/badge/Zig-0.18.0--dev.146-F7A41D?logo=zig&logoColor=black)](.zigversion)
+[![QuickJS-NG 0.17.0](https://img.shields.io/badge/QuickJS--NG-0.17.0-5A5A5A)](vendor/manifest.json)
+[![Linux](https://img.shields.io/badge/Linux-x86__64-FCC624?logo=linux&logoColor=black)](#build-and-test)
+[![Windows](https://img.shields.io/badge/Windows-x86__64-0078D4?logo=windows&logoColor=white)](#build-and-test)
+
 A package manager and reproducible software assembly system, written in Zig with
-QuickJS-NG for JavaScript evaluation.
+QuickJS-NG for JavaScript evaluation. Jackage assembles packages, development
+environments, and release images, with three independent backend families.
 
-Jackage assembles packages, development environments, and release images. It turns
-declared inputs into installed profiles, development environments, and distributable
-artifacts, with three independent backend families:
+* **Execution, package, and repository backends are independent.** The core owns
+  dependency resolution, identity, policy, storage, and evidence; a backend supplies
+  capability but cannot redefine trust policy or artifact identity.
+* **Source, immutable artifacts, and disposable caches are separate.** Identities are
+  canonical digests, the store is content-addressed and append-only, and a cache is
+  something that can be deleted without losing a fact.
+* **A release claim belongs to executed evidence.** Each acceptance case records a
+  deliberate implementation fault and shows the test failing for that reason, so the
+  evidence demonstrates the assertion is load-bearing rather than merely present.
 
-| Family | Responsibility |
-|---|---|
-| Execution | Run actions natively, or inside a strict Linux sandbox with its own namespaces |
-| Package | Build portable, OCI, and native platform artifacts |
-| Repository | Transport artifacts through local channels, GitHub Pages, or GitHub Releases |
-
-The core owns dependency resolution, identity, policy, storage, and evidence. A backend
-supplies capability; it cannot redefine trust policy or artifact identity.
+The strict execution backend runs actions inside user, mount, PID, and network
+namespaces: a fresh tmpfs root, the workspace writable, the store read-only, declared
+inputs copied in rather than bind-mounted (the kernel refuses host binds in an
+unprivileged user namespace), and a `chroot` so the host filesystem is not reachable.
+A worker's capability claims are never trusted until an independent probe fails to break
+them.
 
 ## Status
 
 Mid-delivery, and honest about it. The implementation follows an ordered, test-driven
-milestone plan; each acceptance case carries recorded evidence, including deliberate
-implementation faults that prove the tests fail for the right reason.
+milestone plan; every completed case carries characterize, fault, green, and regression
+evidence plus a review.
 
 | Milestone | State |
 |---|---|
@@ -33,20 +44,13 @@ implementation faults that prove the tests fail for the right reason.
 | M06 profiles and transient execution | complete |
 | M07 repository trust and local channels | complete |
 | M08 strict Linux execution and verified transport | in progress |
-| M09-M17 | not started |
-
-The strict execution backend runs actions inside user, mount, PID, and network
-namespaces: a fresh tmpfs root, the workspace writable, the store read-only, declared
-inputs copied in rather than bind-mounted (the kernel refuses host binds in an
-unprivileged user namespace), and a `chroot` so the host filesystem is not reachable.
-Capability claims made by a worker are never trusted until an independent probe fails to
-break them.
+| M09–M17 | not started |
 
 ## Requirements
 
 - The pinned Zig toolchain in `.zigversion` (currently `0.18.0-dev.146+35accc06e`).
-  Run `scripts/zig.ps1` and it fetches the pinned compiler to `tools/zig/` on first use.
-- Windows for the host test suite, or a Linux environment for the guest suites.
+  `scripts/zig.ps1` fetches the pinned compiler into `tools/zig/` on first use.
+- Windows for the host test suite, and a Linux environment for the guest suites.
   The strict sandbox requires Linux namespaces.
 
 ## Build and test
@@ -60,11 +64,11 @@ pwsh -NoProfile -File scripts/test.ps1 -Filter m05     # one case or group
 Linux (guest) suites, including the sandbox acceptance tests:
 
 ```sh
-sh scripts/test.sh                 # product suite in the guest
-sh scripts/strict-test.sh STRICT-001   # build worker, probe, and the sandbox suite
+sh scripts/test.sh                      # product suite in the guest
+sh scripts/strict-test.sh STRICT-001    # build worker, probe, and the sandbox suite
 ```
 
-The sandbox also builds two helper programs for the Linux execution environment:
+The sandbox builds two helper programs for the Linux execution environment:
 
 ```powershell
 pwsh -NoProfile -File scripts/zig.ps1 build worker probe

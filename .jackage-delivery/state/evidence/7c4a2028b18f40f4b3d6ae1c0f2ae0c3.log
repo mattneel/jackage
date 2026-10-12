@@ -1,0 +1,32 @@
+strict suite failed to build:
+strict-test
++- run test strict-tests 1 pass, 1 fail (2 total)
+error: 'worker.strict_tests.test.STRICT-001 deny undeclared filesystem: writes outside the declared set fail' failed:
+       JCKG_EVIDENCE STRICT-001
+       harness: sent secret and handshake, awaiting the worker's
+       harness: handshake answered
+       harness: sent auth, awaiting the response
+       harness: authenticated
+       harness: sent run, reading events
+       worker said: runner: plan accepted, applying mounts
+       harness: response received
+       harness: waiting for the worker to exit
+       harness: worker exited
+       harness: status=0 response={"exit":1} events={"action":1,"kind":"event","name":"started","payload":{},"sequence":1}
+       {"action":1,"kind":"event","name":"stdout","payload":{"check":"undeclared_write_denied","detail":"/jckg/undeclared-probe","held":false},"sequence":2}
+       {"action":1,"kind":"event","name":"exited","payload":{},"sequence":3}
+       
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:584:14: 0x125c619 in expect (std.zig)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:291:13: 0x125cae2 in body (strict_tests_entry.zig)
+                   try testing.expect(std.mem.indexOf(u8, undeclared.events, "\"held\":true") != null);
+                   ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:276:5: 0x125d7f7 in requireLinuxOrRefusal__func_955 (strict_tests_entry.zig)
+           try body();
+           ^
+       /home/autark/jckg/dev/src/worker/strict_tests.zig:281:5: 0x125d87c in test.STRICT-001 deny undeclared filesystem: writes outside the declared set fail (strict_tests_entry.zig)
+           try requireLinuxOrRefusal(struct {
+           ^
+failed command: /tmp/jckg-strict-cache/o/19c27494b891e3064477cf2793d5ec96/strict-tests --cache-dir=/tmp/jckg-strict-cache --seed=0xeb180b77 --listen=-
+
