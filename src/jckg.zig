@@ -56,6 +56,7 @@ test {
     _ = @import("trust/root.zig");
     _ = @import("worker/auth.zig");
     _ = @import("worker/controller.zig");
+    _ = @import("selfhost/bootstrap.zig");
     _ = @import("worker/cross_tests.zig");
     _ = @import("worker/frames.zig");
     _ = @import("worker/main.zig");

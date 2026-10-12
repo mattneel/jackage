@@ -1,0 +1,45 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total); 1 leaks
+error: 'selfhost.bootstrap.test.m09/SELF-006 bootstrap without Jackage: declared inputs are verified, not assumed' failed:
+       JCKG_EVIDENCE SELF-006
+       expected error.PinMismatch, found { 48, 46, 49, 56, 46, 48, 45, 100, 101, 118, 46, 49, 52, 54, 43, 51, 53, 97, 99, 99, 99, 48, 54, 101 }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff77b9f8d54 in expectError__func_875 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\selfhost\bootstrap.zig:161:5: 0x7ff77b9f96dc in test.m09/SELF-006 bootstrap without Jackage: declared inputs are verified, not assumed (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.PinMismatch, verifyPin(io, gpa, root, wrong_pin));
+           ^
+       [SafeAllocator] (err): leaked [addr: 1520488, len: 24 (0x18) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff77b8ce93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\selfhost\bootstrap.zig:67:31: 0x7ff77ba00bd8 in verifyPin (jckg-tests_zcu.obj)
+           const owned = try gpa.dupe(u8, pin);
+                                     ^
+       C:\src\jackage\src\selfhost\bootstrap.zig:161:61: 0x7ff77b9f9576 in test.m09/SELF-006 bootstrap without Jackage: declared inputs are verified, not assumed (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.PinMismatch, verifyPin(io, gpa, root, wrong_pin));
+                                                                   ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff77b87d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff77b87d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff77b87b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff77b87b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff77ba02e57 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-SELF-006\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xba35d51a --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total); 1 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xba35d51a test -Dfilter=SELF-006 --prefix C:\src\jackage\.zig-cache\test-prefix-SELF-006

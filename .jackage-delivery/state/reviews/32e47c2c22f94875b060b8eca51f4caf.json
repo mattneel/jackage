@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "32e47c2c22f94875b060b8eca51f4caf",
+  "case": "SELF-006",
+  "caseDigest": "11ebadc032d46bed1b340416066c6fcdca848823af5e37a78874531b6fdf8e4b",
+  "reviewer": "OMP agent (M09 self-hosting)",
+  "note": "SELF-006 bootstrap without Jackage: the bootstrap's starting point is declared external inputs, and src/selfhost/bootstrap.zig verifies them rather than assuming them. Two refusals are the substance of the case: a checkout whose compiler pin is not the declared pin fails before anything is built (building with a different compiler and comparing digests afterwards would test the wrong thing), and a produced client whose digest does not match its declaration is a failure, never a warning. A missing client, an unreadable client, and a wrong digest are three distinct errors, so a failure report names the right one. The archive digest comes from the audit's recorded provenance so the pin and its archive cannot drift apart. Fault proof: accepting any pin makes the mismatch assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain. The client is produced by the documented scripts (scripts/zig.ps1 + scripts/test.ps1); this case covers the verification half, including the measurement path a first bootstrap uses to record a digest.",
+  "reviewedUtc": "2026-10-12T15:17:40.032741+00:00",
+  "records": [
+    "70014ad3c0a448a5bfe34ac76bf27e7b",
+    "d5547124e1e844dba070371ad94e7136",
+    "14a366437a8d406cb5b2104b35f8a94c",
+    "d4012a94a8354f389485d5d3076211aa"
+  ],
+  "recordDigests": {
+    "70014ad3c0a448a5bfe34ac76bf27e7b": "42203188d3010dc35e6c966f5c9cae630debf743f5c6c43b73ecaa0bdccf7fe8",
+    "d5547124e1e844dba070371ad94e7136": "12cca51e8f627ac53e67e54a019feab5f4a30a32d365f6762a78d422c4a99e70",
+    "14a366437a8d406cb5b2104b35f8a94c": "cf16e2192cab52ef626f341f9a4675aee3dc3a66e1ac17007bfd794808e43e80",
+    "d4012a94a8354f389485d5d3076211aa": "0044100720f51c2149e8b217c816fceb6a6e648f71d30071be56c9c4485fbdb9"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
