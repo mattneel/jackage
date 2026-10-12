@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "02bb4db5513345569032bf13b84af28e",
+  "case": "IMAGE-007",
+  "caseDigest": "6280a5e6c36c14152474e2cb39e5271efff63e2722637d7e21666d3fdb1899b8",
+  "stage": "fault",
+  "testId": "m15/IMAGE-007 report image reproducibility: payload equality and image equality are separate",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "IMAGE-007"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T18:05:32.110397+00:00",
+  "finishedUtc": "2026-10-12T18:05:35.938399+00:00",
+  "exitCode": 1,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE IMAGE-007",
+  "markerFound": true,
+  "logPath": "state/evidence/02bb4db5513345569032bf13b84af28e.log",
+  "logSha256": "0a923ad68cd997e3d6884ba1304f154e6bb726e5ed6a5fd5f380b87c74071e6a",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "e64b7f1db3b10c98b594fbefe6a3495a39eb663a",
+    "statusSha256": "8e52fffc7a5dbe5672a4f9bba39981d0185844bc1a8b79b334b3d2d9561b4d50",
+    "trackedDiffSha256": "ba2295d0e05e0d14cd9f23cf26ade0bf13893ee442ac17127b8d84a5f5cd7426",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "e64b7f1db3b10c98b594fbefe6a3495a39eb663a",
+    "statusSha256": "9194e8026b491557cb1580bf57da4e05fcae56d2f2ef2333e658ebb97d11d5ce",
+    "trackedDiffSha256": "ba2295d0e05e0d14cd9f23cf26ade0bf13893ee442ac17127b8d84a5f5cd7426",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

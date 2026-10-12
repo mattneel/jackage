@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE IMAGE-003
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-IMAGE-003\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xbe5ee072 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 images.release_image.test.m15/IMAGE-003 assemble release image: build-only tools and caches stay outside the payload...JCKG_EVIDENCE IMAGE-003
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

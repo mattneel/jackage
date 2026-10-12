@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "0afdfb968a8a4a16ba1952ebae9f2b4c",
+  "case": "IMAGE-007",
+  "caseDigest": "6280a5e6c36c14152474e2cb39e5271efff63e2722637d7e21666d3fdb1899b8",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-007 report image reproducibility: two builds of one declaration usually differ somewhere, and reporting that as either reproducible or different without saying which thing was compared is the failure this case is about. src/images/reproducibility.zig gives both answers: payload equality is every layer digest, which is the claim that matters because the layers are what run, and image equality is the manifest and config bytes as well, which is the stricter claim about the wrapper. The config is compared field by field rather than as bytes, so the report names the wrapper fields that differ - 'created' rather than 'the documents differ' - including fields present on one side only and differences inside nested documents. The test covers a wrapper-only difference, a differing layer named by index, identical builds where both claims hold, a nested config difference, a manifest-only difference where the payload still matches, and a layer-count mismatch that is a caller mistake rather than a finding. Fault proof: collapsing the payload claim into the whole-image claim reports a wrapper difference as a content difference and the payload assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:07:44.928459+00:00",
+  "records": [
+    "cfc0a3c45cf84fc0981152a75bdec243",
+    "02bb4db5513345569032bf13b84af28e",
+    "adb87d351bef499783c00e105db0d4bf",
+    "96947abe02e24dd9a61204cdb671e175"
+  ],
+  "recordDigests": {
+    "cfc0a3c45cf84fc0981152a75bdec243": "1751c6122f9c13d810e39a865a134c8f2101a5f846522c9947fe42ef4a485f4a",
+    "02bb4db5513345569032bf13b84af28e": "fcaddd32417ab3bb92350e0c41044195740cc07bfc38c6be3472abc355398ede",
+    "adb87d351bef499783c00e105db0d4bf": "5969068ae513a318b466e0a68a371a688f691b031503a5b480acf5be70efbb65",
+    "96947abe02e24dd9a61204cdb671e175": "61c0e51746494eb3967f9da6d9ec250f4077f2dc851de53718228a388c2ef634"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

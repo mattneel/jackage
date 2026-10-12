@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "17a2c6b130ed49cb8848178197d62056",
+  "case": "IMAGE-003",
+  "caseDigest": "0c91837b60db503634a2c132ff3b9194bb807eec550b6511b9310b17b920204c",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-003 assemble release image: a release ships what a program needs to run, and a build machine holds far more - a compiler, the scripts that drove it, and caches of everything it produced. src/images/release_image.zig makes the payload the runtime closure, named by digest, and enforces the boundary twice because the two checks catch different mistakes: the closure is validated before anything is written, so a compiler or cache named as runtime is refused while the message can still say what is wrong with it, and the written image is scanned again because the closure is data and data gets edited. The bytes come from the store by digest, so what ships is what was verified, and the image is written with the same OCI layout writer the development image uses - the backends differ in what they select, not in how an image is laid out. The test builds a real layout, reads it back so the check is on the artifact rather than the closure alone, and covers a compiler, a cache, and the build definition named as runtime, an object absent from the store, a malformed digest, two objects at one path, an empty closure, and the boundary that a file merely beginning with a build-only word is not that directory. Fault proof: making nothing build-only ships the compiler and the caches and the closure assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:10:17.755445+00:00",
+  "records": [
+    "fc67dd5653464acdab59d1df4c852a0f",
+    "a166ef9b183049a69e7e244f1420724a",
+    "070d07a626004ca8912afeb40f473aa4",
+    "aded5f18ba984f2b94c543992491ec83"
+  ],
+  "recordDigests": {
+    "fc67dd5653464acdab59d1df4c852a0f": "679a2abc112167e4a47ab5f6f8578ec1b764bdc496cd605edb376e1a89ce6909",
+    "a166ef9b183049a69e7e244f1420724a": "e7cbae2722283eaa01d98a50fbe1b0a81661712595d5e38d2f9eca1d5bff7487",
+    "070d07a626004ca8912afeb40f473aa4": "b04d03e4d8c82848bb2df8b77579284a23b7dfcacab335e724365f3f7627a75f",
+    "aded5f18ba984f2b94c543992491ec83": "dcae42677b264eecc5fc44191def6b34e1be806567cfc0a3ee87b2a2349c25a1"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

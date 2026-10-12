@@ -1,0 +1,96 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total); 3 leaks
+error: 'images.dev_environment.test.m15/IMAGE-001 assemble dev environment: declared tools, no host credentials' failed:
+       JCKG_EVIDENCE IMAGE-001
+       expected error.CredentialInPayload, found .{ .files = { .{ .path = { ... }, .bytes = { ... }, .executable = false } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff70f7c8882 in expectError__func_863 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\images\dev_environment.zig:391:5: 0x7ff70f7cad95 in test.m15/IMAGE-001 assemble dev environment: declared tools, no host credentials (jckg-tests_zcu.obj)
+           try std.testing.expectError(
+           ^
+       [SafeAllocator] (err): leaked [addr: 1440e40, len: 40 (0x28) align: 8] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:751:26: 0x7ff70f7dd729 in toOwnedSlice (jckg-tests_zcu.obj)
+                   if (gpa.remap(old_memory, self.items.len)) |new_items| {
+                                ^
+       C:\src\jackage\src\images\dev_environment.zig:168:46: 0x7ff70f7dcf52 in assemble (jckg-tests_zcu.obj)
+           return .{ .files = try files.toOwnedSlice(gpa) };
+                                                    ^
+       C:\src\jackage\src\images\dev_environment.zig:393:17: 0x7ff70f7caab5 in test.m15/IMAGE-001 assemble dev environment: declared tools, no host credentials (jckg-tests_zcu.obj)
+               assemble(gpa, io, source, .{ .name = "x", .base = "sha256:00", .entries = &naming }),
+                       ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff70f64d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff70f64d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff70f64b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff70f64b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff70f7e3837 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 1440d30, len: 16 (0x10) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff70f69e93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\images\dev_environment.zig:157:33: 0x7ff70f7dc93a in assemble (jckg-tests_zcu.obj)
+                   .path = try gpa.dupe(u8, entry.path),
+                                       ^
+       C:\src\jackage\src\images\dev_environment.zig:393:17: 0x7ff70f7caab5 in test.m15/IMAGE-001 assemble dev environment: declared tools, no host credentials (jckg-tests_zcu.obj)
+               assemble(gpa, io, source, .{ .name = "x", .base = "sha256:00", .entries = &naming }),
+                       ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff70f64d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff70f64d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff70f64b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff70f64b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff70f7e3837 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 1440c70, len: 27 (0x1b) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:751:26: 0x7ff70f7d0d39 in toOwnedSlice (jckg-tests_zcu.obj)
+                   if (gpa.remap(old_memory, self.items.len)) |new_items| {
+                                ^
+       C:/src/jackage/tools/zig/lib/std/Io/Reader.zig:320:35: 0x7ff70f7d09f6 in allocRemainingAlignedSentinel__func_910 (jckg-tests_zcu.obj)
+               return buffer.toOwnedSlice(gpa);
+                                         ^
+       C:/src/jackage/tools/zig/lib/std/Io/Dir.zig:1371:63: 0x7ff70f7d0435 in readFileAllocOptions__func_908 (jckg-tests_zcu.obj)
+           return file_reader.interface.allocRemainingAlignedSentinel(gpa, limit, alignment, sentinel) catch |err| switch (err) {
+                                                                     ^
+       C:/src/jackage/tools/zig/lib/std/Io/Dir.zig:1342:32: 0x7ff70f7d0195 in readFileAlloc (jckg-tests_zcu.obj)
+           return readFileAllocOptions(dir, io, sub_path, gpa, limit, .of(u8), null);
+                                      ^
+       C:\src\jackage\src\images\dev_environment.zig:151:41: 0x7ff70f7dc544 in assemble (jckg-tests_zcu.obj)
+               const bytes = root.readFileAlloc(io, entry.source, gpa, .limited(64 * 1024 * 1024)) catch
+                                               ^
+       C:\src\jackage\src\images\dev_environment.zig:393:17: 0x7ff70f7caab5 in test.m15/IMAGE-001 assemble dev environment: declared tools, no host credentials (jckg-tests_zcu.obj)
+               assemble(gpa, io, source, .{ .name = "x", .base = "sha256:00", .entries = &naming }),
+                       ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff70f64d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       (additional stack frames may have been skipped...)
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-IMAGE-001\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xea789732 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total); 3 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xea789732 test -Dfilter=IMAGE-001 --prefix C:\src\jackage\.zig-cache\test-prefix-IMAGE-001

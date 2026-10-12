@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "a0a3ff394bf04549a4c6b4b0d76b382b",
+  "case": "IMAGE-001",
+  "caseDigest": "13ed0eec1783e73aa3a070e39829fcf9efd77e7c8174f2347ab9818507d713d6",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-001 assemble dev environment: a development image promises the declared tools and nothing of the developer's machine, so src/images/dev_environment.zig uses two mechanisms because either alone has a failure mode. The payload is declared rather than collected - only the entries the declaration names are read, so a workspace's other files are not an input at all - and the finished payload is scanned for credential-shaped names and private-key bodies, so a declaration that names a credential by accident or after an edit is caught before the image exists. Credentials are refused rather than skipped, an environment value containing a token is caught with the same rules, the executable bit travels with a tool because that is part of what a tool is, and a path under .git or .ssh is refused even though it is not a credential file. The output is a real OCI layout - oci-layout, index.json, and blobs named by digest - written with a deterministic tar so two builds of the same declaration produce the same layer and manifest digests, which is what makes the artifact verifiable downstream. Fault proof: making nothing prohibited lets credentials travel with the image and the refusal assertions fail (exit 1; the first fault attempt had unreachable code and did not compile, which is a compile error and not a fault, and was retaken); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:02:23.214137+00:00",
+  "records": [
+    "96cd88b50031499cb691917bf5c57bc9",
+    "ba8bf58692c84a1ea2b2bbeee148f129",
+    "9a238133b29841f180d262c72a1f831b",
+    "4d2da05cd06b46cf957599bc66df2fd0"
+  ],
+  "recordDigests": {
+    "96cd88b50031499cb691917bf5c57bc9": "a83006ce0719313f42f51b24b1db7a4f56617d049b662dc0b3920720ce209f73",
+    "ba8bf58692c84a1ea2b2bbeee148f129": "e943855c827672eb0dc96801fbf53be27b3f1aea66e41b87f6ade8bba6fc7f3d",
+    "9a238133b29841f180d262c72a1f831b": "d07753e7e8385e84128501dd4a9c7efe1f727805e6dec2cc1d7f9670cfcb8097",
+    "4d2da05cd06b46cf957599bc66df2fd0": "cf02bae92112236a06d08024059aee869174fd0de4edb537b76339da97c0c569"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

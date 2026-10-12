@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "2db74623cc494049b6cbcbf7c4b6ad2a",
+  "case": "IMAGE-008",
+  "caseDigest": "1466aa11ae0eeb5877df88c05ba3e4006eb0a70377c383806a30a9922cfb365f",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-008 exclude user state: the declaration is checked as the image is assembled and that is not enough, because an image is a stack of layers whose lower ones may come from elsewhere and a photo of the top layer says nothing about what is underneath. src/images/layer_scan.zig reads the layout the way a consumer would - index, manifest, and the layer blobs it names - walks each layer's tar and reports the first entry that should not be there, naming the layer digest so the finding is actionable rather than 'somewhere in this image'. The tar is parsed rather than searched, so a path mentioned inside a file's contents is not treated as a path in the image, and a body that is a private key is an offence whatever the member is called. The test builds a layout with an offending entry in the lower layer, added directly as a base image would be, so a check that only looked at what the build produced would miss it - which is exactly the fault that was applied and caught. Classification checks git metadata and caches before secrets, because the categories overlap and calling .git a secret would name the wrong problem. Fault proof: scanning only the top layer misses the lower layer and the assertion fails (exit 1; the first attempt scanned the first layer, which happened to be the offending one, so it was retaken against the top); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:05:21.454645+00:00",
+  "records": [
+    "d6bf4fbdad6941b7a5a4b9fd1664e002",
+    "b454ffdb789646029f6aa504f79d9291",
+    "91f6b5bd23ab4596ada586c503f761a2",
+    "888dad5a34f7413dac828441c9d6b7c3"
+  ],
+  "recordDigests": {
+    "d6bf4fbdad6941b7a5a4b9fd1664e002": "bab829edd2e3f0c8e7bb91ec80a654bd97e3eae11dc7a8bac4c794f7abd90b25",
+    "b454ffdb789646029f6aa504f79d9291": "65fea63b0994aa4748012455ecaf51df2cdfdee330379ae1b9bd3960e72df2b5",
+    "91f6b5bd23ab4596ada586c503f761a2": "3b49e3c4b40ccbc714101780136455578f628223b347384bf9cc3c2acdbda90d",
+    "888dad5a34f7413dac828441c9d6b7c3": "8d40d22ae56aaab7b0f9fbbfa2fbc3a3bab901c52f544961970e34649c85becb"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

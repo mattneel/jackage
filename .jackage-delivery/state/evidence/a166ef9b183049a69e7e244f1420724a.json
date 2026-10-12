@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "a166ef9b183049a69e7e244f1420724a",
+  "case": "IMAGE-003",
+  "caseDigest": "0c91837b60db503634a2c132ff3b9194bb807eec550b6511b9310b17b920204c",
+  "stage": "fault",
+  "testId": "m15/IMAGE-003 assemble release image: build-only tools and caches stay outside the payload",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "IMAGE-003"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T18:08:02.623043+00:00",
+  "finishedUtc": "2026-10-12T18:08:06.412113+00:00",
+  "exitCode": 1,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE IMAGE-003",
+  "markerFound": true,
+  "logPath": "state/evidence/a166ef9b183049a69e7e244f1420724a.log",
+  "logSha256": "ad5b06a49189abfb057406e9642e9b6e5ef41744272caa000fe7db82ada7c433",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "e64b7f1db3b10c98b594fbefe6a3495a39eb663a",
+    "statusSha256": "a7c162844671960fbc821d47c5884051616a923909fce27fb6bfdd430879ffca",
+    "trackedDiffSha256": "e5b404414e713052484336ae6d7df9760c2118aad49cceb5af68389b17a395e7",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "e64b7f1db3b10c98b594fbefe6a3495a39eb663a",
+    "statusSha256": "78fe3ecf2cca1cf8521c743240056b5621301dd598044e841ea156d6ac483d7e",
+    "trackedDiffSha256": "e5b404414e713052484336ae6d7df9760c2118aad49cceb5af68389b17a395e7",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

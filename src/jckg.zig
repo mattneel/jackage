@@ -51,6 +51,10 @@ test {
     _ = @import("space/cache_policy.zig");
     _ = @import("space/lease_recovery.zig");
     _ = @import("channels/discovery.zig");
+    _ = @import("images/dev_environment.zig");
+    _ = @import("images/layer_scan.zig");
+    _ = @import("images/release_image.zig");
+    _ = @import("images/reproducibility.zig");
     _ = @import("channels/install.zig");
     _ = @import("channels/publication.zig");
     _ = @import("channels/refresh.zig");
