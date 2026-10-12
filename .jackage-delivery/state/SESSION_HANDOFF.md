@@ -528,3 +528,40 @@ Two operational lessons worth carrying forward:
    log on failure.
 2. **Silence is not evidence of hanging.** Guest builds that produced no output at all were
    reported as timeouts; the same code built in seconds once the machine was idle.
+
+## M08 complete: nine milestones gate-green
+
+M00 through M08 all report `localGateComplete: true` (gates exit 0). 100 of 188 cases are
+complete. Every STRICT case carries characterize, fault, green with a byte-identical
+revert, an unfiltered regression, and a review.
+
+The defects that running it found, all fixed and each now covered by a case:
+
+1. **Pipes around fork were the hang.** The action's output went through pipes to the
+   worker and the EOF lifecycle was never right; the action now writes into its own
+   workspace and the worker reads the files after `wait4`. Suite time went from 400+
+   seconds of hang to about five seconds.
+2. **Limits belonged to the child.** Applying `RLIMIT_AS`/`NPROC` in the worker also
+   constrained the worker's own fork; the child applies them with raw syscalls before exec.
+3. **Host binds are refused in this user namespace.** Declared inputs are copied in, the
+   root is a tmpfs, and `chroot` hides the host - which is what makes STRICT-001 true.
+4. **Read-only remounts come last.** A mount cannot be created inside a read-only
+   filesystem, and remounting a parent does not affect a child mount.
+5. **Attempt the violation, do not take inventory.** The network check opens a socket and
+   tries a real connection; the abandoned `/proc/net/dev` inventory read as empty inside
+   the chroot and was weaker evidence anyway.
+6. **A filtered run is not a build gate, and a hidden log is not a diagnosis.** Both cost
+   real time tonight; both are now written rules.
+
+### Decision: audit baselines follow the checkout
+
+Publishing the repository added `LICENSE`, `AGENTS.md`, `.github/FUNDING.yml`, a README,
+and vendor rules in `.gitignore`, and the M08 work extended `build.zig`. The audit cases
+correctly detected all of it. Two responses were taken, and they are different:
+
+- `.gitignore` is classed `preserved`, so its recorded digest was **re-recorded** with the
+  reason stated in the record's own `meaning` field - a preserved file moved once, with a
+  recorded reason, rather than silently.
+- The licence assertions previously asserted that **no** project licence existed. They now
+  assert that a declared `LICENSE` **is detected** (path reported, MIT text present), which
+  is what the audit is for. Re-pinning the old expectation would have made the audit lie.
