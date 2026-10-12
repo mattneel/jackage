@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "fb6a8d942794422ead05f05ca3ec69ec",
+  "case": "FACTORY-007",
+  "caseDigest": "51526e12d6e56e739972813494e8a0d23640e7a709889b1781948c702902046a",
+  "reviewer": "OMP agent (M16 agent-native factory and migration)",
+  "note": "FACTORY-007 demonstrate full pipeline: src/factory/pipeline.zig runs eight stages in order - build, test, package, publish, install, run, rollback, collect - and each one performs its work through the repository's own interfaces rather than reimplementing anything: the pinned compiler builds a real fixture and runs its test suite, the tar writer produces a real archive, the publication transaction writes and activates metadata once with a single signing use, the installer serves the archive from a fixture channel and verifies it against the digest the metadata declared, the built binary actually executes, the migration journal is undone exactly, and reachability is computed with an attribution. Each stage returns evidence - the command, the artifact digest, and what it observed - and the sequencer refuses a stage that produced no evidence and a report that does not cover the stages the caller promised, so an incomplete delivery cannot be reported as a complete one. The chain is connected rather than adjacent, and the test asserts the digest installed is the digest published is the digest packaged. Writing it found three real defects that only running could: a relative path to the pinned compiler resolving against the changed working directory and silently building the wrong project, a doubled path component in the install prefix, and a double free where the stage freed a slice that the migration helper already frees - followed by a leak where a re-run stage overwrote its predecessor's allocation. Fault proof: accepting empty evidence makes the no-evidence assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T19:22:24.484053+00:00",
+  "records": [
+    "352c0dd2675a43cbac38616da90ee27b",
+    "05e70ecec97c400f9b588aab92b04530",
+    "039c0811041e48588866d19251e63ecd",
+    "f7a37b806aac402093f734e825041d66"
+  ],
+  "recordDigests": {
+    "352c0dd2675a43cbac38616da90ee27b": "5805522aee7a981d63b745746b41ae877d6ff7f12cda300970ef0bfcd0f029d8",
+    "05e70ecec97c400f9b588aab92b04530": "90550c3c2acfdf7fec06e7f52f162c53bcf32c2d52dafd0fedb91ace100865b8",
+    "039c0811041e48588866d19251e63ecd": "147d2bb29e5b91f0bd1c1d63c553f998e536afaf1c97bc349bc93531762fb8e0",
+    "f7a37b806aac402093f734e825041d66": "bea97286ed1c8616e237f7431954d455e3cd01990ddd8e8efee01e59ec8c5992"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

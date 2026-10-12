@@ -1,0 +1,93 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total); 3 leaks
+error: 'factory.pipeline.test.m16/FACTORY-007 demonstrate full pipeline: every stage produces evidence through public interfaces' failed:
+       JCKG_EVIDENCE FACTORY-007
+       expected error.StageProducedNothing, found .{ .stages = { .{ .stage = { ... }, .command = { ... }, .artifact = { ... }, .outcome = { ... } } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff7d4058c22 in expectError__func_872 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\factory\pipeline.zig:700:5: 0x7ff7d405a807 in test.m16/FACTORY-007 demonstrate full pipeline: every stage produces evidence through public interfaces (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.StageProducedNothing, runPipeline(gpa, &context, &empty_stage, &.{"empty"}));
+           ^
+       [SafeAllocator] (err): leaked [addr: 39213a0, len: 64 (0x40) align: 8] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:751:26: 0x7ff7d4061e19 in toOwnedSlice (jckg-tests_zcu.obj)
+                   if (gpa.remap(old_memory, self.items.len)) |new_items| {
+                                ^
+       C:\src\jackage\src\factory\pipeline.zig:167:64: 0x7ff7d4060b3d in runPipeline (jckg-tests_zcu.obj)
+           const report = Report{ .stages = try evidences.toOwnedSlice(gpa) };
+                                                                      ^
+       C:\src\jackage\src\factory\pipeline.zig:700:72: 0x7ff7d405a59e in test.m16/FACTORY-007 demonstrate full pipeline: every stage produces evidence through public interfaces (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.StageProducedNothing, runPipeline(gpa, &context, &empty_stage, &.{"empty"}));
+                                                                              ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff7d3edd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff7d3edd956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff7d3edb481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff7d3edb481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff7d4379bb7 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 3921290, len: 7 (0x7) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff7d3f2e93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\factory\pipeline.zig:573:40: 0x7ff7d405b739 in emptyStage (jckg-tests_zcu.obj)
+               .outcome = try context.gpa.dupe(u8, "nothing"),
+                                              ^
+       C:\src\jackage\src\factory\pipeline.zig:113:40: 0x7ff7d40682df in run (jckg-tests_zcu.obj)
+               const evidence = try self.runFn(context);
+                                              ^
+       C:\src\jackage\src\factory\pipeline.zig:163:39: 0x7ff7d4060c18 in runPipeline (jckg-tests_zcu.obj)
+               const evidence = try stage.run(context);
+                                             ^
+       C:\src\jackage\src\factory\pipeline.zig:700:72: 0x7ff7d405a59e in test.m16/FACTORY-007 demonstrate full pipeline: every stage produces evidence through public interfaces (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.StageProducedNothing, runPipeline(gpa, &context, &empty_stage, &.{"empty"}));
+                                                                              ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff7d3edd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff7d3edd956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 3921200, len: 5 (0x5) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff7d3f2e93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\factory\pipeline.zig:570:38: 0x7ff7d405b52b in emptyStage (jckg-tests_zcu.obj)
+               .stage = try context.gpa.dupe(u8, "empty"),
+                                            ^
+       C:\src\jackage\src\factory\pipeline.zig:113:40: 0x7ff7d40682df in run (jckg-tests_zcu.obj)
+               const evidence = try self.runFn(context);
+                                              ^
+       C:\src\jackage\src\factory\pipeline.zig:163:39: 0x7ff7d4060c18 in runPipeline (jckg-tests_zcu.obj)
+               const evidence = try stage.run(context);
+                                             ^
+       C:\src\jackage\src\factory\pipeline.zig:700:72: 0x7ff7d405a59e in test.m16/FACTORY-007 demonstrate full pipeline: every stage produces evidence through public interfaces (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.StageProducedNothing, runPipeline(gpa, &context, &empty_stage, &.{"empty"}));
+                                                                              ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff7d3edd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff7d3edd956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       (additional stack frames may have been skipped...)
+failed command: ".\\.zig-cache\\o\\4ca74106148c1e59add0c36033e7a9d7\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x7be32cd2 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total); 3 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x7be32cd2 test -Dfilter=FACTORY-007 --prefix C:\src\jackage\.zig-cache\test-prefix-FACTORY-007
