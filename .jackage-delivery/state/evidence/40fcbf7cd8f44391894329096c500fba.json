@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "40fcbf7cd8f44391894329096c500fba",
+  "case": "IMAGE-004",
+  "caseDigest": "0257b67303643003f42c13f30b3090e0b950ae9411acc09b16fb20500f56e9a5",
+  "stage": "green",
+  "testId": "m15/IMAGE-004 build root filesystem: exported filesystem passes closure and entry-point tests",
+  "platformRole": "linux-x86_64",
+  "actualPlatform": "linux-x86_64",
+  "command": [
+    "sh",
+    "scripts/test.sh",
+    "IMAGE-004"
+  ],
+  "cwd": "/home/autark/jckg/dev",
+  "startedUtc": "2026-10-12T18:12:43.415231+00:00",
+  "finishedUtc": "2026-10-12T18:12:44.021797+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE IMAGE-004",
+  "markerFound": true,
+  "logPath": "state/evidence/40fcbf7cd8f44391894329096c500fba.log",
+  "logSha256": "a15842f8c630e05adf11557ca2048544b75e26bfb040c2963cfdf25979b0296b",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

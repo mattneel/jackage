@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "4aad4b9a45be4c3393cbd6710e4adcc5",
+  "case": "IMAGE-004",
+  "caseDigest": "0257b67303643003f42c13f30b3090e0b950ae9411acc09b16fb20500f56e9a5",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-004 build root filesystem: src/images/rootfs.zig exports a locked runtime manifest as a tree and checks both directions of closure - every declared object present with the digest the manifest declared, and nothing undeclared in the tree, which is the direction that rots because a directory listing collects whatever was lying around. Paths are validated before anything is written: absolute paths, .., and empties are refused, because an export writes into a destination and a path that escapes it writes somewhere nobody asked for. The executable bit is applied from the manifest rather than inherited from the umask, and a manifest whose entry point is not marked executable is refused before the export exists. The entry point is then actually run from the exported tree, so the rootfs is a program's home rather than a directory of files. Evidence is recorded inside the WSL2 guest through scripts/wsl-evidence.ps1: actualPlatform and platformRole are both linux-x86_64, so the observation is of the platform the case names rather than of the host. Fault proof: dropping the executable requirement exports a rootfs whose entry point cannot run and the refusal assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:12:49.745210+00:00",
+  "records": [
+    "4950cd04b41a4be2beab88185f22ffcc",
+    "0542409393dc48b3a1fb9027438d76f8",
+    "40fcbf7cd8f44391894329096c500fba",
+    "ab02bfddee744084b3b4889abf24210d"
+  ],
+  "recordDigests": {
+    "4950cd04b41a4be2beab88185f22ffcc": "005b7f3550251428040a49a27dc3246c1f2b817df5716e742075ef17f0050fe0",
+    "0542409393dc48b3a1fb9027438d76f8": "8237e98d4ec048ac9eacef576949c7e8d25ab6ea31e38bdce314a02300f3fce5",
+    "40fcbf7cd8f44391894329096c500fba": "05f29ffc518220372f207a757d6ad944d8be3ee3c5962c8284b045d960b941aa",
+    "ab02bfddee744084b3b4889abf24210d": "448cc1422284d14cba3b42debb3af859a4dcfb621f35dc8df87488317096065c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

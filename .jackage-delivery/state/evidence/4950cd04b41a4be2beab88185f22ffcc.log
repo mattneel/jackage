@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE IMAGE-004
+failed command: ./.zig-cache/o/4365f439c0865f633d0b2ef10ed460cc/jckg-tests --cache-dir=./.zig-cache --seed=0x6c63d785 --listen=-
+
+=== eval-tests ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 images.rootfs.test.m15/IMAGE-004 build root filesystem: exported filesystem passes closure and entry-point tests...JCKG_EVIDENCE IMAGE-004
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

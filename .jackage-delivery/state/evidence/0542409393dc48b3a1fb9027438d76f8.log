@@ -1,0 +1,38 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total); 1 leaks
+error: 'images.rootfs.test.m15/IMAGE-004 build root filesystem: exported filesystem passes closure and entry-point tests' failed:
+       JCKG_EVIDENCE IMAGE-004
+       expected error.EntryPointNotExecutable, found .{ .files = 1, .total_bytes = 30, .entry_point = { 98, 105, 110, 47, 106, 99, 107, 103 } }
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:634:9: 0x126c03b in expectError__func_964 (std.zig)
+               return error.TestExpectedError;
+               ^
+       /home/autark/jckg/dev/src/images/rootfs.zig:343:5: 0x1270d41 in test.m15/IMAGE-004 build root filesystem: exported filesystem passes closure and entry-point tests (jckg.zig)
+           try std.testing.expectError(
+           ^
+       [SafeAllocator] (err): leaked [addr: 76f045960e48, len: 8 (0x8) align: 1] allocated at: 
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/mem/Allocator.zig:481:40: 0x10a2c6e in dupe__func_98 (std.zig)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       /home/autark/jckg/dev/src/images/rootfs.zig:127:80: 0x128b6bf in exportRootfs (jckg.zig)
+           return .{ .files = files, .total_bytes = total, .entry_point = try gpa.dupe(u8, manifest.entry_point) };
+                                                                                      ^
+       /home/autark/jckg/dev/src/images/rootfs.zig:345:21: 0x12709d2 in test.m15/IMAGE-004 build root filesystem: exported filesystem passes closure and entry-point tests (jckg.zig)
+               exportRootfs(gpa, io, store, root, .{ .name = "x", .entry_point = "bin/jckg", .objects = &not_executable }),
+                           ^
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/compiler/test_runner.zig:143:68: 0x1219da5 in mainServer (test_runner.zig)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/compiler/test_runner.zig:72:26: 0x121ac0d in main (test_runner.zig)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/start.zig:795:88: 0x12178fe in callMain (std.zig)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+                                                                                              ^
+       ../sysdeps/nptl/libc_start_call_main.h:58:16: 0x76f045c2a1c9 in __libc_start_call_main (../sysdeps/x86/libc-start.c)
+       (additional stack frames may have been skipped...)
+failed command: ./.zig-cache/test-prefix-IMAGE-004/bin/jckg-tests --cache-dir=./.zig-cache --seed=0x9726c906 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total); 1 leaks
+
