@@ -1,0 +1,23 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'channels.publication.test.m14/GH-007 dry-run publication, m14/GH-010 reject unauthorized publication' failed:
+       JCKG_EVIDENCE GH-007
+       JCKG_EVIDENCE GH-010
+       expected 0, found 2
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7e5858bfa in expectEqualInner__func_863 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7e5859c69 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\channels\publication.zig:234:5: 0x7ff7e5859de4 in test.m14/GH-007 dry-run publication, m14/GH-010 reject unauthorized publication (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 0), effects.remote_writes);
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-GH-007\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x93a43a83 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x93a43a83 test -Dfilter=GH-007 --prefix C:\src\jackage\.zig-cache\test-prefix-GH-007

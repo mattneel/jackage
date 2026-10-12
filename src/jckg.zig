@@ -51,6 +51,7 @@ test {
     _ = @import("space/cache_policy.zig");
     _ = @import("space/lease_recovery.zig");
     _ = @import("channels/discovery.zig");
+    _ = @import("channels/publication.zig");
     _ = @import("plugin/authority.zig");
     _ = @import("plugin/protocol.zig");
     _ = @import("plugin/cancellation.zig");

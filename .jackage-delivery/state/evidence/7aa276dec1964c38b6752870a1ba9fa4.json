@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "7aa276dec1964c38b6752870a1ba9fa4",
+  "case": "GH-007",
+  "caseDigest": "e7f84edb9631184bcd3c2ef7e50ef33d08ac681fee21d83ff780bbc92b9f9e56",
+  "stage": "green",
+  "testId": "m14/GH-007 dry-run publication, m14/GH-010 reject unauthorized publication",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "GH-007"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T17:35:54.378902+00:00",
+  "finishedUtc": "2026-10-12T17:35:57.955094+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE GH-007",
+  "markerFound": true,
+  "logPath": "state/evidence/7aa276dec1964c38b6752870a1ba9fa4.log",
+  "logSha256": "2e5f7eccb35a4681b1aafa01a8fcc3dc311394cf19fa8c0bd5fa7e461b8b2813",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "4df8847511c25962255bb4ef9abaeceee5e8b792",
+    "statusSha256": "54b3a60f965e627f806cbebf00dc92072364b83baf50f5199df75ce8c1dfd199",
+    "trackedDiffSha256": "815489a4f2ec8f109bf1ac211f3e259b1630e34f36d3992c2eeab9a9d7770df8",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "4df8847511c25962255bb4ef9abaeceee5e8b792",
+    "statusSha256": "8dede3fee9abd10a0ae0fea0ab9aee0e0a4186d0bbafade8a8ee0e5ac5094475",
+    "trackedDiffSha256": "815489a4f2ec8f109bf1ac211f3e259b1630e34f36d3992c2eeab9a9d7770df8",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}
