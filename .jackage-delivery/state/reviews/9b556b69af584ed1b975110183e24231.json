@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "9b556b69af584ed1b975110183e24231",
+  "case": "PACK-003",
+  "caseDigest": "f87f2f4b7e6b0aed96907d04bb255ce2e0166559ded569360ce09188f86583d9",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-003 build deterministic tar: a tar header carries a great deal of host state, and src/package/tar.zig takes all of it from the declaration - declared per-entry mode (so nothing becomes executable by accident), declared mtime defaulting to the epoch rather than the file's own time, zero uid/gid and a fixed uname/gname so an archive does not record which human built it, POSIX ustar magic, and names longer than a ustar field refused rather than silently split. Executable files, directories, and symbolic links are all covered; a declared mode change changes the bytes, which is what makes the policy meaningful rather than decorative. Running it found a real defect in the link check: traversal was judged from the archive root, so a legitimate ../bin/jckg from a link inside a/ was refused - the depth is now the link's own directory depth, and the escaping shapes (leading slash, and a target that climbs past the root) are asserted refusals. Fault proof: accepting any link target makes the escaping-link assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:46:25.907555+00:00",
+  "records": [
+    "33d38a98f8904f8e878ee1830ddc9d70",
+    "02a1f5ada6f94cc4bf91eaf772b3d383",
+    "e04c231358284e87b6048016886a8d58",
+    "018f64d4073f4d4d9b8a3f255a184b7d"
+  ],
+  "recordDigests": {
+    "33d38a98f8904f8e878ee1830ddc9d70": "e10024e06df53617ca523c29622d2589e9450bb212fa65907fdd9d1de883974b",
+    "02a1f5ada6f94cc4bf91eaf772b3d383": "23ab2b84a56dcd00663ef6c5c320df067c0e052c50395f2e4d4edfbf9b63a12d",
+    "e04c231358284e87b6048016886a8d58": "ea5272c7299c2c4fb749ef1b4c0cb970228eb6b73b2ad1b4bd18e4e6d9a74d78",
+    "018f64d4073f4d4d9b8a3f255a184b7d": "883c4a551786c059cfbf2e3d174fbd34e170f8fe32ab024443319a285a0f42d7"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

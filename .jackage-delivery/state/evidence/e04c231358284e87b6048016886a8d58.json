@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "e04c231358284e87b6048016886a8d58",
+  "case": "PACK-003",
+  "caseDigest": "f87f2f4b7e6b0aed96907d04bb255ce2e0166559ded569360ce09188f86583d9",
+  "stage": "green",
+  "testId": "m10/PACK-003 build deterministic tar: metadata policy and bytes repeat",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "PACK-003"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T15:44:37.926976+00:00",
+  "finishedUtc": "2026-10-12T15:44:41.983556+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE PACK-003",
+  "markerFound": true,
+  "logPath": "state/evidence/e04c231358284e87b6048016886a8d58.log",
+  "logSha256": "961a4b8569b578a7912d4dab7f70b6e1284f1a5fc5b62eefcecd7cfc7a51a53f",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "c5c4dd3277679506fec7f46070fe9fee825bb553",
+    "statusSha256": "f773f9323275c2a83446f25535a12c9f0522ac404c9f1e04ef0ff4a9dd252542",
+    "trackedDiffSha256": "5748266b2cfb730ed4e4a9768721b323030259e97c4cc970f991f9fe7e936a97",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "c5c4dd3277679506fec7f46070fe9fee825bb553",
+    "statusSha256": "e9420471ec320ef3e30473cb5adf0ccce9aa4357f6a0aafcb5d33de68e49431f",
+    "trackedDiffSha256": "5748266b2cfb730ed4e4a9768721b323030259e97c4cc970f991f9fe7e936a97",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}
