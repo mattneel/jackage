@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "60a3d6d496e8434683a7db58c0eb0ffc",
+  "case": "GH-007",
+  "caseDigest": "e7f84edb9631184bcd3c2ef7e50ef33d08ac681fee21d83ff780bbc92b9f9e56",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-007 dry-run publication: src/channels/publication.zig validates a plan completely - names, digest syntax, duplicate names refused because two assets with one name would make the metadata ambiguous and the last write would win by accident - and touches nothing: no remote write and no use of the signing key. The effects are counted at the one place each can occur, so no caller can perform one without it being visible, and the test proves the zero is not vacuous by running the same plan for real afterwards and watching both counters move. A malformed plan is refused with the same reasons a real publication would give, which is the point of validating it there, and the sink records the written paths so the test also checks the assets arrived as declared. Fault proof: making the dry run perform the writes it is supposed to describe only makes the zero-effects assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:58:04.734403+00:00",
+  "records": [
+    "1ac99ffd162b4f9eb844baa401c060f2",
+    "54c6e2aff240482aa5fbfa161584ca87",
+    "7aa276dec1964c38b6752870a1ba9fa4",
+    "d1bf2995c9c64eba8aa0876a491facf2"
+  ],
+  "recordDigests": {
+    "1ac99ffd162b4f9eb844baa401c060f2": "177c6c2bb6de6bfd4519623c7ecd289f4b7a3a0b1a9bd70e75b5e7c16164cd2f",
+    "54c6e2aff240482aa5fbfa161584ca87": "89deb3aa7a669b2736e3163c86cf6659c69a1b1182282a24d6b1ab964eec6d4a",
+    "7aa276dec1964c38b6752870a1ba9fa4": "429937c1ef12f0f8aff0b110a00ec296cabd918e9dd7f9bb5e0a01d3cfedecf7",
+    "d1bf2995c9c64eba8aa0876a491facf2": "28c8ee110f2bde148a295fac86b0c96e22531183ac231e54896595223c7a70f6"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "bdc0b0acfd864dc3b0068c70c24aa212",
+  "case": "GH-010",
+  "caseDigest": "cbf3aaad6bb34951dac13420fc1893f9fe53784c3a4024b9471abd061bb6bac3",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-010 reject unauthorized publication: publication requires an explicit grant, and src/channels/publication.zig checks it before the plan is even validated, so an unauthorized request is refused without the operation having looked at the plan and there is no state in which a partial publication exists because authorization arrived after work began. The plan carries all_tests_passed deliberately: a green build is exactly the state an agent is in when it is tempted to publish itself, and the test asserts the refusal in that state rather than in a contrived one. A grant names the channel it covers and the moment it expires, so a grant for another channel and an expired grant are distinct refusals rather than a generic denial, and the boundary is inclusive - at the expiry second the grant is over. The test also checks that all of those refusals left the effect counters exactly where they were. Fault proof: silently filling in a missing grant makes publication proceed unauthorized and the refusal assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:58:04.844780+00:00",
+  "records": [
+    "0ad60a02a54445b5ba8c7a498afb32e4",
+    "490e0ab7c018437e81198d0a23d92bae",
+    "e893403f8ba34b17bac8fd16a0a39d5b",
+    "fbb27382b46d4260b80286d9d4767295"
+  ],
+  "recordDigests": {
+    "0ad60a02a54445b5ba8c7a498afb32e4": "a88e9dce07d873cbb8adbdd22bf813f3b15f58d535cd4ef19fdc359948263a05",
+    "490e0ab7c018437e81198d0a23d92bae": "d7af7f52e210eba567388488076d2135a595b70527fab7bf16c52310d6f75bd7",
+    "e893403f8ba34b17bac8fd16a0a39d5b": "7ac9848380255fb36b58b85cae04241b33fac1173efec940ce73993ea655787c",
+    "fbb27382b46d4260b80286d9d4767295": "f0cfb8eb34211ca898395b6fead48e1f12839e2346b4303f58a50478d139dbf9"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
