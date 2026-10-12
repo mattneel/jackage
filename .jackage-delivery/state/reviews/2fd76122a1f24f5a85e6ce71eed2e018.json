@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "2fd76122a1f24f5a85e6ce71eed2e018",
+  "case": "SPACE-002",
+  "caseDigest": "ae26bf07400df16fe7c79e0f07651540c54fa57077c6650dcb3324439e012450",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-002 trace roots: collection by reachability is only meaningful when it can be explained, so src/space/roots.zig computes the retained set and names, for every object in it, the retainers holding it - profiles, pins, runtime references, and leases. An object held by two roots is attributed to both, because reporting only the first would be true and useless: removing one root would look safe while the other still needs the object. An object with no attributed root is by construction not retained, which is exactly what collection may act on. Retainers with empty names are refused (an unattributable root is not a root), objects that are not digests are refused (a reference that cannot be checked against the store attributes nothing), and two retainers of one kind sharing a name are refused while the same name in two different kinds is allowed, because that is not ambiguity. Running it found a real double free: growing an object's retainer list copied the existing entries and freed the strings they pointed at, leaving the array holding dangling names that deinit freed again. Fault proof: recording only the first root makes the two-retainer assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain. The first regression record was rejected by a transient suite failure and was re-taken rather than adjusted.",
+  "reviewedUtc": "2026-10-12T16:48:22.535435+00:00",
+  "records": [
+    "4e4f9d2fe38a4e9c87b292bca94aee75",
+    "df2c3feea6ed4e4b86f0c8e07599d069",
+    "31edeae99a844e8c8556947abba67685",
+    "3b2e9fd602694087a65122157fa8be4a"
+  ],
+  "recordDigests": {
+    "4e4f9d2fe38a4e9c87b292bca94aee75": "dc99de88ef57f5ab22a7bf6c1a33e4f953d32d00848049ca537f9809f1f04c60",
+    "df2c3feea6ed4e4b86f0c8e07599d069": "ddce597e81d393347f2220d105a89420c8e4bde4305b02b20b46986d9ad280bb",
+    "31edeae99a844e8c8556947abba67685": "77a1a074f43c48c7b1041416a2ef1c1c0791f8ea1829f02cf26ecac1b5870d77",
+    "3b2e9fd602694087a65122157fa8be4a": "a4a5f72c032e7e89dfc6af0833b2af41ad0db8a897338b2f3cd7501ea71f6dec"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
