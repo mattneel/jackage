@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "58e72da46ff34d5ab99e762ba472afdc",
+  "case": "SPACE-001",
+  "caseDigest": "df554fef476a253475c2552fff496e664015ad860aa1c42d548b1f87ff06949c",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-001 protect source bytes: collection may delete what Jackage owns and never a user's source or uncommitted work, so src/space/source_protection.zig builds a subtractive plan - every candidate is checked against the protected roots and refused with a reason rather than collected. The plan deletes nothing; it is a description the caller performs, which keeps the safety decision auditable. Paths are normalized before the containment test, so a candidate written as cache/../../../../src/myproject/main.zig is recognized as source rather than trusted because its written form begins in the cache directory, and a path that escapes its root entirely is refused as not describing a managed location. Containment compares component boundaries, so a sibling directory sharing a prefix is not mistaken for source. My first test fixture was arithmetically wrong about how many .. components leave the jackage directory; the implementation was right and the fixture was corrected rather than the code. Fault proof: trusting the written path instead of normalizing it collects the disguised candidate and the refusal assertions fail (exit 1; the first fault attempt did not compile, which is a compile error and not a fault, and was retaken); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:52:00.824160+00:00",
+  "records": [
+    "ef5d802776ae4612bc60387dde0d3e1c",
+    "bc09c6b0de2042f9aeb35c6055fe3fc6",
+    "806778432cf340bdb78b4cac70250007",
+    "193f2d73140248e0909ad03f1755c682"
+  ],
+  "recordDigests": {
+    "ef5d802776ae4612bc60387dde0d3e1c": "f4e8b420280a6df7f3f1cfd2debbc7aa96ed61d21638eb9858a1c48a5d8b063c",
+    "bc09c6b0de2042f9aeb35c6055fe3fc6": "1af3225d745335345bff3af2a4ab203e955da9082ebc1c078ce3dc9a6e5f5504",
+    "806778432cf340bdb78b4cac70250007": "2dd167a49304bb23ce02012f12e35e024ecd06b346cf28a63fde97eeeade4d8e",
+    "193f2d73140248e0909ad03f1755c682": "d757f77495915324f00df783faf2bf82f4feba7676891f78744968b8429d2610"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
