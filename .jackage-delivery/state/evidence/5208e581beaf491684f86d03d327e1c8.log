@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE FACTORY-001
+failed command: ".\\.zig-cache\\o\\fa2779d922a25a01db6dc3e028012707\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xf859e4fd --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 factory.contract.test.m16/FACTORY-001 one human-agent contract: both paths are governed by the same identities...JCKG_EVIDENCE FACTORY-001
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

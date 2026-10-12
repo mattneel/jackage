@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "69cf0420003149b2b90e3202bcb27b4c",
+  "case": "FACTORY-004",
+  "caseDigest": "918823176d675453f7fe5167b0bedc3ae7f93197f155810a42b7cec1e475603a",
+  "stage": "regression",
+  "testId": "m16/FACTORY-004 isolate parallel agents: distinct workspaces, explicit integration",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T19:02:12.458586+00:00",
+  "finishedUtc": "2026-10-12T19:04:05.262038+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE FACTORY-004",
+  "markerFound": true,
+  "logPath": "state/evidence/69cf0420003149b2b90e3202bcb27b4c.log",
+  "logSha256": "8e01cef57aec317c99c278ad870ff439d3430a8eb14ef2ef0cbbd3231b3cf7b6",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ed441a917701cddd8d0b78b44d85d961c21c1e77",
+    "statusSha256": "b5fa8d603b16f9afd36bded46d72161ff1b3828cb9b9c814e855aa5d8754e5f0",
+    "trackedDiffSha256": "121cbe0693b353afaf208925f5fc261d01721e87a0012a58ba101b1978c7226e",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ed441a917701cddd8d0b78b44d85d961c21c1e77",
+    "statusSha256": "9caa0f648f0af629e322235ec465656cc1d6ec4760b91e766245992dee1b51a0",
+    "trackedDiffSha256": "121cbe0693b353afaf208925f5fc261d01721e87a0012a58ba101b1978c7226e",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

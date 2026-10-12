@@ -1,0 +1,19 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'factory.contract.test.m16/FACTORY-001 one human-agent contract: both paths are governed by the same identities' failed:
+       JCKG_EVIDENCE FACTORY-001
+       expected error.PlanMismatch, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6ac1c8bba in expectError__func_871 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\factory\contract.zig:291:5: 0x7ff6ac1c9bf0 in test.m16/FACTORY-001 one human-agent contract: both paths are governed by the same identities (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.PlanMismatch, admit(lock, other_plan));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-FACTORY-001\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xa308ecfa --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xa308ecfa test -Dfilter=FACTORY-001 --prefix C:\src\jackage\.zig-cache\test-prefix-FACTORY-001

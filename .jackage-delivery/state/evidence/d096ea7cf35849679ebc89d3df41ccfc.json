@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "d096ea7cf35849679ebc89d3df41ccfc",
+  "case": "FACTORY-002",
+  "caseDigest": "82ef94cfaab29d33896f3df4295e7beb2e357acdf1b352975d0747e6209e2eed",
+  "stage": "green",
+  "testId": "m16/FACTORY-002 expose structured progress: events are schema-valid and never scraped",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "FACTORY-002"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T18:59:25.159800+00:00",
+  "finishedUtc": "2026-10-12T18:59:29.188248+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE FACTORY-002",
+  "markerFound": true,
+  "logPath": "state/evidence/d096ea7cf35849679ebc89d3df41ccfc.log",
+  "logSha256": "e2a576a1a5631f5d06df748c662580dbfe7648518b285a15ad7862cfbe5bae32",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ed441a917701cddd8d0b78b44d85d961c21c1e77",
+    "statusSha256": "5e6aad39f457c4bd7508d9dcc9019634719978228cee8e5b141f3cd8852c70ac",
+    "trackedDiffSha256": "942ba05a305847982df715ad377132c46decfc94b67c23af9e20a60c24dcc776",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ed441a917701cddd8d0b78b44d85d961c21c1e77",
+    "statusSha256": "dde281cf2ee05ef7355056726849914e541c8dabc40036e59aa81317ac7dc252",
+    "trackedDiffSha256": "942ba05a305847982df715ad377132c46decfc94b67c23af9e20a60c24dcc776",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

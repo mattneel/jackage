@@ -81,6 +81,9 @@ test {
     _ = @import("package/roundtrip.zig");
     _ = @import("package/tar.zig");
     _ = @import("package/zip.zig");
+    _ = @import("factory/contract.zig");
+    _ = @import("factory/events.zig");
+    _ = @import("factory/parallel_workspaces.zig");
     _ = @import("factory/strict_environment.zig");
     _ = @import("plan/planner.zig");
     _ = @import("plan/resolver.zig");

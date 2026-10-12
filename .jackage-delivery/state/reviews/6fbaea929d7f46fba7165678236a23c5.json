@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "6fbaea929d7f46fba7165678236a23c5",
+  "case": "FACTORY-002",
+  "caseDigest": "82ef94cfaab29d33896f3df4295e7beb2e357acdf1b352975d0747e6209e2eed",
+  "reviewer": "OMP agent (M16 agent-native factory and migration)",
+  "note": "FACTORY-002 expose structured progress: src/factory/events.zig reads a stream of documents with a schema and hands the caller fields rather than substrings somebody hoped would be there. Validation is load-bearing: sequence numbers must strictly increase, so a repeated or backwards line is refused rather than applied twice; kinds are enumerated, so an unrecognised one is a schema error instead of being ignored; and a failure must carry a reason, because an agent that learns only that something failed has learned nothing it can act on. A line that does not open a document is refused as terminal text with its own error, which is exactly what a plain-text transcript is - and refusing it is the difference between reading the interface and scraping it. Writing the test sharpened the rule: prose and an array are different problems, so a line that opens a document is judged as one whatever shape it turns out to have. Fault proof: accepting a non-document line as a progress event makes the terminal-text assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T19:01:36.433560+00:00",
+  "records": [
+    "20b93a5bb50343488be5b8bf8a307fd0",
+    "cef0b1d19cb64b63b2ab6012bd708744",
+    "d096ea7cf35849679ebc89d3df41ccfc",
+    "e0a56588bc3d424db86e49eef1a200b6"
+  ],
+  "recordDigests": {
+    "20b93a5bb50343488be5b8bf8a307fd0": "d3cef21fdf5815675d092c697e2f2b76d3d54cb0851818c0cb29498403abf28b",
+    "cef0b1d19cb64b63b2ab6012bd708744": "aec6d63749a359d23482e07e05aa706798515fd8f8d7e1fdff7d246692d872d6",
+    "d096ea7cf35849679ebc89d3df41ccfc": "9b4d147c7c09154616fa434f77d0da8359077b39a6d170641e11dcd6dc43ee0d",
+    "e0a56588bc3d424db86e49eef1a200b6": "b45017dd6b87decd433e43468ed0524cce56dbae27f85633ddbcbf36310e05c4"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

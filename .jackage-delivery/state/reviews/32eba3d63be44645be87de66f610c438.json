@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "32eba3d63be44645be87de66f610c438",
+  "case": "FACTORY-001",
+  "caseDigest": "e7df8d96696c7bd0c2473d438e3c56d61f23c891ef99224bfbc16bc61f4762c8",
+  "reviewer": "OMP agent (M16 agent-native factory and migration)",
+  "note": "FACTORY-001 one human-agent contract: a human types a command and an agent reads a document, and both are asking for the same thing. src/factory/contract.zig makes the two sources converge rather than merely resemble each other: each is parsed into the same request, the request carries the identities the lockfile fixed - the task, the plan, the policy, and every artifact - and admission compares them field by field, naming the one that differs. Identity is first, because a request that runs another plan is not this task and admitting it because the artifacts happen to match would be the disagreement this module exists to refuse. The request's canonical rendering is digested and compared as bytes, so 'the same request' is measured rather than claimed, and the source is recorded but deliberately not part of the identity - which is what lets the two paths be compared at all. Both parsers refuse malformed input rather than filling in defaults, and the artifact list is compared positionally because the lockfile's order is part of what was locked. Fault proof: an admission that accepts anything makes every mismatch assertion fail (exit 1; the first attempt left unreachable code and did not compile, so it was retaken as an empty body); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:58:45.356079+00:00",
+  "records": [
+    "5208e581beaf491684f86d03d327e1c8",
+    "3325e07bf14a4a5a9dbaa17cbfc63116",
+    "26778c6a19f349d39c1eb99ee92bbfe0",
+    "5785bbe9e42645f888884364465e7973"
+  ],
+  "recordDigests": {
+    "5208e581beaf491684f86d03d327e1c8": "426c38cb90e58717be1b4b613e23d4a9ac0a408f72aa9601ae20f7b1f3f6ba15",
+    "3325e07bf14a4a5a9dbaa17cbfc63116": "4a61ebb68af72fb7bf3c3804e8b2237b23569ab82c3e6d0e2dc41f8e508d0494",
+    "26778c6a19f349d39c1eb99ee92bbfe0": "088cffc4cf41491a8fcce60d31be99c47cd392dc2fb07e50fa1d48134033c968",
+    "5785bbe9e42645f888884364465e7973": "07026246bc1ec7f3a5aac861eebee62bfaca606e82f9444cfd33bf492edb7cd1"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

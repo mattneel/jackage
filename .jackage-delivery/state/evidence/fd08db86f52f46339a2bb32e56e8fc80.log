@@ -1,0 +1,19 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'factory.parallel_workspaces.test.m16/FACTORY-004 isolate parallel agents: distinct workspaces, explicit integration' failed:
+       JCKG_EVIDENCE FACTORY-004
+       expected error.ConflictingChange, found .{ .files = { .{ .path = { ... }, .bytes = { ... } }, .{ .path = { ... }, .bytes = { ... } } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff637f38de2 in expectError__func_874 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\factory\parallel_workspaces.zig:296:5: 0x7ff637f3abd2 in test.m16/FACTORY-004 isolate parallel agents: distinct workspaces, explicit integration (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.ConflictingChange, integrate(gpa, &baseline, workspaces[1], &conflicting));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-FACTORY-004\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x3e1d9302 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x3e1d9302 test -Dfilter=FACTORY-004 --prefix C:\src\jackage\.zig-cache\test-prefix-FACTORY-004

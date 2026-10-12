@@ -1,0 +1,50 @@
+test
++- install jckg-tests
+   +- compile test jckg-tests debug native 2 errors
+src\factory\contract.zig:224:9: error: pointless discard of function parameter
+    _ = request;
+        ^~~~~~~
+src\factory\contract.zig:230:23: note: used here
+        const asked = request.artifacts[index];
+                      ^~~~~~~
+src\factory\contract.zig:223:9: error: pointless discard of function parameter
+    _ = lock;
+        ^~~~
+src\factory\contract.zig:229:10: note: used here
+    for (lock.artifacts, 0..) |locked, index| {
+         ^~~~
+error: 2 compilation errors
+failed command: "C:\\src\\jackage\\tools\\zig\\zig.exe" test -cflags -std=c11 -D_GNU_SOURCE -fno-sanitize=undefined -- "vendor/quickjs-ng\\quickjs.c" "vendor/quickjs-ng\\dtoa.c" "vendor/quickjs-ng\\libregexp.c" "vendor/quickjs-ng\\libunicode.c" -I "vendor\\quickjs-ng" --dep quickjs "-Mroot=src\\jckg.zig" "-Mquickjs=vendor\\quickjs-ng\\quickjs.zig" -lc --test-filter FACTORY-001 --cache-dir .zig-cache --global-cache-dir "C:\\Users\\requi\\AppData\\Local\\zig" --build-root . --name jckg-tests --zig-lib-dir "tools\\zig\\lib\\" --listen=-
+
+test
++- run test jckg-tests
+   +- install
+      +- install jckg
+         +- compile exe jckg debug native 2 errors
+src\factory\contract.zig:224:9: error: pointless discard of function parameter
+    _ = request;
+        ^~~~~~~
+src\factory\contract.zig:230:23: note: used here
+        const asked = request.artifacts[index];
+                      ^~~~~~~
+src\factory\contract.zig:223:9: error: pointless discard of function parameter
+    _ = lock;
+        ^~~~
+src\factory\contract.zig:229:10: note: used here
+    for (lock.artifacts, 0..) |locked, index| {
+         ^~~~
+error: 2 compilation errors
+failed command: "C:\\src\\jackage\\tools\\zig\\zig.exe" build-exe -Odebug --dep jckg "-Mroot=src\\cli\\entry.zig" -cflags -std=c11 -D_GNU_SOURCE -fno-sanitize=undefined -- "vendor/quickjs-ng\\quickjs.c" "vendor/quickjs-ng\\dtoa.c" "vendor/quickjs-ng\\libregexp.c" "vendor/quickjs-ng\\libunicode.c" -I "vendor\\quickjs-ng" --dep quickjs "-Mjckg=src\\jckg.zig" "-Mquickjs=vendor\\quickjs-ng\\quickjs.zig" -lc --cache-dir .zig-cache --global-cache-dir "C:\\Users\\requi\\AppData\\Local\\zig" --build-root . --name jckg --zig-lib-dir "tools\\zig\\lib\\" --listen=-
+
+Build Summary: 9/16 steps succeeded (2 failed)
+test transitive failure
++- run test jckg-tests transitive failure
+|  +- compile test jckg-tests debug native 2 errors
+|  +- install transitive failure
+|     +- install jckg transitive failure
+|        +- compile exe jckg debug native 2 errors
++- install jckg-tests transitive failure
+   +- compile test jckg-tests debug native (reused)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xa03099d7 test -Dfilter=FACTORY-001 --prefix C:\src\jackage\.zig-cache\test-prefix-FACTORY-001

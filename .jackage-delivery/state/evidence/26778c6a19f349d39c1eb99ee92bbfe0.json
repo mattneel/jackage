@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "26778c6a19f349d39c1eb99ee92bbfe0",
+  "case": "FACTORY-001",
+  "caseDigest": "e7df8d96696c7bd0c2473d438e3c56d61f23c891ef99224bfbc16bc61f4762c8",
+  "stage": "green",
+  "testId": "m16/FACTORY-001 one human-agent contract: both paths are governed by the same identities",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "FACTORY-001"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T18:56:40.060057+00:00",
+  "finishedUtc": "2026-10-12T18:56:43.708979+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE FACTORY-001",
+  "markerFound": true,
+  "logPath": "state/evidence/26778c6a19f349d39c1eb99ee92bbfe0.log",
+  "logSha256": "c964838926dff4780bef601cc56d5d966f8d0a89e7765e0434c6d8ca57a3c277",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ed441a917701cddd8d0b78b44d85d961c21c1e77",
+    "statusSha256": "39e6f61a0b625ba33d1f0655fd43bfdc94bf13d91e1cb5d17ec01d1ad9021255",
+    "trackedDiffSha256": "ffac20582e59669afb0225f65846bab9cc7d06e2eb1ce545d260e8ec7e9c3306",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ed441a917701cddd8d0b78b44d85d961c21c1e77",
+    "statusSha256": "43a68700ce140b280fd192fcdb3e3b5c8767fc56f008cfe74b63afe56fcc54ea",
+    "trackedDiffSha256": "ffac20582e59669afb0225f65846bab9cc7d06e2eb1ce545d260e8ec7e9c3306",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

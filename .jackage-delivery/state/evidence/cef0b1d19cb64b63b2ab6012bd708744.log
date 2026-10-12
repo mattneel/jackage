@@ -1,0 +1,72 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total); 2 leaks
+error: 'factory.events.test.m16/FACTORY-002 expose structured progress: events are schema-valid and never scraped' failed:
+       JCKG_EVIDENCE FACTORY-002
+       expected error.TerminalText, found .{ .seq = 0, .kind = .progress, .phase = { 67, 111, 109, 112, 105, 108, 105, 110, 103, 32, 115, 114, 99, 47, 109, 97, 105, 110, 46, 122, 105, 103, 46, 46, 46 }, .detail = { 67, 111, 109, 112, 105, 108, 105, 110, 103, 32, 115, 114, 99, 47, 109, 97, 105, 110, 46, 122, 105, 103, 46, 46, 46 } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff632548dc6 in expectError__func_875 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\factory\events.zig:214:5: 0x7ff632549cd7 in test.m16/FACTORY-002 expose structured progress: events are schema-valid and never scraped (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.TerminalText, parseEvent(gpa, "Compiling src/main.zig..."));
+           ^
+       [SafeAllocator] (err): leaked [addr: 14707a0, len: 25 (0x19) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff63241e93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\factory\events.zig:72:35: 0x7ff63254e1a2 in parseEvent (jckg-tests_zcu.obj)
+                   .detail = try gpa.dupe(u8, trimmed),
+                                         ^
+       C:\src\jackage\src\factory\events.zig:214:63: 0x7ff632549b35 in test.m16/FACTORY-002 expose structured progress: events are schema-valid and never scraped (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.TerminalText, parseEvent(gpa, "Compiling src/main.zig..."));
+                                                                     ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff6323cd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff6323cd956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff6323cb481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff6323cb481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff6325780e7 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 14706f8, len: 25 (0x19) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff63241e93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\factory\events.zig:71:34: 0x7ff63254e0ff in parseEvent (jckg-tests_zcu.obj)
+                   .phase = try gpa.dupe(u8, trimmed),
+                                        ^
+       C:\src\jackage\src\factory\events.zig:214:63: 0x7ff632549b35 in test.m16/FACTORY-002 expose structured progress: events are schema-valid and never scraped (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.TerminalText, parseEvent(gpa, "Compiling src/main.zig..."));
+                                                                     ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff6323cd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff6323cd956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff6323cb481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff6323cb481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff6325780e7 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-FACTORY-002\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x8bc321a9 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total); 2 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x8bc321a9 test -Dfilter=FACTORY-002 --prefix C:\src\jackage\.zig-cache\test-prefix-FACTORY-002
