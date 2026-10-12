@@ -1,0 +1,19 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'selfhost.bootstrap.test.m09/SELF-005 keep compiler exact: locked builds retain the supplied pin' failed:
+       JCKG_EVIDENCE SELF-005
+       expected error.PinnedCompilerUnavailable, found { 48, 46, 49, 57, 46, 48, 45, 100, 101, 118, 46, 49, 43, 48 }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff7dc938b04 in expectError__func_869 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\selfhost\bootstrap.zig:270:5: 0x7ff7dc938f1b in test.m09/SELF-005 keep compiler exact: locked builds retain the supplied pin (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.PinnedCompilerUnavailable, resolveCompiler(pin, &newer_only, .locked));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-SELF-005\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xa83a904a --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xa83a904a test -Dfilter=SELF-005 --prefix C:\src\jackage\.zig-cache\test-prefix-SELF-005

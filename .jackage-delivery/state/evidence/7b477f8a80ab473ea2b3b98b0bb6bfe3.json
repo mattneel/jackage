@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "7b477f8a80ab473ea2b3b98b0bb6bfe3",
+  "case": "SELF-005",
+  "caseDigest": "4785112313bd23d93199565b402fe11c6bbdfad60d993fbaa6958f38c6941c4d",
+  "stage": "fault",
+  "testId": "m09/SELF-005 keep compiler exact: locked builds retain the supplied pin",
+  "platformRole": "host",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "SELF-005"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T15:18:29.290829+00:00",
+  "finishedUtc": "2026-10-12T15:18:32.869207+00:00",
+  "exitCode": 1,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE SELF-005",
+  "markerFound": true,
+  "logPath": "state/evidence/7b477f8a80ab473ea2b3b98b0bb6bfe3.log",
+  "logSha256": "a7e68ea3c68514f338e677c9157c91204d23f667d819a52305afe4c5d2c5b264",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "170e4c1b2265b398ef62c8021bda765775300987",
+    "statusSha256": "4fab19a0ed219c3da4e2951f7ff8af47d33bd5577c5ed4486826c18967829abb",
+    "trackedDiffSha256": "836d63ef9f267ae8204078460ed22e9650ea569b5a6793faa46a1f0ec08d561c",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "170e4c1b2265b398ef62c8021bda765775300987",
+    "statusSha256": "597ace950b5f414532919c6cd98ff672090396a7cf6b2c2decd6ffe2a93806c8",
+    "trackedDiffSha256": "836d63ef9f267ae8204078460ed22e9650ea569b5a6793faa46a1f0ec08d561c",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

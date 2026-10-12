@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "26e8ebe8eb8e43aca3e54fa7dacf95cb",
+  "case": "SELF-005",
+  "caseDigest": "4785112313bd23d93199565b402fe11c6bbdfad60d993fbaa6958f38c6941c4d",
+  "reviewer": "OMP agent (M09 self-hosting)",
+  "note": "SELF-005 keep compiler exact: a locked build answers with the pin or refuses. src/selfhost/bootstrap.zig resolveCompiler takes the candidates that are available and the mode: in locked mode the pinned compiler is returned when present and error.PinnedCompilerUnavailable is returned when it is not - never a newer substitute. That is the assertion that would catch 'it silently took a newer compiler', which is the failure the case names, and it matters because every recorded digest was produced with the pin. Unlocked mode may take the newest, and only when the caller asked for it; version comparison is on numeric components so 0.18.0-dev.200 outranks 0.18.0-dev.146 rather than losing to it lexically. Fault proof: letting locked mode fall through to substitution makes the refusal assertion fail (exit 1); revert byte-identical, no FAULT markers remain. No network access is involved: the candidate set is an input, so the case is decided by the decision rule rather than by what is published upstream today.",
+  "reviewedUtc": "2026-10-12T15:19:53.571191+00:00",
+  "records": [
+    "6187cc4009f54a61868d7e3439f2fd75",
+    "7b477f8a80ab473ea2b3b98b0bb6bfe3",
+    "f6d76ded74164d5da7ea445ab14a0320",
+    "ce5e283de5d54a788c13096042374a21"
+  ],
+  "recordDigests": {
+    "6187cc4009f54a61868d7e3439f2fd75": "172b07c1dfc95e59e97caf058018c8d2c297584bb4882aad9fe026afd2245352",
+    "7b477f8a80ab473ea2b3b98b0bb6bfe3": "40a4e92cc83b003c12f0ec0e308a7cfd91bfaca974a73a3050b45b2d337668c4",
+    "f6d76ded74164d5da7ea445ab14a0320": "0903bac247cc3cf9b8fc08a7bf7814bb1b7cde26a11f3d8c9a6457307eef7c4d",
+    "ce5e283de5d54a788c13096042374a21": "cd30c3eb989c593057f92ab9f16fdad52314db8d617201230219f252b7d27da7"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

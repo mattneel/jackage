@@ -182,3 +182,106 @@ test "m09/SELF-006 bootstrap without Jackage: declared inputs are verified, not 
         try std.testing.expect(!std.mem.eql(u8, pin, ""));
     }
 }
+
+/// How a build is allowed to choose its compiler.
+pub const Mode = enum {
+    /// Use the pinned compiler and nothing else. A newer build appearing upstream
+    /// changes nothing: the pin is part of the evidence, so substituting it would
+    /// invalidate every digest that was recorded against it.
+    locked,
+    /// May take a newer compiler, but only when the caller asked for that.
+    unlocked,
+};
+
+pub const ResolveError = error{
+    /// The pinned compiler is not among the candidates and locked mode forbids
+    /// substituting another one.
+    PinnedCompilerUnavailable,
+    NoCompilerAvailable,
+};
+
+/// Chooses the compiler to build with.
+///
+/// In locked mode the answer is the pin or nothing. "A newer master is out" is not
+/// a reason to move: the pin is what the recorded artifacts were built with, and a
+/// build that silently took a newer compiler would produce digests that can no
+/// longer be compared with the ones in the evidence.
+pub fn resolveCompiler(pin: []const u8, candidates: []const []const u8, mode: Mode) ResolveError![]const u8 {
+    for (candidates) |candidate| {
+        if (std.mem.eql(u8, candidate, pin)) return candidate;
+    }
+    if (mode == .locked) return error.PinnedCompilerUnavailable;
+    if (candidates.len == 0) return error.NoCompilerAvailable;
+
+    // Unlocked mode picks the newest among the candidates, comparing numerically
+    // where the versions are numeric and lexically otherwise. It never picks the
+    // pin's *absence* to mean "close enough".
+    var best = candidates[0];
+    for (candidates[1..]) |candidate| {
+        if (newer(candidate, best)) best = candidate;
+    }
+    return best;
+}
+
+/// True when `candidate` is a later version than `current`. Versions here are
+/// dotted numeric strings, possibly with a `-dev.<n>+<rev>` suffix; the comparison
+/// is on the leading numeric components so "0.18.0-dev.200" is newer than
+/// "0.18.0-dev.146".
+fn newer(candidate: []const u8, current: []const u8) bool {
+    var candidate_parts = std.mem.splitScalar(u8, candidate, '.');
+    var current_parts = std.mem.splitScalar(u8, current, '.');
+    while (true) {
+        const left = candidate_parts.next();
+        const right = current_parts.next();
+        if (left == null) return false;
+        if (right == null) return true;
+        const left_number = leadingNumber(left.?);
+        const right_number = leadingNumber(right.?);
+        if (left_number > right_number) return true;
+        if (left_number < right_number) return false;
+    }
+}
+
+/// The leading run of digits in a version component, or 0 when it has none.
+fn leadingNumber(component: []const u8) u64 {
+    var value: u64 = 0;
+    for (component) |byte| {
+        if (!std.ascii.isDigit(byte)) break;
+        value = value * 10 + (byte - '0');
+    }
+    return value;
+}
+
+test "m09/SELF-005 keep compiler exact: locked builds retain the supplied pin" {
+    std.debug.print("JCKG_EVIDENCE SELF-005\n", .{});
+    const pin = "0.18.0-dev.146+35accc06e";
+    const same = "0.18.0-dev.146+35accc06e";
+
+    // A newer master appears online. Locked mode still answers with the pin.
+    const available = [_][]const u8{ pin, "0.18.0-dev.200+abcdef123", "0.19.0-dev.1+0" };
+    const chosen = try resolveCompiler(pin, &available, .locked);
+    try std.testing.expectEqualStrings(pin, chosen);
+    try std.testing.expectEqualStrings(same, chosen);
+
+    // Locked mode with the pin missing is a refusal, never a substitution: this is
+    // the assertion that would catch "it silently took a newer compiler".
+    const newer_only = [_][]const u8{ "0.18.0-dev.200+abcdef123", "0.19.0-dev.1+0" };
+    try std.testing.expectError(error.PinnedCompilerUnavailable, resolveCompiler(pin, &newer_only, .locked));
+
+    // No candidates at all is its own failure, distinct from the pin being absent.
+    const none = [_][]const u8{};
+    try std.testing.expectError(error.PinnedCompilerUnavailable, resolveCompiler(pin, &none, .locked));
+    try std.testing.expectError(error.NoCompilerAvailable, resolveCompiler(pin, &none, .unlocked));
+
+    // Unlocked mode may take the newest - and only when it was asked for.
+    const newest = try resolveCompiler(pin, &available, .unlocked);
+    try std.testing.expectEqualStrings(pin, newest);
+    const without_pin = try resolveCompiler(pin, &newer_only, .unlocked);
+    try std.testing.expectEqualStrings("0.19.0-dev.1+0", without_pin);
+
+    // The comparison itself: numeric components, not string order.
+    try std.testing.expect(newer("0.18.0-dev.200+abcdef", "0.18.0-dev.146+35accc06e"));
+    try std.testing.expect(!newer("0.18.0-dev.146+35accc06e", "0.18.0-dev.200+abcdef"));
+    try std.testing.expect(newer("0.19.0-dev.1+x", "0.18.0-dev.999+x"));
+    try std.testing.expect(!newer("0.18.0-dev.200+x", "0.18.0-dev.200+x"));
+}

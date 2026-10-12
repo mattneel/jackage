@@ -1,0 +1,32 @@
+test
++- install jckg-tests
+   +- compile test jckg-tests debug native 1 errors
+src\selfhost\bootstrap.zig:209:73: error: unused function parameter
+pub fn resolveCompiler(pin: []const u8, candidates: []const []const u8, mode: Mode) ResolveError![]const u8 {
+                                                                        ^~~~
+error: 1 compilation errors
+failed command: "C:\\src\\jackage\\tools\\zig\\zig.exe" test -cflags -std=c11 -D_GNU_SOURCE -fno-sanitize=undefined -- "vendor/quickjs-ng\\quickjs.c" "vendor/quickjs-ng\\dtoa.c" "vendor/quickjs-ng\\libregexp.c" "vendor/quickjs-ng\\libunicode.c" -I "vendor\\quickjs-ng" --dep quickjs "-Mroot=src\\jckg.zig" "-Mquickjs=vendor\\quickjs-ng\\quickjs.zig" -lc --test-filter SELF-005 --cache-dir .zig-cache --global-cache-dir "C:\\Users\\requi\\AppData\\Local\\zig" --build-root . --name jckg-tests --zig-lib-dir "tools\\zig\\lib\\" --listen=-
+
+test
++- run test jckg-tests
+   +- install
+      +- install jckg
+         +- compile exe jckg debug native 1 errors
+src\selfhost\bootstrap.zig:209:73: error: unused function parameter
+pub fn resolveCompiler(pin: []const u8, candidates: []const []const u8, mode: Mode) ResolveError![]const u8 {
+                                                                        ^~~~
+error: 1 compilation errors
+failed command: "C:\\src\\jackage\\tools\\zig\\zig.exe" build-exe -Odebug --dep jckg "-Mroot=src\\cli\\entry.zig" -cflags -std=c11 -D_GNU_SOURCE -fno-sanitize=undefined -- "vendor/quickjs-ng\\quickjs.c" "vendor/quickjs-ng\\dtoa.c" "vendor/quickjs-ng\\libregexp.c" "vendor/quickjs-ng\\libunicode.c" -I "vendor\\quickjs-ng" --dep quickjs "-Mjckg=src\\jckg.zig" "-Mquickjs=vendor\\quickjs-ng\\quickjs.zig" -lc --cache-dir .zig-cache --global-cache-dir "C:\\Users\\requi\\AppData\\Local\\zig" --build-root . --name jckg --zig-lib-dir "tools\\zig\\lib\\" --listen=-
+
+Build Summary: 9/16 steps succeeded (2 failed)
+test transitive failure
++- run test jckg-tests transitive failure
+|  +- compile test jckg-tests debug native 1 errors
+|  +- install transitive failure
+|     +- install jckg transitive failure
+|        +- compile exe jckg debug native 1 errors
++- install jckg-tests transitive failure
+   +- compile test jckg-tests debug native (reused)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x9aa3ba0d test -Dfilter=SELF-005 --prefix C:\src\jackage\.zig-cache\test-prefix-SELF-005
