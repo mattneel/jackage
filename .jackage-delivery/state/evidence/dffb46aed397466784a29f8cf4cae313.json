@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "dffb46aed397466784a29f8cf4cae313",
+  "case": "SPACE-007",
+  "caseDigest": "147c9a00da4909321b266e06deb8b9d5cbaa9aa76a495f08d4d137b032af3dd0",
+  "stage": "fault",
+  "testId": "m12/SPACE-007 snapshot stable bytes: a changing file is retried, then reported",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "SPACE-007"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T16:39:32.092394+00:00",
+  "finishedUtc": "2026-10-12T16:39:36.239311+00:00",
+  "exitCode": 1,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE SPACE-007",
+  "markerFound": true,
+  "logPath": "state/evidence/dffb46aed397466784a29f8cf4cae313.log",
+  "logSha256": "5eb59c9b213236820c7faba1dc4d91e533436e7dea2199178654cbb0e4c7192c",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "99299aed5090b0832193d7ffa40b74b8f1006f60",
+    "statusSha256": "45b2c3bc5488d54ccd887da69ee897d0b61d71fa23561cb9790414a36740f65b",
+    "trackedDiffSha256": "5f9005f0bc753f97b6ee57a8004dc514c28a5f46e131dbb689aa03fd58f8ef96",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "99299aed5090b0832193d7ffa40b74b8f1006f60",
+    "statusSha256": "03dcbba409f8640cf88b93524d9780d855ad88fe14cdc21849a5e68e0740b056",
+    "trackedDiffSha256": "5f9005f0bc753f97b6ee57a8004dc514c28a5f46e131dbb689aa03fd58f8ef96",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

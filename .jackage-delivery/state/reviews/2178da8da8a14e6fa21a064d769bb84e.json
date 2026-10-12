@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "2178da8da8a14e6fa21a064d769bb84e",
+  "case": "SPACE-007",
+  "caseDigest": "147c9a00da4909321b266e06deb8b9d5cbaa9aa76a495f08d4d137b032af3dd0",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-007 snapshot stable bytes: a snapshot is metadata about bytes, and if a file changes while it is read the metadata describes a state the file was never in. src/space/snapshot_capture.zig reads each file twice and compares; a disagreement is retried, because a single write during capture is ordinary, and a file that keeps changing past the retry budget is returned as an explicit unstable outcome naming the path - no digest is committed for it, rather than the digest of whichever read happened to be last. The source is an interface rather than a directory, so the retry and instability rules are decided by a source that changes on cue instead of raced against a real writer; a filesystem source is provided and exercised for real too, so the ordinary path is not assumed. The attempt count is reported, so the record says how many retries it took. Fault proof: committing the first read without comparing it makes the unstable assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:42:00.305937+00:00",
+  "records": [
+    "9040d0ff1660413289555e2a56ff2d69",
+    "dffb46aed397466784a29f8cf4cae313",
+    "300e1b5d84f243b38d16616654b320ab",
+    "133821475a894426a01e1e1593f4e2e5"
+  ],
+  "recordDigests": {
+    "9040d0ff1660413289555e2a56ff2d69": "4c8904b8aa3ba22e6e42c21bb0f31dedbc23a2c65214a2f8a4599b900e4a0182",
+    "dffb46aed397466784a29f8cf4cae313": "6997cec4cc385ca77681f89bb3a9777b7f71cfb7738b54adce38d2a3fcc8da8d",
+    "300e1b5d84f243b38d16616654b320ab": "489c1b40e8970c82ea713b1003efbbd21077216cb6d5751652b36d2de5cc1312",
+    "133821475a894426a01e1e1593f4e2e5": "c3330bab7416be2311000fdfa577cb4ae3a89016fd310b5397aaf8b610791558"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
