@@ -1,0 +1,73 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total); 2 leaks
+error: 'channels.publication.test.m14/GH-008 publish transactionally, m14/GH-009 retry publication safely' failed:
+       JCKG_EVIDENCE GH-008
+       JCKG_EVIDENCE GH-009
+       expected error.ConflictingPublication, found .{ .present = { { 111, 110, 101, 46, 122, 105, 112 } }, .missing = {  } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6ddb79185 in expectError__func_875 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\channels\publication.zig:498:5: 0x7ff6ddb7a7f6 in test.m14/GH-008 publish transactionally, m14/GH-009 retry publication safely (jckg-tests_zcu.obj)
+           try std.testing.expectError(
+           ^
+       [SafeAllocator] (err): leaked [addr: 2621330, len: 16 (0x10) align: 8] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:751:26: 0x7ff6ddb7d8b9 in toOwnedSlice (jckg-tests_zcu.obj)
+                   if (gpa.remap(old_memory, self.items.len)) |new_items| {
+                                ^
+       C:\src\jackage\src\channels\publication.zig:260:50: 0x7ff6ddb7c6fc in planRetry (jckg-tests_zcu.obj)
+           return .{ .present = try present.toOwnedSlice(gpa), .missing = try missing.toOwnedSlice(gpa) };
+                                                        ^
+       C:\src\jackage\src\channels\publication.zig:500:18: 0x7ff6ddb7a4e5 in test.m14/GH-008 publish transactionally, m14/GH-009 retry publication safely (jckg-tests_zcu.obj)
+               planRetry(gpa, .{ .channel = "stable", .assets = &conflicting }, fixture.state()),
+                        ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff6dd9fd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff6dd9fd956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff6dd9fb481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff6dd9fb481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff6ddbac787 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 2621220, len: 7 (0x7) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff6dda4e93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\channels\publication.zig:255:49: 0x7ff6ddb7c894 in planRetry (jckg-tests_zcu.obj)
+                   try present.append(gpa, try gpa.dupe(u8, asset.name));
+                                                       ^
+       C:\src\jackage\src\channels\publication.zig:500:18: 0x7ff6ddb7a4e5 in test.m14/GH-008 publish transactionally, m14/GH-009 retry publication safely (jckg-tests_zcu.obj)
+               planRetry(gpa, .{ .channel = "stable", .assets = &conflicting }, fixture.state()),
+                        ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff6dd9fd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff6dd9fd956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff6dd9fb481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff6dd9fb481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff6ddbac787 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-GH-008\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xb58c196b --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total); 2 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xb58c196b test -Dfilter=GH-008 --prefix C:\src\jackage\.zig-cache\test-prefix-GH-008

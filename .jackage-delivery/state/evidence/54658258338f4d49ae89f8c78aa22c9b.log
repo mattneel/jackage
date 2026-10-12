@@ -1,0 +1,19 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE GH-008
+JCKG_EVIDENCE GH-009
+failed command: ".\\.zig-cache\\o\\fe27863148924bfa210ebc6ff17f0df0\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xf317e9bf --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 channels.publication.test.m14/GH-008 publish transactionally, m14/GH-009 retry publication safely...JCKG_EVIDENCE GH-008
+JCKG_EVIDENCE GH-009
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

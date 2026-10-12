@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "1f42758f84a84a7cb114e376cac9f041",
+  "case": "GH-009",
+  "caseDigest": "f18e52e4ab30b5f9c3a87422c3665299315af15cfdfd78e3ec6d2f806ba4767a",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-009 retry publication safely: a retry plans against what the channel already holds. An asset present with the identical digest is skipped - the same bytes under the same name cannot produce a different channel state, and skipping is what makes the retry idempotent - while an asset present with different bytes is refused as a conflicting publication rather than overwritten, because that is not a retry but a different artifact wearing a published name. The test drives a real partial publication: an upload fails, the retry plan finds one identical asset and two missing ones, and the remainder completes to the state a single successful publication would have produced with each asset uploaded exactly once. A retry against a fully published channel needs nothing at all, which is what makes repeating it harmless. Fault proof: treating an asset with different bytes as already published makes the conflict undetectable and the refusal assertion fail (exit 1); the first attempt at this fault did not compile, which is a compile error and not a fault, and was retaken; revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:56:20.466049+00:00",
+  "records": [
+    "0bc42f7c55734f31a8193d848a00d9f4",
+    "88dde67844ef445f967f6c2d69604eab",
+    "90f01c0446824b13aae65e5e77a5c783",
+    "51aae9eba7f845338b01d056653948b9"
+  ],
+  "recordDigests": {
+    "0bc42f7c55734f31a8193d848a00d9f4": "dc7a338c96216f8cf428b1f5170b0d6d085072c27482995a2cf21c58bc26f056",
+    "88dde67844ef445f967f6c2d69604eab": "c98fcccd9d41aa9b9dfe9a8a96002dcdca0a99699316ad7cb1b105ae0cb60364",
+    "90f01c0446824b13aae65e5e77a5c783": "bf3c22345b5d89ce5fac8f865c6ef94fea9f105afa579913320e700f6638c2d1",
+    "51aae9eba7f845338b01d056653948b9": "f14fd6e6c7921b63835531fe51552f09607c67b2e87a4613e281d5240e24a0bc"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

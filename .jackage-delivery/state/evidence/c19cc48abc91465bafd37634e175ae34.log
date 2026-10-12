@@ -1,0 +1,34 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'channels.publication.test.m14/GH-008 publish transactionally, m14/GH-009 retry publication safely' failed:
+       JCKG_EVIDENCE GH-008
+       JCKG_EVIDENCE GH-009
+       
+       ====== expected this output: =========
+       previous-v1␃
+       
+       ======== instead found this: =========
+       stable␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       previous-v1
+       ^ ('\x70')
+       found:
+       stable
+       ^ ('\x73')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff6850c8ef1 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\channels\publication.zig:469:5: 0x7ff6850c9768 in test.m14/GH-008 publish transactionally, m14/GH-009 retry publication safely (jckg-tests_zcu.obj)
+           try std.testing.expectEqualStrings("previous-v1", fixture.visible.?);
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-GH-008\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xba3eaf13 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xba3eaf13 test -Dfilter=GH-008 --prefix C:\src\jackage\.zig-cache\test-prefix-GH-008

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "99cd1778eb9643c295e8eead29526097",
+  "case": "GH-008",
+  "caseDigest": "4b4bce516ff0413b66606faef1a16751586c331cd56c50de23db27638dcf9a76",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-008 publish transactionally: the channel state transition is an explicit step in src/channels/publication.zig rather than a side effect of uploading - assets are written, the metadata is signed, and only then is it activated - so an upload that fails partway returns before the signature and before activation, and the channel keeps serving exactly what it served before. The test measures this against a fixture that holds the visible metadata document: after the failure the visible bytes are identical to the previous version, the activation counter is zero, and the one asset that did land is present but invisible, which is precisely the state a retry has to reconcile. Activation is counted apart from the writes so an upload-without-activation is distinguishable from a complete publication rather than being two numbers that happen to differ. Fault proof: activating before the uploads makes the channel advertise absent artifacts and the unchanged-visible-state assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:56:20.363438+00:00",
+  "records": [
+    "54658258338f4d49ae89f8c78aa22c9b",
+    "c19cc48abc91465bafd37634e175ae34",
+    "7af2a090b9d2444d8b09df7110163402",
+    "3d284d2934e14a6ab89d6e580de6c941"
+  ],
+  "recordDigests": {
+    "54658258338f4d49ae89f8c78aa22c9b": "24d5a42a82dc52795257033ada7f5c5d0b0840514df4a39e4bae24566f459ddb",
+    "c19cc48abc91465bafd37634e175ae34": "dc72d8b15a06a987d39e58b56b3ca00682234538c5df1276b7c3608f0864c875",
+    "7af2a090b9d2444d8b09df7110163402": "96dc5a61be8f74e35edf98c5d459fab97c3d4d47d63cd0eb3efa0885f830b503",
+    "3d284d2934e14a6ab89d6e580de6c941": "875671c9c19fd286fb6103ca41d0171072178cd6999251b1bbe2376029569f5b"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
