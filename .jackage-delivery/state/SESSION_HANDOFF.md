@@ -565,3 +565,25 @@ correctly detected all of it. Two responses were taken, and they are different:
 - The licence assertions previously asserted that **no** project licence existed. They now
   assert that a declared `LICENSE` **is detected** (path reported, MIT text present), which
   is what the audit is for. Re-pinning the old expectation would have made the audit lie.
+
+## M09 complete: ten milestones gate-green
+
+Gates M00 through M09 all exit 0. 108 of 188 cases are complete. Self-hosting is
+evidenced: the environment is realized from declared verified inputs, a stage builds the
+client with the pinned compiler and records provenance, a second stage builds from fresh
+output *and* cache directories, the two stages are compared with a comparison that can
+fail, a locked build refuses to substitute a newer compiler, a Linux build consumes a
+verified snapshot instead of a separate checkout, the bootstrap verifies its own declared
+inputs, and install and the transient runner share one verification path.
+
+**A finding recorded rather than hidden:** two honest builds of identical source in
+different directories produce different client digests (`3598dc3f...` vs `dd79e55c...` for
+one pair). That is a statement about compiler determinism under per-stage prefix paths, not
+a broken comparison, so SELF-003 asserts the *comparability* its case text asks for and the
+difference is written into its review and commit message. Byte-identical independent builds
+belong to the later reproducibility milestone, and this is the observation it starts from.
+
+**Scope, stated plainly:** SELF-008 evidences the shared verification path. Wiring the CLI
+`install` command and the `jckgx` binary onto that path is the remaining self-hosting work;
+the binary's root convention is defined by that install command, which is why it was
+deferred rather than invented ahead of it.

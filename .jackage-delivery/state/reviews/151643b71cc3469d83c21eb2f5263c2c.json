@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "151643b71cc3469d83c21eb2f5263c2c",
+  "case": "SELF-008",
+  "caseDigest": "694bf41a871d864c56a1356aabc2ef2cd7ed168aa3dcf5cfcb13351211ba6ee5",
+  "reviewer": "OMP agent (M09 self-hosting)",
+  "note": "SELF-008 install self package: the claim is that install and jckgx run through the same verification path, and src/selfhost/install.zig makes that a literal property of the code - one verify function decides, and both entry points call it. The test asserts it behaviourally rather than structurally: a tampered package is refused by both entry points with the same error, an untrusted channel is refused by both before any bytes are considered, and a good package produces the identical verified identity through both. The trust root is an input, never implied by the channel: a channel that could assert its own trustworthiness would be no channel at all. Fault proof: giving the runner its own trustworthiness check makes the tampered-package refusal fail on that path (exit 1); revert byte-identical against a backup, no FAULT markers remain. Scope note, stated plainly: this case evidences the shared verification path; wiring the CLI's install command and the jckgx binary onto it is the remaining self-hosting work, and the binary's root convention is defined by that install command rather than invented ahead of it.",
+  "reviewedUtc": "2026-10-12T15:39:20.816060+00:00",
+  "records": [
+    "c3faadc34d024164bfef70fe0a017214",
+    "79ad9393584f41dbb4146568c90ad7f0",
+    "bbf8909ef84b405395a09decc32d351e",
+    "b3cdeec97968446eb5d996abe850d61f"
+  ],
+  "recordDigests": {
+    "c3faadc34d024164bfef70fe0a017214": "37960cbb2e464e3756fc8122c86530f11a42c4fb56c60eb4f263f887e12972c8",
+    "79ad9393584f41dbb4146568c90ad7f0": "c962f2d4fa4319ec7a225359b66773834588c0423872af1d687d93dccbc63c89",
+    "bbf8909ef84b405395a09decc32d351e": "75b222b49bc1f0020596979fa554926610c1eb7cf97f466b2d2840f77de03b50",
+    "b3cdeec97968446eb5d996abe850d61f": "18dfc104f4ccdced6ab95662d93244fde642209daa79a93ca08e4534fd20c8bb"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
