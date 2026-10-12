@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "2057654387c74bef883eab04381d4591",
+  "case": "SELF-007",
+  "caseDigest": "2668d0bf55b5bc1ff8e63158c9c092946fd41ee91d084c1f33454a1451c66350",
+  "reviewer": "OMP agent (M09 self-hosting)",
+  "note": "SELF-007 preserve primary source: a self-hosted Linux build consumes a snapshot of the primary checkout and needs no independently maintained ~/src tree, which is the property the case names. src/selfhost/snapshot.zig holds both halves. The plan names what travels - source, build definitions, declared vendored sources - and excludes caches and build outputs by construction, so the snapshot does not depend on what the primary checkout happened to accumulate. The verifier digests both sides path by path and reports the offending path, so a truncated transfer or a line-ending translation is named instead of surfacing later as an unrelated build error. One real defect was found by running it: entry paths were built with std.fs.path.join, which yields backslashes on Windows, so a host-taken snapshot would never have matched on the Linux side - they are now portable separators explicitly. Fault proof: disabling exclusions lets caches into the plan and the test fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:23:27.389723+00:00",
+  "records": [
+    "de93482147b24c6e8f46e5e9f70e6eec",
+    "07069dcb340e434fa014e7ca4c331ae2",
+    "f48a5e6e01e24dbb9ffd247e7c21840e",
+    "284ae26323924ba38e981dd9d33635d9"
+  ],
+  "recordDigests": {
+    "de93482147b24c6e8f46e5e9f70e6eec": "5936e3e51f5100626a654bbfc5e55e559459d7326dd42ff27bf745c7a53a170d",
+    "07069dcb340e434fa014e7ca4c331ae2": "ce5b358cffba7f01499ff8c3c9f79717c47e3fa591783ad8a678f24c947051ee",
+    "f48a5e6e01e24dbb9ffd247e7c21840e": "6c5ad4758d9485f010d0b53519ea1cedd367aef6cfd62db7a6faa9dac534f51e",
+    "284ae26323924ba38e981dd9d33635d9": "64662a1fdfd679cacb0a16ff2faac646040cfab14b1370818a22426d054b64eb"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
