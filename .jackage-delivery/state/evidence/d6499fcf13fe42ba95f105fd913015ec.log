@@ -1,0 +1,469 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE M00-REPORT
+JCKG_EVIDENCE AUD-002
+JCKG_EVIDENCE AUD-003
+JCKG_EVIDENCE AUD-006
+JCKG_EVIDENCE AUD-004
+JCKG_EVIDENCE AUD-007
+JCKG_EVIDENCE AUD-001
+JCKG_EVIDENCE AUD-005
+JCKG_EVIDENCE AUD-008
+JCKG_EVIDENCE CLI-009
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CLI-006
+JCKG_EVIDENCE CLI-010
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+JCKG_EVIDENCE CLI-001
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-008
+JCKG_EVIDENCE CLI-002
+JCKG_EVIDENCE CLI-003
+JCKG_EVIDENCE CLI-005
+JCKG_EVIDENCE CLI-007
+JCKG_EVIDENCE CLI-009
+JCKG_EVIDENCE CLI-010
+JCKG_EVIDENCE PLAN-008
+JCKG_EVIDENCE PLAN-011
+JCKG_EVIDENCE PLAN-005
+JCKG_EVIDENCE PLAN-006
+JCKG_EVIDENCE PLAN-007
+JCKG_EVIDENCE PACK-007
+JCKG_EVIDENCE PLAT-008
+JCKG_EVIDENCE PLAT-003
+JCKG_EVIDENCE PLAT-001
+JCKG_EVIDENCE SPACE-005
+JCKG_EVIDENCE SPACE-004
+JCKG_EVIDENCE PLAT-012
+JCKG_EVIDENCE PLAT-007
+PLAT-007 long path supported: false (error: created 18 of 24 components)
+PLAT-007 unicode round trip: true
+PLAT-007 reparse created: false (error: PermissionDenied)
+PLAT-007 delete of open file failed with: AccessDenied
+JCKG_EVIDENCE PACK-005
+JCKG_EVIDENCE PACK-006
+JCKG_EVIDENCE PACK-001
+JCKG_EVIDENCE PACK-008
+JCKG_EVIDENCE PACK-004
+JCKG_EVIDENCE PACK-003
+JCKG_EVIDENCE PACK-002
+JCKG_EVIDENCE PLAN-004
+JCKG_EVIDENCE PLAN-009
+JCKG_EVIDENCE PLAN-010
+JCKG_EVIDENCE PLAN-001
+JCKG_EVIDENCE PLAN-002
+JCKG_EVIDENCE PLAN-003
+JCKG_EVIDENCE TRUST-010
+JCKG_EVIDENCE TRUST-009
+JCKG_EVIDENCE TRUST-011
+JCKG_EVIDENCE TRUST-012
+JCKG_EVIDENCE STRICT-007
+JCKG_EVIDENCE STRICT-008
+JCKG_EVIDENCE TRUST-003
+JCKG_EVIDENCE TRUST-002
+JCKG_EVIDENCE TRUST-004
+JCKG_EVIDENCE TRUST-005
+JCKG_EVIDENCE TRUST-006
+JCKG_EVIDENCE TRUST-008
+JCKG_EVIDENCE TRUST-001
+JCKG_EVIDENCE TRUST-007
+JCKG_EVIDENCE STRICT-006
+JCKG_EVIDENCE STRICT-010
+JCKG_EVIDENCE SELF-006
+JCKG_EVIDENCE SELF-005
+JCKG_EVIDENCE SELF-007
+JCKG_EVIDENCE SELF-001
+JCKG_EVIDENCE SELF-008
+JCKG_EVIDENCE SELF-002
+JCKG_EVIDENCE SELF-003
+stage comparison: jckg: first=c798496c93e0936bba43aa65ad44339772765074f7bea039d275d33e56f0c75e second=a2c80586c5285d00a63eade00dff89cc4be8063583b8037e5e619f052a7acdb5
+stage comparison: payloads differ (first=c798496c93e0936bba43aa65ad44339772765074f7bea039d275d33e56f0c75e second=a2c80586c5285d00a63eade00dff89cc4be8063583b8037e5e619f052a7acdb5)
+JCKG_EVIDENCE SELF-004
+JCKG_EVIDENCE STRICT-009
+transport: command=[set -eu; mkdir -p /tmp/jckg-cross; printf 'jackage-cross-boundary\r\nsecond line, no trailing newline' > /tmp/jckg-cross/input.txt; readlink -f /tmp/jckg-cross/input.txt; stat -f -c %T /tmp/jckg-cross]
+transport: command=[set -eu; printf 'action ran on %s\n' "$(uname -s)" >&2; sha256sum '/tmp/jckg-cross/input.txt' | cut -d' ' -f1]
+JCKG_EVIDENCE PROFILE-001
+JCKG_EVIDENCE PROFILE-002
+JCKG_EVIDENCE PROFILE-003
+JCKG_EVIDENCE PROFILE-004
+JCKG_EVIDENCE PROFILE-005
+JCKG_EVIDENCE PROFILE-006
+JCKG_EVIDENCE PROFILE-007
+JCKG_EVIDENCE PROFILE-008
+JCKG_EVIDENCE PROFILE-009
+JCKG_EVIDENCE PROFILE-010
+JCKG_EVIDENCE EXE-001
+JCKG_EVIDENCE EXE-002
+JCKG_EVIDENCE EXE-003
+JCKG_EVIDENCE EXE-004
+JCKG_EVIDENCE EXE-005
+JCKG_EVIDENCE EXE-006
+JCKG_EVIDENCE EXE-007
+JCKG_EVIDENCE EXE-008
+JCKG_EVIDENCE EXE-009
+JCKG_EVIDENCE EXE-010
+JCKG_EVIDENCE EVAL-001
+JCKG_EVIDENCE EVAL-002
+JCKG_EVIDENCE EVAL-003
+JCKG_EVIDENCE EVAL-004
+JCKG_EVIDENCE EVAL-005
+JCKG_EVIDENCE EVAL-006
+JCKG_EVIDENCE EVAL-007
+JCKG_EVIDENCE EVAL-008
+JCKG_EVIDENCE EVAL-009
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+failed command: ".\\.zig-cache\\o\\d417be481e0c9d3fca1050817d1ea765\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xdb180e82 --listen=-
+
+=== eval-tests.exe ===
+1/33 eval_tests.test_0...OK
+2/33 eval.mod.test_0...OK
+3/33 eval.tests.test.m04/EVAL-001 transform real TypeScript...JCKG_EVIDENCE EVAL-001
+OK
+4/33 eval.tests.test.m04/EVAL-002 separate semantic type checks...JCKG_EVIDENCE EVAL-002
+OK
+5/33 eval.tests.test.m04/EVAL-003 resolve exact locked imports...JCKG_EVIDENCE EVAL-003
+OK
+6/33 eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access...JCKG_EVIDENCE EVAL-004
+OK
+7/33 eval.tests.test.m04/EVAL-005 deny ambient effects and host secrets...JCKG_EVIDENCE EVAL-005
+OK
+8/33 eval.tests.test.m04/EVAL-006 produce repeatable canonical plans...JCKG_EVIDENCE EVAL-006
+OK
+9/33 eval.tests.test.m04/EVAL-007 interrupt infinite evaluation without publishing...JCKG_EVIDENCE EVAL-007
+OK
+10/33 eval.tests.test.m04/EVAL-008 bound heap allocation and release engine resources...JCKG_EVIDENCE EVAL-008
+OK
+11/33 eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks...JCKG_EVIDENCE EVAL-009
+OK
+12/33 eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode...JCKG_EVIDENCE EVAL-010
+OK
+13/33 eval.tests.test.m04/EVAL-011 key cache by engine transformer options and sources...JCKG_EVIDENCE EVAL-011
+OK
+14/33 core.canonical.test.m02/CAN-001 canonical object order...JCKG_EVIDENCE CAN-001
+OK
+15/33 core.canonical.test.m02/canonical encoding matches every fixture vector...OK
+16/33 core.canonical.test.m02/CAN-002 preserve array order...JCKG_EVIDENCE CAN-002
+OK
+17/33 core.canonical.test.m02/CAN-003 reject invalid numbers...JCKG_EVIDENCE CAN-003
+OK
+18/33 core.canonical.test.m02/CAN-004 reject duplicate keys...JCKG_EVIDENCE CAN-004
+OK
+19/33 core.canonical.test.m02/CAN-005 preserve Unicode bytes...JCKG_EVIDENCE CAN-005
+OK
+20/33 core.canonical.test.m02/CAN-006 reject invalid Unicode...JCKG_EVIDENCE CAN-006
+OK
+21/33 core.digest.test.m02/CAN-007 apply digest domains...JCKG_EVIDENCE CAN-007
+OK
+22/33 core.digest.test.m02/CAN-008 verify raw blob bytes...JCKG_EVIDENCE CAN-008
+OK
+23/33 core.digest.test.m02/digests match every canonical fixture vector...OK
+24/33 core.store.test.m02/CAS-001 publish verified bytes atomically...JCKG_EVIDENCE CAS-001
+OK
+25/33 core.store.test.m02/CAS-002 reject corrupt bytes...JCKG_EVIDENCE CAS-002
+OK
+26/33 core.store.test.m02/CAS-003 converge concurrent writes...JCKG_EVIDENCE CAS-003
+OK
+27/33 core.store.test.m02/CAS-004 recover interrupted import...JCKG_EVIDENCE CAS-004
+OK
+28/33 core.store.test.m02/CAS-005 protect immutable inputs...JCKG_EVIDENCE CAS-005
+OK
+29/33 core.store.test.m02/CAS-006 preserve runtime references...JCKG_EVIDENCE CAS-006
+OK
+30/33 core.store.test.m02/CAS-007 handle full disk...JCKG_EVIDENCE CAS-007
+OK
+31/33 core.store.test.m02/CAS-008 respect destination semantics...JCKG_EVIDENCE CAS-008
+OK
+32/33 core.tree.test.m02/CAN-009 reject unsafe portable paths...JCKG_EVIDENCE CAN-009
+OK
+33/33 core.tree.test.m02/CAN-010 validate tree structure...JCKG_EVIDENCE CAN-010
+OK
+All 33 tests passed.
+=== jckg-tests.exe ===
+1/139 jckg.test_0...OK
+2/139 audit.mod.test.m00/audit report assembles observed values...JCKG_EVIDENCE M00-REPORT
+OK
+3/139 audit.pin.test.AUD-002 honor the compiler pin...JCKG_EVIDENCE AUD-002
+OK
+4/139 audit.pin.test.AUD-003 reject pin mismatch...JCKG_EVIDENCE AUD-003
+OK
+5/139 audit.host.test.AUD-006 discover host capabilities...JCKG_EVIDENCE AUD-006
+OK
+6/139 audit.inventory.test.AUD-004 map the existing implementation...JCKG_EVIDENCE AUD-004
+OK
+7/139 audit.provenance.test.m00/AUD-007 inspect dependency provenance...JCKG_EVIDENCE AUD-007
+OK
+8/139 audit.manifest.test.AUD-001 preserve the existing checkout...JCKG_EVIDENCE AUD-001
+OK
+9/139 audit.baseline.test.m00/AUD-005 record baseline failures...JCKG_EVIDENCE AUD-005
+OK
+10/139 audit.hostenv.test.m00/AUD-008 preserve legacy WSL state...JCKG_EVIDENCE AUD-008
+OK
+11/139 core.cancel.test.m01/CLI-009 respect cancellation...JCKG_EVIDENCE CLI-009
+OK
+12/139 core.canonical.test.m02/CAN-001 canonical object order...JCKG_EVIDENCE CAN-001
+OK
+13/139 core.canonical.test.m02/canonical encoding matches every fixture vector...OK
+14/139 core.canonical.test.m02/CAN-002 preserve array order...JCKG_EVIDENCE CAN-002
+OK
+15/139 core.canonical.test.m02/CAN-003 reject invalid numbers...JCKG_EVIDENCE CAN-003
+OK
+16/139 core.canonical.test.m02/CAN-004 reject duplicate keys...JCKG_EVIDENCE CAN-004
+OK
+17/139 core.canonical.test.m02/CAN-005 preserve Unicode bytes...JCKG_EVIDENCE CAN-005
+OK
+18/139 core.canonical.test.m02/CAN-006 reject invalid Unicode...JCKG_EVIDENCE CAN-006
+OK
+19/139 core.digest.test.m02/CAN-007 apply digest domains...JCKG_EVIDENCE CAN-007
+OK
+20/139 core.digest.test.m02/CAN-008 verify raw blob bytes...JCKG_EVIDENCE CAN-008
+OK
+21/139 core.digest.test.m02/digests match every canonical fixture vector...OK
+22/139 core.policy.test.m01/CLI-006 avoid implicit prompts...JCKG_EVIDENCE CLI-006
+OK
+23/139 core.redact.test.m01/CLI-010 keep secrets out of errors...JCKG_EVIDENCE CLI-010
+OK
+24/139 core.store.test.m02/CAS-001 publish verified bytes atomically...JCKG_EVIDENCE CAS-001
+OK
+25/139 core.store.test.m02/CAS-002 reject corrupt bytes...JCKG_EVIDENCE CAS-002
+OK
+26/139 core.store.test.m02/CAS-003 converge concurrent writes...JCKG_EVIDENCE CAS-003
+OK
+27/139 core.store.test.m02/CAS-004 recover interrupted import...JCKG_EVIDENCE CAS-004
+OK
+28/139 core.store.test.m02/CAS-005 protect immutable inputs...JCKG_EVIDENCE CAS-005
+OK
+29/139 core.store.test.m02/CAS-006 preserve runtime references...JCKG_EVIDENCE CAS-006
+OK
+30/139 core.store.test.m02/CAS-007 handle full disk...JCKG_EVIDENCE CAS-007
+OK
+31/139 core.store.test.m02/CAS-008 respect destination semantics...JCKG_EVIDENCE CAS-008
+OK
+32/139 core.tree.test.m02/CAN-009 reject unsafe portable paths...JCKG_EVIDENCE CAN-009
+OK
+33/139 core.tree.test.m02/CAN-010 validate tree structure...JCKG_EVIDENCE CAN-010
+OK
+34/139 core.version.test.m01/CLI-001 report real version...JCKG_EVIDENCE CLI-001
+OK
+35/139 cli.args.test.m01/CLI-004 reject invalid syntax...JCKG_EVIDENCE CLI-004
+OK
+36/139 cli.console.test.m01/console handler reports availability honestly...OK
+37/139 cli.exit.test.m01/exit codes are distinct and documented...JCKG_EVIDENCE CLI-004
+OK
+38/139 cli.output.test.m01/CLI-003 separate JSON output...OK
+39/139 cli.commands.doctor.test.m01/CLI-008 diagnose honestly...JCKG_EVIDENCE CLI-008
+OK
+40/139 cli.commands.help.test.m01/CLI-002 provide usable help...JCKG_EVIDENCE CLI-002
+OK
+41/139 cli.integration_tests.test.m01/CLI-003 separate JSON output...JCKG_EVIDENCE CLI-003
+OK
+42/139 cli.integration_tests.test.m01/CLI-005 preserve argument boundaries...JCKG_EVIDENCE CLI-005
+OK
+43/139 cli.integration_tests.test.m01/CLI-007 initialize safely...JCKG_EVIDENCE CLI-007
+OK
+44/139 cli.integration_tests.test.m01/CLI-009 respect cancellation...JCKG_EVIDENCE CLI-009
+OK
+45/139 cli.integration_tests.test.m01/CLI-010 keep secrets out of errors...JCKG_EVIDENCE CLI-010
+OK
+46/139 eval.mod.test_0...OK
+47/139 exec.mod.test_0...OK
+48/139 plan.cache.test.m05/PLAN-008 separate action and artifact identity...JCKG_EVIDENCE PLAN-008
+OK
+49/139 plan.cache.test.m05/PLAN-011 preserve cache policy...JCKG_EVIDENCE PLAN-011
+OK
+50/139 plan.lockfile.test.m05/PLAN-005 lock complete inputs...JCKG_EVIDENCE PLAN-005
+OK
+51/139 plan.lockfile.test.m05/PLAN-006 refuse floating locked input...JCKG_EVIDENCE PLAN-006
+OK
+52/139 plan.lockfile.test.m05/PLAN-007 honor locked mode...JCKG_EVIDENCE PLAN-007
+OK
+53/139 package.closure.test.m10/PACK-007 exclude build-only inputs: only the runtime closure enters the payload...JCKG_EVIDENCE PACK-007
+OK
+54/139 platform.debian.test.m11/PLAT-008 validate Debian package: native tools accept the package we built...JCKG_EVIDENCE PLAT-008
+OK
+55/139 platform.native_smoke.test.m11/PLAT-003 run Linux x86_64: install, rollback, and run natively...JCKG_EVIDENCE PLAT-003
+OK
+56/139 platform.native_smoke.test.m11/PLAT-001 run Windows x86_64: install, rollback, and run natively...JCKG_EVIDENCE PLAT-001
+OK
+57/139 space.cache_policy.test.m12/SPACE-005 bound caches: eligible caches shrink and unsatisfied budgets stay explicit...JCKG_EVIDENCE SPACE-005
+OK
+58/139 space.lease_recovery.test.m12/SPACE-004 recover stale lease: a reused PID does not keep a lease alive...JCKG_EVIDENCE SPACE-004
+OK
+59/139 platform.perimeter.test.m11/PLAT-012 declare SDK perimeter: boundary and redistribution policy are explicit...JCKG_EVIDENCE PLAT-012
+OK
+60/139 platform.windows_fs.test.m11/PLAT-007 validate Windows filesystem: supported paths work and unsafe ones fail explicitly...JCKG_EVIDENCE PLAT-007
+PLAT-007 long path supported: false (error: created 18 of 24 components)
+PLAT-007 unicode round trip: true
+PLAT-007 reparse created: false (error: PermissionDenied)
+PLAT-007 delete of open file failed with: AccessDenied
+OK
+61/139 package.oci.test.m10/PACK-005 construct OCI layout: descriptors are verified against their blobs...JCKG_EVIDENCE PACK-005
+OK
+62/139 package.oci.test.m10/PACK-006 preserve OCI platform: each descriptor carries its platform...JCKG_EVIDENCE PACK-006
+OK
+63/139 package.plan.test.m10/PACK-001 plan package actions: tools and effects are declared actions...JCKG_EVIDENCE PACK-001
+OK
+64/139 package.signing.test.m10/PACK-008 separate signing: signed and unsigned identities stay distinct...JCKG_EVIDENCE PACK-008
+OK
+65/139 package.roundtrip.test.m10/PACK-004 round-trip tree: extraction reproduces the declared tree identity...JCKG_EVIDENCE PACK-004
+OK
+66/139 package.tar.test.m10/PACK-003 build deterministic tar: metadata policy and bytes repeat...JCKG_EVIDENCE PACK-003
+OK
+67/139 package.zip.test.m10/PACK-002 build deterministic ZIP: different enumeration orders produce equal bytes...JCKG_EVIDENCE PACK-002
+OK
+68/139 plan.planner.test.m05/PLAN-004 reject graph cycles...JCKG_EVIDENCE PLAN-004
+OK
+69/139 plan.planner.test.m05/PLAN-009 schedule dependencies...JCKG_EVIDENCE PLAN-009
+OK
+70/139 plan.planner.test.m05/PLAN-010 separate platforms...JCKG_EVIDENCE PLAN-010
+OK
+71/139 plan.resolver.test.m05/PLAN-001 resolve exact closure...JCKG_EVIDENCE PLAN-001
+OK
+72/139 plan.resolver.test.m05/PLAN-002 explain conflicts...JCKG_EVIDENCE PLAN-002
+OK
+73/139 plan.resolver.test.m05/PLAN-003 preserve namespaces...JCKG_EVIDENCE PLAN-003
+OK
+74/139 plan.version.test.m05/version parsing and precedence...OK
+75/139 plan.version.test.m05/requirement satisfaction...OK
+76/139 profile.mod.test_0...OK
+77/139 trust.archive.test.m07/TRUST-010 reject portable archive attacks atomically...JCKG_EVIDENCE TRUST-010
+OK
+78/139 trust.download.test.m07/TRUST-009 bound and verify downloads...JCKG_EVIDENCE TRUST-009
+OK
+79/139 trust.download.test.m07/TRUST-011 protect authorization redirects...JCKG_EVIDENCE TRUST-011
+OK
+80/139 trust.download.test.m07/TRUST-012 resist computation cache poisoning...JCKG_EVIDENCE TRUST-012
+OK
+81/139 trust.download.test.m08/STRICT-007 verify returned artifacts before commitment...JCKG_EVIDENCE STRICT-007
+OK
+82/139 trust.download.test.m08/STRICT-008 reconcile interrupted actions and verify resumed data...JCKG_EVIDENCE STRICT-008
+OK
+83/139 trust.keys.test.m07/TRUST-003 reject bad signatures...JCKG_EVIDENCE TRUST-003
+OK
+84/139 trust.metadata.test.m07/TRUST-002 accept authorized metadata...JCKG_EVIDENCE TRUST-002
+OK
+85/139 trust.metadata.test.m07/TRUST-004 reject rollback...JCKG_EVIDENCE TRUST-004
+OK
+86/139 trust.metadata.test.m07/TRUST-005 reject expiry...JCKG_EVIDENCE TRUST-005
+OK
+87/139 trust.metadata.test.m07/TRUST-006 reject mixed snapshots...JCKG_EVIDENCE TRUST-006
+OK
+88/139 trust.metadata.test.m07/TRUST-008 distinguish offline execution...JCKG_EVIDENCE TRUST-008
+OK
+89/139 trust.root.test.timestamp formatter round-trips through the validator...OK
+90/139 trust.root.test.m07/TRUST-001 require root enrollment...JCKG_EVIDENCE TRUST-001
+OK
+91/139 trust.root.test.m07/TRUST-007 rotate roots safely...JCKG_EVIDENCE TRUST-007
+OK
+92/139 worker.auth.test.m08/STRICT-006 authenticate workers...JCKG_EVIDENCE STRICT-006
+OK
+93/139 worker.controller.test.m08/STRICT-010 reject fake capabilities: a disproved claim is withdrawn...JCKG_EVIDENCE STRICT-010
+OK
+94/139 worker.controller.test.worker controller refuses mismatched session and reordered events...OK
+95/139 selfhost.bootstrap.test.m09/SELF-006 bootstrap without Jackage: declared inputs are verified, not assumed...JCKG_EVIDENCE SELF-006
+OK
+96/139 selfhost.bootstrap.test.m09/SELF-005 keep compiler exact: locked builds retain the supplied pin...JCKG_EVIDENCE SELF-005
+OK
+97/139 selfhost.snapshot.test.m09/SELF-007 preserve primary source: a snapshot is complete and verified...JCKG_EVIDENCE SELF-007
+OK
+98/139 selfhost.environment.test.m09/SELF-001 realize own environment: every tool comes from a declared verified input...JCKG_EVIDENCE SELF-001
+OK
+99/139 selfhost.install.test.m09/SELF-008 install self package: both clients run through the same verification...JCKG_EVIDENCE SELF-008
+OK
+100/139 selfhost.stage.test.m09/SELF-002 build stage one: a functional client and its provenance exist...JCKG_EVIDENCE SELF-002
+OK
+101/139 selfhost.stage.test.m09/SELF-003 build stage two: a fresh stage without cache reuse produces comparable artifacts...JCKG_EVIDENCE SELF-003
+stage comparison: jckg: first=16543f94eb5ab3dd08b619157b4fed6c01d0bb7c88761e143eadb7c160e4c835 second=581908ee218183f43e4c8ad6ae226fea844e28357963e298f0b636e7fc50d31c
+stage comparison: payloads differ (first=16543f94eb5ab3dd08b619157b4fed6c01d0bb7c88761e143eadb7c160e4c835 second=581908ee218183f43e4c8ad6ae226fea844e28357963e298f0b636e7fc50d31c)
+OK
+102/139 selfhost.stages.test.m09/SELF-004 compare stages: equal payloads pass, unequal payloads fail...JCKG_EVIDENCE SELF-004
+OK
+103/139 worker.cross_tests.test.m08/STRICT-009 cross Windows to Linux: the declared transport runs a Linux action...JCKG_EVIDENCE STRICT-009
+transport: command=[set -eu; mkdir -p /tmp/jckg-cross; printf 'jackage-cross-boundary\r\nsecond line, no trailing newline' > /tmp/jckg-cross/input.txt; readlink -f /tmp/jckg-cross/input.txt; stat -f -c %T /tmp/jckg-cross]
+transport: command=[set -eu; printf 'action ran on %s\n' "$(uname -s)" >&2; sha256sum '/tmp/jckg-cross/input.txt' | cut -d' ' -f1]
+OK
+104/139 worker.frames.test.m08/frame protocol bounds, identity and ordering...OK
+105/139 worker.main.test.m08/worker refuses work before authentication and streams a run...OK
+106/139 worker.main.test.m08/worker authenticates, runs the declared argv and reports its status...OK
+107/139 worker.main.test.m08/worker arguments and secret are strict...OK
+108/139 worker.sandbox.test.m08/sandbox plan validates paths, writability and argv...OK
+109/139 profile.tests.test.m06/PROFILE-001 Install a closure...JCKG_EVIDENCE PROFILE-001
+OK
+110/139 profile.tests.test.m06/PROFILE-002 Activate atomically...JCKG_EVIDENCE PROFILE-002
+OK
+111/139 profile.tests.test.m06/PROFILE-003 Rollback a generation...JCKG_EVIDENCE PROFILE-003
+OK
+112/139 profile.tests.test.m06/PROFILE-004 Remove references safely...JCKG_EVIDENCE PROFILE-004
+OK
+113/139 profile.tests.test.m06/PROFILE-005 Handle executable collision...JCKG_EVIDENCE PROFILE-005
+OK
+114/139 profile.tests.test.m06/PROFILE-006 Preserve active executable...JCKG_EVIDENCE PROFILE-006
+OK
+115/139 profile.tests.test.m06/PROFILE-007 Run transiently...JCKG_EVIDENCE PROFILE-007
+OK
+116/139 profile.tests.test.m06/PROFILE-008 Forward runner arguments...JCKG_EVIDENCE PROFILE-008
+OK
+117/139 profile.tests.test.m06/PROFILE-009 Preserve runner exit...JCKG_EVIDENCE PROFILE-009
+OK
+118/139 profile.tests.test.m06/PROFILE-010 Lease concurrent runners...JCKG_EVIDENCE PROFILE-010
+OK
+119/139 exec.tests.test.m03/EXE-001 Execute exact argv...JCKG_EVIDENCE EXE-001
+OK
+120/139 exec.tests.test.m03/EXE-002 Clear ambient environment...JCKG_EVIDENCE EXE-002
+OK
+121/139 exec.tests.test.m03/EXE-003 Collect only declared outputs...JCKG_EVIDENCE EXE-003
+OK
+122/139 exec.tests.test.m03/EXE-004 Reject output escape...JCKG_EVIDENCE EXE-004
+OK
+123/139 exec.tests.test.m03/EXE-005 Retain action failure...JCKG_EVIDENCE EXE-005
+OK
+124/139 exec.tests.test.m03/EXE-006 Distinguish launch failure...JCKG_EVIDENCE EXE-006
+OK
+125/139 exec.tests.test.m03/EXE-007 Cancel descendants...JCKG_EVIDENCE EXE-007
+OK
+126/139 exec.tests.test.m03/EXE-008 Report native limitations...JCKG_EVIDENCE EXE-008
+OK
+127/139 exec.tests.test.m03/EXE-009 Bound diagnostics...JCKG_EVIDENCE EXE-009
+OK
+128/139 exec.tests.test.m03/EXE-010 Reconcile controller failure...JCKG_EVIDENCE EXE-010
+OK
+129/139 eval.tests.test.m04/EVAL-001 transform real TypeScript...JCKG_EVIDENCE EVAL-001
+OK
+130/139 eval.tests.test.m04/EVAL-002 separate semantic type checks...JCKG_EVIDENCE EVAL-002
+OK
+131/139 eval.tests.test.m04/EVAL-003 resolve exact locked imports...JCKG_EVIDENCE EVAL-003
+OK
+132/139 eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access...JCKG_EVIDENCE EVAL-004
+OK
+133/139 eval.tests.test.m04/EVAL-005 deny ambient effects and host secrets...JCKG_EVIDENCE EVAL-005
+OK
+134/139 eval.tests.test.m04/EVAL-006 produce repeatable canonical plans...JCKG_EVIDENCE EVAL-006
+OK
+135/139 eval.tests.test.m04/EVAL-007 interrupt infinite evaluation without publishing...JCKG_EVIDENCE EVAL-007
+OK
+136/139 eval.tests.test.m04/EVAL-008 bound heap allocation and release engine resources...JCKG_EVIDENCE EVAL-008
+OK
+137/139 eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks...JCKG_EVIDENCE EVAL-009
+OK
+138/139 eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode...JCKG_EVIDENCE EVAL-010
+OK
+139/139 eval.tests.test.m04/EVAL-011 key cache by engine transformer options and sources...JCKG_EVIDENCE EVAL-011
+OK
+All 139 tests passed.

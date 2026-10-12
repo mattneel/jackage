@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c14a96ea4985468d9c7a439661f31323",
+  "case": "SPACE-004",
+  "caseDigest": "cc1533921e4cec84d4f7b2d516e179a1611994b45f769958cb784521ee5611b6",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-004 recover stale lease: the case is about the two naive answers, both wrong. A PID alone is reused, so a crashed holder's lease looks alive again the moment an unrelated process takes the number; a timeout alone cannot tell crashed from slow, so it either deletes running work or keeps a dead lease forever. src/space/lease_recovery.zig identifies a holder by the process identifier *and* the time that process started - the same two facts M03's reconciliation uses - and a lease is stale only when that identity is absent from the processes that exist now. The test's four leases cover exactly the discrimination: a live holder, a crashed holder, a holder whose identifier was taken by a different process (which the naive check declares live and never cleans up), and a second live holder that must survive the sweep. Fault proof: matching on the identifier alone makes the reused-PID lease look live and the stale count assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:38:36.189576+00:00",
+  "records": [
+    "8a257d1c8ce146cdb8b5ee78eba2ec52",
+    "be22dc48cf5140ffbdb174961eeea55c",
+    "b15310fe089845a58167bf78f6412413",
+    "d6499fcf13fe42ba95f105fd913015ec"
+  ],
+  "recordDigests": {
+    "8a257d1c8ce146cdb8b5ee78eba2ec52": "af4328c0087aac958f8e94a36800da4f5dd26ffd16643ba6fb94704220252507",
+    "be22dc48cf5140ffbdb174961eeea55c": "b92a38c10056122c01a74737998005853cfbcbd16443573bcb3b06f383e35404",
+    "b15310fe089845a58167bf78f6412413": "835aaf2fb54eff584dd039578adc5dc698431eedb7b3fb0fe8e96c8369b17a64",
+    "d6499fcf13fe42ba95f105fd913015ec": "055a224075faa11e0f30f6a922d37c6bad87381b2926ee0db64eaf34ea77c5aa"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

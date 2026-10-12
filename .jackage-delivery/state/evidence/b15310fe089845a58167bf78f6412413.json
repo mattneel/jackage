@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "b15310fe089845a58167bf78f6412413",
+  "case": "SPACE-004",
+  "caseDigest": "cc1533921e4cec84d4f7b2d516e179a1611994b45f769958cb784521ee5611b6",
+  "stage": "green",
+  "testId": "m12/SPACE-004 recover stale lease: a reused PID does not keep a lease alive",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "SPACE-004"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T16:36:31.336557+00:00",
+  "finishedUtc": "2026-10-12T16:36:35.147365+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE SPACE-004",
+  "markerFound": true,
+  "logPath": "state/evidence/b15310fe089845a58167bf78f6412413.log",
+  "logSha256": "7fe16b92456b707098d862f8b87e032f6ea76888c24ac9fdd4fe6c1f8d2bfa56",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ae0b59333c3aae3e9551af61cca8daf129f6f566",
+    "statusSha256": "016f1df7b90eb43c8e38e603382cd1133149032ee680004e041f4038d3b8286c",
+    "trackedDiffSha256": "fa818a06d835b8c2df1a7021f67fa995689e7ca0f1e37fce8e65e8598aaa191d",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ae0b59333c3aae3e9551af61cca8daf129f6f566",
+    "statusSha256": "85e34276d49982d2c56ff6202ae146937d72594e7b617d84f77fef5bd8b2d075",
+    "trackedDiffSha256": "fa818a06d835b8c2df1a7021f67fa995689e7ca0f1e37fce8e65e8598aaa191d",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

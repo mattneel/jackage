@@ -49,6 +49,7 @@ test {
     _ = @import("platform/debian.zig");
     _ = @import("platform/native_smoke.zig");
     _ = @import("space/cache_policy.zig");
+    _ = @import("space/lease_recovery.zig");
     _ = @import("platform/perimeter.zig");
     _ = @import("platform/windows_fs.zig");
     _ = @import("package/oci.zig");
