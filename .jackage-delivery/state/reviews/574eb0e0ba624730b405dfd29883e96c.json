@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "574eb0e0ba624730b405dfd29883e96c",
+  "case": "PLAT-012",
+  "caseDigest": "34e191d6348d0caf1cd3787a3237107e05ed026f6169b997807a22ee1a6c07b9",
+  "reviewer": "OMP agent (M11 platform matrix)",
+  "note": "PLAT-012 declare SDK perimeter: a release that needs a proprietary SDK is allowed, but the boundary has to be stated. src/platform/perimeter.zig makes three things explicit - which component is the SDK, its redistribution policy per component (redistributable, proprietary, restricted, or unclassified), and which side of the build/runtime boundary it lands on - and refuses a plan that leaves any of them unstated. The failure shapes are distinguished on purpose: an unclassified licence is refused wherever it sits, because publishing what nobody has classified is not a decision to make by omission; a proprietary or restricted component in the *payload* is a separate refusal, which is the SDK-shipped-by-accident mistake the case exists to prevent; and a plan that requires an SDK without naming one is refused, because an unnamed boundary is not a boundary. The report returns the shipped set, the build-only set, and the SDK by name, so the boundary is auditable rather than implied. Fault proof: allowing a non-redistributable component into the payload makes the leak assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:16:24.767430+00:00",
+  "records": [
+    "ed5c34cecdfd41e1be437d4bb8f2c334",
+    "7205035b538f446d871e8ce94d973dd0",
+    "de58f17173b246f8a8ba1550e6cb5eae",
+    "d81a826dddd946ceb4a5b7f4c7a26268"
+  ],
+  "recordDigests": {
+    "ed5c34cecdfd41e1be437d4bb8f2c334": "cf24e0906290bc00d24e53c00a14865c93ebcafc76bbc0be171fc4fed9aed84e",
+    "7205035b538f446d871e8ce94d973dd0": "5aac54bb4d39108e51d85a7eacb2c383d19fe43931326270fe3b57c20bc312df",
+    "de58f17173b246f8a8ba1550e6cb5eae": "ed43a9bca6e7da86cdaad2340455d3e37e528e2d1638930f0bdd2776ad82264e",
+    "d81a826dddd946ceb4a5b7f4c7a26268": "b7df552af5e1f72a88874d68c315ba675f1e789a08409b49c4f8022c13405214"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

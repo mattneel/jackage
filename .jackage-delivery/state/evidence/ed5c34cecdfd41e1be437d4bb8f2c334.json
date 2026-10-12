@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "ed5c34cecdfd41e1be437d4bb8f2c334",
+  "case": "PLAT-012",
+  "caseDigest": "34e191d6348d0caf1cd3787a3237107e05ed026f6169b997807a22ee1a6c07b9",
+  "stage": "characterize",
+  "testId": "m11/PLAT-012 declare SDK perimeter: boundary and redistribution policy are explicit",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "PLAT-012"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T16:14:23.889873+00:00",
+  "finishedUtc": "2026-10-12T16:14:24.502186+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE PLAT-012",
+  "markerFound": true,
+  "logPath": "state/evidence/ed5c34cecdfd41e1be437d4bb8f2c334.log",
+  "logSha256": "e548cffc70577bdb15adb290ca95fd33ebfe9aad5ab51260e0887efe15ed8786",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "68792fa4aec271a1a64235295b86928fab07037a",
+    "statusSha256": "fba18d5b326f696d6b6dd29a4ae775b744a9f7e840fd2ab845bf3e257023cb71",
+    "trackedDiffSha256": "f7432d034d6d9628d2d39161dbe9cbd433ae3e37eb17c0495c5fa70560f716c9",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "68792fa4aec271a1a64235295b86928fab07037a",
+    "statusSha256": "9641b73087907c265d43b6c510a75bacf99e695a76755fa46d8f8858902408c7",
+    "trackedDiffSha256": "f7432d034d6d9628d2d39161dbe9cbd433ae3e37eb17c0495c5fa70560f716c9",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}
