@@ -50,6 +50,7 @@ test {
     _ = @import("platform/native_smoke.zig");
     _ = @import("space/cache_policy.zig");
     _ = @import("space/lease_recovery.zig");
+    _ = @import("channels/discovery.zig");
     _ = @import("plugin/authority.zig");
     _ = @import("plugin/protocol.zig");
     _ = @import("plugin/cancellation.zig");

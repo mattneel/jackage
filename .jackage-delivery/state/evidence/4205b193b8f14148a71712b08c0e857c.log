@@ -1,0 +1,22 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'channels.discovery.test.m14/GH-001 discover repository channel: revision recorded, trust decided separately' failed:
+       JCKG_EVIDENCE GH-001
+       expected .signature_invalid, found .verified
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff779e0b440 in expectEqualInner__func_868 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff779e0eae2 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\channels\discovery.zig:275:5: 0x7ff779e0ed26 in test.m14/GH-001 discover repository channel: revision recorded, trust decided separately (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(Trust.signature_invalid, try decideTrust(gpa, ring, forged));
+           ^
+failed command: ".\\.zig-cache\\o\\e0fcb7d905bd1f3c526a1cdeee320692\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xfe53b0f0 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xfe53b0f0 test -Dfilter=GH-001 --prefix C:\src\jackage\.zig-cache\test-prefix-GH-001

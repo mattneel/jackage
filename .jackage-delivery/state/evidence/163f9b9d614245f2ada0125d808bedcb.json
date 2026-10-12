@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "163f9b9d614245f2ada0125d808bedcb",
+  "case": "GH-001",
+  "caseDigest": "ebe54be69a8931f659511adb1d07f4fe1e109db1914666e129df08ecf78200f1",
+  "stage": "characterize",
+  "testId": "m14/GH-001 discover repository channel: revision recorded, trust decided separately",
+  "platformRole": "portable",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1",
+    "-Filter",
+    "GH-001"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T17:31:52.739788+00:00",
+  "finishedUtc": "2026-10-12T17:31:53.395065+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE GH-001",
+  "markerFound": true,
+  "logPath": "state/evidence/163f9b9d614245f2ada0125d808bedcb.log",
+  "logSha256": "a0538cea2e112176371a92fe7f5466044696c7343ec2823dc13bcb6ef7d172dd",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ade4ceb18a25a89bf230c92de5d4f49c29e47679",
+    "statusSha256": "8c22e98a0a39db3d736b3016bb8b794212511e3550024e91de2a3e8aaf5b8f90",
+    "trackedDiffSha256": "3b94ca1d8ca3b5fe814fc508170c926f3cd8b72628565ca2433287f5c459efb8",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "ade4ceb18a25a89bf230c92de5d4f49c29e47679",
+    "statusSha256": "701e699323a47e705e55dc31b124e013314613385db117d60afc123e96203b80",
+    "trackedDiffSha256": "3b94ca1d8ca3b5fe814fc508170c926f3cd8b72628565ca2433287f5c459efb8",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

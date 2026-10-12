@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "40003cd6b9744ade97dfd74063ea102b",
+  "case": "GH-001",
+  "caseDigest": "ebe54be69a8931f659511adb1d07f4fe1e109db1914666e129df08ecf78200f1",
+  "reviewer": "OMP agent (M14 GitHub channels and authorized publication)",
+  "note": "GH-001 discover repository channel: src/channels/discovery.zig resolves a user-style repository URL by fetching a pinned descriptor, recording the revision the client read, and deciding trust afterwards as its own step. The two facts are kept apart on purpose: a descriptor that was fetched has a real revision even when its signature is wrong, and an operator needs to know whether they are looking at the wrong document or at a forgery of the right one, so the revision is recorded first and returned alongside the trust decision rather than being replaced by it. An unknown key is a third answer again, not a synonym for an invalid signature. Writing the module exposed a design flaw in my first draft: a signature cannot cover a document that contains it, so the signed bytes are now an explicit canonical payload rendered from the descriptor's fields, which is what makes verifying a document that arrived over an untrusted transport possible at all. The fixture serves the forged document over the same real HTTP transport as the honest one. Fault proof: assuming trust instead of deciding it makes the forged-descriptor assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T17:34:18.983103+00:00",
+  "records": [
+    "163f9b9d614245f2ada0125d808bedcb",
+    "4205b193b8f14148a71712b08c0e857c",
+    "80e166fbff0847858040ca1bca0688b6",
+    "43d799aa7f944dfbb5fdc4e2d9c5b87a"
+  ],
+  "recordDigests": {
+    "163f9b9d614245f2ada0125d808bedcb": "a130b34345971db27c7a821cf22bb50d0743fb3449494ed7026544fa382ba3a0",
+    "4205b193b8f14148a71712b08c0e857c": "c0104fd058fbdf0996e008be5fbca18db47b2f3a3178b42877dce7bf493785fa",
+    "80e166fbff0847858040ca1bca0688b6": "2e1ece36a50dd1791939fc74a60cedd48fcd3c514623f96909e0f62bc96e95f8",
+    "43d799aa7f944dfbb5fdc4e2d9c5b87a": "e1d162ddc2b06b9c035b1ec4cbdae0dbfaf34c893e277b259e4de2f43c53ca54"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

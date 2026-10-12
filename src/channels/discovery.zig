@@ -108,10 +108,27 @@ pub fn parseDescriptor(gpa: std.mem.Allocator, bytes: []const u8) Error!Descript
     };
 }
 
+/// The bytes a descriptor's signature covers.
+///
+/// The signature cannot cover the whole document, because the document contains the
+/// signature. It covers a canonical rendering of the fields instead, so the signed
+/// bytes are a function of the descriptor and nothing else - which is what makes it
+/// possible to verify a document that arrived over an untrusted transport.
+pub fn signedPayload(gpa: std.mem.Allocator, descriptor: Descriptor) Error![]u8 {
+    var id_buffer: [keys.key_id_length * 2]u8 = undefined;
+    return std.fmt.allocPrint(gpa, "jackage-discovery-v1\n{s}\n{s}\n{s}", .{
+        descriptor.metadata_path,
+        descriptor.assets_path,
+        keys.keyIdText(descriptor.key_id, &id_buffer),
+    });
+}
+
 /// Decides trust for a descriptor against a ring, as its own step.
-pub fn decideTrust(ring: keys.KeyRing, descriptor: Descriptor) Trust {
+pub fn decideTrust(gpa: std.mem.Allocator, ring: keys.KeyRing, descriptor: Descriptor) Error!Trust {
     const entry = ring.find(descriptor.key_id) orelse return .key_unknown;
-    entry.key.verify(descriptor.bytes, descriptor.signature) catch return .signature_invalid;
+    const payload = try signedPayload(gpa, descriptor);
+    defer gpa.free(payload);
+    entry.key.verify(payload, descriptor.signature) catch return .signature_invalid;
     return .verified;
 }
 
@@ -142,7 +159,7 @@ pub fn resolve(
     const descriptor = try parseDescriptor(gpa, bytes);
     errdefer deinitDescriptor(gpa, descriptor);
 
-    var digest_text: [digest.text_length]u8 = undefined;
+    var digest_text: [digest.Digest.text_length]u8 = undefined;
     const revision = if (result.etag) |etag|
         std.fmt.allocPrint(gpa, "{s}@{s}", .{ result.artifact.digest.text(&digest_text), etag })
     else
@@ -150,7 +167,7 @@ pub fn resolve(
 
     return .{
         .revision = try revision,
-        .trust = decideTrust(ring, descriptor),
+        .trust = try decideTrust(gpa, ring, descriptor),
         .descriptor = descriptor,
     };
 }
@@ -165,20 +182,24 @@ test "m14/GH-001 discover repository channel: revision recorded, trust decided s
     const ring_entry = keys.RingEntry{ .id = public.id(), .key = public, .roles = &.{.root} };
     const ring = keys.KeyRing{ .entries = &.{ring_entry} };
 
-    const store_module_path = "zig-out/jckg-gh-001-store";
+    const store_path = "zig-out/jckg-gh-001-store";
     const cwd = std.Io.Dir.cwd();
-    cwd.deleteTree(io, store_module_path) catch {};
-    defer cwd.deleteTree(io, store_module_path) catch {};
-    var store = try store_module.Store.init(io, gpa, store_module_path);
-    defer store.deinit();
+    cwd.deleteTree(io, store_path) catch {};
+    defer cwd.deleteTree(io, store_path) catch {};
+    var store_root = try cwd.createDirPathOpen(io, store_path, .{});
+    defer store_root.close(io);
+    // The store handle is a directory: every blob path is relative to it.
+    const store = store_module.Store.init(io, gpa, store_root);
+    try store.ensureLayout();
 
     var id_buffer: [keys.key_id_length * 2]u8 = undefined;
     const key_text = keys.keyIdText(public.id(), &id_buffer);
 
-    // A descriptor the trusted key signs.
-    const descriptor_json = try std.fmt.allocPrint(gpa, "{{\"metadata\":\"/meta\",\"assets\":\"/assets\",\"key_id\":\"{s}\"}}", .{key_text});
-    defer gpa.free(descriptor_json);
-    const signature = try pair.sign(descriptor_json);
+    // The payload the signature covers, rendered canonically. The document below
+    // carries the signature; the signature covers this.
+    const payload = try std.fmt.allocPrint(gpa, "jackage-discovery-v1\n/meta\n/assets\n{s}", .{key_text});
+    defer gpa.free(payload);
+    const signature = try pair.sign(payload);
 
     const good_document = try std.fmt.allocPrint(
         gpa,
@@ -189,7 +210,7 @@ test "m14/GH-001 discover repository channel: revision recorded, trust decided s
 
     // A document that claims the trusted key but was signed by another one.
     const other_pair = try keys.testKeyPair("gh-001-forger");
-    const forged_signature = try other_pair.sign(descriptor_json);
+    const forged_signature = try other_pair.sign(payload);
     const forged_document = try std.fmt.allocPrint(
         gpa,
         "{{\"metadata\":\"/meta\",\"assets\":\"/assets\",\"key_id\":\"{s}\",\"signature\":\"{s}\"}}",
@@ -209,13 +230,24 @@ test "m14/GH-001 discover repository channel: revision recorded, trust decided s
     defer gpa.free(unknown_document);
 
     // A real fixture serves the discovery endpoint with a validator.
-    const good_routes = [_]download.FixtureRoute{.{
-        .path = "/.well-known/jackage.json",
-        .responses = &.{.{
-            .body = good_document,
-            .etag = "\"rev-7\"",
-        }},
-    }};
+    const good_routes = [_]download.FixtureRoute{
+        .{
+            .path = "/.well-known/jackage.json",
+            .responses = &.{.{
+                .body = good_document,
+                .etag = "\"rev-7\"",
+            }},
+        },
+        // The same endpoint serving a document signed by somebody else: a real
+        // fixture, so the forgery travels the same transport as the honest document.
+        .{
+            .path = "/forged.json",
+            .responses = &.{.{
+                .body = forged_document,
+                .etag = "\"rev-7\"",
+            }},
+        },
+    };
     var server = try download.FixtureServer.init(io, gpa, &good_routes);
     try server.start();
     defer server.deinit();
@@ -240,9 +272,11 @@ test "m14/GH-001 discover repository channel: revision recorded, trust decided s
     // the separation the case is about - the two facts do not collapse into "failed".
     const forged = try parseDescriptor(gpa, forged_document);
     defer deinitDescriptor(gpa, forged);
-    try std.testing.expectEqual(Trust.signature_invalid, decideTrust(ring, forged));
+    try std.testing.expectEqual(Trust.signature_invalid, try decideTrust(gpa, ring, forged));
+    const forged_url = try server.urlAlloc(gpa, "/forged.json");
+    defer gpa.free(forged_url);
     const forged_resolution = try resolve(io, gpa, .{
-        .url = url,
+        .url = forged_url,
         .expected = .{ .digest = try store.importBytes(forged_document, null), .byte_length = forged_document.len },
     }, ring, store);
     defer forged_resolution.deinit(gpa);
@@ -253,7 +287,15 @@ test "m14/GH-001 discover repository channel: revision recorded, trust decided s
     // An unknown key is a third answer, not a synonym for an invalid signature.
     const unknown = try parseDescriptor(gpa, unknown_document);
     defer deinitDescriptor(gpa, unknown);
-    try std.testing.expectEqual(Trust.key_unknown, decideTrust(ring, unknown));
+    try std.testing.expectEqual(Trust.key_unknown, try decideTrust(gpa, ring, unknown));
+
+    // The signed payload is a function of the descriptor alone, so the same document
+    // verifies however it was transported.
+    const good = try parseDescriptor(gpa, good_document);
+    defer deinitDescriptor(gpa, good);
+    const payload_again = try signedPayload(gpa, good);
+    defer gpa.free(payload_again);
+    try std.testing.expectEqualStrings(payload, payload_again);
 
     // The tampered-on-the-wire case is caught by the digest, before any of this: the
     // document that arrives must be the document the digest names.
