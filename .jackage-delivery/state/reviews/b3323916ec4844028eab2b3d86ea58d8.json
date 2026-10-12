@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b3323916ec4844028eab2b3d86ea58d8",
+  "case": "SELF-003",
+  "caseDigest": "7f39fffe60316fc9ee769b97dd281059c58176115d2c86cf696b68bd235f68af",
+  "reviewer": "OMP agent (M09 self-hosting)",
+  "note": "SELF-003 build stage two: a second stage runs from fresh work and output directories with a cache directory of its own that did not exist before, so neither stage can find the other's result and an artifact that appears is one that stage produced. The comparison then runs over real stage output (the SELF-004 comparison applied to two actual builds), and the case requires comparability - same artifact names, both digests measured, the comparison deciding - rather than equality, which is SELF-004's question. A real finding is recorded rather than asserted away: two honest builds of identical source in different directories produce different client digests (for example 3598dc3f... versus dd79e55c...), which is a statement about the compiler's determinism under per-stage prefix paths and belongs to the later reproducibility milestone. The per-stage cache is asserted to be *used* (non-empty after the build), so 'no cache reuse' is a wiring fact rather than an accident of naming. Fault proof: ignoring the per-stage cache leaves it empty and the case fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:36:16.555946+00:00",
+  "records": [
+    "4651ce5fc04d4371b760a5902698dfec",
+    "6717627976ee4b4f9533cba941f5014e",
+    "8db352febf3b499ab6ee52c17ac1e34b",
+    "ef06183c73c444cd8f4408369ae5631f"
+  ],
+  "recordDigests": {
+    "4651ce5fc04d4371b760a5902698dfec": "8b782ec0f2818e057a3649757ba69d9712a7a4da9c2f3af394ce01686935f375",
+    "6717627976ee4b4f9533cba941f5014e": "d13ca8491da5aaeed1d91e40c47dd54f100a3f22a8b221510a6bd26d8006782f",
+    "8db352febf3b499ab6ee52c17ac1e34b": "166153cd470d9ed25516755c75b4c9322be1f1c5e968213e21fe0c61c62fa15e",
+    "ef06183c73c444cd8f4408369ae5631f": "d532c0ac652cfaa656f4334de52b1bc19df9de690f72a5b76cf31dd3b60ec151"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

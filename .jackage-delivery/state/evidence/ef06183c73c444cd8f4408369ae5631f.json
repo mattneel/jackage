@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "ef06183c73c444cd8f4408369ae5631f",
+  "case": "SELF-003",
+  "caseDigest": "7f39fffe60316fc9ee769b97dd281059c58176115d2c86cf696b68bd235f68af",
+  "stage": "regression",
+  "testId": "m09/SELF-003 build stage two: a fresh stage without cache reuse produces comparable artifacts",
+  "platformRole": "host",
+  "actualPlatform": "windows-x86_64",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/test.ps1"
+  ],
+  "cwd": "C:\\src\\jackage",
+  "startedUtc": "2026-10-12T15:34:30.263902+00:00",
+  "finishedUtc": "2026-10-12T15:36:07.573773+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE SELF-003",
+  "markerFound": true,
+  "logPath": "state/evidence/ef06183c73c444cd8f4408369ae5631f.log",
+  "logSha256": "7653e373772f862e9bed9b4c85ee27b2d1afb825727f83abe960451be3545328",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "d07f2e7428e60d0555d35670cdafa709a40c64ce",
+    "statusSha256": "9c7d2a4d47dea814526de2623b8f42600c3551fccfa518c9fe447646b46127a7",
+    "trackedDiffSha256": "6b73dfac017f171ee13ff02c136125212baa88dc94056299a0be64f14851af35",
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": "d07f2e7428e60d0555d35670cdafa709a40c64ce",
+    "statusSha256": "e6698b01e075bb9ca4708432ced81bea2b11c5a86a43e4cf7ed05bdf93ff94a9",
+    "trackedDiffSha256": "6b73dfac017f171ee13ff02c136125212baa88dc94056299a0be64f14851af35",
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

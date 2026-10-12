@@ -1,0 +1,21 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE SELF-003
+stage comparison: jckg: first=a0edd9865e055503370d1728c18df733635c25b30c01bb99764cf174c84bb83a second=ee949fb617a85050c440517d05d226ebddc9f661c6c59a4b649eedd78b1e1932
+stage comparison: payloads differ (first=a0edd9865e055503370d1728c18df733635c25b30c01bb99764cf174c84bb83a second=ee949fb617a85050c440517d05d226ebddc9f661c6c59a4b649eedd78b1e1932)
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-SELF-003\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x38382bb2 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 selfhost.stage.test.m09/SELF-003 build stage two: a fresh stage without cache reuse produces comparable artifacts...JCKG_EVIDENCE SELF-003
+stage comparison: jckg: first=577a676fec92b9d4def4b304157ee10c2e3c08376edff23fea73afdde3dd8ae4 second=cfd29faa4a0789ef9f179d22a86d023e673ba6b5f9141bcb7b615dce2fb66b00
+stage comparison: payloads differ (first=577a676fec92b9d4def4b304157ee10c2e3c08376edff23fea73afdde3dd8ae4 second=cfd29faa4a0789ef9f179d22a86d023e673ba6b5f9141bcb7b615dce2fb66b00)
+OK
+All 5 tests passed.

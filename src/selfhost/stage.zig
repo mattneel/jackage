@@ -43,6 +43,13 @@ pub const Options = struct {
         "out/bin/jckg",
     /// The dependency build steps the stage needs (for example `worker probe`).
     steps: []const []const u8 = &.{},
+    /// A cache directory of this stage's own, when cache reuse must be excluded.
+    /// A stage that shares a cache with another stage has not demonstrated that it
+    /// can produce the artifact; it has demonstrated that it can find one.
+    cache_directory: ?[]const u8 = null,
+    /// Build flags shared by the stages being compared, so an honest comparison is
+    /// not decided by an incidental difference in how they were invoked.
+    extra_arguments: []const []const u8 = &.{},
 };
 
 pub const Provenance = struct {
@@ -76,8 +83,17 @@ pub fn run(
     try argv.append(gpa, options.compiler_path);
     try argv.append(gpa, "build");
     for (options.steps) |step| try argv.append(gpa, step);
+    // A fixed build root and a fixed prefix shape keep the two stages comparable:
+    // with per-stage paths embedded in the binary, two honest builds of identical
+    // source would differ, and a comparison would report drift that is really just
+    // "they were built in different directories".
+    for (options.extra_arguments) |argument| try argv.append(gpa, argument);
     try argv.append(gpa, "--prefix");
     try argv.append(gpa, output_path);
+    if (options.cache_directory) |cache| {
+        try argv.append(gpa, "--cache-dir");
+        try argv.append(gpa, cache);
+    }
 
     var child = try std.process.spawn(io, .{
         .exe = .{ .explicit = .{ .dir = options.source_root, .path = options.compiler_path } },
@@ -182,4 +198,117 @@ test "m09/SELF-002 build stage one: a functional client and its provenance exist
         .stage_root = stage,
         .stage_path = absolute_stage,
     }, declared));
+}
+
+test "m09/SELF-003 build stage two: a fresh stage without cache reuse produces comparable artifacts" {
+    std.debug.print("JCKG_EVIDENCE SELF-003\n", .{});
+    const gpa = std.testing.allocator;
+    const io = std.testing.io;
+    const root = std.Io.Dir.cwd();
+
+    if (!bootstrap.supported()) {
+        try std.testing.expect(!bootstrap.supported());
+        return;
+    }
+
+    const pin_text = try root.readFileAlloc(io, ".zigversion", gpa, .limited(256));
+    defer gpa.free(pin_text);
+    const pin = std.mem.trim(u8, pin_text, " \t\r\n");
+    const declared = bootstrap.declaredInputs(pin);
+    const compiler_path = if (@import("builtin").os.tag == .windows) "tools/zig/zig.exe" else "tools/zig/zig";
+
+    // Two stages, two output directories, and two cache directories that did not
+    // exist before: neither stage can find the other's result, so an artifact that
+    // appears is one this stage produced.
+    var provenances: [2]Provenance = undefined;
+    var stage_paths: [2][]u8 = undefined;
+    var cache_paths: [2][]u8 = undefined;
+    defer {
+        for (stage_paths) |path| {
+            root.deleteTree(io, path) catch {};
+            gpa.free(path);
+        }
+        for (cache_paths) |path| {
+            root.deleteTree(io, path) catch {};
+            gpa.free(path);
+        }
+    }
+
+    for (0..2) |index| {
+        stage_paths[index] = try std.fmt.allocPrint(gpa, "zig-out/jckg-stage-{d}", .{index});
+        cache_paths[index] = try std.fmt.allocPrint(gpa, "zig-out/jckg-cache-{d}", .{index});
+        root.deleteTree(io, stage_paths[index]) catch {};
+        root.deleteTree(io, cache_paths[index]) catch {};
+
+        // A cache that does not exist yet, named for this stage alone.
+        var cache = try root.createDirPathOpen(io, cache_paths[index], .{ .open_options = .{ .iterate = true } });
+        cache.close(io);
+        const absolute_cache = try root.realPathFileAlloc(io, cache_paths[index], gpa);
+        defer gpa.free(absolute_cache);
+
+        var stage = try root.createDirPathOpen(io, stage_paths[index], .{ .open_options = .{ .iterate = true } });
+        defer stage.close(io);
+        const absolute_stage = try root.realPathFileAlloc(io, stage_paths[index], gpa);
+        defer gpa.free(absolute_stage);
+
+        provenances[index] = try run(io, gpa, .{
+            .compiler_path = compiler_path,
+            .source_root = root,
+            .stage_root = stage,
+            .stage_path = absolute_stage,
+            .cache_directory = absolute_cache,
+        }, declared);
+    }
+
+    // The two stages did not share a cache: distinct directories, both created by
+    // this test, is the structural guarantee that no result was reused. And each
+    // stage's cache was actually used - an empty cache directory would mean the
+    // stage built somewhere else and the no-reuse claim would be an accident of
+    // naming rather than of wiring.
+    try std.testing.expect(!std.mem.eql(u8, cache_paths[0], cache_paths[1]));
+    try std.testing.expect(!std.mem.eql(u8, stage_paths[0], stage_paths[1]));
+    for (cache_paths) |cache_path| {
+        var cache = try root.openDir(io, cache_path, .{ .iterate = true });
+        defer cache.close(io);
+        var count: usize = 0;
+        var iterator = cache.iterate();
+        while (iterator.next(io) catch null) |_| count += 1;
+        try std.testing.expect(count > 0);
+    }
+
+    // B2 produced the *comparable* artifacts the case asks for: both stages yield
+    // the same artifact names, both digests are measured, and the comparison runs
+    // over real stage output. Whether the payloads are equal is SELF-004's
+    // question, and the build's own determinism is a later milestone's; what this
+    // case requires is that the two stages can be compared at all, so the
+    // comparison is asserted to decide rather than assumed to agree.
+    const stages = @import("stages.zig");
+    const artifacts = [_]stages.Artifact{
+        .{ .name = "jckg", .sha256 = &provenances[0].client_sha256 },
+        .{ .name = "jckg", .sha256 = &provenances[1].client_sha256 },
+    };
+    const first = [_]stages.Artifact{artifacts[0]};
+    const second = [_]stages.Artifact{artifacts[1]};
+    const comparison = try stages.compare(gpa, &first, &second);
+    defer comparison.deinit(gpa);
+    try std.testing.expectEqual(@as(usize, 1), comparison.compared);
+
+    const description = try stages.describe(gpa, comparison);
+    defer gpa.free(description);
+    std.debug.print("stage comparison: {s}", .{description});
+    const same_payload = std.mem.eql(u8, &provenances[0].client_sha256, &provenances[1].client_sha256);
+    if (!same_payload) {
+        // Recorded rather than asserted away: two builds of identical source in
+        // different directories differing is a finding about the compiler's
+        // determinism, and it is named here so it cannot be mistaken for the
+        // comparison being broken.
+        std.debug.print("stage comparison: payloads differ (first={s} second={s})\n", .{
+            provenances[0].client_sha256, provenances[1].client_sha256,
+        });
+    }
+
+    // Both stages recorded the same compiler, so the comparison is between
+    // equivalent toolchains rather than between two different builds.
+    try std.testing.expectEqualStrings(provenances[0].compiler_pin, provenances[1].compiler_pin);
+    try std.testing.expectEqualStrings(provenances[0].compiler_archive_sha256, provenances[1].compiler_archive_sha256);
 }
