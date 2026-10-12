@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "072f4b9f4d2444589d7cf7b1e97a8cc5",
+  "case": "SELF-004",
+  "caseDigest": "70e237bfe60183dd1199fbb176cb0b105e96321fe96147067cf41477af24275b",
+  "reviewer": "OMP agent (M09 self-hosting)",
+  "note": "SELF-004 compare stages: reproducibility is a comparison, and src/selfhost/stages.zig makes it one that can fail. Equal payloads produce an empty comparison and pass. Unequal payloads produce a difference per artifact, naming the artifact and both digests, and the description renders 'first=... second=...' rather than merely 'different'. A different set of artifacts is a failure in both directions: an output one stage stopped producing is named with an explicit absence, because a stage that quietly stopped producing an output is exactly the drift the comparison exists to catch. Artifact names are compared as given - two stages naming the same output differently have not produced comparable outputs, and a fuzzy match would hide that. Fault proof: skipping the digest comparison makes the unequal-payload assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:25:58.126622+00:00",
+  "records": [
+    "50917612df904dc286d7783c0764cc7c",
+    "97ebc1b69a574c73bc47ca2d4dd3f6f7",
+    "ce6cd714ec8145eeb8853af0f6cd83a4",
+    "413e8f2f61604c16b8f2837e76848b8e"
+  ],
+  "recordDigests": {
+    "50917612df904dc286d7783c0764cc7c": "31352fb2fff7261aeb71b6d95a149dada2505612db33ad046298724d0ba641e3",
+    "97ebc1b69a574c73bc47ca2d4dd3f6f7": "88c75a4c6190c7e861505c081c27854f6a0b0008d5d6c8aaa1b6d01360e3da90",
+    "ce6cd714ec8145eeb8853af0f6cd83a4": "b8144df83f40bbccc04c63fbe2ed1e52bdf7d7103f64915276b796bc2f87e002",
+    "413e8f2f61604c16b8f2837e76848b8e": "121fddd6be0fad6097721ea7e2ca6d9dbfd909ea3acd1e3a31690d44c0dc7077"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
