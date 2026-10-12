@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "60a2823b24a64d7a880cccd53fee57a5",
+  "case": "FACTORY-005",
+  "caseDigest": "a78078cc4d91c5381733bd473c6860a1404cd3cf5cbd59d4cff0dff9b9a9b16b",
+  "reviewer": "OMP agent (M16 agent-native factory and migration)",
+  "note": "FACTORY-005 migrate a legacy fixture: src/factory/migration.zig plans each legacy cache's move to the managed root for the platform that produced it - the same routing the synchronization already uses rather than a second convention - and reports how many bytes each platform accounts for, so managed cache ownership is a number somebody can look at rather than a claim about a directory naming convention. The plan is decided before anything moves, and the journal records what actually moved, including how far an interrupted migration got. The source surviving is checked by comparison rather than asserted: a migration that changed a source file is refused, and the refusal happens before anything is reported as applied. A cache already under a managed root is reported rather than migrated twice. Fault proof: not counting ownership makes the measurement assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T19:08:35.515578+00:00",
+  "records": [
+    "1891c033693e48c8972aa0371fa472d4",
+    "c0ca3044319b428eb98eecf467025533",
+    "f6950c810c8241bdaa58281309517309",
+    "c22de14fec3e4dcbb613a49b329d0428"
+  ],
+  "recordDigests": {
+    "1891c033693e48c8972aa0371fa472d4": "088bb07a507653ea47f8572461c97b17090fd7c1e89241352147619f6fdc47f0",
+    "c0ca3044319b428eb98eecf467025533": "31d1476901c5cbe7a03c12d7b65374aa206a32d31a3a3a68080a42eca94666df",
+    "f6950c810c8241bdaa58281309517309": "c472128e13a71ef6af4fc9b58e7adfaea6a58dfa04607ebbf60c7e2d6801092a",
+    "c22de14fec3e4dcbb613a49b329d0428": "f33c07013de37b60fb26ad513acdd10d705a4a654cb8b36e5ef257ec2769fa54"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

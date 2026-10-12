@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "f20371428fff4f28a7f87cd09a9f99fb",
+  "case": "FACTORY-004",
+  "caseDigest": "918823176d675453f7fe5167b0bedc3ae7f93197f155810a42b7cec1e475603a",
+  "reviewer": "OMP agent (M16 agent-native factory and migration)",
+  "note": "FACTORY-004 isolate parallel agents: src/factory/parallel_workspaces.zig gives each work unit its own root and its own copy of the baseline, so one unit's half-finished edits are invisible to the other's build - a shared directory produces not a merge conflict but an artifact built from a state that never existed. The baseline is never a working directory: it is read to make workspaces and to integrate from them, and the test asserts it is byte-identical afterwards. Integration is a named operation over a manifest of changes, separate from editing: a change is refused when the baseline's copy of that file no longer matches what the workspace started from, because another unit has been integrated since and writing over it would replace their work with this one's. An identical change is idempotent, so repeating an integration is safe; a change to a file the workspace never had is refused as its own error; and a deletion travels the same path. Fault proof: overwriting the baseline whatever it holds makes the conflict refusal fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T19:04:18.408021+00:00",
+  "records": [
+    "8185730f90034eca9870d6bb2abb6bf2",
+    "fd08db86f52f46339a2bb32e56e8fc80",
+    "d21236be8f8047748b5b4245db90a778",
+    "69cf0420003149b2b90e3202bcb27b4c"
+  ],
+  "recordDigests": {
+    "8185730f90034eca9870d6bb2abb6bf2": "bd6c4d387d674ec81f57c88f2dd59035a55f5321bdf622a5192fd8da933a4845",
+    "fd08db86f52f46339a2bb32e56e8fc80": "40c1e3f9e4e6282ce91c11045815c383014478493b3c69ab4ad91126b528d277",
+    "d21236be8f8047748b5b4245db90a778": "8707032b57370bc95742c66bc41259c85cc988ce4e822ca2caed08c5b5a2146b",
+    "69cf0420003149b2b90e3202bcb27b4c": "88ffedd4e6bd06a9805b4ae1cce1dfa295892d54cec1378ef03691b348f971d1"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

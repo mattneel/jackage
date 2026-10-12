@@ -1,0 +1,23 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'factory.migration.test.m16/FACTORY-005 migrate a legacy fixture, m16/FACTORY-006 rollback migration' failed:
+       JCKG_EVIDENCE FACTORY-005
+       JCKG_EVIDENCE FACTORY-006
+       expected 4096, found 0
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7bb048bfa in expectEqualInner__func_872 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7bb0499e1 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\factory\migration.zig:294:5: 0x7ff7bb049b1a in test.m16/FACTORY-005 migrate a legacy fixture, m16/FACTORY-006 rollback migration (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(u64, 4096), migration.bytesFor(.windows));
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-FACTORY-005\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x9fc1ce1a --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x9fc1ce1a test -Dfilter=FACTORY-005 --prefix C:\src\jackage\.zig-cache\test-prefix-FACTORY-005

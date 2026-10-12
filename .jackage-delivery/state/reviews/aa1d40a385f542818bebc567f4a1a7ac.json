@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "aa1d40a385f542818bebc567f4a1a7ac",
+  "case": "FACTORY-008",
+  "caseDigest": "25c4e5ecbcc1e2082a431743a341b030f2791cdf8f9ebd8fbffc054edb2bbff9",
+  "reviewer": "OMP agent (M16 agent-native factory and migration)",
+  "note": "FACTORY-008 resume agent work: an agent stops after a partial milestone and the next session reads the handoff, and what it must not do is start over - re-running a destructive setup is how a session destroys the work it was meant to continue. src/factory/handoff.zig makes the handoff a document rather than prose: it names the milestone, the cases already complete with their evidence, the exact next case, and which setups have already run. resumeFrom answers two questions without guessing - which case comes next, and which setups still have to run - so skipping a done setup is the document's decision rather than a habit the next session is trusted to have, and the setups that were skipped are returned as well so a session can log what it did not do. A handoff that points at a case it also lists as complete is refused, because resuming onto finished work is how a session talks itself into redoing it. Running the test found a real leak that the checking allocator caught: the resume duplicates the case name, and deinit did not free it. It also found a language detail worth keeping: resume is a Zig keyword, so the function is resumeFrom. Fault proof: treating every setup as required repeats the destructive setup and the skip assertions fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T19:11:07.205321+00:00",
+  "records": [
+    "be1fdbfdf39a45f6999abecfc183283e",
+    "569b6903deef4baab346e7da88378098",
+    "9b122f99fefc4780b9f0af83b11aa101",
+    "a610f7e4ca5b4ef992c236a89fcaab01"
+  ],
+  "recordDigests": {
+    "be1fdbfdf39a45f6999abecfc183283e": "1c8bd5ad5344c608155375e8c0990413aa40ebda6cfc22cd6d81cc2822c58e13",
+    "569b6903deef4baab346e7da88378098": "6e4b3ccd40ef81bb169b61a603e209c73e615a690d295fab8fab9fe352bc0c86",
+    "9b122f99fefc4780b9f0af83b11aa101": "0bab62e1d2a91ba62c354bcea22450c64811b4712afc69d9e400ae3e49e9f6d5",
+    "a610f7e4ca5b4ef992c236a89fcaab01": "6f1b44a65b54956f8e6bd4abf5b8568e191448651b558382e85fe025ce71b8f1"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

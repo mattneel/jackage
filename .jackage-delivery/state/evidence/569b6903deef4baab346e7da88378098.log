@@ -1,0 +1,22 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'factory.handoff.test.m16/FACTORY-008 resume agent work: the exact next case, without repeating destructive setup' failed:
+       JCKG_EVIDENCE FACTORY-008
+       expected 2, found 0
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff70148885a in expectEqualInner__func_862 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff70148949f in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\factory\handoff.zig:204:5: 0x7ff701489578 in test.m16/FACTORY-008 resume agent work: the exact next case, without repeating destructive setup (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 2), resumed.skipped_setups.len);
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-FACTORY-008\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x60e171f --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x60e171f test -Dfilter=FACTORY-008 --prefix C:\src\jackage\.zig-cache\test-prefix-FACTORY-008

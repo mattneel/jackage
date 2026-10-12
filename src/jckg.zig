@@ -84,6 +84,8 @@ test {
     _ = @import("factory/contract.zig");
     _ = @import("factory/events.zig");
     _ = @import("factory/parallel_workspaces.zig");
+    _ = @import("factory/migration.zig");
+    _ = @import("factory/handoff.zig");
     _ = @import("factory/strict_environment.zig");
     _ = @import("plan/planner.zig");
     _ = @import("plan/resolver.zig");
