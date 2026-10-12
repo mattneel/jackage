@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "b35403f741fe4400a25792050c945953",
+  "case": "IMAGE-005",
+  "caseDigest": "fb037d3596549910b7cdff1f9661327b1cc94f7a2d146fa08f47c320a06481c8",
+  "stage": "characterize",
+  "testId": "m15/IMAGE-005 validate ext4 image: contents and metadata satisfy the declared payload contract",
+  "platformRole": "linux-x86_64",
+  "actualPlatform": "linux-x86_64",
+  "command": [
+    "sh",
+    "scripts/test.sh",
+    "IMAGE-005"
+  ],
+  "cwd": "/home/autark/jckg/dev",
+  "startedUtc": "2026-10-12T18:14:16.804461+00:00",
+  "finishedUtc": "2026-10-12T18:14:16.980437+00:00",
+  "exitCode": 0,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE IMAGE-005",
+  "markerFound": true,
+  "logPath": "state/evidence/b35403f741fe4400a25792050c945953.log",
+  "logSha256": "9bbed583ef0b2af4eee28c32843639d02d488ce4534cf7c42b02c539816babeb",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

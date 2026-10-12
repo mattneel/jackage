@@ -1,0 +1,36 @@
+test
++- run test jckg-tests
+   +- compile test jckg-tests debug native 1 errors
+src/images/ext4.zig:181:9: error: pointless discard of local constant
+    _ = expected;
+        ^~~~~~~~
+src/images/ext4.zig:159:24: note: used here
+    if (!store.hasBlob(expected)) return error.InvalidContract;
+                       ^~~~~~~~
+error: 1 compilation errors
+failed command: /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/zig test -cflags -std=c11 -D_GNU_SOURCE -fno-sanitize=undefined -- vendor/quickjs-ng/quickjs.c vendor/quickjs-ng/dtoa.c vendor/quickjs-ng/libregexp.c vendor/quickjs-ng/libunicode.c -I vendor/quickjs-ng --dep quickjs -Mroot=src/jckg.zig -Mquickjs=vendor/quickjs-ng/quickjs.zig -lc --test-filter IMAGE-005 --cache-dir .zig-cache --global-cache-dir /home/autark/.cache/zig --build-root . --name jckg-tests --zig-lib-dir /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/ --listen=-
+
+test
++- run test jckg-tests
+   +- install
+      +- install jckg
+         +- compile exe jckg debug native 1 errors
+src/images/ext4.zig:181:9: error: pointless discard of local constant
+    _ = expected;
+        ^~~~~~~~
+src/images/ext4.zig:159:24: note: used here
+    if (!store.hasBlob(expected)) return error.InvalidContract;
+                       ^~~~~~~~
+error: 1 compilation errors
+failed command: /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/zig build-exe -Odebug --dep jckg -Mroot=src/cli/entry.zig -cflags -std=c11 -D_GNU_SOURCE -fno-sanitize=undefined -- vendor/quickjs-ng/quickjs.c vendor/quickjs-ng/dtoa.c vendor/quickjs-ng/libregexp.c vendor/quickjs-ng/libunicode.c -I vendor/quickjs-ng --dep quickjs -Mjckg=src/jckg.zig -Mquickjs=vendor/quickjs-ng/quickjs.zig -lc --cache-dir .zig-cache --global-cache-dir /home/autark/.cache/zig --build-root . --name jckg --zig-lib-dir /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/ --listen=-
+
+Build Summary: 9/16 steps succeeded (2 failed)
+test transitive failure
++- run test jckg-tests transitive failure
+|  +- compile test jckg-tests debug native 1 errors
+|  +- install transitive failure
+|     +- install jckg transitive failure
+|        +- compile exe jckg debug native 1 errors
++- install jckg-tests transitive failure
+   +- compile test jckg-tests debug native (reused)
+

@@ -1,0 +1,17 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'images.ext4.test.m15/IMAGE-005 validate ext4 image: contents and metadata satisfy the declared payload contract' failed:
+       JCKG_EVIDENCE IMAGE-005
+       expected error.ContentMismatch, found void
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:634:9: 0x126b9db in expectError__func_948 (std.zig)
+               return error.TestExpectedError;
+               ^
+       /home/autark/jckg/dev/src/images/ext4.zig:333:5: 0x126ed93 in test.m15/IMAGE-005 validate ext4 image: contents and metadata satisfy the declared payload contract (jckg.zig)
+           try std.testing.expectError(error.ContentMismatch, inspect(gpa, io, image_path, wrong_digest, store, work_path));
+           ^
+failed command: ./.zig-cache/test-prefix-IMAGE-005/bin/jckg-tests --cache-dir=./.zig-cache --seed=0x4f5efe63 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+

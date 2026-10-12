@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "e039695726a04bf6bc09e3fc84acd3c9",
+  "case": "IMAGE-005",
+  "caseDigest": "fb037d3596549910b7cdff1f9661327b1cc94f7a2d146fa08f47c320a06481c8",
+  "reviewer": "OMP agent (M15 development and release images)",
+  "note": "IMAGE-005 validate ext4 image: src/images/ext4.zig puts the exported rootfs into a disposable ext4 image with mkfs.ext4 -d, which needs no loop device and no privileges, and then reads the image back rather than trusting the copy - a file copied into a tree is not evidence that the filesystem carries it, and a filesystem is where a mode bit or a whole file most often goes missing. Inspection uses debugfs stat for metadata and debugfs dump for contents, so looking at bytes does not require mounting; the mode is parsed from the field where it appears rather than assumed, and the contract's owner-execute bit is compared exactly in both directions, because a declared plain file that gained one is not the declared payload either. The second half is a real loop mount through sudo, reading the file through the mounted filesystem and unmounting afterwards, with a check that the mount point is empty again - a leaked mount is a leaked loop device, and a test that leaves one behind poisons the machine it ran on. The test also covers a path the image does not contain, a digest that does not match the stored bytes, and a declared mode that contradicts the image. Evidence is recorded inside the WSL2 guest, so actualPlatform is genuinely linux-x86_64. Fault proof: disabling the digest comparison lets a mismatched filesystem pass inspection and the assertion fails (exit 1; the first fault attempt discarded an already-used value and did not compile, so it was retaken); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T18:14:37.528908+00:00",
+  "records": [
+    "b35403f741fe4400a25792050c945953",
+    "89169c58df2247e0af7025d2882bfaf0",
+    "4ef2ec1fc8194eb98d51e31eb8e29b7a",
+    "6770f45e24a54da485310333ad48b9cd"
+  ],
+  "recordDigests": {
+    "b35403f741fe4400a25792050c945953": "9520602ac439a76f11f12155eb28079e6ade761d35fbabb20ac278a0c7410da6",
+    "89169c58df2247e0af7025d2882bfaf0": "3cfdba1ada3f1ce4448da55d4a061a335b8a1c7dca5ff24730603d8a2dce8d14",
+    "4ef2ec1fc8194eb98d51e31eb8e29b7a": "f3e35b5edcf8c4f02e0655222105d02b3c833a9083f36561cd6814a0c290ba16",
+    "6770f45e24a54da485310333ad48b9cd": "17e2ac6e7e14001fd830ba357113a8608fab29ffe563572b416012579272ea38"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
