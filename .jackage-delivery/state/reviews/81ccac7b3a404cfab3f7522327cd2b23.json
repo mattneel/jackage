@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "81ccac7b3a404cfab3f7522327cd2b23",
+  "case": "SELF-002",
+  "caseDigest": "5f88e6392234b77887559e433431dcd4ef43350a43e34ff5ed9ab6a99a3c8650",
+  "reviewer": "OMP agent (M09 self-hosting)",
+  "note": "SELF-002 build stage one: the stage actually builds. src/selfhost/stage.zig runs the pinned compiler with an explicit --prefix into a stage root of its own, then requires the produced client to exist and be measurable before it records provenance - the pin used, the compiler archive digest, and the SHA-256 of the client that came out. A build that reported success and produced nothing is ClientNotProduced rather than a stage. The stage root must be fresh: a root that already holds a client is refused (StageRootBusy) because a leftover artifact would make this stage's result indistinguishable from the previous stage's leftovers, which is precisely what a later B1/B2 comparison must not be fooled by. The client is verified as present and non-empty; its behaviour is asserted by the CLI's own cases. Fault proof: accepting a busy root makes the refusal assertion fail (exit 1); revert byte-identical against a backup, no FAULT markers remain. One implementation note recorded for SELF-003: this stage reuses the compiler's cache, which is correct here and must be disabled for the no-cache-reuse stage.",
+  "reviewedUtc": "2026-10-12T15:30:28.049620+00:00",
+  "records": [
+    "f16a78aed9954773bd86c30f19724179",
+    "99588b3c7dfa4c0a8cd9bc95d47d7099",
+    "7a692b4f9ddb4721b5089a3814d3db55",
+    "b3d3311e76c942be926942d56e68a5a2"
+  ],
+  "recordDigests": {
+    "f16a78aed9954773bd86c30f19724179": "668a33d772000125dd317cfe5430f2ce398e3aad78c3a089083c717114edbfec",
+    "99588b3c7dfa4c0a8cd9bc95d47d7099": "f1354e4da2b6d787a75bcdc354546442b496744d6b8d566e60ce1e0d8b56d9be",
+    "7a692b4f9ddb4721b5089a3814d3db55": "c53d8e87ff87fb255a063b22f620417c43e4564d89daebdbee14779edc1fe45d",
+    "b3d3311e76c942be926942d56e68a5a2": "4c474209fe71b42786ebf6e294bb56a52fd45310df6307250eb7a2f23b52b135"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

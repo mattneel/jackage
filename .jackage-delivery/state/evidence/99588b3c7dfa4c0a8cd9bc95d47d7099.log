@@ -1,0 +1,19 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'selfhost.stage.test.m09/SELF-002 build stage one: a functional client and its provenance exist' failed:
+       JCKG_EVIDENCE SELF-002
+       expected error.StageRootBusy, found .{ .compiler_pin = { 48, 46, 49, 56, 46, 48, 45, 100, 101, 118, 46, 49, 52, 54, 43, 51, 53, 97, 99, 99, 99, 48, 54, 101 }, .compiler_archive_sha256 = { 101, 99, 53, 100, 54, 52, 97, 97, 101, 52, 52, 98, 53, 52, 99, 101, 56, 52, 50, 53, 101, 99, 100, 55, 98, 52, 48, 102, 49, 102, 97, 53, 99, 56, 48, 54, 49, 100, 49, 100, 99, 56, 48, 57, 51, 57, 98, 48, 50, 101, 100, 48, 51, 54, 53, 49, 51, 100, 54, 57, 97, 101, 54, 55 }, .client_sha256 = { 53, 50, 97, 57, 56, 50, 55, 55, 55, 49, 48, 51, 52, 56, 48, 98, 99, 57, 99, 49, 100, 53, 99, 48, 99, 97, 48, 49, 53, 97, 54, 102, 99, 56, 98, 99, 97, 56, 98, 50, 102, 54, 100, 53, 54, 98, 101, 100, 52, 54, 49, 55, 52, 51, 53, 49, 50, 100, 101, 97, 51, 51, 102, 98 }, .client_path = { 111, 117, 116, 47, 98, 105, 110, 47, 106, 99, 107, 103, 46, 101, 120, 101 } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff71008a8ad in expectError__func_874 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\selfhost\stage.zig:180:5: 0x7ff71008bf1a in test.m09/SELF-002 build stage one: a functional client and its provenance exist (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.StageRootBusy, run(io, gpa, .{
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-SELF-002\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x476c6ad1 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x476c6ad1 test -Dfilter=SELF-002 --prefix C:\src\jackage\.zig-cache\test-prefix-SELF-002
