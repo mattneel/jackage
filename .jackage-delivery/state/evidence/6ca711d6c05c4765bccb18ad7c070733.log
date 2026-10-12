@@ -1,0 +1,4 @@
+1/2 strict_tests_entry.test_0...OK
+2/2 platform.debian.test.m11/PLAT-008 validate Debian package: native tools accept the package we built...JCKG_EVIDENCE PLAT-008
+OK
+All 2 tests passed.

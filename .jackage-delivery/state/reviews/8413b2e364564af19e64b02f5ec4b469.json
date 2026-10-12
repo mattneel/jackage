@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "8413b2e364564af19e64b02f5ec4b469",
+  "case": "PLAT-008",
+  "caseDigest": "bac83f09a618b97f7b8b2615c87ff417899a347f6ee42ce36c246c77db53f910",
+  "reviewer": "OMP agent (M11 platform matrix)",
+  "note": "PLAT-008 validate Debian package: src/platform/debian.zig builds a real .deb - a Unix ar archive holding debian-binary, control.tar.gz and data.tar.gz - and the platform's own tools accept it. dpkg-deb --info reports the metadata the declaration wrote (Package, Version, Architecture, Depends); --contents lists the payload with the declared executable bit on the entry point; and a disposable root under /tmp installs the package through dpkg, runs the installed executable, and removes it, all inside one throwaway directory. The control tar's members are named ./control by the format, which the strict payload name policy rejects, so that allowance is an explicit option the payload path does not inherit - an allowance has to be asked for. Running it found two real defects: an ar header field copied with mismatched lengths (the panic the native tools never got to see) and the control tar's name policy. The fault drops the declared mode so the entry point is not executable, which the contents assertion catches (exit 1); revert byte-identical against a backup, no FAULT markers remain. Recorded in the declared Linux environment.",
+  "reviewedUtc": "2026-10-12T16:20:53.745129+00:00",
+  "records": [
+    "14101dc0cfc44fbf80453ef2fbedc4b7",
+    "8bea2feba7854733a1f9b9b2563d5fe1",
+    "6ca711d6c05c4765bccb18ad7c070733",
+    "61f82de172614e0c8477e60c182d52ac"
+  ],
+  "recordDigests": {
+    "14101dc0cfc44fbf80453ef2fbedc4b7": "305b2a5e9dbefb0c2109df2494261c927fd0b03e88b96f68c4c2f01378193f94",
+    "8bea2feba7854733a1f9b9b2563d5fe1": "2ad5c5d17de918942a8c97f927d3d952a7c785572a3c41eea1ffb788ea287259",
+    "6ca711d6c05c4765bccb18ad7c070733": "17b59c250baa4ba2d279364275cf865930be1427fa85b4b3ce2d4a0e9bd52e08",
+    "61f82de172614e0c8477e60c182d52ac": "252f1df0f0484a5510cb91cf367e6f089da01ced8d6cde92b5554033c399676c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

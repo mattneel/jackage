@@ -36,6 +36,10 @@ pub const Policy = struct {
     gname: []const u8 = "root",
     /// Time recorded when an entry does not declare one.
     default_mtime: u64 = 0,
+    /// Accept names of the form `./component`, which the Debian control tar
+    /// requires for its own members. Payload archives leave this off, so their name
+    /// policy stays strict: an allowance has to be asked for, not inherited.
+    allow_leading_dot_slash: bool = false,
 };
 
 pub const Kind = enum { file, directory, symlink };
@@ -170,7 +174,11 @@ fn header(out: *std.Io.Writer, entry: Entry, policy: Policy) Error!void {
 pub fn build(gpa: std.mem.Allocator, entries: []const Entry, policy: Policy, out: *std.Io.Writer) Error!void {
     _ = gpa;
     for (entries, 0..) |entry, index| {
-        if (!portableName(entry.name)) return error.InvalidEntryName;
+        const name_ok = if (policy.allow_leading_dot_slash and std.mem.startsWith(u8, entry.name, "./"))
+            portableName(entry.name[2..])
+        else
+            portableName(entry.name);
+        if (!name_ok) return error.InvalidEntryName;
         if (entry.kind == .symlink) {
             // The link's own directory depth, so a relative target is judged from
             // where the link actually is.

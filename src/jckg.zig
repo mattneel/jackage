@@ -46,6 +46,7 @@ test {
     _ = @import("plan/cache.zig");
     _ = @import("plan/lockfile.zig");
     _ = @import("package/closure.zig");
+    _ = @import("platform/debian.zig");
     _ = @import("platform/perimeter.zig");
     _ = @import("package/oci.zig");
     _ = @import("package/plan.zig");

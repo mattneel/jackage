@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "8bea2feba7854733a1f9b9b2563d5fe1",
+  "case": "PLAT-008",
+  "caseDigest": "bac83f09a618b97f7b8b2615c87ff417899a347f6ee42ce36c246c77db53f910",
+  "stage": "fault",
+  "testId": "PLAT-008",
+  "platformRole": "linux-x86_64",
+  "actualPlatform": "linux-x86_64",
+  "command": [
+    "sh",
+    "scripts/strict-test.sh",
+    "PLAT-008"
+  ],
+  "cwd": "/home/autark/jckg/dev",
+  "startedUtc": "2026-10-12T16:20:27.522741+00:00",
+  "finishedUtc": "2026-10-12T16:20:28.061188+00:00",
+  "exitCode": 1,
+  "infrastructureFailure": null,
+  "marker": "JCKG_EVIDENCE PLAT-008",
+  "markerFound": true,
+  "logPath": "state/evidence/8bea2feba7854733a1f9b9b2563d5fe1.log",
+  "logSha256": "da8238d059d4ecd07bf27df3aeea4788222e90d027dd05df9718eedb1ffec7cc",
+  "acceptedObservation": true,
+  "sourceBefore": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "sourceAfter": {
+    "observationKind": "git-head-status-and-tracked-diff",
+    "head": null,
+    "statusSha256": null,
+    "trackedDiffSha256": null,
+    "untrackedContentIncluded": false
+  },
+  "note": "Local observation only. Review and independent CI replay remain required."
+}

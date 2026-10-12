@@ -5,5 +5,6 @@
 //! directory, so the entry sits at `src/` and pulls the suite in.
 test {
     _ = @import("package/docker_tests.zig");
+    _ = @import("platform/debian.zig");
     _ = @import("worker/strict_tests.zig");
 }

@@ -1,0 +1,10 @@
+1/2 strict_tests_entry.test_0...OK
+2/2 platform.debian.test.m11/PLAT-008 validate Debian package: native tools accept the package we built...JCKG_EVIDENCE PLAT-008
+FAIL (TestUnexpectedResult)
+/home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:584:14: 0x12554a9 in expect (std.zig)
+    if (!ok) return error.TestUnexpectedResult;
+             ^
+/home/autark/jckg/dev/src/platform/debian.zig:216:5: 0x1256341 in test.m11/PLAT-008 validate Debian package: native tools accept the package we built (strict_tests_entry.zig)
+    try std.testing.expect(std.mem.indexOf(u8, contents, "-rwxr-xr-x") != null);
+    ^
+1 passed; 0 skipped; 1 failed.
