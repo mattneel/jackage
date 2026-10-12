@@ -1,0 +1,22 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'package.plan.test.m10/PACK-001 plan package actions: tools and effects are declared actions' failed:
+       JCKG_EVIDENCE PACK-001
+       expected .noncacheable, found .development
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff645218cb0 in expectEqualInner__func_873 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff64521a2ea in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\package\plan.zig:194:5: 0x7ff64521a396 in test.m10/PACK-001 plan package actions: tools and effects are declared actions (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(planner.CachePolicy.noncacheable, nodes[1].cache_policy);
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PACK-001\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x92acab6c --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x92acab6c test -Dfilter=PACK-001 --prefix C:\src\jackage\.zig-cache\test-prefix-PACK-001

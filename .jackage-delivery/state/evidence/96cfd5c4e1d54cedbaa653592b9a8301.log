@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE PACK-001
+failed command: ".\\.zig-cache\\o\\0f68b676b47e8b3c619207b55e2dc93b\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x9cda9c90 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 package.plan.test.m10/PACK-001 plan package actions: tools and effects are declared actions...JCKG_EVIDENCE PACK-001
+OK
+5/5 profile.mod.test_0...OK
+All 5 tests passed.

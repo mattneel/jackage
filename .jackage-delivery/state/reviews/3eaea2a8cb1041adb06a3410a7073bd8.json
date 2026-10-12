@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3eaea2a8cb1041adb06a3410a7073bd8",
+  "case": "PACK-001",
+  "caseDigest": "e144ea4916f8f5f8dd4ea9000d7a2225a242eaacb4ddb697d1a8c22d35ad4bf2",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-001 plan package actions: a backend describes rather than does, so its tools and effects are visible to the resolver, the policy layer, and the evidence the way any other action is. src/package/plan.zig turns a request into three ordinary action nodes - materialize the tree, write the archive from it, verify the archive - each carrying the identity of its computation built from declared inputs, so the same tree in two formats is two different archive actions rather than one name with two meanings. The graph goes through the product's own validator before it is returned, so a backend cannot describe work the executor would refuse. The archive action is declared noncacheable, because a published archive must be produced by running the action rather than recalled from a development cache, and it targets the platform it declares rather than the one it runs on. Running it found three ownership defects, each a real bug: an empty dependency array that was a default literal rather than an allocation, output paths that borrowed the caller's request string, and dependency entries that pointed at other nodes' names - all three would have made the plan unsafe to free. Fault proof: marking the archive action cacheable fails the case (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:57:10.517569+00:00",
+  "records": [
+    "96cfd5c4e1d54cedbaa653592b9a8301",
+    "85ac4a5c200547ca9e093c3ee60d2b7e",
+    "a83007058a144b6dbc5ac3b55669b3cb",
+    "5d948360f7a844939e85bc38156a688a"
+  ],
+  "recordDigests": {
+    "96cfd5c4e1d54cedbaa653592b9a8301": "be76194192da3a60b8a4948d30ea6bbc00365705a8c7f505733cad0861670881",
+    "85ac4a5c200547ca9e093c3ee60d2b7e": "f26a5743d5c16bb65de9703d9885cae44436d11080dab713c813c2df2091ac17",
+    "a83007058a144b6dbc5ac3b55669b3cb": "3a882381e3ac42d360ebd7012f6b38f1a304447880d106eb07157417608ef493",
+    "5d948360f7a844939e85bc38156a688a": "99933b144533524f657bf90b9c8c3bc303da0a3dd65873735b001a3ecaad9973"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
