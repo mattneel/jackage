@@ -1,0 +1,15 @@
+# Pinned Zig toolchain, fetched by scripts/fetch-zig.ps1 (version: .zigversion)
+/tools/zig/
+
+# Zig build artifacts (zig-out/ and .zig-cache/ are the zig init defaults;
+# zig-cache/ is the pre-0.11 name)
+.zig-cache/
+zig-cache/
+zig-out/
+
+# OS / editor cruft
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vs/
+.idea/
