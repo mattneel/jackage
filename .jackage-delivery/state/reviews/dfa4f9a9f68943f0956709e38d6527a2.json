@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "dfa4f9a9f68943f0956709e38d6527a2",
+  "case": "SPACE-009",
+  "caseDigest": "06a82a22fbe49989f51297b8faf1375d6e4c2ce5e573e28827b3fb33964fbc4d",
+  "reviewer": "OMP agent (M12 storage lifecycle)",
+  "note": "SPACE-009 protect host edits: src/selfhost/reconciliation.zig compares three versions - the revision the guest started from, the host's current bytes, and the guest's export - and writes only when the host still matches the base, so a guest edit applies exactly when it is the change the host does not have. Both-changed-same is already present, both-changed-differently is divergence reported with the digests of both sides, and the host file is not written: overwriting there destroys work that exists nowhere else and a 'prefer newer' rule is a coin flip dressed as policy. A path the host removed while the guest edited it is divergence too, not a silent recreation that would undo a deletion the user made deliberately; a path new in the guest applies, and the same path produced on both sides with no common base is divergence because without a starting point there is no way to tell an edit from a clobber. Testing found two real gaps rather than confirming the first draft: a new file with no base was reported divergent instead of applied, which the added status now models, and my assertion that a divergent result always carries a host digest was wrong because a host-deleted file legitimately has none. Fault proof: letting the guest always win overwrites the host's divergent file and the unchanged-bytes assertion fails (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:59:01.715421+00:00",
+  "records": [
+    "ccdf3330de074b958cc6900c1429c639",
+    "c38683580a97437fb806df20e7bf1329",
+    "d3454c48fa6c4a50807d57c0bfaf35b2",
+    "563b15ad25a54638b59a95cd710ae2a0"
+  ],
+  "recordDigests": {
+    "ccdf3330de074b958cc6900c1429c639": "491914e716f499cedcafc0c5d094cd96a430be543c3f3c79e69638c6923b6ea4",
+    "c38683580a97437fb806df20e7bf1329": "35b8473b15fe4186f387e223546905792328ca3af8ab32da23b1b690e5ca3778",
+    "d3454c48fa6c4a50807d57c0bfaf35b2": "5dae2f8e16af238d6aaf797440df41d6b9d64411ee6589170976e7765e2f35fc",
+    "563b15ad25a54638b59a95cd710ae2a0": "841518283c9baa8552da2f77bc4fbcf288d95f3cc884bef2b0c85c2e7cf48fee"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

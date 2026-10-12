@@ -74,6 +74,7 @@ test {
     _ = @import("worker/controller.zig");
     _ = @import("selfhost/bootstrap.zig");
     _ = @import("selfhost/manifest_policy.zig");
+    _ = @import("selfhost/reconciliation.zig");
     _ = @import("selfhost/snapshot.zig");
     _ = @import("selfhost/environment.zig");
     _ = @import("selfhost/install.zig");

@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE SPACE-009
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-SPACE-009\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x1f0bb5 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 selfhost.reconciliation.test.m12/SPACE-009 protect host edits: divergence is reported and the host is not overwritten...JCKG_EVIDENCE SPACE-009
+OK
+All 5 tests passed.
