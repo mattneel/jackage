@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "32157abf1ced49dc9da0fd3dc64f9e2e",
+  "case": "PACK-002",
+  "caseDigest": "9e2135e5bee13fc465c2e812d15eeeb3cc7eedece8ef5c79e2214a481fa3f20f",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-002 build deterministic ZIP: two things make a ZIP non-deterministic if left alone - host enumeration order and per-entry times - and src/package/zip.zig decides both from the declaration. Entries are written in a sorted order that must already be sorted, so a caller handing host order gets a refusal rather than a differently-ordered archive; timestamps come from the declaration and default to the ZIP epoch (1980-01-01) rather than to 'now' or the file's mtime; external attributes are fixed rather than copied from the host's mode bits. Entries are stored, not deflated, on purpose: compression output can vary between library versions, and an archive whose bytes depend on which zlib is linked is not a reproducible artifact. The test builds the same declaration twice and compares bytes, and the refusals are asserted for traversal, absolute paths, backslashes, duplicates, and unsorted order. Fault proof: accepting traversal components makes the unsafe-name refusal fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T15:43:10.188484+00:00",
+  "records": [
+    "93425fdc620d4524b329b6174ab5121d",
+    "d3100327b0b748408540c9018a47425e",
+    "1fac6ce5c44c410e97747e1ae852b82d",
+    "ae9b06820e7447b28e9a6cbbfccc766e"
+  ],
+  "recordDigests": {
+    "93425fdc620d4524b329b6174ab5121d": "13f544f272e511f19c50a2c06812a78292ff882c01a44cf79f89d8b88ad784be",
+    "d3100327b0b748408540c9018a47425e": "174319ab577d9dbac3053bd637b7fa3e39f421bcaec7af148c5dca990007f078",
+    "1fac6ce5c44c410e97747e1ae852b82d": "caa08c5b2e55c5100be8b716ada31f96a7662417867d12adb809791257cf889a",
+    "ae9b06820e7447b28e9a6cbbfccc766e": "dc6da7a9668792f0d97a36ade9dbbc03465760fcd26a0377251162bda63976ed"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

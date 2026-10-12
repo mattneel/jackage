@@ -1,0 +1,43 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total); 1 leaks
+error: 'package.zip.test.m10/PACK-002 build deterministic ZIP: different enumeration orders produce equal bytes' failed:
+       JCKG_EVIDENCE PACK-002
+       expected error.InvalidEntryName, found { 80, 75, 3, 4, 20, 0, 0, 0, 0, 0, 0, 0, 33, 0, 131, 22, 220, 140, 1, 0, 0, 0, 1, 0, 0, 0, 9, 0, 0, 0, 46, 46, 47, 101, 115, 99, 97, 112, 101, 120, 80, 75, 1, 2, 20, 0, 20, 0, 0, 0, 0, 0, 0, 0, 33, 0, 131, 22, 220, 140, 1, 0, 0, 0, 1, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 46, 46, 47, 101, 115, 99, 97, 112, 101, 80, 75, 5, 6, 0, 0, 0, 0, 1, 0, 1, 0, 55, 0, 0, 0, 40, 0, 0, 0, 0, 0 }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6a3258884 in expectError__func_862 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\package\zip.zig:190:5: 0x7ff6a325b83c in test.m10/PACK-002 build deterministic ZIP: different enumeration orders produce equal bytes (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.InvalidEntryName, buildAlloc(gpa, &unsafe));
+           ^
+       [SafeAllocator] (err): leaked [addr: 14405b0, len: 117 (0x75) align: 1] allocated at: 
+       C:\src\jackage\src\package\zip.zig:151:31: 0x7ff6a325f2ea in buildAlloc (jckg-tests_zcu.obj)
+           return buffer.toOwnedSlice();
+                                     ^
+       C:\src\jackage\src\package\zip.zig:190:67: 0x7ff6a325b704 in test.m10/PACK-002 build deterministic ZIP: different enumeration orders produce equal bytes (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.InvalidEntryName, buildAlloc(gpa, &unsafe));
+                                                                         ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff6a30dd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff6a30dd956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff6a30db481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff6a30db481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff6a3265457 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       ???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+       (additional stack frames may have been skipped...)
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PACK-002\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xc27f8839 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total); 1 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xc27f8839 test -Dfilter=PACK-002 --prefix C:\src\jackage\.zig-cache\test-prefix-PACK-002
