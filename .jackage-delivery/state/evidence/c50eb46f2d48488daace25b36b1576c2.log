@@ -1,0 +1,33 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'package.oci.test.m10/PACK-006 preserve OCI platform: each descriptor carries its platform' failed:
+       JCKG_EVIDENCE PACK-006
+       
+       ====== expected this output: =========
+       aarch64␃
+       
+       ======== instead found this: =========
+       x86_64␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       aarch64
+       ^ ('\x61')
+       found:
+       x86_64
+       ^ ('\x78')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff796f48ab1 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\package\oci.zig:534:9: 0x7ff796f4992b in test.m10/PACK-006 preserve OCI platform: each descriptor carries its platform (jckg-tests_zcu.obj)
+               try std.testing.expectEqualStrings(expected_arch[index_slot], valueString(platform, "architecture").?);
+               ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PACK-006\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x1ead10c2 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x1ead10c2 test -Dfilter=PACK-006 --prefix C:\src\jackage\.zig-cache\test-prefix-PACK-006

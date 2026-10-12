@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "ffe586608e4e469e92ae77487306ac46",
+  "case": "PACK-006",
+  "caseDigest": "1bbd5f0238d3e3afaac1c40f14c1059994962952b3bd6412755103b33971378e",
+  "reviewer": "OMP agent (M10 package backends)",
+  "note": "PACK-006 preserve OCI platform: one index, one manifest per platform, each descriptor carrying the platform it was built for - which is the only thing a runtime uses to choose between them, so it is asserted rather than copied hopefully. src/package/oci.zig buildMulti gives each request its own configuration and layers, so the manifests genuinely differ, and the shared index is the only document tying them together; the arm64 entry records its variant, because a runtime that needs v8 will not choose an entry without it. Every descriptor in the multi-platform layout validates against its blob, so a platform is never recorded beside a wrong image. The test covers three targets (linux/x86_64, linux/aarch64/v8, windows/x86_64), asserts each index entry's os and architecture, and refuses a request with an empty os or architecture before any document is built, because a descriptor with an empty platform is an image a runtime cannot choose. Fault proof: recording the first platform for every manifest - a runtime choosing the wrong image for two of three targets - makes the case fail (exit 1); revert byte-identical against a backup, no FAULT markers remain.",
+  "reviewedUtc": "2026-10-12T16:03:05.069557+00:00",
+  "records": [
+    "dc73666155ac4498875b6c2ec43445ce",
+    "c50eb46f2d48488daace25b36b1576c2",
+    "f9928f88f61d4f1682440e65434444b7",
+    "b164f124d5ad4e5380e7564bbd5144f1"
+  ],
+  "recordDigests": {
+    "dc73666155ac4498875b6c2ec43445ce": "d1da8ec77f8c2e2a7685284cd200c5ebe183b0551da457a481ec8aed4e59c36d",
+    "c50eb46f2d48488daace25b36b1576c2": "f10462516c44e7dbc623f172176a5887f9d079238c7333a35d1c9f4840a2b97a",
+    "f9928f88f61d4f1682440e65434444b7": "dcd5b79214ed14c9cf54cbf1cfd9faee64c16bf73c55173ee74e495a4053b7c8",
+    "b164f124d5ad4e5380e7564bbd5144f1": "3361b5c99e0ab7b26529eda60160a81bda8ef7d4d9d86736bc757e664f47e898"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}
