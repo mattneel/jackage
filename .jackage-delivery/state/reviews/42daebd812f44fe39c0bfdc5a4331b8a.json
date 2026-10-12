@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "42daebd812f44fe39c0bfdc5a4331b8a",
+  "case": "PLAN-007",
+  "caseDigest": "3c00c2e46968f527701107a3c8c138dc62e239599e2e4dc472e239b09c14c60c",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected lockedResolution: a locked run returns the recorded version and digest even though the pool now offers a newer release; the lock bytes are unchanged by the run; a changed configuration or plan digest raises LockChanged; a vanished locked input raises LockedInputMissing; a changed locked digest raises LockedDigestMismatch instead of silently re-resolving.",
+  "reviewedUtc": "2026-10-12T05:04:51.409485+00:00",
+  "records": [
+    "bfff0ac90d294b46a84de2e4545ccdec",
+    "66db4c22cd184a148db06fdd26fe2f8d",
+    "ad3cdff1236745d08ab21f55c6d2896c",
+    "13f356d4cac14ec7a8e25665282322d4"
+  ],
+  "recordDigests": {
+    "bfff0ac90d294b46a84de2e4545ccdec": "92245f717a308e7d981f4b3c6573518d7da7065490b60e0de2bcfd443c814b7b",
+    "66db4c22cd184a148db06fdd26fe2f8d": "86e60a709552a34847200d38e7dffebf14908bff35bbc5e7e7a6932687698a03",
+    "ad3cdff1236745d08ab21f55c6d2896c": "8d124b9307dad99ed8241ad7901711cfd1a6bf7e8865c66fb792aa94779b1464",
+    "13f356d4cac14ec7a8e25665282322d4": "4ff0b6c4ba5dd3d11698fd201f84b80a303cf92193ca3b69dd874c7775ad40d0"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

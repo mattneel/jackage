@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "2290398cf3c14e68905aac3ad11a9b28",
+  "case": "CAS-002",
+  "caseDigest": "c77252b7ae82e5ea8a42381351915483753affcc9067327d248fedf2ec97ca9c",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected publishStaged: bytes that do not match the expected digest raise IntegrityMismatch and leave no object addressable; a stream that ends before its declared length raises LengthMismatch; a blob mutated outside the store is reported as CorruptObject rather than served; unknown digests are UnknownObject.",
+  "reviewedUtc": "2026-10-12T04:32:36.087565+00:00",
+  "records": [
+    "cf66ee51971f4443b90bb3981bcdda1f",
+    "fe453c075af449f5aba945a5238b960a",
+    "15189bbd00b44941af2def608474cdb4",
+    "6b381c8267bd491baccb0bd7be6e6c6f"
+  ],
+  "recordDigests": {
+    "cf66ee51971f4443b90bb3981bcdda1f": "e4c8f47b0d4bd23334a8da01e6f7ed04c04c2cd4379d6afd4d1eaa40a65f9e50",
+    "fe453c075af449f5aba945a5238b960a": "da180f36b903fdcb5846558d13a5b86419e86bbf313aff92cfb33d097787c7b9",
+    "15189bbd00b44941af2def608474cdb4": "634464b5ccd19e769f377af380758e2b9cef1f1a20333717998d1c1dae70e104",
+    "6b381c8267bd491baccb0bd7be6e6c6f": "2dde028ba267f154cda47c875ea6ece41eaf70851dbe7fac95002b7180bbdadc"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

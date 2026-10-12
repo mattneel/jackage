@@ -1,0 +1,24 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-007
+failed command: ".\\.zig-cache\\o\\9191b4057ae16beb2853eb9475f2269d\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xdf324a17 --listen=-
+
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-007
+failed command: ".\\.zig-cache\\o\\2f5daad37844213b8a9c829877cb11ca\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xdf324a17 --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-007 interrupt infinite evaluation without publishing...JCKG_EVIDENCE EVAL-007
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-007 interrupt infinite evaluation without publishing...JCKG_EVIDENCE EVAL-007
+OK
+All 5 tests passed.

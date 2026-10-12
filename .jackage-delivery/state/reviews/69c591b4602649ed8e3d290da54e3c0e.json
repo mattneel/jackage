@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "69c591b4602649ed8e3d290da54e3c0e",
+  "case": "TRUST-005",
+  "caseDigest": "89196d09f83737248b871f7a6a336961de3e630ae1c9d48c1d2be3be8290b55f",
+  "reviewer": "OMP agent (M07 trust work unit)",
+  "note": "Inspected expiry handling: a chain past expiry is refused for every role and commits nothing, a malformed expiry is refused rather than compared lexicographically, and an invalid caller clock is refused so the window cannot be widened by the caller. An in-window chain is accepted afterwards, and no partially verified document is retained.",
+  "reviewedUtc": "2026-10-12T05:25:08.952823+00:00",
+  "records": [
+    "b079ff9705fc4773b4e88d22332fffb1",
+    "3b9a3eefafb846d19d8035d25842201d",
+    "28173855c3394c74b731e090f456c930",
+    "a549e168e8124aa584f9ca58dc0a7b03"
+  ],
+  "recordDigests": {
+    "b079ff9705fc4773b4e88d22332fffb1": "e80aaa4d5d9af81087902992b29d122bafdee8edbf025a61c90cdf1513da4382",
+    "3b9a3eefafb846d19d8035d25842201d": "3136edbd77bd217b39b6ce620bc9183b64158a34de65d94319b3e5964d648e54",
+    "28173855c3394c74b731e090f456c930": "6bc198f9fe3ab80c93dafbbde05b87af39cd58ce1c3aa6f2d92a683d29922a2b",
+    "a549e168e8124aa584f9ca58dc0a7b03": "373cfe2f9f0b6bd700d69955c7c0d6d196377b0aa1cd3343334dfca677c687b5"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

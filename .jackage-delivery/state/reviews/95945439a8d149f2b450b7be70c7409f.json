@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "95945439a8d149f2b450b7be70c7409f",
+  "case": "EXE-002",
+  "caseDigest": "145a38b03135942400ced40093fead26167cebb6e2ba0b858f2bad4705f154a4",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected declared-only Windows environment block with no inherited map/minimum and no ambient executable-extension lookup. Real parent-only sentinel is absent while declared value is present; empty-map client launches. Fault copies the real ambient map before declared entries; assertions unchanged. Internal taskkill SystemRoot is OS-derived, not added to action environment.",
+  "reviewedUtc": "2026-10-12T10:02:33.877604+00:00",
+  "records": [
+    "f996e728e581444181b46eda9692eb25",
+    "89d0ceabf07f474094adf6a9865cd072",
+    "5f928ff96abf4ce3b389fdb53d7eb6e8",
+    "04c77651fa7042ea9a03d30130c8fcfb"
+  ],
+  "recordDigests": {
+    "f996e728e581444181b46eda9692eb25": "fdced89eddd1646691832862d6ef596f397b3d062e0bb0745091ce6acc7c7f2a",
+    "89d0ceabf07f474094adf6a9865cd072": "fe600cfdf02395dc76501dc349892172216e967ef4e6f527c894f174f018b3e0",
+    "5f928ff96abf4ce3b389fdb53d7eb6e8": "22a1a9ed760697ce04d59ec252aba0d151d09e31237e23a64910efd173e80bc1",
+    "04c77651fa7042ea9a03d30130c8fcfb": "752bdeccad44de59e9dff3adb850257d2fca67832847a8f84b62dbcd7f34b350"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

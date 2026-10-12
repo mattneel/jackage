@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "scope": "External facts only. Product contracts are proposals.",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Zig download index",
+      "url": "https://ziglang.org/download/index.json",
+      "note": "The index identifies the exact compiler build supplied by the user. It does not verify the user's local executable."
+    },
+    {
+      "id": "S02",
+      "title": "QuickJS-NG C API",
+      "url": "https://quickjs-ng.github.io/quickjs/developer-guide/intro/",
+      "note": "The primary API describes runtime limits, interrupts, and bytecode cautions. Jackage policy is a separate proposed design."
+    },
+    {
+      "id": "S03",
+      "title": "TUF specification and metadata",
+      "url": "https://theupdateframework.github.io/specification/v1.0.36/",
+      "note": "The specification defines signed metadata roles and client verification. Pin a reviewed version during implementation."
+    },
+    {
+      "id": "S04",
+      "title": "GitHub Pages limits",
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits",
+      "note": "Pages imposes site and bandwidth limits. Recheck applicable limits before production channel publication."
+    },
+    {
+      "id": "S05",
+      "title": "GitHub immutable releases",
+      "url": "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases",
+      "note": "Enabled immutable releases protect assets and associated tags. This does not replace client trust enrollment."
+    },
+    {
+      "id": "S06",
+      "title": "Reproducible Builds definition",
+      "url": "https://reproducible-builds.org/docs/definition/",
+      "note": "A reproduction claim concerns identical declared artifact bytes under the specified inputs and environment."
+    },
+    {
+      "id": "S07",
+      "title": "OCI overview",
+      "url": "https://opencontainers.org/about/overview/",
+      "note": "OCI distinguishes image, runtime, and distribution specifications. Pin the concrete specification versions for backend conformance."
+    },
+    {
+      "id": "S08",
+      "title": "Windows Hypervisor Platform API",
+      "url": "https://learn.microsoft.com/en-us/virtualization/api/hypervisor-platform/hypervisor-platform",
+      "note": "WHP exposes low-level partition, memory, and processor APIs. A complete Jackage runtime requires additional components."
+    },
+    {
+      "id": "S09",
+      "title": "Oh-My-Pi context files",
+      "url": "https://github.com/can1357/oh-my-pi/blob/main/docs/context-files.md",
+      "note": "The primary project documentation describes context discovery and precedence. Audit the installed OMP version before context integration."
+    }
+  ]
+}

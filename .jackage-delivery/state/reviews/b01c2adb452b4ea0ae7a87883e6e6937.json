@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b01c2adb452b4ea0ae7a87883e6e6937",
+  "case": "EXE-006",
+  "caseDigest": "fc5c3c0713c77acff7d5a066cf8548c965588d6ddfba8e239a3c93f11f1370b9",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected spawn-error path separate from actual process exit. Missing and invalid executable tests have launch_failure with no PID or exit code and no outputs. Fault changes launch classification; unchanged own assertion fails.",
+  "reviewedUtc": "2026-10-12T10:02:34.235865+00:00",
+  "records": [
+    "d094d1e6498142f2867a4db4e09bd660",
+    "7d93c06a8d5e443e93e3568563aa098c",
+    "5497568aaf3744dea4493ab046347eca",
+    "8d3393e685204e758cd4e9674109d3e6"
+  ],
+  "recordDigests": {
+    "d094d1e6498142f2867a4db4e09bd660": "10c59bdaf9037f1b4e3e2f34d9b5b8d54a50afb4edeceeee8fe40ffb5338a4d8",
+    "7d93c06a8d5e443e93e3568563aa098c": "abd7ddf6dacc5465c93d3f9cdf637b6f81075a9ec5c25f1f90a7f1e1d0f11b0a",
+    "5497568aaf3744dea4493ab046347eca": "96d3396ce036e79398c9a5c0f11cdf33bb24225113df7268152d121268cbd024",
+    "8d3393e685204e758cd4e9674109d3e6": "3485dbd5f7ef259eef8f819314c7bd243bb85e27256361d117e214cbd275c6a9"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

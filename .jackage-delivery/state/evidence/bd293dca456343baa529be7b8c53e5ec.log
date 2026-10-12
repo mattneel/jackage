@@ -1,0 +1,211 @@
+test
++- run test eval-tests 31 pass, 2 fail (33 total)
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+error: 'eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access' failed:
+       JCKG_EVIDENCE EVAL-001
+       JCKG_EVIDENCE EVAL-002
+       JCKG_EVIDENCE EVAL-003
+       JCKG_EVIDENCE EVAL-004
+       expected error.ModuleDenied, found error.TransformFailed
+       C:\src\jackage\src\eval\frontend.zig:216:32: 0x7ff7cb32dc3c in evaluate (eval-tests_zcu.obj)
+               if (!passed(run.term)) return error.TransformFailed;
+                                      ^
+       C:\src\jackage\src\eval\tests.zig:24:87: 0x7ff7cb32ea6d in run (eval-tests_zcu.obj)
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff7cb32f159 in expectError__func_886 (eval-tests_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\eval\tests.zig:104:9: 0x7ff7cb3ea3fd in test.m04/EVAL-004 deny undeclared imports before loader access (eval-tests_zcu.obj)
+               try std.testing.expectError(error.ModuleDenied, run(dynamic, fixture.options(), null));
+               ^
+error: 'eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks' failed:
+       JCKG_EVIDENCE EVAL-005
+       JCKG_EVIDENCE EVAL-006
+       JCKG_EVIDENCE EVAL-007
+       JCKG_EVIDENCE EVAL-008
+       JCKG_EVIDENCE EVAL-009
+       expected error.ActiveValue, found error.TransformFailed
+       C:\src\jackage\src\eval\frontend.zig:216:32: 0x7ff7cb32dc3c in evaluate (eval-tests_zcu.obj)
+               if (!passed(run.term)) return error.TransformFailed;
+                                      ^
+       C:\src\jackage\src\eval\tests.zig:24:87: 0x7ff7cb32ea6d in run (eval-tests_zcu.obj)
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff7cb32f159 in expectError__func_886 (eval-tests_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\eval\tests.zig:197:29: 0x7ff7cb3e652c in test.m04/EVAL-009 reject active values without invoking callbacks (eval-tests_zcu.obj)
+           for (rejected) |source| try std.testing.expectError(error.ActiveValue, run(source, fixture.options(), null));
+                                   ^
+failed command: ".\\.zig-cache\\o\\6c55eb341c4e28968dddcce754e17373\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x1ec5909a --listen=-
+
+test
++- run test jckg-tests 79 pass, 2 fail (81 total)
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+error: 'eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access' failed:
+       JCKG_EVIDENCE M00-REPORT
+       JCKG_EVIDENCE AUD-002
+       JCKG_EVIDENCE AUD-003
+       JCKG_EVIDENCE AUD-006
+       JCKG_EVIDENCE AUD-004
+       JCKG_EVIDENCE AUD-007
+       JCKG_EVIDENCE AUD-001
+       JCKG_EVIDENCE AUD-005
+       JCKG_EVIDENCE AUD-008
+       JCKG_EVIDENCE CLI-009
+       JCKG_EVIDENCE CAN-001
+       JCKG_EVIDENCE CAN-002
+       JCKG_EVIDENCE CAN-003
+       JCKG_EVIDENCE CAN-004
+       JCKG_EVIDENCE CAN-005
+       JCKG_EVIDENCE CAN-006
+       JCKG_EVIDENCE CLI-008
+       JCKG_EVIDENCE CAN-007
+       JCKG_EVIDENCE CAN-008
+       JCKG_EVIDENCE CLI-006
+       JCKG_EVIDENCE CLI-010
+       JCKG_EVIDENCE CAS-001
+       JCKG_EVIDENCE CAS-002
+       JCKG_EVIDENCE CAS-003
+       JCKG_EVIDENCE CAS-004
+       JCKG_EVIDENCE CAS-005
+       JCKG_EVIDENCE CAS-006
+       JCKG_EVIDENCE CAS-007
+       JCKG_EVIDENCE CAS-008
+       JCKG_EVIDENCE CAN-009
+       JCKG_EVIDENCE CAN-010
+       JCKG_EVIDENCE CLI-001
+       JCKG_EVIDENCE CLI-004
+       JCKG_EVIDENCE CLI-004
+       JCKG_EVIDENCE CLI-002
+       JCKG_EVIDENCE CLI-003
+       JCKG_EVIDENCE CLI-005
+       JCKG_EVIDENCE CLI-007
+       JCKG_EVIDENCE CLI-009
+       error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+       C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff77e41e86a in CloseHandle (jckg-tests_zcu.obj)
+               else => |status| unexpectedStatus(status) catch {},
+                                                ^
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff77e46baf5 in childCleanupWindows (jckg-tests_zcu.obj)
+               windows.CloseHandle(stdin.handle);
+                                  ^
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff77e46c6ba in childWaitWindows (jckg-tests_zcu.obj)
+           childCleanupWindows(child);
+                              ^
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff77e46c2b8 in childWait (jckg-tests_zcu.obj)
+               .windows => return childWaitWindows(child),
+                                                  ^
+       C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff77e5d527b in wait (jckg-tests_zcu.obj)
+           return io.vtable.childWait(io.userdata, child);
+                                     ^
+       C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff77e637b47 in runCli (jckg-tests_zcu.obj)
+           const term = try child.wait(io);
+                                      ^
+       C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff77e63afdb in test.m01/CLI-009 respect cancellation (jckg-tests_zcu.obj)
+           const result = try runCli(
+                                    ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff77e36d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff77e36d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff77e36b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff77e36b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff77e6d5507 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       ???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+       ???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+       JCKG_EVIDENCE CLI-010
+       JCKG_EVIDENCE PLAN-008
+       JCKG_EVIDENCE PLAN-011
+       JCKG_EVIDENCE PLAN-005
+       JCKG_EVIDENCE PLAN-006
+       JCKG_EVIDENCE PLAN-007
+       JCKG_EVIDENCE PLAN-004
+       JCKG_EVIDENCE PLAN-009
+       JCKG_EVIDENCE PLAN-010
+       JCKG_EVIDENCE PLAN-001
+       JCKG_EVIDENCE PLAN-002
+       JCKG_EVIDENCE PLAN-003
+       JCKG_EVIDENCE EXE-001
+       JCKG_EVIDENCE EXE-002
+       JCKG_EVIDENCE EXE-003
+       JCKG_EVIDENCE EXE-004
+       JCKG_EVIDENCE EXE-005
+       JCKG_EVIDENCE EXE-006
+       JCKG_EVIDENCE EXE-007
+       JCKG_EVIDENCE EXE-008
+       JCKG_EVIDENCE EXE-009
+       JCKG_EVIDENCE EXE-010
+       JCKG_EVIDENCE EVAL-001
+       JCKG_EVIDENCE EVAL-002
+       JCKG_EVIDENCE EVAL-003
+       JCKG_EVIDENCE EVAL-004
+       expected error.ModuleDenied, found error.TransformFailed
+       C:\src\jackage\src\eval\frontend.zig:216:32: 0x7ff77e5de96c in evaluate (jckg-tests_zcu.obj)
+               if (!passed(run.term)) return error.TransformFailed;
+                                      ^
+       C:\src\jackage\src\eval\tests.zig:24:87: 0x7ff77e5df79d in run (jckg-tests_zcu.obj)
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff77e5dfbb9 in expectError__func_1518 (jckg-tests_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\eval\tests.zig:104:9: 0x7ff77e61a69d in test.m04/EVAL-004 deny undeclared imports before loader access (jckg-tests_zcu.obj)
+               try std.testing.expectError(error.ModuleDenied, run(dynamic, fixture.options(), null));
+               ^
+error: 'eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks' failed:
+       JCKG_EVIDENCE EVAL-005
+       JCKG_EVIDENCE EVAL-006
+       JCKG_EVIDENCE EVAL-007
+       JCKG_EVIDENCE EVAL-008
+       JCKG_EVIDENCE EVAL-009
+       expected error.ActiveValue, found error.TransformFailed
+       C:\src\jackage\src\eval\frontend.zig:216:32: 0x7ff77e5de96c in evaluate (jckg-tests_zcu.obj)
+               if (!passed(run.term)) return error.TransformFailed;
+                                      ^
+       C:\src\jackage\src\eval\tests.zig:24:87: 0x7ff77e5df79d in run (jckg-tests_zcu.obj)
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff77e5dfbb9 in expectError__func_1518 (jckg-tests_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\eval\tests.zig:197:29: 0x7ff77e6167cc in test.m04/EVAL-009 reject active values without invoking callbacks (jckg-tests_zcu.obj)
+           for (rejected) |source| try std.testing.expectError(error.ActiveValue, run(source, fixture.options(), null));
+                                   ^
+failed command: ".\\.zig-cache\\o\\ba71f0455533893d37b6026b84436df2\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x1ec5909a --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 110/114 tests passed (4 failed)
+test transitive failure
++- run test jckg-tests 79 pass, 2 fail (81 total)
++- run test eval-tests 31 pass, 2 fail (33 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x1ec5909a test --prefix C:\src\jackage\zig-out

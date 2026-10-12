@@ -1,0 +1,129 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE CLI-009
+JCKG_EVIDENCE CLI-006
+JCKG_EVIDENCE CLI-010
+JCKG_EVIDENCE CLI-001
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-008
+JCKG_EVIDENCE CLI-002
+JCKG_EVIDENCE CLI-003
+JCKG_EVIDENCE CLI-005
+JCKG_EVIDENCE CLI-007
+JCKG_EVIDENCE CLI-009
+error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff76107e86a in CloseHandle (jckg-tests_zcu.obj)
+        else => |status| unexpectedStatus(status) catch {},
+                                         ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff7610cbaf5 in childCleanupWindows (jckg-tests_zcu.obj)
+        windows.CloseHandle(stdin.handle);
+                           ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff7610cc6ba in childWaitWindows (jckg-tests_zcu.obj)
+    childCleanupWindows(child);
+                       ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff7610cc2b8 in childWait (jckg-tests_zcu.obj)
+        .windows => return childWaitWindows(child),
+                                           ^
+C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff76115425b in wait (jckg-tests_zcu.obj)
+    return io.vtable.childWait(io.userdata, child);
+                              ^
+C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff7611493b7 in runCli (jckg-tests_zcu.obj)
+    const term = try child.wait(io);
+                               ^
+C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff761160ebb in test.m01/CLI-009 respect cancellation (jckg-tests_zcu.obj)
+    const result = try runCli(
+                             ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff760fcd2f4 in mainServer (jckg-tests_zcu.obj)
+                const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                   ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff760fcd956 in main (jckg-tests_zcu.obj)
+        return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                         ^
+C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff760fcb481 in callMain (jckg-tests_zcu.obj)
+    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+
+C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff760fcb481 in main (jckg-tests_zcu.obj)
+            return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                           ^
+C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff7611b28d7 in __tmainCRTStartup (crt2.obj)
+    ret = _tmain (argc, argv, envp);
+
+???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+JCKG_EVIDENCE CLI-010
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-CLI\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x54e813c8 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/17 jckg.test_0...OK
+2/17 core.cancel.test.m01/CLI-009 respect cancellation...JCKG_EVIDENCE CLI-009
+OK
+3/17 core.policy.test.m01/CLI-006 avoid implicit prompts...JCKG_EVIDENCE CLI-006
+OK
+4/17 core.redact.test.m01/CLI-010 keep secrets out of errors...JCKG_EVIDENCE CLI-010
+OK
+5/17 core.version.test.m01/CLI-001 report real version...JCKG_EVIDENCE CLI-001
+OK
+6/17 cli.args.test.m01/CLI-004 reject invalid syntax...JCKG_EVIDENCE CLI-004
+OK
+7/17 cli.output.test.m01/CLI-003 separate JSON output...OK
+8/17 cli.commands.doctor.test.m01/CLI-008 diagnose honestly...JCKG_EVIDENCE CLI-008
+OK
+9/17 cli.commands.help.test.m01/CLI-002 provide usable help...JCKG_EVIDENCE CLI-002
+OK
+10/17 cli.integration_tests.test.m01/CLI-003 separate JSON output...JCKG_EVIDENCE CLI-003
+OK
+11/17 cli.integration_tests.test.m01/CLI-005 preserve argument boundaries...JCKG_EVIDENCE CLI-005
+OK
+12/17 cli.integration_tests.test.m01/CLI-007 initialize safely...JCKG_EVIDENCE CLI-007
+OK
+13/17 cli.integration_tests.test.m01/CLI-009 respect cancellation...JCKG_EVIDENCE CLI-009
+error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff76107e86a in CloseHandle (jckg-tests_zcu.obj)
+        else => |status| unexpectedStatus(status) catch {},
+                                         ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff7610cbaf5 in childCleanupWindows (jckg-tests_zcu.obj)
+        windows.CloseHandle(stdin.handle);
+                           ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff7610cc6ba in childWaitWindows (jckg-tests_zcu.obj)
+    childCleanupWindows(child);
+                       ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff7610cc2b8 in childWait (jckg-tests_zcu.obj)
+        .windows => return childWaitWindows(child),
+                                           ^
+C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff76115425b in wait (jckg-tests_zcu.obj)
+    return io.vtable.childWait(io.userdata, child);
+                              ^
+C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff7611493b7 in runCli (jckg-tests_zcu.obj)
+    const term = try child.wait(io);
+                               ^
+C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff761160ebb in test.m01/CLI-009 respect cancellation (jckg-tests_zcu.obj)
+    const result = try runCli(
+                             ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:295:25: 0x7ff760fce36e in mainTerminal (jckg-tests_zcu.obj)
+        if (test_fn.func()) |_| {
+                        ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:74:28: 0x7ff760fcd96f in main (jckg-tests_zcu.obj)
+        return mainTerminal(init);
+                           ^
+C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff760fcb481 in callMain (jckg-tests_zcu.obj)
+    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+
+C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff760fcb481 in main (jckg-tests_zcu.obj)
+            return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                           ^
+C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff7611b28d7 in __tmainCRTStartup (crt2.obj)
+    ret = _tmain (argc, argv, envp);
+
+???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+OK
+14/17 cli.integration_tests.test.m01/CLI-010 keep secrets out of errors...JCKG_EVIDENCE CLI-010
+OK
+15/17 eval.mod.test_0...OK
+16/17 exec.mod.test_0...OK
+17/17 profile.mod.test_0...OK
+All 17 tests passed.

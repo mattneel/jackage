@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "5a3ec090e4924206bdf2a087651ecb92",
+  "case": "EVAL-010",
+  "caseDigest": "a4c80555098424120ae7a49ad08f064bf28c5fb77366280a60380f0c5223906a",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected source-only gate against actual locally generated QuickJS-NG bytecode and magic-looking bytes; no bytecode reader or deserialization is invoked. Fault: real generated QuickJS bytecode expected UntrustedBytecode but fell through to InvalidSource after the binary policy guard was removed (TestExpectedEqual); bytecode was never deserialized or executed. Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.956131+00:00",
+  "records": [
+    "73cebcb255214aac99a5221a25552551",
+    "3ea26542ca1d4ca58dbb83f143172734",
+    "152a479e0a9c4dbc95994465ce704f66",
+    "af5d479b39aa42cc8d6328857961cd9c"
+  ],
+  "recordDigests": {
+    "73cebcb255214aac99a5221a25552551": "4e23859ebd8301486dda6662432eafda17f5d49956fc0e7382b60991a1f0bb5a",
+    "3ea26542ca1d4ca58dbb83f143172734": "b81c7efbc5eec90f4dfb96d099eafc041bd8ecf0d6e54bc55e036b6bae597ba5",
+    "152a479e0a9c4dbc95994465ce704f66": "e72f4c3262d10e3dc5cff77c856c2dc34127245c52b98009c755a72fa817eade",
+    "af5d479b39aa42cc8d6328857961cd9c": "53cef3d572b6db2acd5ac005d09984a16dfff4097a0b86eedb89c8f8ac47aab1"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,6 @@
+=== eval-tests.exe ===
+1/33 eval_tests.test_0...OK
+2/33 eval.mod.test_0...OK
+3/33 eval.tests.test.m04/EVAL-001 transform real TypeScript...JCKG_EVIDENCE EVAL-001
+OK
+4/33 eval.tests.test.m04/EVAL-002 separate semantic type checks...JCKG_EVIDENCE EVAL-002

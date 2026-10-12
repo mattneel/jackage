@@ -1,0 +1,19 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'trust.download.test.m08/STRICT-007 verify returned artifacts before commitment' failed:
+       JCKG_EVIDENCE STRICT-007
+       expected error.UndeclaredOutput, found .{ .inserted = void }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff684c5ed31 in expectError__func_873 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\trust\download.zig:1144:5: 0x7ff684c62812 in test.m08/STRICT-007 verify returned artifacts before commitment (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.UndeclaredOutput, collector.collect(fixture.store, &cache, request, forged_claim, &undeclared_batch, received_first));
+           ^
+failed command: ".\\.zig-cache\\o\\11ceec7f471c98ce3e1e64eaa887773d\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x528972d8 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/5 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x528972d8 test -Dfilter=STRICT-007 --prefix C:\src\jackage\.zig-cache\test-prefix-STRICT-007

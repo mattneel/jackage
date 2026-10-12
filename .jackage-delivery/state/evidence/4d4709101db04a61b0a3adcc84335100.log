@@ -1,0 +1,33 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access' failed:
+       JCKG_EVIDENCE EVAL-004
+       expected ModuleDenied, evaluated a plan
+       C:\src\jackage\src\eval\tests.zig:36:9: 0x7ff750fa8b9a in expectRejected (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\eval\tests.zig:121:9: 0x7ff750fafcaf in test.m04/EVAL-004 deny undeclared imports before loader access (jckg-tests_zcu.obj)
+               try expectRejected(error.ModuleDenied, run(source, fixture.options(), null));
+               ^
+failed command: ".\\.zig-cache\\o\\35b86fa8aa8c3cbe178289ccbc34c62d\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x713f12eb --listen=-
+
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access' failed:
+       JCKG_EVIDENCE EVAL-004
+       expected ModuleDenied, evaluated a plan
+       C:\src\jackage\src\eval\tests.zig:36:9: 0x7ff6fe938b9a in expectRejected (eval-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\eval\tests.zig:121:9: 0x7ff6fe93fcaf in test.m04/EVAL-004 deny undeclared imports before loader access (eval-tests_zcu.obj)
+               try expectRejected(error.ModuleDenied, run(source, fixture.options(), null));
+               ^
+failed command: ".\\.zig-cache\\o\\f65c381324cac3f6903544bf23103d64\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x713f12eb --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x713f12eb test -Dfilter=EVAL-004 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-004

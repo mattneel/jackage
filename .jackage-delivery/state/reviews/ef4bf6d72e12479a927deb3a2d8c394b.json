@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "ef4bf6d72e12479a927deb3a2d8c394b",
+  "case": "AUD-003",
+  "caseDigest": "7c9c99693f658fdd0264e49cc3b4e0789c36db116df286156dd7f037741e8188",
+  "reviewer": "OMP agent (M00 work unit)",
+  "note": "Inspected src/audit/pin.zig: four distinct wrong reports (older version, differing build suffix, truncated version, banner plus version) each return error.PinMismatch; describeMismatch names both identities and states no fallback compiler was chosen.",
+  "reviewedUtc": "2026-10-12T03:57:22.418310+00:00",
+  "records": [
+    "23fa3e3796a545659d75b52c5ecb73fb",
+    "3be3775291034cd5b8af995100f27813",
+    "0b25fd2e24c74ef4a81c223827a2e729",
+    "7a471ca540c046548416caef6d220dc6"
+  ],
+  "recordDigests": {
+    "23fa3e3796a545659d75b52c5ecb73fb": "6cf4014ec12623b34fbbeba052241b3956fa89c22e747d7816c45e6d01269240",
+    "3be3775291034cd5b8af995100f27813": "9c028093485221ca0c5d153f3370bf3fc6ebc4778490351559b04be6ec302c3c",
+    "0b25fd2e24c74ef4a81c223827a2e729": "91bd7e0040d9c625f58b16bbf92a61f9ace7514552a5acf4caec068d245ca6b6",
+    "7a471ca540c046548416caef6d220dc6": "c08901ade8c63b99425fd05053f93f1f035e3b78caac4ba6304ed0fcb68a68e5"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

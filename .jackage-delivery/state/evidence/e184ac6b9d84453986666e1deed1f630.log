@@ -1,0 +1,33 @@
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-005 deny ambient effects and host secrets' failed:
+       JCKG_EVIDENCE EVAL-005
+       expected EvaluationFailed, evaluated a plan
+       C:\src\jackage\src\eval\tests.zig:36:9: 0x7ff6aa968b9a in expectRejected (eval-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\eval\tests.zig:135:9: 0x7ff6aa96fc53 in test.m04/EVAL-005 deny ambient effects and host secrets (eval-tests_zcu.obj)
+               try expectRejected(error.EvaluationFailed, run(source, fixture.options(), null));
+               ^
+failed command: ".\\.zig-cache\\o\\8c66123f5494c0eb8e10ce167e64f266\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x7aae19d6 --listen=-
+
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-005 deny ambient effects and host secrets' failed:
+       JCKG_EVIDENCE EVAL-005
+       expected EvaluationFailed, evaluated a plan
+       C:\src\jackage\src\eval\tests.zig:36:9: 0x7ff652138b9a in expectRejected (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\eval\tests.zig:135:9: 0x7ff65213fc53 in test.m04/EVAL-005 deny ambient effects and host secrets (jckg-tests_zcu.obj)
+               try expectRejected(error.EvaluationFailed, run(source, fixture.options(), null));
+               ^
+failed command: ".\\.zig-cache\\o\\d8d38f99aaf0f9fa9cb80d985aa43277\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x7aae19d6 --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x7aae19d6 test -Dfilter=EVAL-005 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-005

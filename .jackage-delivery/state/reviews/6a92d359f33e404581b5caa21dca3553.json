@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "6a92d359f33e404581b5caa21dca3553",
+  "case": "TRUST-012",
+  "caseDigest": "a2375e8cd2e11eda9312f5a1ad29b3eb03112ef704c3f95bb826066d23a09df5",
+  "reviewer": "OMP agent (M07 transport work unit)",
+  "note": "Inspected caller-rooted targets-role threshold verification of canonical action/artifact/backend/policy/reproducibility/output/length provenance before cache admission, and provenance plus actual artifact-byte rechecks on use. Tests refuse unsigned and attacker-key release claims for guessed actions, refuse byte-only development provenance and mismatched bytes, and expose a genuine same-bytes signed release via provenance_added. Inverting signature-required admission accepted a forged release and produced TestExpectedError. Refreshed cache-hit corruption preserves the signed byte length but changes the stored content; useCacheClaim still returns CorruptObject.",
+  "reviewedUtc": "2026-10-12T06:38:16.893514+00:00",
+  "records": [
+    "1e30d4761b674cff8b71058c4425b501",
+    "9d8833fe799f45479c2387a3f8c2cc0c",
+    "c594d72e27e04c05941834d2e661ae02",
+    "aa408c966e24411fbe49379aed5669e4"
+  ],
+  "recordDigests": {
+    "1e30d4761b674cff8b71058c4425b501": "7a1a4bd2f68cf015754b964bdfe770e05a853e72e21e05eb948e3aa2388de52f",
+    "9d8833fe799f45479c2387a3f8c2cc0c": "8631a337a56ac2076088c253e709b6abcac52a04e98e59b4d61ac83a122b733d",
+    "c594d72e27e04c05941834d2e661ae02": "a4c59f73a3ba7f82b6e96280ef3a0ff9866ef58c2206883a404d39d5c183ad3a",
+    "aa408c966e24411fbe49379aed5669e4": "5a2d73321976451c8b0172f4704fdfdf2155581d9ec90880c3648d9cea08309f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "actions": [
+    {
+      "name": "fixture",
+      "dependsOn": [],
+      "action": {
+        "schemaVersion": 1,
+        "executionPlatform": {
+          "os": "linux",
+          "architecture": "x86_64",
+          "abi": "gnu",
+          "minimumVersion": "fixture-only",
+          "cpuFeatures": []
+        },
+        "outputPlatform": {
+          "os": "linux",
+          "architecture": "x86_64",
+          "abi": "gnu",
+          "minimumVersion": "fixture-only",
+          "cpuFeatures": []
+        },
+        "inputs": {
+          "toolchain": "sha256:cb5bc1a47455d5932d3735707ecf5b7bf6dd69f29334cc8bafc22a4fa9f566e7"
+        },
+        "tool": {
+          "input": "toolchain",
+          "path": "bin/fixture-tool"
+        },
+        "arguments": [
+          "--output",
+          "out/result.txt"
+        ],
+        "environment": {
+          "LANG": "C",
+          "TZ": "UTC"
+        },
+        "workingDirectory": "workspace",
+        "outputs": [
+          {
+            "path": "out/result.txt",
+            "kind": "file"
+          }
+        ],
+        "requirements": {
+          "filesystem": "declared-only",
+          "network": "deny",
+          "processTreeCleanup": true,
+          "stableLogicalPaths": true,
+          "allowedEndpoints": []
+        },
+        "limits": {
+          "timeoutSeconds": 60,
+          "memoryBytes": 268435456,
+          "logBytes": 1048576
+        },
+        "cachePolicy": "release"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "action": "fixture",
+      "path": "out/result.txt"
+    }
+  ]
+}

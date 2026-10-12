@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "5800bb1f48d443a48f07c49088ee77eb",
+  "case": "TRUST-009",
+  "caseDigest": "94291d4a17b4b65f0de2c4322822ea7a3292b3012e633d9b3294721d3037ce9e",
+  "reviewer": "OMP agent (M07 transport work unit)",
+  "note": "Inspected receiver-declared digest/length and bounded HTTP body import through Store private staging and atomic publication; restart-from-zero retries ignore digest-named partial paths, rate limits back off with bounded attempts, and conditional/reuse hits rehash stored bytes. Loopback tests cover truncation, length/digest mismatch, overlong chunked bodies, 429/503 recovery and ETag/304. Removing the expected store digest produced a real TestExpectedError assertion. Refreshed tests overwrite a committed blob with different bytes of exactly the original length; both 304 and explicit reuse refuse it, proving a byte/digest check rather than a size-only check.",
+  "reviewedUtc": "2026-10-12T06:38:16.666974+00:00",
+  "records": [
+    "81c4bd8a66c74a69a8af1ce98ac1a4b5",
+    "b9ee83fe747f4322a461ef615333e208",
+    "6424fa8499f740449e9d37e7c4d22285",
+    "fd06e86051f247ebb4a14f1928b3567e"
+  ],
+  "recordDigests": {
+    "81c4bd8a66c74a69a8af1ce98ac1a4b5": "2d9cb8bbceda231c771b934f759f25c3483a8cf559adad76f8f334422aa0f18c",
+    "b9ee83fe747f4322a461ef615333e208": "aa8c4a61f5b851daf32fa153314f79f3862734cb1ed1cc9bcc9a662148bd31d0",
+    "6424fa8499f740449e9d37e7c4d22285": "d622a2ec7b0ec861ee0b127906a0433900a32ac282c55588c95686b8981f3b6e",
+    "fd06e86051f247ebb4a14f1928b3567e": "be0bc9e0128257f6edd560e0b74c57e982fc9da9196e6210b847ede4b7e22750"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

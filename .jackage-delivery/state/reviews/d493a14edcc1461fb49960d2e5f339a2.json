@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "d493a14edcc1461fb49960d2e5f339a2",
+  "case": "EVAL-011",
+  "caseDigest": "403a7dc3186ef96dcfe84a9b49d840787247e0f6188df04f43bd68f782a1580d",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected length-framed cache identity over engine, actual transformer/checker digests, options, SDK, source digests and inputs; real hit/miss and tampered-tool rejection fixtures. The exact inline tsconfig argv constant is also hashed, preventing flag/key divergence. Fault: changing the engine identity was required to change the cache key, but the keys stayed equal when the identity field was omitted (own-case TestUnexpectedResult). Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:32.033062+00:00",
+  "records": [
+    "0d489988e7c34a6fa11c28203869a08c",
+    "3e3a7963f6534309bcde7f6e335e3b5f",
+    "be54a8ef543a4edfb807bd40ac34b718",
+    "d45fde6662fc4e2c9df8b09dd7b3a44b"
+  ],
+  "recordDigests": {
+    "0d489988e7c34a6fa11c28203869a08c": "64b35990afec87dc42a675eb3233f12a3e9397290aa12c594a0a9fa0bd363fb2",
+    "3e3a7963f6534309bcde7f6e335e3b5f": "9b1746cb78696701fb153b103de50f27847ab9dd2d94b1a4e8ca97ce99c4b2ae",
+    "be54a8ef543a4edfb807bd40ac34b718": "3afe9cfb378751c28aadfcc64e51c3ab0994c8a19218be7bd9d793c808794f18",
+    "d45fde6662fc4e2c9df8b09dd7b3a44b": "4470e4860625d05dd698eb9cd8664fbac905ecc19e7bad3fdb6d34e67cbe2e8a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

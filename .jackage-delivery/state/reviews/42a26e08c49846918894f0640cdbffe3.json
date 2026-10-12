@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "42a26e08c49846918894f0640cdbffe3",
+  "case": "TRUST-003",
+  "caseDigest": "8bdfdcfece32e8df020c3fa5486684965b3bb311eeb9442637250342a296dcf0",
+  "reviewer": "OMP agent (M07 trust work unit)",
+  "note": "Inspected src/trust/keys.zig: a signature over different content, a signature from an unknown key, corrupted signature bytes and a key authorized only for another role are each refused; a repeated signer counts once, so a threshold of two is not met by one key signing twice; an empty signature set never meets a threshold; key identifiers are stable, distinct and derived from the public key; the textual public key form round-trips and malformed forms are refused.",
+  "reviewedUtc": "2026-10-12T05:25:08.797026+00:00",
+  "records": [
+    "ce0b974baeb64500a2993f13d719342c",
+    "773ea36c4f74408999b8860bd9f6a53c",
+    "61aff1e190524444b6f87592ec5795ac",
+    "a2a4ce949b26462daa922dde2c3cfa0a"
+  ],
+  "recordDigests": {
+    "ce0b974baeb64500a2993f13d719342c": "064c67884aaa6f16531fd650e4a4beb4b5441053b25bb64ecaf92c2b5767cf9a",
+    "773ea36c4f74408999b8860bd9f6a53c": "e91f0cb1062b83f53558b8af0f972364b34f102e030bbb21a4f6bcfe16fe1319",
+    "61aff1e190524444b6f87592ec5795ac": "6ad402ec7b53654df1e4aaa39d2eb8f18d3721bf05cf61f800fa25b364f5c280",
+    "a2a4ce949b26462daa922dde2c3cfa0a": "8f92b23278b25a49ad9187b7265d0d023308cef3f6f681036ec8ccfc55389233"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

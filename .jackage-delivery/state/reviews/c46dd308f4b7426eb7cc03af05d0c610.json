@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c46dd308f4b7426eb7cc03af05d0c610",
+  "case": "TRUST-001",
+  "caseDigest": "fff5245d6b8dfeae2bb0ccc35264d519573e0ff357c6c693d889813eb64e7799",
+  "reviewer": "OMP agent (M07 trust work unit)",
+  "note": "Inspected src/trust/root.zig: enrolling requires an independently approved fingerprint and refuses a document whose fingerprint differs, even when the channel also presents a matching checksum; no enrollment means no trust (NotEnrolled); expired and malformed-expiry roots are refused; a root whose threshold exceeds its key count is refused; timestamp parsing rejects malformed values and accepts a leap second.",
+  "reviewedUtc": "2026-10-12T05:25:08.640660+00:00",
+  "records": [
+    "e8c23cc58b52418cbfe97d1542d45d60",
+    "262ba61f37f94d83b66d7077963d82fa",
+    "191a9d1ea2ad4cee98c1b1240e75b5dd",
+    "7109ec904ab94145b52e79c2a7305023"
+  ],
+  "recordDigests": {
+    "e8c23cc58b52418cbfe97d1542d45d60": "c8c2bf3e637ca09ca4eedb49ce4089aa732ff0ef61e98f59c102395d8106b843",
+    "262ba61f37f94d83b66d7077963d82fa": "98cf7c5f7f325340084d08c7f0e42d2898f24ea740569d0d041f96178a4b2b45",
+    "191a9d1ea2ad4cee98c1b1240e75b5dd": "3fcecff00c8ed49d7e8cf535fdfd61b7481d97ee08899f88511f15822ee6d31a",
+    "7109ec904ab94145b52e79c2a7305023": "729bd06f112e574fe27e353f61e67537bde0d5fee4869ed35edf4be25c03c139"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

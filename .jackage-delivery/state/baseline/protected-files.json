@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "recordedUtc": "2026-10-12T03:44:17.9457791Z",
+  "meaning": "Digests of the pre-existing checkout files recorded at M00 before any product edit. 'preserved' files must stay byte-identical; 'extended' files are recorded for audit and may only grow inside their recorded anchors.",
+  "recordedBy": "M00 audit session, PowerShell BCL SHA-256",
+  "files": [
+    {
+      "path": ".gitignore",
+      "class": "preserved",
+      "sha256": "sha256:ae00800641de0ec69d0734897f4c6ae9de8d7ae0a92ba2fb0fc87c007f0d0ac6",
+      "sizeBytes": 300,
+      "anchors": []
+    },
+    {
+      "path": ".zigversion",
+      "class": "preserved",
+      "sha256": "sha256:33c17996cd2609e8a4c9ff809a7d8cc6072383ff29f8d854e36c9d88264c1070",
+      "sizeBytes": 25,
+      "anchors": []
+    },
+    {
+      "path": "scripts/zig.ps1",
+      "class": "preserved",
+      "sha256": "sha256:c395727e46ee43302054f08837f32991e7dd62c09a969662a69128c7229dfab6",
+      "sizeBytes": 533,
+      "anchors": []
+    },
+    {
+      "path": "scripts/fetch-zig.ps1",
+      "class": "preserved",
+      "sha256": "sha256:6be43b17b04f6f34a96e03e5b0da2c99ad5b4c5c937dc6aa5ea9fe57b5697654",
+      "sizeBytes": 3532,
+      "anchors": []
+    },
+    {
+      "path": "src/main.zig",
+      "class": "preserved",
+      "sha256": "sha256:3c351e69d0c382bcf1c3f2c65a4881d8e856fb72466c536f5c9966832d181cbb",
+      "sizeBytes": 2615,
+      "anchors": []
+    },
+    {
+      "path": "src/root.zig",
+      "class": "preserved",
+      "sha256": "sha256:29b924059d2cf4b3f3740a4313266aba82da9412aa57655cf7219848a4712bd3",
+      "sizeBytes": 571,
+      "anchors": []
+    },
+    {
+      "path": "build.zig",
+      "class": "extended",
+      "sha256": "sha256:70e97959c88b8d7b0343f0a75028e9395cb970f967f3ee785b4570d10ff3692c",
+      "sizeBytes": 8435,
+      "anchors": [
+        "pub fn build(b: *std.Build) void {",
+        ".name = \"jackage\",",
+        "const mod = b.addModule(\"jackage\", .{",
+        "const test_step = b.step(\"test\", \"Run tests\");"
+      ]
+    },
+    {
+      "path": "build.zig.zon",
+      "class": "extended",
+      "sha256": "sha256:b8365e9c5561eb18de80df45c4590786f8d3bfcd5ea022d784f079a137f6df4c",
+      "sizeBytes": 4211,
+      "anchors": [
+        ".name = .jackage,",
+        ".fingerprint = 0x1dc6a415088bf9cc,",
+        ".minimum_zig_version = \"0.18.0-dev.146+35accc06e\","
+      ]
+    }
+  ]
+}

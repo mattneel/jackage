@@ -1,0 +1,24 @@
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-005
+failed command: ".\\.zig-cache\\o\\f2d32bfaca46b800d02079a9f7c9d7e5\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xb0b4ad22 --listen=-
+
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-005
+failed command: ".\\.zig-cache\\o\\5c92b1ed676270638003d5e1538bb084\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xb0b4ad22 --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-005 deny ambient effects and host secrets...JCKG_EVIDENCE EVAL-005
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-005 deny ambient effects and host secrets...JCKG_EVIDENCE EVAL-005
+OK
+All 5 tests passed.

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "0ed7abb40b954edf95866656a59449e0",
+  "case": "STRICT-008",
+  "caseDigest": "7b65958b8919c73fad1aa274b3d85682b831dd3ccf6abd4e12aafa25d05fb95d",
+  "reviewer": "OMP agent (M08 transport work unit)",
+  "note": "Inspected interrupted/running/awaiting-result/verified action states, exact requested-action reconciliation, bounded control-plane JSON adapter, streaming saved-checkpoint verification and mandatory whole-output verification before result commitment. Real loopback truncation and reconnect replies exercise unknown, wrong-action, running and completed reports; success and chunk reuse are refused before reconciliation. Same-length private-chunk corruption and resumed whole-body corruption are rejected with no blob/cache commit. Valid repaired data then commits and alone marks success. The interruption-as-verified inversion failed the immediate !succeeded assertion (TestUnexpectedResult), not a panic or compile error. Before/after revert SHA256 matches B002D58637B0F3B5E79911FAC0F8BABA7E1488CE03AB75FCD091BE8E2A823D9E. This case full-suite regression is final.",
+  "reviewedUtc": "2026-10-12T11:10:50.240920+00:00",
+  "records": [
+    "4654539d7e12495592babafb106053a4",
+    "659fac4cad2c4659834221a9d9e16933",
+    "3b55622eedde40f69a6fa323a283b3ea",
+    "11bd0ccf6f8f49fa9d72ce2d5995a1ce"
+  ],
+  "recordDigests": {
+    "4654539d7e12495592babafb106053a4": "e8cbe9b4630bf4650742cf6f479d4bc54a8e78af0c6626da66bab7e435ed96d9",
+    "659fac4cad2c4659834221a9d9e16933": "b1a6a57576d871b09b3571cd925326346486d0ba89140ba42116884cdb40c8a1",
+    "3b55622eedde40f69a6fa323a283b3ea": "19ec6114bae1d412b777f5757ec46ca33f1cdb04407faeecba67ebc8a66bb8d8",
+    "11bd0ccf6f8f49fa9d72ce2d5995a1ce": "460f2022676faac50b94df344e287d63ae39d02fc116b2f6e8eff6e70bed5030"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

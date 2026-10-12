@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "artifacts": [
+    {
+      "name": "esbuild-npm-distribution", "version": "0.25.10", "license": "MIT",
+      "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.25.10.tgz",
+      "sha256": "2d82790b31e70c83fbf1399a892cbed7287b43b604b12d3aa074a56808bcd59f",
+      "artifact": "artifacts/esbuild-0.25.10.tgz", "path": "esbuild/upstream",
+      "license_notice": "esbuild/upstream/LICENSE.md",
+      "purpose": "Complete upstream copyright and MIT license notice for both native binaries; its JavaScript install wrappers are not executed."
+    },
+    {
+      "name": "esbuild-linux-x64", "version": "0.25.10", "license": "MIT",
+      "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.25.10.tgz",
+      "sha256": "25a7b968b8e5172baaa8f44f91b71c1d2d7e760042c691f22ab59527d870d145",
+      "artifact": "artifacts/esbuild-linux-x64-0.25.10.tgz", "path": "esbuild/linux-x64",
+      "executable": "esbuild/linux-x64/bin/esbuild", "executable_mode": "0755",
+      "executable_sha256": "b26b7502819ba76774dfd0b61f8c7d1ab8ee99482fca7b5970df746ce6042974"
+    },
+    {
+      "name": "node-linux-x64", "version": "22.16.0", "license": "MIT",
+      "url": "https://nodejs.org/dist/v22.16.0/node-v22.16.0-linux-x64.tar.gz",
+      "sha256": "fb870226119d47378fa9c92c4535389c72dae14fcc7b47e6fdcc82c43de5a547",
+      "artifact": "artifacts/node-v22.16.0-linux-x64.tar.gz", "path": "node/linux-x64",
+      "executable": "node/linux-x64/bin/node", "executable_mode": "0755",
+      "executable_sha256": "8142d37c6f2f372ef040419e7a111a6baf17df89f8078d02447d6c639ae20c1d"
+    },
+    {
+      "name": "esbuild", "version": "0.25.10", "license": "MIT",
+      "url": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.25.10.tgz",
+      "sha256": "f9913d238894a47a6f56df0079d262aa946f78bbbb8a9d289fb14ee5363d622b",
+      "artifact": "artifacts/esbuild-win32-x64-0.25.10.tgz", "path": "esbuild/win32-x64",
+      "executable": "esbuild/win32-x64/esbuild.exe",
+      "executable_sha256": "ff79bb8beb1ecde2a6c2f54a969e3be0015223b06b75593631947b16df94a09e"
+    },
+    {
+      "name": "node", "version": "22.16.0", "license": "MIT",
+      "url": "https://nodejs.org/dist/v22.16.0/node-v22.16.0-win-x64.zip",
+      "sha256": "21c2d9735c80b8f86dab19305aa6a9f6f59bbc808f68de3eef09d5832e3bfbbd",
+      "artifact": "artifacts/node-v22.16.0-win-x64.zip", "path": "node/win32-x64",
+      "executable": "node/win32-x64/node.exe",
+      "executable_sha256": "c5ff4c736112dd483c750fd4149d30c8a116db1a49b8b3ec88be4b65e6c86c19"
+    },
+    {
+      "name": "quickjs-ng", "version": "0.17.0", "license": "MIT",
+      "url": "https://codeload.github.com/quickjs-ng/quickjs/tar.gz/refs/tags/v0.17.0",
+      "sha256": "559bc4c420475e55c7ab4510adbc562f55d7524d75e8e89d79ce4bb02f5687d9",
+      "artifact": "artifacts/quickjs-ng-0.17.0.tar.gz", "path": "quickjs-ng"
+    },
+    {
+      "name": "typescript", "version": "5.9.3", "license": "Apache-2.0",
+      "url": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
+      "sha256": "10e108c9cf7d5f2879053dff18515fb405abf2ccef63eaaf017d9c571687a1d3",
+      "artifact": "artifacts/typescript-5.9.3.tgz", "path": "typescript",
+      "entrypoint": "typescript/lib/tsc.js",
+      "entrypoint_sha256": "2cffde0b8c6760dfb0b5b0382bbb7e00ba6a8b2d981b9205b256a700a481d983",
+      "compiler_api": "typescript/lib/typescript.js",
+      "compiler_api_sha256": "3ae902c92cc44dace175c0e69e13a4b0899f6983c6121d76b9ab8dd5795e7675",
+      "compiler_driver": "../src/eval/checker.cjs"
+    }
+  ],
+  "generated_bindings": {
+    "path": "quickjs-ng/quickjs.zig",
+    "sha256": "2cde72782141e64274cf8d6024274e1f816f4d2c6f3cd24a42f1ebf849c93249",
+    "command": "pwsh -NoProfile -File scripts/zig.ps1 translate-c -lc vendor/quickjs-ng/quickjs.h",
+    "compiler": "0.18.0-dev.146+35accc06e",
+    "target": "x86_64-windows.win11_br...win11_br-gnu",
+    "header": "quickjs-ng/quickjs.h",
+    "header_sha256": "747a77444ff04a910b57ca51dd998d7ee46895b1b9592d7d6051fd180317c44d",
+    "included_system_headers": ["stdbool.h", "stdio.h", "stdint.h", "string.h", "math.h"],
+    "reason": "The pinned Zig compiler removed @cImport; generated translate-c bindings preserve the real C ABI."
+  },
+  "decision": {
+    "engine": "QuickJS-NG 0.17.0 compiled C VM/parser only; no quickjs-libc host modules",
+    "transformer": "esbuild 0.25.10 native CLI; per-module TS transform to ESM ES2020 with explicit top-level-await syntax support and inline tsconfig-raw (useDefineForClassFields=true); no ambient tsconfig discovery, bundling or import resolution",
+    "type_checker": "TypeScript 5.9.3 compiler API in pinned Node 22.16.0 with an explicit-map CompilerHost. The stock tsc CLI permits ambient filesystem resolution, so checker.cjs denies it.",
+    "cache": "Disposable in-memory inert declaration cache; never accepts or deserializes bytecode",
+    "platforms": "Bundled native tools: win32-x64 and linux-x64. Linux executable modes are 0755. Other hosts supply digest-pinned Toolchain paths or report unavailable. Case assertions do not depend on an OS."
+  }
+}

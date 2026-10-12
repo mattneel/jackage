@@ -1,0 +1,2 @@
+=== scripts/zig.ps1 build test ===
+EXIT=0

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "8022993dca404803a3d54bde371b4e90",
+  "case": "AUD-001",
+  "caseDigest": "b674cf3de65352e9149b951ead7540622d90c5b4b276ba816a4b22d869fc4fb2",
+  "reviewer": "OMP agent (M00 work unit)",
+  "note": "Inspected src/audit/manifest.zig: preserved records compare sha256+size, extended records require their recorded anchors; negative controls cover corrupted digest, missing anchor, and missing file. The checkout is untouched (git status/head identical before and after every recorded run).",
+  "reviewedUtc": "2026-10-12T03:57:22.298932+00:00",
+  "records": [
+    "a3df45a806e3437da0e4467f2e224a08",
+    "0fa3b0dbe46a445b8d0b0e4698c73560",
+    "6b019181ce7443cb82efacc357f36aa3",
+    "e10c79219e724a7bbddcb50cd2b7d04b"
+  ],
+  "recordDigests": {
+    "a3df45a806e3437da0e4467f2e224a08": "0b548b70d0cfba16b1bf4594e00c62c78b871e67e34779579b156defca73ad65",
+    "0fa3b0dbe46a445b8d0b0e4698c73560": "a1dd6ee57d56012bab8632bf7f672b754d60f3850c50e59fe870b3f5409d021f",
+    "6b019181ce7443cb82efacc357f36aa3": "2be2947235a7a5108e85f7d5831b45d8136677da4e8cef2a42a4986847027b91",
+    "e10c79219e724a7bbddcb50cd2b7d04b": "2032e1034d2b20accc831f01dacfea70b9a8287e80896829f2a67d619fe8fb7d"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

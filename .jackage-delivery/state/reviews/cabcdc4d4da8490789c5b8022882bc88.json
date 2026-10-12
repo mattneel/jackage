@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cabcdc4d4da8490789c5b8022882bc88",
+  "case": "PLAN-010",
+  "caseDigest": "e77a6fd033f58cbb66d6f9908debcdf96e2ee30474a2779e9843a37f3928475b",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected placeActions: an executor is matched to the action's execution platform exactly, so a Windows test action requires a Windows executor even when a Linux action produced the Windows output; the refusal message states that a cross-compiled output is not an executor, and repeating the placement is byte-identical.",
+  "reviewedUtc": "2026-10-12T05:04:51.739814+00:00",
+  "records": [
+    "339dd79b470a496e939026da646f1e0c",
+    "c5b6a3f1be5e41c5a2760e4337213a1a",
+    "f15f8cef893c4a87a03d61bcbd39cdea",
+    "b80e0a3a745648dd9ef2e506620b0949"
+  ],
+  "recordDigests": {
+    "339dd79b470a496e939026da646f1e0c": "a3b9bc1b1882437c949e1b2e508a5f0edc8e5354b8bfd4ee67a4d4815aaf020a",
+    "c5b6a3f1be5e41c5a2760e4337213a1a": "fba292949d3640604f3fbad3f7ba71aaf4f297e0dc25c3e340920821d750ab61",
+    "f15f8cef893c4a87a03d61bcbd39cdea": "5160b212eb9e59a98452f792249f9a3a06806cf848c770cd05ec42be484ce03b",
+    "b80e0a3a745648dd9ef2e506620b0949": "843ec5da75bb5b0878855abb498495e07567e082c408f654a940babcf641cb44"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

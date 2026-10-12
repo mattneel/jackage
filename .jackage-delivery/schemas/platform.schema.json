@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jackage.invalid/schemas/platform.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "os": {
+      "enum": [
+        "windows",
+        "linux",
+        "macos"
+      ]
+    },
+    "architecture": {
+      "enum": [
+        "x86_64",
+        "aarch64"
+      ]
+    },
+    "abi": {
+      "type": "string",
+      "minLength": 1
+    },
+    "minimumVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cpuFeatures": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "os",
+    "architecture",
+    "abi",
+    "minimumVersion",
+    "cpuFeatures"
+  ]
+}

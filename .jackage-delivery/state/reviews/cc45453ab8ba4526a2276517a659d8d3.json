@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cc45453ab8ba4526a2276517a659d8d3",
+  "case": "AUD-008",
+  "caseDigest": "12ce121defaff4d19e923310293735b6d37773c55ca64f40cd69869c7d8a4451",
+  "reviewer": "OMP agent (M00 work unit)",
+  "note": "Inspected src/audit/hostenv.zig: the only WSL invocation is the read-only '--list --verbose' constant, guarded against mutating flags; UTF-16 console output is normalised for a stable digest; two live observations match, and changed/unavailable states raise WslStateChanged.",
+  "reviewedUtc": "2026-10-12T03:57:22.711029+00:00",
+  "records": [
+    "06b3c93bcfae412297437c02c0974d14",
+    "fc47670943ed4d488f11df369e70c38c",
+    "6b6ca208d372417da2ac9d2a994ee441",
+    "9430d96450dd4ddcaeaee08aa8dc0493"
+  ],
+  "recordDigests": {
+    "06b3c93bcfae412297437c02c0974d14": "7c5e9bcd48e2a26dd1a53cfa99558d0d8d4b31fcd327a490163319edb6ce0775",
+    "fc47670943ed4d488f11df369e70c38c": "c7de7040be0b664c071dc85fc2b2407db5f9638ee4071effc88664bd7a8ae24b",
+    "6b6ca208d372417da2ac9d2a994ee441": "2ba1ff492316be2cb97d053d189f7d22200197ea5b3f1d7e883ea227a97e7120",
+    "9430d96450dd4ddcaeaee08aa8dc0493": "2943a7dfeda265f3460fe123cbdfc3743c5eec107565e5f11ff03bb4f6b66cda"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

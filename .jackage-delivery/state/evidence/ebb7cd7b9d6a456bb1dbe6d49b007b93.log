@@ -1,0 +1,24 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-006
+failed command: ".\\.zig-cache\\o\\dd462fd8041633db261403a9bce3fa87\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x28f46be0 --listen=-
+
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-006
+failed command: ".\\.zig-cache\\o\\9c7cd5d0de40ab84b0b3bcfa94ae9df7\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x28f46be0 --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-006 produce repeatable canonical plans...JCKG_EVIDENCE EVAL-006
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-006 produce repeatable canonical plans...JCKG_EVIDENCE EVAL-006
+OK
+All 5 tests passed.

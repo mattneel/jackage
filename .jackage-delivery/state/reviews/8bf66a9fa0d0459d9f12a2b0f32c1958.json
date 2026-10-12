@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "8bf66a9fa0d0459d9f12a2b0f32c1958",
+  "case": "STRICT-010",
+  "caseDigest": "914f9e05edbc09e792ee484e2fee659d2d21230b0e357593acc05a5f5f26e4ec",
+  "reviewer": "OMP agent (M08 sandbox)",
+  "note": "Capability claims are never trust: src/worker/controller.zig confirmClaim is reached only through applyProbes, which confirms a claim only when the independent violation attempt failed to break it, and removes the claim entirely when the probe succeeded. usableCapabilities returns only confirmed claims, so a policy cannot see an unconfirmed one. Fault evidence: confirming disproved claims makes the case fail (exit 1); revert verified byte-identical with diff. The controller's handshake additionally refuses a worker that presents a session identity different from the authenticated token. Portable case, recorded on windows-x86_64.",
+  "reviewedUtc": "2026-10-12T10:37:53.602786+00:00",
+  "records": [
+    "5d9122bb9a4949a4a64793c9efaaab96",
+    "825a8a4a68ae48f88b87d416a5af7b3b",
+    "c6470c6cd78447f3b1c4be1fa836ce55",
+    "dccee80f3e534e3b841a70d6a7e69d55"
+  ],
+  "recordDigests": {
+    "5d9122bb9a4949a4a64793c9efaaab96": "f45c4d4a9f7465a0d67d7cdb86e88bc3e780341eb7cd8f41eb8c0c262e8c6436",
+    "825a8a4a68ae48f88b87d416a5af7b3b": "4565ea064231be51248bf048f0cc9cb31a8ac4b731907c00b79bfda9b3017aea",
+    "c6470c6cd78447f3b1c4be1fa836ce55": "9c17f15b3c61db992b0b8ee19ed2aaa21337e0466f0f612f334cada6de02be50",
+    "dccee80f3e534e3b841a70d6a7e69d55": "a4200c189f0aa01a909cd9e2d1277590021fd6bf40d33fb98b495a6022ded4c2"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,232 @@
+test
++- run test 1 pass, 10 fail (11 total); 3 leaks
+error: 'core.canonical.test.m02/CAN-001 canonical object order' failed:
+       JCKG_EVIDENCE CAN-001
+       
+       ====== expected this output: =========
+       {"z":1,"a":2,"m":[2,1]}␃
+       
+       ======== instead found this: =========
+       {"m":[2,1],"a":2,"z":1}␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       {"z":1,"a":2,"m":[2,1]}
+         ^ ('\x7a')
+       found:
+       {"m":[2,1],"a":2,"z":1}
+         ^ ('\x6d')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff76cffc2bb in expectEqualStrings (test_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\core\canonical.zig:485:5: 0x7ff76d012c60 in test.m02/CAN-001 canonical object order (test_zcu.obj)
+           try std.testing.expectEqualStrings(first, second);
+           ^
+error: 'core.canonical.test.m02/CAN-002 preserve array order' failed:
+       JCKG_EVIDENCE CAN-002
+       
+       ====== expected this output: =========
+       [1,2,3]␃
+       
+       ======== instead found this: =========
+       [3,2,1]␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       [1,2,3]
+        ^ ('\x31')
+       found:
+       [3,2,1]
+        ^ ('\x33')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff76cffc2bb in expectEqualStrings (test_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\core\canonical.zig:594:5: 0x7ff76d011e02 in test.m02/CAN-002 preserve array order (test_zcu.obj)
+           try std.testing.expectEqualStrings("[1,2,3]", ascending);
+           ^
+error: 'core.canonical.test.m02/CAN-003 reject invalid numbers' failed:
+       JCKG_EVIDENCE CAN-003
+       expected error.FloatNotAllowed, found .{ .integer = 0 }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff76d002cfb in expectError__func_1058 (test_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\core\canonical.zig:628:5: 0x7ff76d00ff3b in test.m02/CAN-003 reject invalid numbers (test_zcu.obj)
+           try std.testing.expectError(error.FloatNotAllowed, parse(gpa, "1.0", &diagnostic));
+           ^
+error: 'core.canonical.test.m02/CAN-004 reject duplicate keys' failed:
+       JCKG_EVIDENCE CAN-004
+       expected error.DuplicateKey, found .{ .object = { .{ .key = { ... }, .value = .{ ... } }, .{ .key = { ... }, .value = .{ ... } } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff76d002cfb in expectError__func_1058 (test_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\core\canonical.zig:683:5: 0x7ff76d00f92a in test.m02/CAN-004 reject duplicate keys (test_zcu.obj)
+           try std.testing.expectError(error.DuplicateKey, parse(gpa, "{\"a\":1,\"a\":2}", &diagnostic));
+           ^
+       [SafeAllocator] (err): leaked [addr: 1520388, len: 80 (0x50) align: 8] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:756:52: 0x7ff76d00928e in toOwnedSlice (test_zcu.obj)
+                   const new_memory = try gpa.alignedAlloc(T, alignment, self.items.len);
+                                                          ^
+       C:\src\jackage\src\core\canonical.zig:433:61: 0x7ff76d0088da in parseObject (test_zcu.obj)
+                       return .{ .object = try entries.toOwnedSlice(self.gpa) };
+                                                                   ^
+       C:\src\jackage\src\core\canonical.zig:245:36: 0x7ff76d005d20 in parseValue (test_zcu.obj)
+                   '{' => self.parseObject(depth),
+                                          ^
+       C:\src\jackage\src\core\canonical.zig:448:40: 0x7ff76d004f39 in parse (test_zcu.obj)
+           const value = try parser.parseValue(0);
+                                              ^
+       C:\src\jackage\src\core\canonical.zig:683:58: 0x7ff76d00f89e in test.m02/CAN-004 reject duplicate keys (test_zcu.obj)
+           try std.testing.expectError(error.DuplicateKey, parse(gpa, "{\"a\":1,\"a\":2}", &diagnostic));
+                                                                ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff76cf9b26d in mainServer (test_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff76cf9b89b in main (test_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 15202e0, len: 1 (0x1) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:751:26: 0x7ff76cffb656 in toOwnedSlice (test_zcu.obj)
+                   if (gpa.remap(old_memory, self.items.len)) |new_items| {
+                                ^
+       C:\src\jackage\src\core\canonical.zig:327:42: 0x7ff76d00ada0 in parseString (test_zcu.obj)
+               const text = try out.toOwnedSlice(self.gpa);
+                                                ^
+       C:\src\jackage\src\core\canonical.zig:405:45: 0x7ff76d0076dc in parseObject (test_zcu.obj)
+                   const key = try self.parseString();
+                                                   ^
+       C:\src\jackage\src\core\canonical.zig:245:36: 0x7ff76d005d20 in parseValue (test_zcu.obj)
+                   '{' => self.parseObject(depth),
+                                          ^
+       C:\src\jackage\src\core\canonical.zig:448:40: 0x7ff76d004f39 in parse (test_zcu.obj)
+           const value = try parser.parseValue(0);
+                                              ^
+       C:\src\jackage\src\core\canonical.zig:683:58: 0x7ff76d00f89e in test.m02/CAN-004 reject duplicate keys (test_zcu.obj)
+           try std.testing.expectError(error.DuplicateKey, parse(gpa, "{\"a\":1,\"a\":2}", &diagnostic));
+                                                                ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff76cf9b26d in mainServer (test_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 1520090, len: 1 (0x1) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:751:26: 0x7ff76cffb656 in toOwnedSlice (test_zcu.obj)
+                   if (gpa.remap(old_memory, self.items.len)) |new_items| {
+                                ^
+       C:\src\jackage\src\core\canonical.zig:327:42: 0x7ff76d00ada0 in parseString (test_zcu.obj)
+               const text = try out.toOwnedSlice(self.gpa);
+                                                ^
+       C:\src\jackage\src\core\canonical.zig:405:45: 0x7ff76d0076dc in parseObject (test_zcu.obj)
+                   const key = try self.parseString();
+                                                   ^
+       C:\src\jackage\src\core\canonical.zig:245:36: 0x7ff76d005d20 in parseValue (test_zcu.obj)
+                   '{' => self.parseObject(depth),
+                                          ^
+       C:\src\jackage\src\core\canonical.zig:448:40: 0x7ff76d004f39 in parse (test_zcu.obj)
+           const value = try parser.parseValue(0);
+                                              ^
+       C:\src\jackage\src\core\canonical.zig:683:58: 0x7ff76d00f89e in test.m02/CAN-004 reject duplicate keys (test_zcu.obj)
+           try std.testing.expectError(error.DuplicateKey, parse(gpa, "{\"a\":1,\"a\":2}", &diagnostic));
+                                                                ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff76cf9b26d in mainServer (test_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       (additional stack frames may have been skipped...)
+error: 'core.canonical.test.m02/CAN-005 preserve Unicode bytes' failed:
+       JCKG_EVIDENCE CAN-005
+       
+       ====== expected this output: =========
+       {"text":"é"}␃
+       
+       ======== instead found this: =========
+       {"text":"??"}␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       {"text":"é"}
+                ^ ('\xc3')
+       found:
+       {"text":"??"}
+                ^ ('\x3f')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff76cffc2bb in expectEqualStrings (test_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\core\canonical.zig:709:5: 0x7ff76d00e25f in test.m02/CAN-005 preserve Unicode bytes (test_zcu.obj)
+           try std.testing.expectEqualStrings("{\"text\":\"é\"}", composed);
+           ^
+error: 'core.canonical.test.m02/CAN-006 reject invalid Unicode' failed:
+       JCKG_EVIDENCE CAN-006
+       expected error.UnpairedSurrogate, found error.InvalidUnicode
+       C:/src/jackage/tools/zig/lib/std/unicode.zig:68:17: 0x7ff76cfb9bd9 in utf8EncodeImpl__func_806 (test_zcu.obj)
+                       return error.Utf8CannotEncodeSurrogateHalf;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/unicode.zig:45:5: 0x7ff76cfba05f in utf8Encode (test_zcu.obj)
+           return utf8EncodeImpl(c, out, .cannot_encode_surrogate_half);
+           ^
+       C:\src\jackage\src\core\canonical.zig:218:9: 0x7ff76d00d44f in fail (test_zcu.obj)
+               return code;
+               ^
+       C:\src\jackage\src\core\canonical.zig:355:74: 0x7ff76d00befc in parseUnicodeEscape (test_zcu.obj)
+               const length = std.unicode.utf8Encode(code_point, &buffer) catch return self.fail(error.InvalidUnicode, "code point cannot be encoded");
+                                                                                ^
+       C:\src\jackage\src\core\canonical.zig:318:28: 0x7ff76d00b853 in parseString (test_zcu.obj)
+                           'u' => try self.parseUnicodeEscape(&out),
+                                  ^
+       C:\src\jackage\src\core\canonical.zig:243:33: 0x7ff76d005e98 in parseValue (test_zcu.obj)
+                   '"' => .{ .string = try self.parseString() },
+                                       ^
+       C:\src\jackage\src\core\canonical.zig:448:19: 0x7ff76d005007 in parse (test_zcu.obj)
+           const value = try parser.parseValue(0);
+                         ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff76d002d7d in expectError__func_1058 (test_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\core\canonical.zig:756:5: 0x7ff76d002f55 in test.m02/CAN-006 reject invalid Unicode (test_zcu.obj)
+           try std.testing.expectError(error.UnpairedSurrogate, parse(gpa, "\"\\ud800\"", &diagnostic));
+           ^
+error: 'core.digest.test.m02/CAN-007 apply digest domains' failed:
+       JCKG_EVIDENCE CAN-007
+       expected 13, found 8
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff76cfdc29a in expectEqualInner__func_888 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff76d0007c8 in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\core\digest.zig:102:5: 0x7ff76d00084c in test.m02/CAN-007 apply digest domains (test_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 13), Domain.tree.prefix().len);
+        
+error: 'core.digest.test.m02/CAN-008 verify raw blob bytes' failed:
+          ^
+       JCKG_EVIDENCE CAN-008
+       blob blob-0: computed sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b854, fixture sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+       C:\src\jackage\src\core\digest.zig:180:13: 0x7ff76cffd254 in test.m02/CAN-008 verify raw blob bytes (test_zcu.obj)
+                   return error.BlobDigestMismatch;
+                   ^
+error: 'core.tree.test.m02/CAN-009 reject unsafe portable paths' failed:
+       JCKG_EVIDENCE CAN-009
+       path vector mismatch: CON expected valid=false got true
+       C:\src\jackage\src\core\tree.zig:340:13: 0x7ff76cfdca9c in test.m02/CAN-009 reject unsafe portable paths (test_zcu.obj)
+                   return error.PathVectorMismatch;
+                   ^
+error: 'core.tree.test.m02/CAN-010 validate tree structure' failed:
+       JCKG_EVIDENCE CAN-010
+       expected error.FileIsAncestor, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff76cfc2d3a in expectError__func_830 (test_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\core\tree.zig:380:5: 0x7ff76cfc33cc in test.m02/CAN-010 validate tree structure (test_zcu.obj)
+           try std.testing.expectError(error.FileIsAncestor, ancestor_tree.validate());
+           ^
+failed command: ".\\.zig-cache\\o\\9509bd091a5d1905af345970f9a67664\\test.exe" "--cache-dir=.\\.zig-cache" --seed=0xfff33391 --listen=-
+
+Build Summary: 10/12 steps succeeded (1 failed); 1/11 tests passed (10 failed)
+test transitive failure
++- run test 1 pass, 10 fail (11 total); 3 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xfff33391 test -Dfilter=CAN

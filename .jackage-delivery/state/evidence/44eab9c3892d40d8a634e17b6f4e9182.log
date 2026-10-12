@@ -1,0 +1,24 @@
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-009
+failed command: ".\\.zig-cache\\o\\67f91de8fac96fbf64af5c206164c26a\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xf907ec3c --listen=-
+
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-009
+failed command: ".\\.zig-cache\\o\\3069816bce5bb5fbe08c7ac8b1245198\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xf907ec3c --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks...JCKG_EVIDENCE EVAL-009
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks...JCKG_EVIDENCE EVAL-009
+OK
+All 5 tests passed.

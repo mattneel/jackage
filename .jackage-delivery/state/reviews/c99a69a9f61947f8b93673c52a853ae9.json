@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c99a69a9f61947f8b93673c52a853ae9",
+  "case": "EXE-009",
+  "caseDigest": "61ed159c1aad8744c1613d1bd920e40374c2968365d321858acedd8d3d22efa8",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected fixed total capture allocation, concurrent fixed-buffer drainers and continued discard. Real command emits hundreds of kilobytes per stream; odd budget and zero budget complete without deadlock. Fault increases stdout allocation beyond its partition; unchanged total-budget assertion fails.",
+  "reviewedUtc": "2026-10-12T10:02:34.518007+00:00",
+  "records": [
+    "b4ff86fb947d43a18a24f0a98ca235cd",
+    "aa2a472f7ea146b8891a4f53f62c63f2",
+    "485ccd44e0eb4a8cb4102a03d94e9330",
+    "9ea7cec6b5f942b7858f689344c87d03"
+  ],
+  "recordDigests": {
+    "b4ff86fb947d43a18a24f0a98ca235cd": "78c043b119f1cc852ca80a60e728ae2a606423e7ce4b9e0dae78874bb9889406",
+    "aa2a472f7ea146b8891a4f53f62c63f2": "a7032bcc8949a4494119fbde0d9238614ffbe70892256b46e04aa3759814e7b9",
+    "485ccd44e0eb4a8cb4102a03d94e9330": "0b7f09435ea6cf2e3a6004287a5231e16ad053a80b484f22718638a92828749a",
+    "9ea7cec6b5f942b7858f689344c87d03": "d195d4d15381cc4185293ddbbd4f8ba86cb882412366f73b41cb7c245dcfcaea"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

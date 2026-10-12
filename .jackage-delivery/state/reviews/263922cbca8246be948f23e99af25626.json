@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "263922cbca8246be948f23e99af25626",
+  "case": "EVAL-009",
+  "caseDigest": "0d947abdf695d4e18bf1f5659202e2fa29f7efd11dce618371aa05aa412ddb48",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected descriptor-only extraction, proxy/class/prototype checks, cycle detection, symbol/function/promise rejection, Unicode/safe-number checks and non-invoked infinite getters. Fault: the custom-prototype Project expected ActiveValue but evaluated a plan after the prototype guard was weakened (TestExpectedError). Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.880327+00:00",
+  "records": [
+    "23737eaadca843998f842ee2377f9824",
+    "666d276b36f749a9b80325c4971aaca5",
+    "14fcfb0b3beb427fa19b728b2924e04e",
+    "d85c4479181b4486abff69e21acf7398"
+  ],
+  "recordDigests": {
+    "23737eaadca843998f842ee2377f9824": "98ae6715d13aee5516c502e2ee99cd4bf128f14ba7752f2aa13289b16a044404",
+    "666d276b36f749a9b80325c4971aaca5": "f53f8add901e22f795e602d5478908fda321ad2b7a19aa9147b497bf65821dd7",
+    "14fcfb0b3beb427fa19b728b2924e04e": "969f910aa112e52df4a7a1768921bb1e0ac3cbe62238060a209dab9d954b7100",
+    "d85c4479181b4486abff69e21acf7398": "e4a4ce93f263647c6576e507fca634cf7a149d61e267631acd9bd42f5374ec6c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

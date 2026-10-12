@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "235abb288fe44f5aa88b538b1b9ed648",
+  "case": "TRUST-010",
+  "caseDigest": "305cb3a2f5f635fe69d937a7e884309e1e5277a1e6a3ad90fa6f6faef61b370c",
+  "reviewer": "OMP agent (M07 transport work unit)",
+  "note": "Inspected the strict ustar checksum/octal/header/type/path reader, portable destination checks, link/device/extension refusal, duplicate and ancestor conflict handling, count/size/depth/path/expansion bounds, private sibling extraction and nonreplacing atomic publication. Attack fixtures fail after an earlier safe entry without publishing a destination. Inverting checksum equality produced a real TestExpectedEqual assertion, not a panic or compile failure.",
+  "reviewedUtc": "2026-10-12T06:38:16.747766+00:00",
+  "records": [
+    "63c4fda049be4b02aadfac973d598c30",
+    "c4838e53818649388043c0a947684e9d",
+    "0f8e1578a52b4c54811b86903a7925f4",
+    "afe1283d06eb42508180f2a7a775b214"
+  ],
+  "recordDigests": {
+    "63c4fda049be4b02aadfac973d598c30": "1fd06efeeb4b30233c92b6728a5692d094212b64017c0108680162da96a3fe3b",
+    "c4838e53818649388043c0a947684e9d": "7eeb9ff7057a442e101e89f6aef20086ef5c137f7cc5995afb7cf452174664cf",
+    "0f8e1578a52b4c54811b86903a7925f4": "b87dea9381794a684b290177398c28e8d0700e0a09892163bca90f0187be3ab3",
+    "afe1283d06eb42508180f2a7a775b214": "de51d28152aa9ce07f45129e57144ae43de081c631f59d3845d414e0df7702b2"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

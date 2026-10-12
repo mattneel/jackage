@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "repositoryIdentity": "fixture.invalid/jackage-test",
+  "hostingMode": "hybrid",
+  "metadataBaseUrls": [
+    "https://metadata.example.invalid/jackage/"
+  ],
+  "trustRootHint": "Synthetic fixture only. Enroll real trust independently."
+}

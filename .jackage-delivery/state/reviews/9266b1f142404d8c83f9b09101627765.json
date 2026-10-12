@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "9266b1f142404d8c83f9b09101627765",
+  "case": "EXE-008",
+  "caseDigest": "aac653e66c8d944342c5e7a2e4a58462b526e832c490f9395fa5ea9fe17e6f07",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected stable capability names, same-user/filesystem/network boundary and unavailable isolation/resource claims. Strict policy requires enforced and refuses unknown or merely supported requirements before effects. Fault permits unavailable restriction; unchanged expectError fails. Non-Windows reports execution unavailable and really refuses NativePlatformUnavailable, without skipped tests.",
+  "reviewedUtc": "2026-10-12T10:02:34.421961+00:00",
+  "records": [
+    "92fb383f0d244c65b28554274194378a",
+    "bf8855be0504473a9020e780087bb402",
+    "20d94cbad66f44a0b835f609519070ab",
+    "d5d6a3a872c443ada5fc51b45a0315f9"
+  ],
+  "recordDigests": {
+    "92fb383f0d244c65b28554274194378a": "4cc44111eb537129a0fecab33b56630c8bc25747487902ee9b0bfb681d48d088",
+    "bf8855be0504473a9020e780087bb402": "552b9c04f1cfe98d7f9de9a24514b56751edd13fd636fb383f7e1b6034153bdf",
+    "20d94cbad66f44a0b835f609519070ab": "eaab7369775a44d4ef9897dcad8578d9f6d815b93ee4b6c2b458fb2509e414fa",
+    "d5d6a3a872c443ada5fc51b45a0315f9": "d7cb590dc82d7bd16f21c3a04f65d895faa460a64d940d3f7cacba749e7bc658"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

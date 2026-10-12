@@ -1,0 +1,202 @@
+test
++- run test w
+JCKG_EVIDENCE M00-REPORT
+JCKG_EVIDENCE AUD-002
+JCKG_EVIDENCE AUD-003
+JCKG_EVIDENCE AUD-006
+JCKG_EVIDENCE AUD-004
+JCKG_EVIDENCE AUD-007
+JCKG_EVIDENCE AUD-001
+JCKG_EVIDENCE AUD-005
+JCKG_EVIDENCE AUD-008
+JCKG_EVIDENCE CLI-009
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CLI-008
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CLI-006
+JCKG_EVIDENCE CLI-010
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+JCKG_EVIDENCE CLI-001
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-002
+JCKG_EVIDENCE CLI-003
+JCKG_EVIDENCE CLI-005
+JCKG_EVIDENCE CLI-007
+JCKG_EVIDENCE CLI-009
+error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff735aa069a in CloseHandle (test_zcu.obj)
+        else => |status| unexpectedStatus(status) catch {},
+                                         ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff735afc040 in childCleanupWindows (test_zcu.obj)
+        windows.CloseHandle(stdin.handle);
+                           ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff735afcab9 in childWaitWindows (test_zcu.obj)
+    childCleanupWindows(child);
+                       ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff735afc791 in childWait (test_zcu.obj)
+        .windows => return childWaitWindows(child),
+                                           ^
+C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff735b8ccb4 in wait (test_zcu.obj)
+    return io.vtable.childWait(io.userdata, child);
+                              ^
+C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff735b8379c in runCli (test_zcu.obj)
+    const term = try child.wait(io);
+                               ^
+C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff735b988b1 in test.m01/CLI-009 respect cancellation (test_zcu.obj)
+    const result = try runCli(
+                             ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff735b5b26d in mainServer (test_zcu.obj)
+                const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                   ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff735b5b89b in main (test_zcu.obj)
+        return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                         ^
+C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff735b5980d in callMain (test_zcu.obj)
+    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+
+C:/src/jackage/tools/zig/lib/std/start.zig:576:17: 0x7ff735b5980d in WinStartup (test_zcu.obj)
+        callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global),
+                ^
+???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+JCKG_EVIDENCE CLI-010
+failed command: ".\\.zig-cache\\o\\6e00f0820666d12ab0ceb87fdae7af36\\test.exe" "--cache-dir=.\\.zig-cache" --seed=0xa5402fab --listen=-
+
+1/45 jckg.test_0...OK
+2/45 audit.mod.test.m00/audit report assembles observed values...JCKG_EVIDENCE M00-REPORT
+OK
+3/45 audit.pin.test.AUD-002 honor the compiler pin...JCKG_EVIDENCE AUD-002
+OK
+4/45 audit.pin.test.AUD-003 reject pin mismatch...JCKG_EVIDENCE AUD-003
+OK
+5/45 audit.host.test.AUD-006 discover host capabilities...JCKG_EVIDENCE AUD-006
+OK
+6/45 audit.inventory.test.AUD-004 map the existing implementation...JCKG_EVIDENCE AUD-004
+OK
+7/45 audit.provenance.test.m00/AUD-007 inspect dependency provenance...JCKG_EVIDENCE AUD-007
+OK
+8/45 audit.manifest.test.AUD-001 preserve the existing checkout...JCKG_EVIDENCE AUD-001
+OK
+9/45 audit.baseline.test.m00/AUD-005 record baseline failures...JCKG_EVIDENCE AUD-005
+OK
+10/45 audit.hostenv.test.m00/AUD-008 preserve legacy WSL state...JCKG_EVIDENCE AUD-008
+OK
+11/45 core.cancel.test.m01/CLI-009 respect cancellation...JCKG_EVIDENCE CLI-009
+OK
+12/45 core.canonical.test.m02/CAN-001 canonical object order...JCKG_EVIDENCE CAN-001
+OK
+13/45 core.canonical.test.m02/canonical encoding matches every fixture vector...OK
+14/45 core.canonical.test.m02/CAN-002 preserve array order...JCKG_EVIDENCE CAN-002
+OK
+15/45 core.canonical.test.m02/CAN-003 reject invalid numbers...JCKG_EVIDENCE CAN-003
+OK
+16/45 core.canonical.test.m02/CAN-004 reject duplicate keys...JCKG_EVIDENCE CAN-004
+OK
+17/45 core.canonical.test.m02/CAN-005 preserve Unicode bytes...JCKG_EVIDENCE CAN-005
+OK
+18/45 core.canonical.test.m02/CAN-006 reject invalid Unicode...JCKG_EVIDENCE CAN-006
+OK
+19/45 core.capabilities.test.m01/CLI-008 diagnose honestly...JCKG_EVIDENCE CLI-008
+OK
+20/45 core.digest.test.m02/CAN-007 apply digest domains...JCKG_EVIDENCE CAN-007
+OK
+21/45 core.digest.test.m02/CAN-008 verify raw blob bytes...JCKG_EVIDENCE CAN-008
+OK
+22/45 core.digest.test.m02/digests match every canonical fixture vector...OK
+23/45 core.policy.test.m01/CLI-006 avoid implicit prompts...JCKG_EVIDENCE CLI-006
+OK
+24/45 core.redact.test.m01/CLI-010 keep secrets out of errors...JCKG_EVIDENCE CLI-010
+OK
+25/45 core.store.test.m02/CAS-001 publish verified bytes atomically...JCKG_EVIDENCE CAS-001
+OK
+26/45 core.store.test.m02/CAS-002 reject corrupt bytes...JCKG_EVIDENCE CAS-002
+OK
+27/45 core.store.test.m02/CAS-003 converge concurrent writes...JCKG_EVIDENCE CAS-003
+OK
+28/45 core.store.test.m02/CAS-004 recover interrupted import...JCKG_EVIDENCE CAS-004
+OK
+29/45 core.store.test.m02/CAS-005 protect immutable inputs...JCKG_EVIDENCE CAS-005
+OK
+30/45 core.store.test.m02/CAS-006 preserve runtime references...JCKG_EVIDENCE CAS-006
+OK
+31/45 core.store.test.m02/CAS-007 handle full disk...JCKG_EVIDENCE CAS-007
+OK
+32/45 core.store.test.m02/CAS-008 respect destination semantics...JCKG_EVIDENCE CAS-008
+OK
+33/45 core.tree.test.m02/CAN-009 reject unsafe portable paths...JCKG_EVIDENCE CAN-009
+OK
+34/45 core.tree.test.m02/CAN-010 validate tree structure...JCKG_EVIDENCE CAN-010
+OK
+35/45 core.version.test.m01/CLI-001 report real version...JCKG_EVIDENCE CLI-001
+OK
+36/45 cli.args.test.m01/CLI-004 reject invalid syntax...JCKG_EVIDENCE CLI-004
+OK
+37/45 cli.console.test.m01/console handler reports availability honestly...OK
+38/45 cli.exit.test.m01/exit codes are distinct and documented...JCKG_EVIDENCE CLI-004
+OK
+39/45 cli.output.test.m01/CLI-003 separate JSON output...OK
+40/45 cli.commands.help.test.m01/CLI-002 provide usable help...JCKG_EVIDENCE CLI-002
+OK
+41/45 cli.integration_tests.test.m01/CLI-003 separate JSON output...JCKG_EVIDENCE CLI-003
+OK
+42/45 cli.integration_tests.test.m01/CLI-005 preserve argument boundaries...JCKG_EVIDENCE CLI-005
+OK
+43/45 cli.integration_tests.test.m01/CLI-007 initialize safely...JCKG_EVIDENCE CLI-007
+OK
+44/45 cli.integration_tests.test.m01/CLI-009 respect cancellation...JCKG_EVIDENCE CLI-009
+error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff735aa069a in CloseHandle (test_zcu.obj)
+        else => |status| unexpectedStatus(status) catch {},
+                                         ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff735afc040 in childCleanupWindows (test_zcu.obj)
+        windows.CloseHandle(stdin.handle);
+                           ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff735afcab9 in childWaitWindows (test_zcu.obj)
+    childCleanupWindows(child);
+                       ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff735afc791 in childWait (test_zcu.obj)
+        .windows => return childWaitWindows(child),
+                                           ^
+C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff735b8ccb4 in wait (test_zcu.obj)
+    return io.vtable.childWait(io.userdata, child);
+                              ^
+C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff735b8379c in runCli (test_zcu.obj)
+    const term = try child.wait(io);
+                               ^
+C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff735b988b1 in test.m01/CLI-009 respect cancellation (test_zcu.obj)
+    const result = try runCli(
+                             ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:295:25: 0x7ff735b5bdc9 in mainTerminal (test_zcu.obj)
+        if (test_fn.func()) |_| {
+                        ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:74:28: 0x7ff735b5b8b4 in main (test_zcu.obj)
+        return mainTerminal(init);
+                           ^
+C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff735b5980d in callMain (test_zcu.obj)
+    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+
+C:/src/jackage/tools/zig/lib/std/start.zig:576:17: 0x7ff735b5980d in WinStartup (test_zcu.obj)
+        callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global),
+                ^
+???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+OK
+45/45 cli.integration_tests.test.m01/CLI-010 keep secrets out of errors...JCKG_EVIDENCE CLI-010
+OK
+All 45 tests passed.

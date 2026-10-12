@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "13cad14b75d44e72b60dc65d7b1bdb68",
+  "case": "CLI-002",
+  "caseDigest": "282e09f03eb88ca6dde29b31112ad14937aa78cd2f9aa07ba6832e30c5e00381",
+  "reviewer": "OMP agent (M01 work unit)",
+  "note": "Inspected src/cli/commands/help.zig: help is generated from the parser registry, every command page carries its usage and all of its flags, command pages are scoped (doctor does not list init flags), the root page lists exactly the registered commands and no unimplemented command names appear.",
+  "reviewedUtc": "2026-10-12T04:21:26.067276+00:00",
+  "records": [
+    "a50c8a2b2b6544b8881dc977d71a96ea",
+    "868eb020ff054f8c9ceb126f1a0fb91f",
+    "aba61b468e844e2e8bb8d531ca69ce3c",
+    "505fd1c644b24c449ff10a91297fbb93"
+  ],
+  "recordDigests": {
+    "a50c8a2b2b6544b8881dc977d71a96ea": "737be574a492a05d15e914d98da99131d0d7ed7abf98a2bb85695dcab0a33300",
+    "868eb020ff054f8c9ceb126f1a0fb91f": "4ca662c0bccdbc2b18cd5f6041d8a33337b8f21055c3e1b780a9ab86503bdb43",
+    "aba61b468e844e2e8bb8d531ca69ce3c": "5563382e2aac6932e79b9dd99f860265f52c6a65d54e8be754a2cb8d7683bd7b",
+    "505fd1c644b24c449ff10a91297fbb93": "1a8bb71f093d94b5e547c4bfd2e0594657620149e8c547389e958530d6c55447"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

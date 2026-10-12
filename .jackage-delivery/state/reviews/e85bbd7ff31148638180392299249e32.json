@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "e85bbd7ff31148638180392299249e32",
+  "case": "STRICT-007",
+  "caseDigest": "ae39e674a04f976a162fb6d888473b1a6e890f9e959078b3a1f87c6505edc5b6",
+  "reviewer": "OMP agent (M08 transport work unit)",
+  "note": "Inspected receiver-owned output declarations and whole-batch preflight in ResultCollector.collect before its first Store import or cache record. Real loopback replies supply an earlier good artifact, a same-length corrupt later artifact, and a hash-correct receiver-undeclared replacement with unchanged output count. Tests assert rejection plus absence of every expected/actual blob and cache entry, and also cover missing/duplicate outputs and successful complete collection. The declares fallback inversion admitted the undeclared batch and failed this case with TestExpectedError. Byte-identical implementation restoration is proven by matching before/after SHA256 B002D58637B0F3B5E79911FAC0F8BABA7E1488CE03AB75FCD091BE8E2A823D9E. Both full-suite regressions are clean; this case regression is final.",
+  "reviewedUtc": "2026-10-12T11:10:50.165230+00:00",
+  "records": [
+    "bb833994d1df457fb76897357835adb1",
+    "23307991db0d47aebb745d2c3044f28f",
+    "41719473495148a689b0e2809d3f7b94",
+    "31bac21d8491449cb2c3b050322af521"
+  ],
+  "recordDigests": {
+    "bb833994d1df457fb76897357835adb1": "a8ae13fb9f2ba4c41dc7dbd14bd384c9888a60a283d5cfeb76f9fb3d0f22d639",
+    "23307991db0d47aebb745d2c3044f28f": "c25a45a22f604f86c70e37e9a80f24d36202c8947298dd4b281aab1d5362235c",
+    "41719473495148a689b0e2809d3f7b94": "9be8fc528fb2d132ec4eb9ce617ff3697316d22fc186f7ff2246c12e8b95a365",
+    "31bac21d8491449cb2c3b050322af521": "72cb61f1d1a859b64bacbda5c178d68fd579e5dd4930a9629c55b07b22dd535c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,102 @@
+test
++- run test 1 pass, 8 fail (9 total)
+error: 'core.store.test.m02/CAS-001 publish verified bytes atomically' failed:
+       JCKG_EVIDENCE CAS-001
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6059b4c1f in expect (test_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\core\store.zig:562:5: 0x7ff6059eb772 in test.m02/CAS-001 publish verified bytes atomically (test_zcu.obj)
+           try std.testing.expect(!store.hasBlob(expected));
+           ^
+error: 'core.store.test.m02/CAS-002 reject corrupt bytes' failed:
+       JCKG_EVIDENCE CAS-002
+       expected error.IntegrityMismatch, found .{ .bytes = { 120, 68, 45, 218, 62, 86, 66, 206, 64, 95, 109, 198, 163, 103, 151, 171, 103, 212, 198, 190, 244, 244, 110, 181, 225, 157, 44, 102, 215, 241, 89, 93 } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6059e97d1 in expectError__func_993 (test_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\core\store.zig:608:5: 0x7ff6059e9d14 in test.m02/CAS-002 reject corrupt bytes (test_zcu.obj)
+           try std.testing.expectError(error.IntegrityMismatch, store.importBytes(wrong, expected));
+           ^
+error: 'core.store.test.m02/CAS-003 converge concurrent writes' failed:
+       JCKG_EVIDENCE CAS-003
+       expected 0, found 2
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6059b571a in expectEqualInner__func_846 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6059e859a in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\core\store.zig:686:5: 0x7ff6059e867f in test.m02/CAS-003 converge concurrent writes (test_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 0), try countFilesIn(io, gpa, cwd, storeSub(name, "/staging")));
+           ^
+error: 'core.store.test.m02/CAS-004 recover interrupted import' failed:
+       JCKG_EVIDENCE CAS-004
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6059b4c1f in expect (test_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\core\store.zig:716:5: 0x7ff6059e6b29 in test.m02/CAS-004 recover interrupted import (test_zcu.obj)
+           try std.testing.expect(!store.hasBlob(digest.ofBlob(partial_content)));
+           ^
+error: 'core.store.test.m02/CAS-005 protect immutable inputs' failed:
+       JCKG_EVIDENCE CAS-005
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:1438:9: 0x7ff6058f1be8 in fail__func_365 (test_zcu.obj)
+               return err;
+               ^
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:5172:39: 0x7ff6058eed02 in dirOpenFileWtf16 (test_zcu.obj)
+                   .OBJECT_NAME_NOT_FOUND => return syscall.fail(error.FileNotFound),
+                                             ^
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:5123:5: 0x7ff60595fe9d in dirOpenFileWindows (test_zcu.obj)
+           return dirOpenFileWtf16(dir_handle, sub_path_w, flags);
+           ^
+       C:/src/jackage/tools/zig/lib/std/Io/Dir.zig:581:5: 0x7ff6058689ec in openFile (test_zcu.obj)
+           return io.vtable.dirOpenFile(io.userdata, dir, sub_path, options);
+           ^
+       C:/src/jackage/tools/zig/lib/std/Io/Dir.zig:1364:16: 0x7ff6059c19f7 in readFileAllocOptions__func_907 (test_zcu.obj)
+           var file = try dir.openFile(io, sub_path, .{
+                      ^
+       C:/src/jackage/tools/zig/lib/std/Io/Dir.zig:1342:5: 0x7ff6059c167c in readFileAlloc (test_zcu.obj)
+           return readFileAllocOptions(dir, io, sub_path, gpa, limit, .of(u8), null);
+           ^
+       C:\src\jackage\src\core\store.zig:107:35: 0x7ff6059b35f1 in readBlobAlloc (test_zcu.obj)
+                   error.FileNotFound => return error.UnknownObject,
+                                         ^
+       C:\src\jackage\src\core\store.zig:765:20: 0x7ff6059e406c in test.m02/CAS-005 protect immutable inputs (test_zcu.obj)
+           const stored = try store.readBlobAlloc(gpa, object);
+                          ^
+error: 'core.store.test.m02/CAS-006 preserve runtime references' failed:
+       JCKG_EVIDENCE CAS-006
+       expected 2, found 1
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6059b571a in expectEqualInner__func_846 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6059cfdd4 in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\core\store.zig:809:5: 0x7ff6059cfeee in test.m02/CAS-006 preserve runtime references (test_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 2), reachable.len);
+           ^
+error: 'core.store.test.m02/CAS-007 handle full disk' failed:
+       JCKG_EVIDENCE CAS-007
+       expected error.IntegrityMismatch, found .{ .bytes = { 191, 13, 58, 183, 132, 116, 74, 103, 78, 166, 145, 173, 53, 45, 132, 216, 155, 4, 57, 0, 195, 55, 110, 234, 36, 203, 237, 221, 238, 142, 73, 238 } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6059c6041 in expectError__func_920 (test_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\core\store.zig:885:5: 0x7ff6059c7b2f in test.m02/CAS-007 handle full disk (test_zcu.obj)
+           try std.testing.expectError(
+           ^
+error: 'core.store.test.m02/CAS-008 respect destination semantics' failed:
+       JCKG_EVIDENCE CAS-008
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6059b4c1f in expect (test_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\core\store.zig:950:5: 0x7ff6059b6136 in test.m02/CAS-008 respect destination semantics (test_zcu.obj)
+           try std.testing.expect(windows_result != null);
+           ^
+failed command: ".\\.zig-cache\\o\\7ba8784c5f237a7a0f2efb0c4544da0c\\test.exe" "--cache-dir=.\\.zig-cache" --seed=0xfe6d9e47 --listen=-
+
+Build Summary: 10/12 steps succeeded (1 failed); 1/9 tests passed (8 failed)
+test transitive failure
++- run test 1 pass, 8 fail (9 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xfe6d9e47 test -Dfilter=CAS

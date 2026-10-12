@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "e9bf2884f5d749bda7748a0086eef5c9",
+  "case": "PLAN-009",
+  "caseDigest": "beef5e42a2beb8c68586462fa65c79576826aec267971b03135d7e5397ed0ea3",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected the scheduler with real worker threads: dependents start only after their dependencies finish, the concurrency bound is respected (1 serializes, 4 permits observed overlap of at least two independent actions), a failing action stops the schedule without running dependents and reports ActionFailed, and zero concurrency or an empty graph are refused. Two defects found by this cycle (worker teardown deadlock, double free on the failure path) are fixed and covered by the same test.",
+  "reviewedUtc": "2026-10-12T05:04:51.630978+00:00",
+  "records": [
+    "dd829a56a0dc4001873f47e5d6c87f7e",
+    "b0198b3c70054abb84f10e90fdeac738",
+    "dde827e4b7fb470ba541f7bf7b55d02f",
+    "af588b1770b548cbb89ae481ae04f562"
+  ],
+  "recordDigests": {
+    "dd829a56a0dc4001873f47e5d6c87f7e": "bf11293ccc57d4d68f4470a9dcf0fdb441fde4aee2fbff3c0aad19dbf7937a1c",
+    "b0198b3c70054abb84f10e90fdeac738": "fe7800f6dc6a1a9e64cdc8fb95953f58a76bf3188cf378af4fdc58c129e0dc0b",
+    "dde827e4b7fb470ba541f7bf7b55d02f": "4b7d35a641eba7b3eb641913ebdc426c6488d5bc62e7e2c57d6bbb13ffb06c7d",
+    "af588b1770b548cbb89ae481ae04f562": "fdef85f737ab2aa915a889bb12f871edd17e650d9a5f7b059054fc524dc2d18a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

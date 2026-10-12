@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "287b214196574ed89307774c929eead7",
+  "case": "PROFILE-009",
+  "caseDigest": "9833a886949827503972bdfec3c4669f4f53ce0e36534fbc5987765b63097e65",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected exact Windows native exit 37 and full DWORD exit 1234567 preserved in both program_status and callerStatus (no u8 narrowing), callerStatus single-source mapping, and structured real launch failure with no program exit; deliberate successful caller-status substitution was detected by this case's own exit assertion.",
+  "reviewedUtc": "2026-10-12T08:59:15.086688+00:00",
+  "records": [
+    "6d2d4a0fdf704f769de3ae3cb84d250b",
+    "5b409961a1aa428ca4c9cd8402789c11",
+    "6541fffbf38a4d59ae91c2a129974d3e",
+    "71e47084c3694f9ca03367c0368ff574"
+  ],
+  "recordDigests": {
+    "6d2d4a0fdf704f769de3ae3cb84d250b": "f5663638329b0598a14111a2028fd361a0cf824130f57ead9f447e0c36ef195c",
+    "5b409961a1aa428ca4c9cd8402789c11": "a7a3c55b35684a6e8afd613754271f3e7a9e132f4b301950057d59371cefa7c9",
+    "6541fffbf38a4d59ae91c2a129974d3e": "e68309178fc7e0cc4ac59046ca9c715052d9c9bcbb974d56d144c02cf6c60bbc",
+    "71e47084c3694f9ca03367c0368ff574": "35b6747f307a86be01823bb4ac0b1a0fee73746a0e5dd1e155cacf1aa5dc5b81"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

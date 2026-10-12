@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "853af0d4f99c47c18ffae40a8cb72ec5",
+  "case": "EVAL-006",
+  "caseDigest": "2a0b98ef0ee9912b63bcfaf654b98181234511c3980c39ac2af14f3caeaf044a",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected independent VM evaluations, canonical sorted declarations, declared-input plan envelope and repeatable SHA-256 domain digests. Opposite ambient tsconfigs and an assignment-setter trap verify the pinned inline class-field semantics ignore workspace configuration. Fault: equal sources/inputs in independent directories produced unequal canonical envelopes because the injected work_dir differed (TestExpectedEqual). Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.642245+00:00",
+  "records": [
+    "77ff6f4235da44f2ba4d94479e9c85ea",
+    "734e1b95bbce480e9a7de5d43ba12214",
+    "b090686d860a48b9b223830bcc55e61d",
+    "d0b0e4271cee4394b4654ab5ba456fad"
+  ],
+  "recordDigests": {
+    "77ff6f4235da44f2ba4d94479e9c85ea": "4220e58d46d3b5f27e7318555170501dc20f17391595ea9eb004e6d135f529ab",
+    "734e1b95bbce480e9a7de5d43ba12214": "4cdb7e6358126390f24db743c230757ae87c97dd1308894bd5deed944cc06ce6",
+    "b090686d860a48b9b223830bcc55e61d": "a422d338d702ecbf3aca7e47e89b923e26f651987cd63a2b4cf7fbb22f213ccb",
+    "d0b0e4271cee4394b4654ab5ba456fad": "16aad010b6370be4bd3579d7f0f3e6e7358869da87c80e1c30a700151d1c8780"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

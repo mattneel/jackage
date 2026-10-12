@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "86fb4c06a65f47018bf112b5c69f24e3",
+  "case": "PLAN-008",
+  "caseDigest": "b767a139c016b7ca90c16f03d732ccd204eca374dd2c7653fdd53e9b89dce7d8",
+  "reviewer": "OMP agent (M05/M07 integration)",
+  "note": "Re-recorded after the provenance-aware cache change. Inspected src/plan/cache.zig: record() returns convgerged only for an equivalent claim (same action, artifact, policy, backend identity, reproducibility), provenance_added for the same bytes with different provenance, discrepancy for a different artifact under the same action identity (both kept, earlier artifact preserved and reported), and inserted for a new action. The scan examines every claim for the action identity rather than stopping at the first same-artifact entry, and a same-bytes claim is an upgrade rather than a new discrepancy. Test coverage pins all four outcomes plus repeated-claim convergence, non-cacheable refusal, and duplicate output rejection.",
+  "reviewedUtc": "2026-10-12T05:37:21.448401+00:00",
+  "records": [
+    "d0376cf3f8dc4b2c978d7d7945b8d329",
+    "071fde3e95b64a7bab528a90d25a2fc0",
+    "40bdc98efbed440d8983044ffe9212c5",
+    "440299cc9a9d4a2f9cffc65b15fd2cb4"
+  ],
+  "recordDigests": {
+    "d0376cf3f8dc4b2c978d7d7945b8d329": "7df0a9bc4b37ebee19da7f4f8d59719f58ddb9dc508ad608ee724d976afb584a",
+    "071fde3e95b64a7bab528a90d25a2fc0": "4c1b60b2c6b4dec8848812040aee2b7845c8d147cde83050861b1386e37f6cf6",
+    "40bdc98efbed440d8983044ffe9212c5": "688eddebdbcf94b42e58d3a2517f7afd0488c1482f9c97308e0d4244625b4b33",
+    "440299cc9a9d4a2f9cffc65b15fd2cb4": "f9430f8f01dd08eba31f3aa05af0ecd292c8a572a14b33dd9ffce44fcba86235"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

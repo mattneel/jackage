@@ -1,0 +1,31 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-003 resolve exact locked imports' failed:
+       JCKG_EVIDENCE EVAL-003
+       C:\src\jackage\src\eval\frontend.zig:208:36: 0x7ff65578b9d5 in evaluate (jckg-tests_zcu.obj)
+                       if (path.len != 0) return error.ModuleDenied; // EVAL-003 deliberate fault
+                                          ^
+       C:\src\jackage\src\eval\tests.zig:100:20: 0x7ff655791815 in test.m04/EVAL-003 resolve exact locked imports (jckg-tests_zcu.obj)
+           const result = try eval.evaluate(gpa, io, &.{ locked("config.ts", source), local }, fixture.options(), null); defer result.deinit(gpa);
+                          ^
+failed command: ".\\.zig-cache\\o\\3dccd43880da0d79010cc6ccefd8595a\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x53bf357d --listen=-
+
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-003 resolve exact locked imports' failed:
+       JCKG_EVIDENCE EVAL-003
+       C:\src\jackage\src\eval\frontend.zig:208:36: 0x7ff6e786b9d5 in evaluate (eval-tests_zcu.obj)
+                       if (path.len != 0) return error.ModuleDenied; // EVAL-003 deliberate fault
+                                          ^
+       C:\src\jackage\src\eval\tests.zig:100:20: 0x7ff6e7871815 in test.m04/EVAL-003 resolve exact locked imports (eval-tests_zcu.obj)
+           const result = try eval.evaluate(gpa, io, &.{ locked("config.ts", source), local }, fixture.options(), null); defer result.deinit(gpa);
+                          ^
+failed command: ".\\.zig-cache\\o\\62e8fae07a8b5e3b50f3b6807a7cfc9f\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x53bf357d --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x53bf357d test -Dfilter=EVAL-003 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-003

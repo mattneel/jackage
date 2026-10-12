@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cea4bb7224ee4431a83a729cd9d035ab",
+  "case": "EVAL-001",
+  "caseDigest": "43307e49470332ec13ebdddfd7f917e76a3dcf4a7908cbe684a789783fe1bb05",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected pinned esbuild argv, real QuickJS source-module evaluation, SDK Project schema, typed interface/import fixture and engine version assertion. The locked jackage.d.ts interface fixture also verifies that checker SDK types cannot shadow a declared artifact. Fault: declaration name equality expected typed-42 but got faulted-sdk (TestExpectedEqual). Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.263261+00:00",
+  "records": [
+    "24fa41327e8d432da4ac8d572c766d35",
+    "d3a015ac59de4cd99cea4a264daeb36b",
+    "8a7f6db285bd4bc0aea87d44e8e43cfa",
+    "1265288c5d7d4455b4de20fcf8f281b6"
+  ],
+  "recordDigests": {
+    "24fa41327e8d432da4ac8d572c766d35": "3cad0160708944e8d7b6372948e010fa6bb628c2a7828b55a272fe343ec413ac",
+    "d3a015ac59de4cd99cea4a264daeb36b": "b6913bd3afe6bf32427dd670dc920eb19d046a5cb154e4a30cc4bcdab3b74210",
+    "8a7f6db285bd4bc0aea87d44e8e43cfa": "9b906af8da7cc122a05c76a472e4171de7f2645744aab65fb3ad23916e97113d",
+    "1265288c5d7d4455b4de20fcf8f281b6": "78cc50e0a3b993986dcf2714382adb30ce3877382eb94733013faba60745bdf6"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

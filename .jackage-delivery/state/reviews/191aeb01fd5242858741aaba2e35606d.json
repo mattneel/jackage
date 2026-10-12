@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "191aeb01fd5242858741aaba2e35606d",
+  "case": "PLAN-011",
+  "caseDigest": "7354f0e4d9bf79188a3c67f3f15bb46a7d4fe69f041a2640d9b7189559193cbf",
+  "reviewer": "OMP agent (M05/M07 integration)",
+  "note": "Re-recorded after the provenance-aware cache change. Inspected the policy path: a development claim does not answer a release request (incompatibility names release provenance, reproduction and backend separately); a release claim for the SAME bytes as the development entry is kept as an additional claim and is immediately usable for a release request, which is exactly what byte-only convergence hid (reported by the transport work unit reviewing cache.zig while building TRUST-012); the development request still finds its own entry; a release result with different bytes remains a visible discrepancy; unknown identities are a miss and non-cacheable actions never enter the cache.",
+  "reviewedUtc": "2026-10-12T05:37:21.610022+00:00",
+  "records": [
+    "2fc19027e8ad4480a585f305a78032b2",
+    "38215a02e3914811b54c34b126cdfeec",
+    "b1ab9420d838447c8382dabb6a8607e3",
+    "234bc36a53b9471195e157acc5edf8ce"
+  ],
+  "recordDigests": {
+    "2fc19027e8ad4480a585f305a78032b2": "c42c9ace7ffb8015845be3ad36bde2a7a94238fd0370a00d3af9af1f79c59009",
+    "38215a02e3914811b54c34b126cdfeec": "36c53fffc2fbba2e4dc64e3447a1399e6bf4215b1fb86005087341c9718bfe9e",
+    "b1ab9420d838447c8382dabb6a8607e3": "436eaf299dcac4fd9173304c8d1b51e42df80ae0171c6b08fdd71bfe606ec5eb",
+    "234bc36a53b9471195e157acc5edf8ce": "ee5ca6551d812af9fcb5bc6f6868f45553d49b49bba958bbe8727ded6f96a3b2"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

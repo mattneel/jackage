@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "97037d397ec148dd901aed22384d5ce0",
+  "case": "CAS-001",
+  "caseDigest": "34dcee217ed2617cc354a3419db572de01291dc7313f6634595c7bdbd2eb146e",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected src/core/store.zig import/commit path: staged-but-uncommitted bytes are not addressable, a committed object lives at its digest path with the exact size, the import's staging directory is removed, an empty blob is a valid object, and a repeated import does not duplicate the object.",
+  "reviewedUtc": "2026-10-12T04:32:36.009958+00:00",
+  "records": [
+    "ed7fd3091b8b4f3ba01c359e75644770",
+    "7562f82bc0c84d56811ee6989f7cc090",
+    "4a1a1d9dd4894a3eb056c77096eeab23",
+    "d370e2c33ed54dcd96dc961474322ce4"
+  ],
+  "recordDigests": {
+    "ed7fd3091b8b4f3ba01c359e75644770": "41608815a039451b14818bfe4129fc072d53e61f60ddcbea0058b3ca46f21ac2",
+    "7562f82bc0c84d56811ee6989f7cc090": "26fb8ab5b471bfe6aa6c77821f31d96aaa78c4211262c03bc9cf837273b2fe4d",
+    "4a1a1d9dd4894a3eb056c77096eeab23": "a6d87c61cf937dd61f255891040ea3ae52f2602b910d0ec2b7c3d71154037514",
+    "d370e2c33ed54dcd96dc961474322ce4": "f44a53211d7a10eecdae67695d0529a17ded33e703f6451466b3b10a99006f90"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

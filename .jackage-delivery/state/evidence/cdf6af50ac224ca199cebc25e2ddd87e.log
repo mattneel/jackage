@@ -1,0 +1,24 @@
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-003
+failed command: ".\\.zig-cache\\o\\f5ab70611cded08d83b12af4cd8bb017\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xb8d95759 --listen=-
+
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-003
+failed command: ".\\.zig-cache\\o\\72eda52c7f6cf5e593492d325ee659f9\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xb8d95759 --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-003 resolve exact locked imports...JCKG_EVIDENCE EVAL-003
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-003 resolve exact locked imports...JCKG_EVIDENCE EVAL-003
+OK
+All 5 tests passed.

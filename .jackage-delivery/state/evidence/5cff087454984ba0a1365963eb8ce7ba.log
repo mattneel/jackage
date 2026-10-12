@@ -1,0 +1,36 @@
+test
++- run test w
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+failed command: ".\\.zig-cache\\o\\4c05a0795a3cc601618bee6db2c6df2d\\test.exe" "--cache-dir=.\\.zig-cache" --seed=0xe3ef20f5 --listen=-
+
+1/11 jckg.test_0...OK
+2/11 core.canonical.test.m02/CAN-001 canonical object order...JCKG_EVIDENCE CAN-001
+OK
+3/11 core.canonical.test.m02/CAN-002 preserve array order...JCKG_EVIDENCE CAN-002
+OK
+4/11 core.canonical.test.m02/CAN-003 reject invalid numbers...JCKG_EVIDENCE CAN-003
+OK
+5/11 core.canonical.test.m02/CAN-004 reject duplicate keys...JCKG_EVIDENCE CAN-004
+OK
+6/11 core.canonical.test.m02/CAN-005 preserve Unicode bytes...JCKG_EVIDENCE CAN-005
+OK
+7/11 core.canonical.test.m02/CAN-006 reject invalid Unicode...JCKG_EVIDENCE CAN-006
+OK
+8/11 core.digest.test.m02/CAN-007 apply digest domains...JCKG_EVIDENCE CAN-007
+OK
+9/11 core.digest.test.m02/CAN-008 verify raw blob bytes...JCKG_EVIDENCE CAN-008
+OK
+10/11 core.tree.test.m02/CAN-009 reject unsafe portable paths...JCKG_EVIDENCE CAN-009
+OK
+11/11 core.tree.test.m02/CAN-010 validate tree structure...JCKG_EVIDENCE CAN-010
+OK
+All 11 tests passed.

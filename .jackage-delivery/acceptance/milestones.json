@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "milestones": [
+    {
+      "id": "M00",
+      "title": "Repository audit and baseline",
+      "dependsOn": [],
+      "goal": "Characterize existing code before edits. Preserve the supplied toolchain and user changes.",
+      "required": true
+    },
+    {
+      "id": "M01",
+      "title": "CLI foundation and diagnostics",
+      "dependsOn": [
+        "M00"
+      ],
+      "goal": "Deliver a real native CLI with safe structured output and a discovered build/test loop.",
+      "required": true
+    },
+    {
+      "id": "M02",
+      "title": "Canonical identities and immutable storage",
+      "dependsOn": [
+        "M01"
+      ],
+      "goal": "Implement verified blobs and trees, independent golden vectors, and atomic store transactions.",
+      "required": true
+    },
+    {
+      "id": "M03",
+      "title": "Native action execution",
+      "dependsOn": [
+        "M02"
+      ],
+      "goal": "Execute declared argv with real output collection, cancellation, and honest capabilities.",
+      "required": true
+    },
+    {
+      "id": "M04",
+      "title": "TypeScript and QuickJS-NG evaluation",
+      "dependsOn": [
+        "M02"
+      ],
+      "goal": "Evaluate locked configuration without ambient effects and with enforced resource limits.",
+      "required": true
+    },
+    {
+      "id": "M05",
+      "title": "Resolution, plans, and lockfiles",
+      "dependsOn": [
+        "M03",
+        "M04"
+      ],
+      "goal": "Resolve exact dependency closures and schedule validated action graphs.",
+      "required": true
+    },
+    {
+      "id": "M06",
+      "title": "Profiles and transient execution",
+      "dependsOn": [
+        "M05"
+      ],
+      "goal": "Install transactionally, roll back generations, and run through jckgx without profile mutation.",
+      "required": true
+    },
+    {
+      "id": "M07",
+      "title": "Repository trust and local channels",
+      "dependsOn": [
+        "M05"
+      ],
+      "goal": "Implement explicit trust enrollment, signed metadata, and safe artifact retrieval.",
+      "required": true
+    },
+    {
+      "id": "M08",
+      "title": "Strict Linux execution and verified transport",
+      "dependsOn": [
+        "M03",
+        "M05"
+      ],
+      "goal": "Demonstrate real isolation and authenticated artifact exchange from the Windows client.",
+      "required": true
+    },
+    {
+      "id": "M09",
+      "title": "Jackage self-hosting",
+      "dependsOn": [
+        "M06",
+        "M07",
+        "M08"
+      ],
+      "goal": "Build Jackage through its own locked environment and compare independent stage outputs.",
+      "required": true
+    },
+    {
+      "id": "M10",
+      "title": "Portable and OCI package backends",
+      "dependsOn": [
+        "M09"
+      ],
+      "goal": "Build package artifacts through declared actions and validate their deterministic payloads.",
+      "required": true
+    },
+    {
+      "id": "M11",
+      "title": "Native platform matrix and packages",
+      "dependsOn": [
+        "M10"
+      ],
+      "goal": "Run native client evidence and package smoke tests across the supported target matrix.",
+      "required": true
+    },
+    {
+      "id": "M12",
+      "title": "Workspace, cache, and reclaim lifecycle",
+      "dependsOn": [
+        "M06",
+        "M08"
+      ],
+      "goal": "Eliminate unmanaged replicas and unbounded caches through measured lifecycle policies.",
+      "required": true
+    },
+    {
+      "id": "M13",
+      "title": "External backend contracts",
+      "dependsOn": [
+        "M07",
+        "M08",
+        "M10"
+      ],
+      "goal": "Deliver versioned independent plugins for execution, packaging, and repository transport.",
+      "required": true
+    },
+    {
+      "id": "M14",
+      "title": "GitHub channels and authorized publication",
+      "dependsOn": [
+        "M07",
+        "M10"
+      ],
+      "goal": "Support Pages-only, Releases-only, and hybrid channels with local publication rehearsals.",
+      "required": true
+    },
+    {
+      "id": "M15",
+      "title": "Development and release images",
+      "dependsOn": [
+        "M10",
+        "M12"
+      ],
+      "goal": "Build Jackage environments and release images with validated closures and real runtime tests.",
+      "required": true
+    },
+    {
+      "id": "M16",
+      "title": "Agent-native factory and migration",
+      "dependsOn": [
+        "M11",
+        "M12",
+        "M13",
+        "M14",
+        "M15"
+      ],
+      "goal": "Demonstrate the complete human and OMP workflow with safe source ownership.",
+      "required": true
+    },
+    {
+      "id": "M17",
+      "title": "Release hardening and independent evidence",
+      "dependsOn": [
+        "M16"
+      ],
+      "goal": "Replay the full support matrix, reproduction, recovery, fuzzing, and performance gates.",
+      "required": true
+    }
+  ]
+}

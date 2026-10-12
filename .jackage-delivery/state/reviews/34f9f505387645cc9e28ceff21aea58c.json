@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "34f9f505387645cc9e28ceff21aea58c",
+  "case": "CAS-008",
+  "caseDigest": "80ac2ee1e84f6007ea6e617b294c2f6c333ef87db0bada4af53f94b8a8813d2c",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected destinationCheck: a Linux-valid tree with a:b, aux.txt and trailing. fails explicitly for a Windows destination naming the offending path, nothing is written and no renamed substitute appears; a Linux destination accepts it; a case-colliding tree is refused for case-insensitive destinations.",
+  "reviewedUtc": "2026-10-12T04:32:36.563077+00:00",
+  "records": [
+    "926521e6eda245579127bca498d06f51",
+    "a46f89219f0744b08ed314cd4d43d47a",
+    "36b9771abe964aa29fdaaac56b0c337a",
+    "4720cf9539544110bce48744bdee14cd"
+  ],
+  "recordDigests": {
+    "926521e6eda245579127bca498d06f51": "4dc67ff9059b5357ae7d49d9e0f92e2c723c6ba859ef59526a8b31133a8e2c7c",
+    "a46f89219f0744b08ed314cd4d43d47a": "4dd5fe4b902ffb2a587aa53b851a5fda9a9d2149a050f6a5b446b830d657e0ba",
+    "36b9771abe964aa29fdaaac56b0c337a": "a176e785bf7999481a2aafc2f83e2213fb767b2c8262779ab60eb7d70a453f4b",
+    "4720cf9539544110bce48744bdee14cd": "28cb9228d181d3b1477a1aed79b71d0f25aae97f087d4112d7db1eb9362e00be"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "fafe9399fd444973b6af8f81059a139d",
+  "case": "TRUST-004",
+  "caseDigest": "712d3d0c1bb4b48019503b86e39b2520fca7a00352fa49918882d2bc1af1e18e",
+  "reviewer": "OMP agent (M07 trust work unit)",
+  "note": "Inspected the rollback checks: an older, correctly signed snapshot is refused, replaying the identical metadata is refused (equal is not newer), the trusted state still describes the newest accepted version afterwards, and a genuinely newer chain is accepted - so rollback protection does not wedge the client. The transaction also commits nothing before all checks pass, which is what keeps an interrupted update from advancing state.",
+  "reviewedUtc": "2026-10-12T05:25:08.874537+00:00",
+  "records": [
+    "ef4eb593afb24eb5b17bec5b07318297",
+    "b267bc3a98a5480c90739af6aee81b45",
+    "fa86448992694036bb49c5b04936217b",
+    "16c80b96f14543ce806c0e5c8ac6b50e"
+  ],
+  "recordDigests": {
+    "ef4eb593afb24eb5b17bec5b07318297": "4422a77830e48c71d3ec3127f65e5a8e897412ac6400725c2a8cb01c0546b288",
+    "b267bc3a98a5480c90739af6aee81b45": "f0c47606f438271b84617f91d9819fea6a16961235ec5ac1b648d1c0aa180d39",
+    "fa86448992694036bb49c5b04936217b": "51deebdaddd4d1d76ad7b9e1914309cbed3bcc949c678d04c3ba70c5356ac4a4",
+    "16c80b96f14543ce806c0e5c8ac6b50e": "35293eae7a0fa41dac23a1e420aa89b148ba67b255435c46ada5c3e8d3c04ee5"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

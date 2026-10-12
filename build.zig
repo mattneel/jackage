@@ -20,6 +20,16 @@ pub fn build(b: *std.Build) void {
     // of this build script using `b.option()`. All defined flags (including
     // target and optimize options) will be listed when running `zig build --help`
     // in this directory.
+    //
+    // `-Dfilter=<text>` restricts test executables to tests whose name contains
+    // the text. Per-case acceptance evidence uses it so one test can be run in
+    // isolation; the default runs everything.
+    const filter = b.option([]const u8, "filter", "Only run tests whose name contains this text");
+    var filter_storage: [1][]const u8 = undefined;
+    const test_filters: []const []const u8 = if (filter) |value| blk: {
+        filter_storage[0] = value;
+        break :blk &filter_storage;
+    } else &.{};
 
     // This creates a module, which represents a collection of source files alongside
     // some compilation options, such as optimization mode and linked system libraries.
@@ -118,6 +128,7 @@ pub fn build(b: *std.Build) void {
     // set the releative field.
     const mod_tests = b.addTest(.{
         .root_module = mod,
+        .filters = test_filters,
     });
 
     // A run step that will run the test executable.
@@ -128,10 +139,150 @@ pub fn build(b: *std.Build) void {
     // hence why we have to create two separate ones.
     const exe_tests = b.addTest(.{
         .root_module = exe.root_module,
+        .filters = test_filters,
     });
 
     // A run step that will run the second test executable.
     const run_exe_tests = b.addRunArtifact(exe_tests);
+
+    // Jackage product library. `src/jckg.zig` is the root of the packages,
+    // store, executor, evaluator, resolver, and profile code that the `jckg`
+    // and `jckgx` clients link against. The scaffold's own `jackage` module
+    // above stays untouched.
+    const jckg_mod = b.addModule("jckg", .{
+        .root_source_file = b.path("src/jckg.zig"),
+        .target = target,
+    });
+    // The engine has no libc host modules: only the source parser and VM are
+    // linked. Every product consumer uses these same vendored C sources.
+    jckg_mod.link_libc = true;
+    jckg_mod.addIncludePath(b.path("vendor/quickjs-ng"));
+    const quickjs_bindings = b.addModule("quickjs", .{
+        .root_source_file = b.path("vendor/quickjs-ng/quickjs.zig"),
+        .target = target,
+        .link_libc = true,
+    });
+    jckg_mod.addImport("quickjs", quickjs_bindings);
+    jckg_mod.addCSourceFiles(.{
+        .root = b.path("vendor/quickjs-ng"),
+        .files = &.{ "quickjs.c", "dtoa.c", "libregexp.c", "libunicode.c" },
+        .flags = &.{ "-std=c11", "-D_GNU_SOURCE", "-fno-sanitize=undefined" },
+    });
+    const eval_mod = b.createModule(.{
+        .root_source_file = b.path("src/eval_tests.zig"),
+        .target = target,
+        .link_libc = true,
+    });
+    eval_mod.addImport("quickjs", quickjs_bindings);
+    eval_mod.addIncludePath(b.path("vendor/quickjs-ng"));
+    eval_mod.addCSourceFiles(.{
+        .root = b.path("vendor/quickjs-ng"),
+        .files = &.{ "quickjs.c", "dtoa.c", "libregexp.c", "libunicode.c" },
+        .flags = &.{ "-std=c11", "-D_GNU_SOURCE", "-fno-sanitize=undefined" },
+    });
+    const eval_tests = b.addTest(.{
+        .name = "eval-tests",
+        .root_module = eval_mod,
+        .filters = test_filters,
+    });
+    const install_eval_tests = b.addInstallArtifact(eval_tests, .{
+        .dest_dir = .{ .override = .{ .custom = "bin" } },
+    });
+    const run_eval_tests = b.addRunArtifact(eval_tests);
+    const eval_test_step = b.step("eval-test", "Run source evaluator tests");
+    eval_test_step.dependOn(&run_eval_tests.step);
+    eval_test_step.dependOn(&install_eval_tests.step);
+
+    const jckg_tests = b.addTest(.{
+        .name = "jckg-tests",
+        .root_module = jckg_mod,
+        .filters = test_filters,
+    });
+    const install_jckg_tests = b.addInstallArtifact(jckg_tests, .{
+        .dest_dir = .{ .override = .{ .custom = "bin" } },
+    });
+    const run_jckg_tests = b.addRunArtifact(jckg_tests);
+    // The client's integration tests run the installed executable, so the
+    // install step must complete first.
+    run_jckg_tests.step.dependOn(b.getInstallStep());
+
+    // `jckg`: the client executable. Its entry file only imports the product
+    // library, so no source file escapes its module root.
+    const cli_entry = b.createModule(.{
+        .root_source_file = b.path("src/cli/entry.zig"),
+        .target = target,
+        .optimize = optimize,
+        .imports = &.{
+            .{ .name = "jckg", .module = jckg_mod },
+        },
+    });
+    const jckg_exe = b.addExecutable(.{
+        .name = "jckg",
+        .root_module = cli_entry,
+    });
+    b.installArtifact(jckg_exe);
+
+    // `jckg-worker` and `jckg-probe`: the guest side of the strict execution
+    // backend (M08). Both are built for the declared Linux execution environment
+    // whatever the host is, because the sandbox needs Linux namespaces; a host
+    // build of either program refuses to run rather than pretending.
+    //
+    // They live on their own steps (`worker`, `probe`) and are deliberately not
+    // part of the default install or the `test` step, so an in-flight change to
+    // the sandbox cannot invalidate someone else's acceptance run.
+    const worker_target = b.resolveTargetQuery(.{
+        .cpu_arch = .x86_64,
+        .os_tag = .linux,
+        .abi = .musl,
+    });
+    const worker_mod = b.createModule(.{
+        .root_source_file = b.path("src/worker_entry.zig"),
+        .target = worker_target,
+        .optimize = optimize,
+    });
+    const probe_mod = b.createModule(.{
+        .root_source_file = b.path("src/worker_probe_entry.zig"),
+        .target = worker_target,
+        .optimize = optimize,
+    });
+    const jckg_worker = b.addExecutable(.{ .name = "jckg-worker", .root_module = worker_mod });
+    const jckg_probe = b.addExecutable(.{ .name = "jckg-probe", .root_module = probe_mod });
+    const install_worker = b.addInstallArtifact(jckg_worker, .{
+        .dest_dir = .{ .override = .{ .custom = "bin" } },
+    });
+    const install_probe = b.addInstallArtifact(jckg_probe, .{
+        .dest_dir = .{ .override = .{ .custom = "bin" } },
+    });
+    const worker_step = b.step("worker", "Build the guest worker for the Linux execution environment");
+    worker_step.dependOn(&install_worker.step);
+    const probe_step = b.step("probe", "Build the guest probe used by the sandbox acceptance tests");
+    probe_step.dependOn(&install_probe.step);
+
+    // Only the guest suite exercises the sandbox; it is a separate step so host
+    // runs stay unaffected by worker changes.
+    const strict_mod = b.createModule(.{
+        .root_source_file = b.path("src/strict_tests_entry.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+    const strict_tests = b.addTest(.{
+        .name = "strict-tests",
+        .root_module = strict_mod,
+        .filters = test_filters,
+    });
+    const run_strict_tests = b.addRunArtifact(strict_tests);
+    // `strict-build` installs the suite without running it, so a hang can be
+    // observed from outside instead of being buried in the build runner.
+    const install_strict_tests = b.addInstallArtifact(strict_tests, .{
+        .dest_dir = .{ .override = .{ .custom = "bin" } },
+    });
+    const strict_build_step = b.step("strict-build", "Build the sandbox acceptance test binary without running it");
+    strict_build_step.dependOn(&install_strict_tests.step);
+
+    const strict_step = b.step("strict-test", "Run the sandbox acceptance tests (guest-only evidence)");
+    strict_step.dependOn(&run_strict_tests.step);
+    strict_step.dependOn(&install_worker.step);
+    strict_step.dependOn(&install_probe.step);
 
     // A top level step for running all tests. dependOn can be called multiple
     // times and since the two run steps do not depend on one another, this will
@@ -139,6 +290,10 @@ pub fn build(b: *std.Build) void {
     const test_step = b.step("test", "Run tests");
     test_step.dependOn(&run_mod_tests.step);
     test_step.dependOn(&run_exe_tests.step);
+    test_step.dependOn(&run_jckg_tests.step);
+    test_step.dependOn(&install_jckg_tests.step);
+    test_step.dependOn(&run_eval_tests.step);
+    test_step.dependOn(&install_eval_tests.step);
 
     // Just like flags, top level steps are also listed in the `--help` menu.
     //

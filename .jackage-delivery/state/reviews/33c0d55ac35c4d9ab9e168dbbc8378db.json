@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "33c0d55ac35c4d9ab9e168dbbc8378db",
+  "case": "TRUST-006",
+  "caseDigest": "806963b9cc762f6a9aba7e805d61605a7a787e333e2887cf9bad30a675868666",
+  "reviewer": "OMP agent (M07 trust work unit)",
+  "note": "Inspected cross-pinning: a timestamp that pins snapshot version 7 while version 8 is served is refused (VersionMismatch); a same-version snapshot whose digest does not match the pin is refused (DigestMismatch); a targets document that is not the one the snapshot pins is refused; nothing is committed by these failures and the consistent chain is accepted, so a mixed snapshot cannot downgrade one role.",
+  "reviewedUtc": "2026-10-12T05:25:09.031488+00:00",
+  "records": [
+    "dd74384465c448fab6422917721f1b2c",
+    "46a883b197664ab182c5b6b450274c94",
+    "6ea06db4075845919ef9fbb618ba9d8e",
+    "50590cbd386f4b3cb56f839c47b3d202"
+  ],
+  "recordDigests": {
+    "dd74384465c448fab6422917721f1b2c": "746f1a66f0e97b2fce81e186f16a0bdfe03f849030bbacf8a27c4588d36ee127",
+    "46a883b197664ab182c5b6b450274c94": "0ce64c9a770b19fc024ee2cf2b7a209fdb32bbef1436bb8cfb919d96617fb5a0",
+    "6ea06db4075845919ef9fbb618ba9d8e": "362f8626650e25881f34551021b9287b4f9d6e93d3a3cb744872a2199c3a662d",
+    "50590cbd386f4b3cb56f839c47b3d202": "cd6e4555a4d6ddabe941cb31a2d0072f802260f0e437e53fea45481651e407b5"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,55 @@
+test
++- run test jckg-tests 13 pass, 2 fail (15 total)
+JCKG_EVIDENCE PLAN-005
+JCKG_EVIDENCE PLAN-006
+JCKG_EVIDENCE PLAN-007
+JCKG_EVIDENCE PLAN-004
+JCKG_EVIDENCE PLAN-009
+JCKG_EVIDENCE PLAN-010
+JCKG_EVIDENCE PLAN-001
+JCKG_EVIDENCE PLAN-002
+JCKG_EVIDENCE PLAN-003
+error: 'plan.cache.test.m05/PLAN-008 separate action and artifact identity' failed:
+       JCKG_EVIDENCE PLAN-008
+       expected .provenance_added, found .converged
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7e8250940 in expectEqualInner__func_1163 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7e8250f3a in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:/src/jackage/tools/zig/lib/std/testing.zig:157:17: 0x7ff7e8250fb3 in expectEqualInner__func_1162 (jckg-tests_zcu.obj)
+                       try expectEqual(@as(Tag, expected), @as(Tag, actual));
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7e825abd9 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\plan\cache.zig:310:5: 0x7ff7e825ac58 in test.m05/PLAN-008 separate action and artifact identity (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(RecordOutcome.provenance_added, try cache.record(development_claim));
+           ^
+error: 'plan.cache.test.m05/PLAN-011 preserve cache policy' failed:
+       JCKG_EVIDENCE PLAN-011
+       expected .provenance_added, found .converged
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7e8250940 in expectEqualInner__func_1163 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7e8250f3a in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:/src/jackage/tools/zig/lib/std/testing.zig:157:17: 0x7ff7e8250fb3 in expectEqualInner__func_1162 (jckg-tests_zcu.obj)
+                       try expectEqual(@as(Tag, expected), @as(Tag, actual));
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7e8252303 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\plan\cache.zig:399:5: 0x7ff7e8252396 in test.m05/PLAN-011 preserve cache policy (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(RecordOutcome.provenance_added, try cache.record(release_same_bytes));
+           ^
+failed command: ".\\.zig-cache\\o\\2f6bf21cef1487d687fe6551f02d43e6\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xfb3f985e --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 13/15 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 13 pass, 2 fail (15 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xfb3f985e test -Dfilter=PLAN --prefix C:\src\jackage\.zig-cache\test-prefix-PLAN

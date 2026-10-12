@@ -1,0 +1,61 @@
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-006 produce repeatable canonical plans' failed:
+       JCKG_EVIDENCE EVAL-006
+       
+       ====== expected this output: =========
+       {"declaration":{"inputs":{},"name":"repeatable","packages":[],"tasks":{}},"inputs":{"label":"repeatable"},"work_dir":".zig-cache/tmp/BZSbtC0TwxpjGJoE"}␃
+       
+       ======== instead found this: =========
+       {"declaration":{"inputs":{},"name":"repeatable","packages":[],"tasks":{}},"inputs":{"label":"repeatable"},"work_dir":".zig-cache/tmp/5CUqqnHorUTfLS3Q"}␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       {"declaration":{"inputs":{},"name":"repeatable","packages":[],"tasks":{}},"inputs":{"label":"repeatable"},"work_dir":".zig-cache/tmp/BZSbtC0TwxpjGJoE"}
+                                                                                                                                            ^ ('\x42')
+       found:
+       {"declaration":{"inputs":{},"name":"repeatable","packages":[],"tasks":{}},"inputs":{"label":"repeatable"},"work_dir":".zig-cache/tmp/5CUqqnHorUTfLS3Q"}
+                                                                                                                                            ^ ('\x35')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff6a2d9f291 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\eval\tests.zig:168:5: 0x7ff6a2da0090 in test.m04/EVAL-006 produce repeatable canonical plans (jckg-tests_zcu.obj)
+           try std.testing.expectEqualStrings(first.canonical_plan, second.canonical_plan);
+           ^
+failed command: ".\\.zig-cache\\o\\2d5074c9faf6d8af6ea44dc6bcd38241\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x8dfd0d45 --listen=-
+
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-006 produce repeatable canonical plans' failed:
+       JCKG_EVIDENCE EVAL-006
+       
+       ====== expected this output: =========
+       {"declaration":{"inputs":{},"name":"repeatable","packages":[],"tasks":{}},"inputs":{"label":"repeatable"},"work_dir":".zig-cache/tmp/4FEfPrlu1eNAdfZi"}␃
+       
+       ======== instead found this: =========
+       {"declaration":{"inputs":{},"name":"repeatable","packages":[],"tasks":{}},"inputs":{"label":"repeatable"},"work_dir":".zig-cache/tmp/n4ycVEB176Gk1IMZ"}␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       {"declaration":{"inputs":{},"name":"repeatable","packages":[],"tasks":{}},"inputs":{"label":"repeatable"},"work_dir":".zig-cache/tmp/4FEfPrlu1eNAdfZi"}
+                                                                                                                                            ^ ('\x34')
+       found:
+       {"declaration":{"inputs":{},"name":"repeatable","packages":[],"tasks":{}},"inputs":{"label":"repeatable"},"work_dir":".zig-cache/tmp/n4ycVEB176Gk1IMZ"}
+                                                                                                                                            ^ ('\x6e')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff7df01f291 in expectEqualStrings (eval-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\eval\tests.zig:168:5: 0x7ff7df020090 in test.m04/EVAL-006 produce repeatable canonical plans (eval-tests_zcu.obj)
+           try std.testing.expectEqualStrings(first.canonical_plan, second.canonical_plan);
+           ^
+failed command: ".\\.zig-cache\\o\\94d04968b62d93afb20c9ae84c2f5649\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x8dfd0d45 --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x8dfd0d45 test -Dfilter=EVAL-006 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-006

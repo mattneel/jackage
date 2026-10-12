@@ -1,0 +1,30 @@
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/14 jckg.test_0...OK
+2/14 eval.mod.test_0...OK
+3/14 exec.mod.test_0...OK
+4/14 profile.mod.test_0...OK
+5/14 profile.tests.test.m06/PROFILE-001 Install a closure...JCKG_EVIDENCE PROFILE-001
+OK
+6/14 profile.tests.test.m06/PROFILE-002 Activate atomically...JCKG_EVIDENCE PROFILE-002
+OK
+7/14 profile.tests.test.m06/PROFILE-003 Rollback a generation...JCKG_EVIDENCE PROFILE-003
+OK
+8/14 profile.tests.test.m06/PROFILE-004 Remove references safely...JCKG_EVIDENCE PROFILE-004
+OK
+9/14 profile.tests.test.m06/PROFILE-005 Handle executable collision...JCKG_EVIDENCE PROFILE-005
+OK
+10/14 profile.tests.test.m06/PROFILE-006 Preserve active executable...JCKG_EVIDENCE PROFILE-006
+OK
+11/14 profile.tests.test.m06/PROFILE-007 Run transiently...JCKG_EVIDENCE PROFILE-007
+OK
+12/14 profile.tests.test.m06/PROFILE-008 Forward runner arguments...JCKG_EVIDENCE PROFILE-008
+OK
+13/14 profile.tests.test.m06/PROFILE-009 Preserve runner exit...JCKG_EVIDENCE PROFILE-009
+OK
+14/14 profile.tests.test.m06/PROFILE-010 Lease concurrent runners...JCKG_EVIDENCE PROFILE-010
+OK
+All 14 tests passed.

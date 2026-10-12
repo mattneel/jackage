@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "d8a54e9af5ea406099bf1cb3b7c95fba",
+  "case": "PLAN-005",
+  "caseDigest": "fb2ea8fcbadf1e18b964018ba85eab16a1db800f06b56f2a73bd5a7943db60d0",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected src/plan/lockfile.zig: the document matches the pack's proposed lock schema (project, configurationDigest, planDigest, toolchains, packages, bootstrap, environmentPerimeter) and validates only when every tool, package pin, bootstrap input and platform boundary carries an exact identity, digest and provenance; encoding is stable; a missing perimeter, a malformed digest and an unknown dependency reference are each refused.",
+  "reviewedUtc": "2026-10-12T05:04:51.182186+00:00",
+  "records": [
+    "f0e8434c00f84bf890715900a5721405",
+    "3ff6b6775b7e4740a8ea8198e185c599",
+    "809c874e9aa44f7582616294fbf78d7c",
+    "20fb8de1e4d049759655b2ecffd3794a"
+  ],
+  "recordDigests": {
+    "f0e8434c00f84bf890715900a5721405": "8ee79b970560f061553e75ebbb8eb39a768b7a3b336cd425a1abdbb4157d5ed2",
+    "3ff6b6775b7e4740a8ea8198e185c599": "3521d5c9b914f69fa55c2c75bb6a9cff08cc45e35e3f0f07c34a0e133f41792b",
+    "809c874e9aa44f7582616294fbf78d7c": "b5a92f1a1fb3cfe7941306129cafb890814d08f3e0c2d989761f1a81437464fe",
+    "20fb8de1e4d049759655b2ecffd3794a": "e6758022e24d09799c9b3acfe23ea8d84e3afa1a23fee5c011d88c6c203b98f6"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

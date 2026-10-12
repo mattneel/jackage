@@ -1,0 +1,17 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE STRICT-007
+failed command: ".\\.zig-cache\\o\\641ecb62d123d6a5e2055ce8683b2f62\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x93b80569 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 trust.download.test.m08/STRICT-007 verify returned artifacts before commitment...JCKG_EVIDENCE STRICT-007
+OK
+All 5 tests passed.

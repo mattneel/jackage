@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "e75ad8e352a74bc3bf5ca17db471afc1",
+  "case": "EXE-004",
+  "caseDigest": "2f9aa993bfdbce2be476841d249e516a371d2b3284000edcb774874a0543fd06",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected portable lexical validation, every-component Windows reparse checks, no-follow handles and real-path containment before any blob import. Real junction points outside workspace and traversal is rejected; secret and earlier valid blob remain unpublished. Fault falsely reports rejected output collection as success; unchanged own rejection assertion fails.",
+  "reviewedUtc": "2026-10-12T10:02:34.051903+00:00",
+  "records": [
+    "70f625608b3c46ad8defabcb34ce9361",
+    "17ce54d0f38b402ca05def23d8c1422b",
+    "491e74067f7a4d01a012643c7bedeb04",
+    "ba3806317aa74c47a20a795336a19ac0"
+  ],
+  "recordDigests": {
+    "70f625608b3c46ad8defabcb34ce9361": "d483a13cd2363736500700f2f28743e145b403165c8101a9a9264367246f7ce0",
+    "17ce54d0f38b402ca05def23d8c1422b": "048292a0dcad2b9f0c345fde710d0dfb2922df8149a5211bee857dd782222473",
+    "491e74067f7a4d01a012643c7bedeb04": "378cd91a9ab64e2d1380e53e37d1e0181b0f4de5465c8a89ed2e4b041ef46dfc",
+    "ba3806317aa74c47a20a795336a19ac0": "f90b8f60b53b7ad667b3c80ee94a64f635466680b3700c39bd73a1751bc36edc"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

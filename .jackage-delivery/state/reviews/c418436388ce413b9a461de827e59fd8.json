@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c418436388ce413b9a461de827e59fd8",
+  "case": "TRUST-002",
+  "caseDigest": "cf187714135374c9f627e20f4283f24920ef93e5bfa77ed98ccfd7f41e78cfa8",
+  "reviewer": "OMP agent (M07 trust work unit)",
+  "note": "Inspected verifyChain in src/trust/metadata.zig: a correctly signed timestamp/snapshot/targets chain at threshold is accepted, trusted versions advance, and the verified targets entry is usable; a document signed by a key that is not authorized for its role is refused, and the failed attempt leaves the trusted versions untouched.",
+  "reviewedUtc": "2026-10-12T05:25:08.719856+00:00",
+  "records": [
+    "a974b762ab6e4a1aa4c953df110cee5c",
+    "9b3168e6a43c4594af3323bbf228e72b",
+    "c9a75781ad214a94aa6f94dcc443b638",
+    "b23c084764cc4474bb0e16ae8a4cd6b3"
+  ],
+  "recordDigests": {
+    "a974b762ab6e4a1aa4c953df110cee5c": "28e78bb04689bb775eb30c9b4682d36eb44ee0f1a0bfc60228f480b3286c53af",
+    "9b3168e6a43c4594af3323bbf228e72b": "3c8a6b2eafb34899e5de738dc818459a401d13f6b035b9ff153134299a715a6c",
+    "c9a75781ad214a94aa6f94dcc443b638": "823b0dfb601913773d950cbe25292492e8f67ca6546b644c3662280bac668f14",
+    "b23c084764cc4474bb0e16ae8a4cd6b3": "3084505501f3b2f89c80499f6a6ec547847f876889e65e49b193fe5463015269"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

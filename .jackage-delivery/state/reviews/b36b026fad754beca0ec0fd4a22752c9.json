@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b36b026fad754beca0ec0fd4a22752c9",
+  "case": "EXE-010",
+  "caseDigest": "6b5d892f3775e568a12b80f0fe87902d915036c2d7a9e997c2951f67b6ec44d3",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected flushed atomic started/running/completed journal and suspended spawn identity recording. Reopened controller reconciles real live and gone PID+creation time, refuses live/uncertain replay, recognizes recycled identity and retries gone action. Fault maps live to gone; unchanged own assertion fails.",
+  "reviewedUtc": "2026-10-12T10:02:34.617601+00:00",
+  "records": [
+    "e50bd5dad3c24505a732f94e719c0f61",
+    "7d3bb90f98ee449f80c642485a1fb6bf",
+    "2e822093a2cb465e9d1c7c8c38a31e53",
+    "f4e123a6b877471a909a06b25989f215"
+  ],
+  "recordDigests": {
+    "e50bd5dad3c24505a732f94e719c0f61": "1e3acd382ef4a871f996a63696a3625bf9d8a91a66697927afa26083b059eaa3",
+    "7d3bb90f98ee449f80c642485a1fb6bf": "3ae35390a046da8b77b192e7d52e688758e9b98ad9ea72604d8fbb331d7eb92c",
+    "2e822093a2cb465e9d1c7c8c38a31e53": "cf0754ba39a10dca7ce44900005ca40389c8e07901ef8383c41248158905ed55",
+    "f4e123a6b877471a909a06b25989f215": "389e54e1ee2071900e51a36ada0595531becda2938618fc2b73ea8dace4a212a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

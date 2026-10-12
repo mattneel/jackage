@@ -1,0 +1,67 @@
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-001 transform real TypeScript' failed:
+       JCKG_EVIDENCE EVAL-001
+       
+       ====== expected this output: =========
+       typed-42␃
+       
+       ======== instead found this: =========
+       faulted-sdk␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       typed-42
+       ^ ('\x74')
+       found:
+       faulted-sdk
+       ^ ('\x66')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff6e40cf151 in expectEqualStrings (eval-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\eval\tests.zig:28:5: 0x7ff6e40cf473 in expectName (eval-tests_zcu.obj)
+           try std.testing.expectEqualStrings(expected, name.string);
+           ^
+       C:\src\jackage\src\eval\tests.zig:65:5: 0x7ff6e40cfb18 in test.m04/EVAL-001 transform real TypeScript (eval-tests_zcu.obj)
+           try expectName(result, "typed-42");
+           ^
+failed command: ".\\.zig-cache\\o\\73e501b82eceab7d9e35ec7215b592d3\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xe3de65c1 --listen=-
+
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-001 transform real TypeScript' failed:
+       JCKG_EVIDENCE EVAL-001
+       
+       ====== expected this output: =========
+       typed-42␃
+       
+       ======== instead found this: =========
+       faulted-sdk␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       typed-42
+       ^ ('\x74')
+       found:
+       faulted-sdk
+       ^ ('\x66')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff63f58f151 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\eval\tests.zig:28:5: 0x7ff63f58f473 in expectName (jckg-tests_zcu.obj)
+           try std.testing.expectEqualStrings(expected, name.string);
+           ^
+       C:\src\jackage\src\eval\tests.zig:65:5: 0x7ff63f58fb18 in test.m04/EVAL-001 transform real TypeScript (jckg-tests_zcu.obj)
+           try expectName(result, "typed-42");
+           ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-EVAL-001\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xe3de65c1 --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xe3de65c1 test -Dfilter=EVAL-001 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-001

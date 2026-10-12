@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "d2047cf1eecd4cfb856a6be2d5fd3bbc",
+  "case": "PROFILE-001",
+  "caseDigest": "fea4a6b36aa7c99a89cc1c23fed5c31d56479f066194f738a917f4aa2d8b6a26",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected trusted local artifact publication, core.Store reference graph verification, resolver selections, canonical generation bytes and complete runtime file/dependency closure; deliberate roots-only closure fault was detected.",
+  "reviewedUtc": "2026-10-12T08:59:14.542093+00:00",
+  "records": [
+    "af960a7f4878426ba683576d49f5e116",
+    "ee30ea72b9d94d1fb800ce94d32b49b6",
+    "5a2bc08b752642288627c9f58cace578",
+    "44e54004801f47a7a91ad692967ee368"
+  ],
+  "recordDigests": {
+    "af960a7f4878426ba683576d49f5e116": "44e40c34a73083612aed2a964eef19b06caefa6c47db20a17a2bd4a78785d3a0",
+    "ee30ea72b9d94d1fb800ce94d32b49b6": "ed4d23caf196fa31c78c3dff77275aebca6b2b6843ef2df7acf4b810360fdf70",
+    "5a2bc08b752642288627c9f58cace578": "d7801de0bea253b6156c5ffd09462d8c3c86432147966dbbfc998813076c909b",
+    "44e54004801f47a7a91ad692967ee368": "7f9dbbf860653029a06ff499b2e82c03cff52e2d28b3e98af1e4318b8022406c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

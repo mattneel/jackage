@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "fee4cfa857d94f5b98938d687728cda8",
+  "case": "CAN-009",
+  "caseDigest": "797d98966ec293e2f692287188aaae4e7c451b5fb6ba81c808d44ac05b366bf4",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected src/core/tree.zig portablePathValid against all 40 fixture vectors: traversal, absolute, drive and stream syntax, reserved device names (including superscript forms), trailing dots or spaces, control characters and invalid UTF-8 are rejected; validation has no filesystem effect.",
+  "reviewedUtc": "2026-10-12T04:32:35.848841+00:00",
+  "records": [
+    "4f1f849b824440dfa15d63893168afc8",
+    "abd3a9b3a52b4f339fe6bbfb374994a2",
+    "347506db25e34854b46bcfa530beb932",
+    "09f951d756f24bbea4accb2408bbb83b"
+  ],
+  "recordDigests": {
+    "4f1f849b824440dfa15d63893168afc8": "9757b6425b4884b542edf1734540ccfe1e6dec5ab9c4b598de2079277be54f82",
+    "abd3a9b3a52b4f339fe6bbfb374994a2": "a79d6d3b8be03294f893c15ca8f18626e3f6d4c8f936f90f11e1ebf301ae28ce",
+    "347506db25e34854b46bcfa530beb932": "7c51ca0f5679b0cf52a48218a1191bad30619adc3a4b4812834c52234c727573",
+    "09f951d756f24bbea4accb2408bbb83b": "c55fb3c465bcd37e35fe5eade367c79b9a938f02731a6660133a1ea16f3435a6"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

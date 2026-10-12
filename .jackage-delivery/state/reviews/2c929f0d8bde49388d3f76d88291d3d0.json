@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "2c929f0d8bde49388d3f76d88291d3d0",
+  "case": "CAS-004",
+  "caseDigest": "400b941a0298d2311fecfdd8ea9f8e9b2612b47b0541b8559ea1f5d3ae8de0c4",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected recover(): staging states from three interruption points (truncated data, missing data, half-written data) are never addressable, are removed by recovery, a reopened store exposes exactly the committed object, and recovery with nothing to do is a no-op.",
+  "reviewedUtc": "2026-10-12T04:32:36.249803+00:00",
+  "records": [
+    "00f0ecc786224316bd352c8da49b3b0e",
+    "628079b2570c42d7a0fe9ec79c046adc",
+    "bedaf603a1134e17876c391bfe9fc771",
+    "c3fad697b2e7495692fa035b2a646d3f"
+  ],
+  "recordDigests": {
+    "00f0ecc786224316bd352c8da49b3b0e": "03a39be963c906721844e7d31b4896e415890e4934df856fcaaefc24b6657add",
+    "628079b2570c42d7a0fe9ec79c046adc": "0bc426bf138bb660a042c921890f10b62b0b80a86e1792b7e00d5f316ad62bf1",
+    "bedaf603a1134e17876c391bfe9fc771": "44f0d54a4e5309f557f08741d271a8f1d9ceccd25d371c126f1ea61fff3e7681",
+    "c3fad697b2e7495692fa035b2a646d3f": "5bddae581972b3a7462f58846f31ad354b10b3b548d782668e678d791ec51e2a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

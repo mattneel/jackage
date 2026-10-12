@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "scope": "Delivery-pack validation only. Not Jackage product delivery.",
+  "preparedUtc": "2026-10-12T02:52:51.806509+00:00",
+  "preparationPlatform": "Linux x86_64",
+  "pythonVersion": "3.13.5",
+  "packUnitTests": {
+    "executed": true,
+    "count": 41,
+    "failures": 0,
+    "errors": 0,
+    "log": "qa/pack-tools.unittest.txt"
+  },
+  "jsonSchemas": {
+    "checked": 8,
+    "syntheticExamplesValidated": 6,
+    "validator": "jsonschema Draft 2020-12 with a local reference registry"
+  },
+  "typescriptExample": {
+    "typeChecked": true,
+    "compilerVersion": "5.8.3",
+    "command": "tsc --noEmit --strict --target es2022 --module esnext --moduleResolution bundler fixtures/jackage-sdk.proposed.d.ts fixtures/jackage.proposed.ts"
+  },
+  "acceptanceCatalog": {
+    "milestones": 18,
+    "requiredCases": 188,
+    "productCasesCompleted": 0
+  },
+  "oracleFixtures": {
+    "canonicalValues": 15,
+    "portablePaths": 40,
+    "blobVectors": 3,
+    "invalidJsonVectors": 8
+  },
+  "windowsNativeTestsExecuted": false,
+  "powershellHelpersExecuted": false,
+  "jackageSourceInspected": false,
+  "jackageBuildExecuted": false,
+  "thirdPartyBinariesBundled": false,
+  "limits": [
+    "The actual repository implementation was not supplied.",
+    "The optional PowerShell scripts received static inspection only.",
+    "No Windows, Zig, QuickJS-NG, or Jackage product tests ran during pack preparation.",
+    "Local evidence tooling is not independent CI or a trusted attestation system."
+  ]
+}

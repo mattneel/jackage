@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "2517e64f530b4f28be47e43dad12ca01",
+  "case": "AUD-004",
+  "caseDigest": "5deae6e6f5ac44ea1f2c0917c417242640c1ebc57087cdf3e39eabc627f2cb93",
+  "reviewer": "OMP agent (M00 work unit)",
+  "note": "Inspected src/audit/inventory.zig scan/countTestBlocks: real directory walk of src/, sha256 per file matches the pre-edit record, countTestBlocks ignores strings and comments and covers both test declaration forms.",
+  "reviewedUtc": "2026-10-12T03:57:22.476789+00:00",
+  "records": [
+    "97738cb4cbed4ece85220181a360abce",
+    "f975d9374bc34b28ae393ae1c2ee26ee",
+    "a5e2a8e5aa4248f7aee8b5cc152b68a3",
+    "4c20a7d6a9484f1eb4d0a4dab1df10df"
+  ],
+  "recordDigests": {
+    "97738cb4cbed4ece85220181a360abce": "338b23766ae8d3d5c02c05c9d40c49cfb1ea7d36f67e7ab35aea325b0e43b3ef",
+    "f975d9374bc34b28ae393ae1c2ee26ee": "fa80c82a3ae0b5b11ad2cb1c3af90e14f5c273a4ebd14968ed12bf3e75efc1c2",
+    "a5e2a8e5aa4248f7aee8b5cc152b68a3": "63d496d0cb36daf966a794b73e6b95c63933989f0fc15f982816b868e2d4af6b",
+    "4c20a7d6a9484f1eb4d0a4dab1df10df": "d212092ec81087e816a4b29805852df08064f01f358555b6bab1b4b914fef23e"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

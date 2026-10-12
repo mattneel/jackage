@@ -1,0 +1,170 @@
+{
+  "kind": "local-evidence-status",
+  "productCompletionCertified": false,
+  "completedCases": 94,
+  "totalCases": 188,
+  "milestones": [
+    {
+      "id": "M00",
+      "title": "Repository audit and baseline",
+      "completeCases": 8,
+      "requiredCases": 8,
+      "ownCasesComplete": true,
+      "ready": true,
+      "completeWithPrerequisites": true
+    },
+    {
+      "id": "M01",
+      "title": "CLI foundation and diagnostics",
+      "completeCases": 10,
+      "requiredCases": 10,
+      "ownCasesComplete": true,
+      "ready": true,
+      "completeWithPrerequisites": true
+    },
+    {
+      "id": "M02",
+      "title": "Canonical identities and immutable storage",
+      "completeCases": 18,
+      "requiredCases": 18,
+      "ownCasesComplete": true,
+      "ready": true,
+      "completeWithPrerequisites": true
+    },
+    {
+      "id": "M03",
+      "title": "Native action execution",
+      "completeCases": 10,
+      "requiredCases": 10,
+      "ownCasesComplete": true,
+      "ready": true,
+      "completeWithPrerequisites": true
+    },
+    {
+      "id": "M04",
+      "title": "TypeScript and QuickJS-NG evaluation",
+      "completeCases": 11,
+      "requiredCases": 11,
+      "ownCasesComplete": true,
+      "ready": true,
+      "completeWithPrerequisites": true
+    },
+    {
+      "id": "M05",
+      "title": "Resolution, plans, and lockfiles",
+      "completeCases": 11,
+      "requiredCases": 11,
+      "ownCasesComplete": true,
+      "ready": true,
+      "completeWithPrerequisites": true
+    },
+    {
+      "id": "M06",
+      "title": "Profiles and transient execution",
+      "completeCases": 10,
+      "requiredCases": 10,
+      "ownCasesComplete": true,
+      "ready": true,
+      "completeWithPrerequisites": true
+    },
+    {
+      "id": "M07",
+      "title": "Repository trust and local channels",
+      "completeCases": 12,
+      "requiredCases": 12,
+      "ownCasesComplete": true,
+      "ready": true,
+      "completeWithPrerequisites": true
+    },
+    {
+      "id": "M08",
+      "title": "Strict Linux execution and verified transport",
+      "completeCases": 4,
+      "requiredCases": 10,
+      "ownCasesComplete": false,
+      "ready": true,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M09",
+      "title": "Jackage self-hosting",
+      "completeCases": 0,
+      "requiredCases": 8,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M10",
+      "title": "Portable and OCI package backends",
+      "completeCases": 0,
+      "requiredCases": 9,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M11",
+      "title": "Native platform matrix and packages",
+      "completeCases": 0,
+      "requiredCases": 12,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M12",
+      "title": "Workspace, cache, and reclaim lifecycle",
+      "completeCases": 0,
+      "requiredCases": 12,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M13",
+      "title": "External backend contracts",
+      "completeCases": 0,
+      "requiredCases": 10,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M14",
+      "title": "GitHub channels and authorized publication",
+      "completeCases": 0,
+      "requiredCases": 11,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M15",
+      "title": "Development and release images",
+      "completeCases": 0,
+      "requiredCases": 8,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M16",
+      "title": "Agent-native factory and migration",
+      "completeCases": 0,
+      "requiredCases": 8,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    },
+    {
+      "id": "M17",
+      "title": "Release hardening and independent evidence",
+      "completeCases": 0,
+      "requiredCases": 10,
+      "ownCasesComplete": false,
+      "ready": false,
+      "completeWithPrerequisites": false
+    }
+  ]
+}

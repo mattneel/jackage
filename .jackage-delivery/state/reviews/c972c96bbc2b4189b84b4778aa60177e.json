@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c972c96bbc2b4189b84b4778aa60177e",
+  "case": "EVAL-008",
+  "caseDigest": "51d9a0d5712f17876fa231dca722303bc7662dfd142874cf8c320b5fefcdc484",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected allocator-backed exact live-heap accounting, repeated resource failures, context/runtime cleanup and testing-allocator ownership. Fault: the two-million-element allocation under the declared 1 MiB heap expected ResourceLimit but evaluated a plan after the allocator ceiling was inflated (TestExpectedError). Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.796679+00:00",
+  "records": [
+    "8883fe5e35334a049fd5f9040eef7878",
+    "f493e0f569ef4aa78fa3f12bab9d08b0",
+    "329751f4d23a49daa2ff2731e175e746",
+    "a66736d475b940d5817237b204463957"
+  ],
+  "recordDigests": {
+    "8883fe5e35334a049fd5f9040eef7878": "8afb127898d6cb4db41c9deb72b9b2f7bc483740c28ff50c4ca40d5a8c9f6b6c",
+    "f493e0f569ef4aa78fa3f12bab9d08b0": "4cb365e1a791258d796d07395d8068a98f277bc378434f75357af93000a49be8",
+    "329751f4d23a49daa2ff2731e175e746": "cce220ba101edfc5802fa6fe4732368e4e56107a2f705e25986c6fbe73980c21",
+    "a66736d475b940d5817237b204463957": "e98db6025f4e6d9478d127d48b9ef30198fc6a73c959067c2298a4ed9dabe518"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

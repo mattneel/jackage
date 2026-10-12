@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "7ad6f072a1bb4870a7b9453009559ee8",
+  "case": "AUD-005",
+  "caseDigest": "98e1a4354acc0c5602946ffa1209378208e4a2a15d8812361ba1478a13735a90",
+  "reviewer": "OMP agent (M00 work unit)",
+  "note": "Inspected src/audit/baseline.zig classify/outcomeFor and assertNoNewFailures: a pre-existing exit code 3 stays preserved_failure, a newly failing command is new_failure, a different exit code is changed_failure, and a repaired failure is fixed. No pre-existing failure exists in this checkout, so the rule is exercised against fixtures.",
+  "reviewedUtc": "2026-10-12T03:57:22.534446+00:00",
+  "records": [
+    "850f7e6c9fce464c92a2183818c615d4",
+    "34e58250e46d4cb4a95e285ab18844c0",
+    "3082f7bea96f49ee94e35145f99132f7",
+    "7055b445897b407e9001e93a40e2ce3a"
+  ],
+  "recordDigests": {
+    "850f7e6c9fce464c92a2183818c615d4": "781505325871c452d61fa4fe397b322a94a30bf0c00660ca1a5ca0477c8cfced",
+    "34e58250e46d4cb4a95e285ab18844c0": "5808ab070d76d2f0c00918098bd73b0b34586afa88567f2ce9aaad50a2b34a7c",
+    "3082f7bea96f49ee94e35145f99132f7": "5e62a399709a59965f20a4d77be8cf4ec61a636687ccde1db05b2464832a559f",
+    "7055b445897b407e9001e93a40e2ce3a": "a04c54b3950a9fce289beff755623dd0124e6134a60dbe8bdba3a746338d1e2c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

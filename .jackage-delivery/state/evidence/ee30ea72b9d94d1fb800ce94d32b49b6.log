@@ -1,0 +1,205 @@
+test
++- run test jckg-tests 4 pass, 10 fail (14 total); 2 leaks
+error: 'profile.tests.test.m06/PROFILE-001 Install a closure' failed:
+       JCKG_EVIDENCE PROFILE-001
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6e5091a3f in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\profile\tests.zig:172:5: 0x7ff6e51b120c in test.m06/PROFILE-001 Install a closure (jckg-tests_zcu.obj)
+           try std.testing.expect(try contains(generation.manifest().closure, dependency.payload));
+           ^
+error: 'profile.tests.test.m06/PROFILE-002 Activate atomically' failed:
+       JCKG_EVIDENCE PROFILE-002
+       
+       ====== expected this output: =========
+       82f3c982132b886c08ab5c6f78ff8b7f␃
+       
+       ======== instead found this: =========
+       325c141212a32d366f7722ce9c273b5a␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       82f3c982132b886c08ab5c6f78ff8b7f
+       ^ ('\x38')
+       found:
+       325c141212a32d366f7722ce9c273b5a
+       ^ ('\x33')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff6e5091c31 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\profile\tests.zig:231:13: 0x7ff6e51add22 in test.m06/PROFILE-002 Activate atomically (jckg-tests_zcu.obj)
+                   try std.testing.expectEqualStrings(prior.manifest().id, active.manifest().id);
+                   ^
+error: 'profile.tests.test.m06/PROFILE-003 Rollback a generation' failed:
+       JCKG_EVIDENCE PROFILE-003
+       
+       ====== expected this output: =========
+       7191254ceaec36ac509b0722e961e5e5␃
+       
+       ======== instead found this: =========
+       87fe05c21b920606f478ec71c99b506b␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       7191254ceaec36ac509b0722e961e5e5
+       ^ ('\x37')
+       found:
+       87fe05c21b920606f478ec71c99b506b
+       ^ ('\x38')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff6e5091c31 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\profile\tests.zig:263:5: 0x7ff6e51aaf76 in test.m06/PROFILE-003 Rollback a generation (jckg-tests_zcu.obj)
+           try std.testing.expectEqualStrings(first.manifest().id, rollback.manifest().id);
+           ^
+error: 'profile.tests.test.m06/PROFILE-004 Remove references safely' failed:
+       JCKG_EVIDENCE PROFILE-004
+       expected 1, found 2
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6e509cffa in expectEqualInner__func_910 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6e51a64d1 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\profile\tests.zig:294:5: 0x7ff6e51a65cd in test.m06/PROFILE-004 Remove references safely (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 1), removed.manifest().packages.len);
+           ^
+error: 'profile.tests.test.m06/PROFILE-005 Handle executable collision' failed:
+       JCKG_EVIDENCE PROFILE-005
+       expected error.CommandCollision, found .{ .parsed = .{ .arena = .{ .child_allocator = .{ ... }, .state = .{ ... } }, .value = .{ .schema_version = 1, .id = { ... }, .parent = { ... }, .packages = { ... }, .closure = { ... }, .commands = { ... } } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6e519a6bd in expectError__func_1476 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\profile\tests.zig:324:5: 0x7ff6e519b0a7 in test.m06/PROFILE-005 Handle executable collision (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.CommandCollision, fixture.manager().install("default", &selections, .{ .collision = &collision }));
+           ^
+       [SafeAllocator] (err): leaked [addr: 2d00f08, len: 3538 (0xdd2) align: 8] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:147: 0x7ff6e4f4eb34 in rawAlloc (jckg-tests_zcu.obj)
+           return a.vtable.alloc(a.ptr, len, alignment, ret_addr);
+       
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:325:35: 0x7ff6e4f4eb34 in allocBytesAligned__func_193 (jckg-tests_zcu.obj)
+           const byte_ptr = self.rawAlloc(byte_count, alignment, return_address) orelse return error.OutOfMemory;
+                                         ^
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:311:34: 0x7ff6e4f4e811 in allocWithSizeAndAlignment__func_192 (jckg-tests_zcu.obj)
+           return self.allocBytesAligned(alignment, byte_count, return_address);
+                                        ^
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:299: 0x7ff6e4fb9d1b in allocAdvancedWithRetAddr (jckg-tests_zcu.obj)
+           const ptr: [*]align(a.toByteUnits()) T = @ptrCast(try self.allocWithSizeAndAlignment(@sizeOf(T), a, n, return_address));
+       
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:287:41: 0x7ff6e4fb9d1b in alignedAlloc__func_473 (jckg-tests_zcu.obj)
+           return self.allocAdvancedWithRetAddr(T, alignment, n, @returnAddress());
+                                               ^
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:484:67: 0x7ff6e4fbb76e in ensureTotalCapacityPrecise (jckg-tests_zcu.obj)
+                       const new_memory = try self.allocator.alignedAlloc(T, alignment, new_capacity);
+                                                                         ^
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:460:51: 0x7ff6e4fbc2ba in ensureTotalCapacity (jckg-tests_zcu.obj)
+                   return self.ensureTotalCapacityPrecise(better_capacity);
+                                                         ^
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:495:44: 0x7ff6e5011db4 in ensureUnusedCapacity (jckg-tests_zcu.obj)
+                   return self.ensureTotalCapacity(try addOrOom(self.items.len, additional_count));
+                                                  ^
+       C:/src/jackage/tools/zig/lib/std/array_list.zig:334:42: 0x7ff6e50116c0 in appendSlice (jckg-tests_zcu.obj)
+                   try self.ensureUnusedCapacity(items.len);
+                                                ^
+       (additional stack frames may have been skipped...)
+       
+       [SafeAllocator] (err): leaked [addr: 2d00d50, len: 32 (0x20) align: 8] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:110:38: 0x7ff6e511d015 in parseFromTokenSource__func_1246 (jckg-tests_zcu.obj)
+               .arena = try allocator.create(ArenaAllocator),
+                                            ^
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:83:32: 0x7ff6e511c760 in parseFromSlice__func_878 (jckg-tests_zcu.obj)
+           return parseFromTokenSource(T, allocator, &scanner, options);
+                                      ^
+       C:\src\jackage\src\profile\manager.zig:352:51: 0x7ff6e508501f in readGenerationLocked (jckg-tests_zcu.obj)
+               const parsed = try std.json.parseFromSlice(Manifest, self.gpa, bytes, .{ .allocate = .alloc_always });
+                                                         ^
+       C:\src\jackage\src\profile\manager.zig:300:41: 0x7ff6e516fa21 in installLocked (jckg-tests_zcu.obj)
+               return self.readGenerationLocked(name, id);
+                                               ^
+       C:\src\jackage\src\profile\manager.zig:213:34: 0x7ff6e516fe33 in install (jckg-tests_zcu.obj)
+               return self.installLocked(name, selections, options);
+                                        ^
+       C:\src\jackage\src\profile\tests.zig:324:82: 0x7ff6e519af8b in test.m06/PROFILE-005 Handle executable collision (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.CommandCollision, fixture.manager().install("default", &selections, .{ .collision = &collision }));
+                                                                                        ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff6e4efd2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       (additional stack frames may have been skipped...)
+error: 'profile.tests.test.m06/PROFILE-006 Preserve active executable' failed:
+       JCKG_EVIDENCE PROFILE-006
+       expected error.LeaseHolderActive, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6e519433a in expectError__func_1464 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\profile\tests.zig:374:5: 0x7ff6e519643d in test.m06/PROFILE-006 Preserve active executable (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.LeaseHolderActive, execution.lease.release());
+           ^
+error: 'profile.tests.test.m06/PROFILE-007 Run transiently' failed:
+       JCKG_EVIDENCE PROFILE-007
+       
+       ====== expected this output: =========
+       C:\Program Files\PowerShell\7;C:\Users\requi\AppData\Local\Tern\omp\bin;C:\Program Files\PowerShell\7;C:\Ruby34-x64\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\WezTerm;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI\;C:\Program Files\Git\cmd;C:\Program Files\Git-Xet\;C:\Users\requi\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\dotnet\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Steel Bank Common Lisp\;C:\Program Files\Tailscale\;C:\Program Files\CMake\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Process Lasso\;C:\Program Files\PowerShell\7\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\xmake;C:\Program Files\WSL\;C:\Program Files\PowerToys\DSCModules\;C:\Users\requi\AppData\Local\zigpp\current;C:\Users\requi\AppData\Local\zigpp\bin;C:\Users\requi\AppData\Local\Temp\ppup-test\run\home\current;C:\Users\requi\AppData\Local\Temp\ppup-test\run\home\bin;C:\Users\requi\scoop\shims;C:\Users\requi\.unsloth\studio\bin;C:\Users\requi\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\requi\AppData\Local\Programs\Python\Python313\;C:\Users\requi\AppData\Local\Programs\Python\Launcher\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.1\bin;C:\Users\requi\.cargo\bin;C:\Users\requi\.grok\bin;C:\Program Files\PowerShell\7;C:\Program Files\Eclipse Adoptium\jre-8.0.472.8-hotspot\bin;C:\Program Files (x86)\Eclipse Adoptium\jre-8.0.472.8-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\WezTerm;C:\Program Files\PowerShell\7\;C:\Users\requi\AppData\Local\Microsoft\WindowsApps;C:\Users\requi\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Users\requi\AppData\Local\Programs\Ollama;c:\users\requi\appdata\roaming\python\python311\scripts;c:\users\requi\.local\bin;C:\Users\requi\AppData\Local\Python\bin;C:\Users\requi\AppData\Local\omp;C:\Users\requi\.dotnet\tools;C:\Users\requi\AppData\Local\Python\pythoncore-3.14-64\Scripts;C:\Users\requi\AppData\Local\Microsoft\WinGet\Links;C:\Users\requi\.local\share\fortunate-sons-tools\fabcli-v0.1.0\fabcli-v0.1.0-windows64;C:\Users\requi\.dotnet\tools;C:\Users\requi\AppData\Local\Programs\AudnCode\;C:\Users\requi\AppData\Local\Unity\bin;C:\Users\requi\AppData\Local\Programs\Tern␃
+       
+       ======== instead found this: =========
+       M06_FAULT_PARENT_PATH␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       C:\Program Files\PowerShell\7;C:\Users\requi\AppData\Local\Tern\omp\bin;C:\Program Files\PowerShell\7;C:\Ruby34-x64\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\WezTerm;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI\;C:\Program Files\Git\cmd;C:\Program Files\Git-Xet\;C:\Users\requi\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\dotnet\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Steel Bank Common Lisp\;C:\Program Files\Tailscale\;C:\Program Files\CMake\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Process Lasso\;C:\Program Files\PowerShell\7\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\xmake;C:\Program Files\WSL\;C:\Program Files\PowerToys\DSCModules\;C:\Users\requi\AppData\Local\zigpp\current;C:\Users\requi\AppData\Local\zigpp\bin;C:\Users\requi\AppData\Local\Temp\ppup-test\run\home\current;C:\Users\requi\AppData\Local\Temp\ppup-test\run\home\bin;C:\Users\requi\scoop\shims;C:\Users\requi\.unsloth\studio\bin;C:\Users\requi\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\requi\AppData\Local\Programs\Python\Python313\;C:\Users\requi\AppData\Local\Programs\Python\Launcher\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.1\bin;C:\Users\requi\.cargo\bin;C:\Users\requi\.grok\bin;C:\Program Files\PowerShell\7;C:\Program Files\Eclipse Adoptium\jre-8.0.472.8-hotspot\bin;C:\Program Files (x86)\Eclipse Adoptium\jre-8.0.472.8-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\WezTerm;C:\Program Files\PowerShell\7\;C:\Users\requi\AppData\Local\Microsoft\WindowsApps;C:\Users\requi\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Users\requi\AppData\Local\Programs\Ollama;c:\users\requi\appdata\roaming\python\python311\scripts;c:\users\requi\.local\bin;C:\Users\requi\AppData\Local\Python\bin;C:\Users\requi\AppData\Local\omp;C:\Users\requi\.dotnet\tools;C:\Users\requi\AppData\Local\Python\pythoncore-3.14-64\Scripts;C:\Users\requi\AppData\Local\Microsoft\WinGet\Links;C:\Users\requi\.local\share\fortunate-sons-tools\fabcli-v0.1.0\fabcli-v0.1.0-windows64;C:\Users\requi\.dotnet\tools;C:\Users\requi\AppData\Local\Programs\AudnCode\;C:\Users\requi\AppData\Local\Unity\bin;C:\Users\requi\AppData\Local\Programs\Tern
+       ^ ('\x43')
+       found:
+       M06_FAULT_PARENT_PATH
+       ^ ('\x4d')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff6e5091c31 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\profile\tests.zig:435:5: 0x7ff6e5172426 in test.m06/PROFILE-007 Run transiently (jckg-tests_zcu.obj)
+           try std.testing.expectEqualStrings(path_before, environment_after.get("PATH") orelse "");
+           ^
+error: 'profile.tests.test.m06/PROFILE-008 Forward runner arguments' failed:
+       JCKG_EVIDENCE PROFILE-008
+       expected 10, found 9
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6e509cffa in expectEqualInner__func_910 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6e516272a in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\profile\tests.zig:453:5: 0x7ff6e51627bc in test.m06/PROFILE-008 Forward runner arguments (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(expected.len, invocation.arguments.len);
+           ^
+error: 'profile.tests.test.m06/PROFILE-009 Preserve runner exit' failed:
+       JCKG_EVIDENCE PROFILE-009
+       expected 37, found 0
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6e5092807 in expectEqualInner__func_906 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6e5092a93 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\profile\tests.zig:104:5: 0x7ff6e5092af6 in expectProgram (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(code, result.callerStatus());
+           ^
+       C:\src\jackage\src\profile\tests.zig:485:5: 0x7ff6e5160c45 in test.m06/PROFILE-009 Preserve runner exit (jckg-tests_zcu.obj)
+           try expectProgram(failed, 37);
+           ^
+error: 'profile.tests.test.m06/PROFILE-010 Lease concurrent runners' failed:
+       JCKG_EVIDENCE PROFILE-010
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6e5091a3f in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\profile\tests.zig:512:5: 0x7ff6e509d942 in test.m06/PROFILE-010 Lease concurrent runners (jckg-tests_zcu.obj)
+           try std.testing.expect(!std.mem.eql(u8, first.workspace_path, second.workspace_path));
+           ^
+failed command: ".\\.zig-cache\\o\\dc6f9a8dc7cbe8c79dbeb399ea234d5c\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xf9d9b86e --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/14 tests passed (10 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 10 fail (14 total); 2 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xf9d9b86e test -Dfilter=PROFILE --prefix C:\src\jackage\.zig-cache\test-prefix-PROFILE

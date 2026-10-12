@@ -1,0 +1,116 @@
+test
++- run test jckg-tests 105 pass, 1 fail (106 total)
+JCKG_EVIDENCE PROFILE-001
+JCKG_EVIDENCE PROFILE-002
+JCKG_EVIDENCE PROFILE-003
+JCKG_EVIDENCE PROFILE-004
+JCKG_EVIDENCE PROFILE-005
+JCKG_EVIDENCE PROFILE-006
+JCKG_EVIDENCE PROFILE-007
+JCKG_EVIDENCE PROFILE-008
+JCKG_EVIDENCE PROFILE-009
+JCKG_EVIDENCE PROFILE-010
+JCKG_EVIDENCE EXE-001
+JCKG_EVIDENCE EXE-002
+JCKG_EVIDENCE EXE-003
+JCKG_EVIDENCE EXE-004
+JCKG_EVIDENCE EXE-005
+JCKG_EVIDENCE EXE-006
+JCKG_EVIDENCE EXE-007
+JCKG_EVIDENCE EXE-008
+JCKG_EVIDENCE EXE-009
+JCKG_EVIDENCE EXE-010
+JCKG_EVIDENCE EVAL-001
+JCKG_EVIDENCE EVAL-002
+JCKG_EVIDENCE EVAL-003
+JCKG_EVIDENCE EVAL-004
+JCKG_EVIDENCE EVAL-005
+JCKG_EVIDENCE EVAL-006
+JCKG_EVIDENCE EVAL-007
+JCKG_EVIDENCE EVAL-008
+JCKG_EVIDENCE EVAL-009
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+error: 'worker.auth.test.m08/STRICT-006 authenticate workers' failed:
+       JCKG_EVIDENCE M00-REPORT
+       JCKG_EVIDENCE AUD-002
+       JCKG_EVIDENCE AUD-003
+       JCKG_EVIDENCE AUD-006
+       JCKG_EVIDENCE AUD-004
+       JCKG_EVIDENCE AUD-007
+       JCKG_EVIDENCE AUD-001
+       JCKG_EVIDENCE AUD-005
+       JCKG_EVIDENCE AUD-008
+       JCKG_EVIDENCE CLI-009
+       JCKG_EVIDENCE CAN-001
+       JCKG_EVIDENCE CAN-002
+       JCKG_EVIDENCE CAN-003
+       JCKG_EVIDENCE CAN-004
+       JCKG_EVIDENCE CAN-005
+       JCKG_EVIDENCE CAN-006
+       JCKG_EVIDENCE CAN-007
+       JCKG_EVIDENCE CAN-008
+       JCKG_EVIDENCE CLI-006
+       JCKG_EVIDENCE CLI-010
+       JCKG_EVIDENCE CAS-001
+       JCKG_EVIDENCE CAS-002
+       JCKG_EVIDENCE CAS-003
+       JCKG_EVIDENCE CAS-004
+       JCKG_EVIDENCE CAS-005
+       JCKG_EVIDENCE CAS-006
+       JCKG_EVIDENCE CAS-007
+       JCKG_EVIDENCE CAS-008
+       JCKG_EVIDENCE CAN-009
+       JCKG_EVIDENCE CAN-010
+       JCKG_EVIDENCE CLI-001
+       JCKG_EVIDENCE CLI-004
+       JCKG_EVIDENCE CLI-004
+       JCKG_EVIDENCE CLI-008
+       JCKG_EVIDENCE CLI-002
+       JCKG_EVIDENCE CLI-003
+       JCKG_EVIDENCE CLI-005
+       JCKG_EVIDENCE CLI-007
+       JCKG_EVIDENCE CLI-009
+       JCKG_EVIDENCE CLI-010
+       JCKG_EVIDENCE PLAN-008
+       JCKG_EVIDENCE PLAN-011
+       JCKG_EVIDENCE PLAN-005
+       JCKG_EVIDENCE PLAN-006
+       JCKG_EVIDENCE PLAN-007
+       JCKG_EVIDENCE PLAN-004
+       JCKG_EVIDENCE PLAN-009
+       JCKG_EVIDENCE PLAN-010
+       JCKG_EVIDENCE PLAN-001
+       JCKG_EVIDENCE PLAN-002
+       JCKG_EVIDENCE PLAN-003
+       JCKG_EVIDENCE TRUST-010
+       JCKG_EVIDENCE TRUST-009
+       JCKG_EVIDENCE TRUST-011
+       JCKG_EVIDENCE TRUST-012
+       JCKG_EVIDENCE TRUST-003
+       JCKG_EVIDENCE TRUST-002
+       JCKG_EVIDENCE TRUST-004
+       JCKG_EVIDENCE TRUST-005
+       JCKG_EVIDENCE TRUST-006
+       JCKG_EVIDENCE TRUST-008
+       JCKG_EVIDENCE TRUST-001
+       JCKG_EVIDENCE TRUST-007
+       JCKG_EVIDENCE STRICT-006
+       expected error.ForeignSession, found error.InvalidToken
+       C:\src\jackage\src\worker\auth.zig:93:79: 0x7ff67a47d26a in verify (jckg-tests_zcu.obj)
+           if (!std.crypto.timing_safe.eql([mac_length]u8, expected_mac, token.mac)) return error.InvalidToken;
+                                                                                     ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff67a47b1c7 in expectError__func_1000 (jckg-tests_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\worker\auth.zig:150:5: 0x7ff67a47bc32 in test.m08/STRICT-006 authenticate workers (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.ForeignSession, verify(gpa, key, root.fixture_now, "session-b", "worker-1", "", rescoped));
+           ^
+failed command: ".\\.zig-cache\\o\\91d4f07bb768add59c29bfcde7f5d8cc\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x7014f785 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 105/106 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 105 pass, 1 fail (106 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x7014f785 test --prefix C:\src\jackage\zig-out

@@ -1,0 +1,77 @@
+test
++- install jckg-tests
+   +- compile test jckg-tests debug native 4 errors
+src\worker\controller.zig:81:9: error: expected type 'error{DuplicateRequestId,FrameTooLarge,HandshakeFailed,InvalidFrame,NoResponse,NonMonotonicSequence,OutOfMemory,Unauthenticated,UnexpectedFrame,UnknownRequestId,UnsupportedProtocol,WorkerError}!void', found 'error{WriteFailed}'
+        try self.out.writeAll(line);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+src\worker\controller.zig:81:9: note: 'error.WriteFailed' not a member of destination error set
+src\worker\controller.zig:78:64: note: function return type declared here
+    fn writeFrame(self: *Controller, frame: frames.Frame) Error!void {
+                                                          ~~~~~^~~~~
+referenced by:
+    request: src\worker\controller.zig:133:28
+    test.worker controller handshake, request/response and claim confirmation: src\worker\controller.zig:264:44
+    1 reference(s) hidden; use '-freference-trace=3' to see all references
+src\worker\controller.zig:111:42: error: expected type '[]u8', found '*[]u8'
+        const frame = try self.readFrame(&self.line_buffer);
+                                         ^~~~~~~~~~~~~~~~~
+src\worker\controller.zig:99:45: note: parameter type declared here
+    fn readFrame(self: *Controller, buffer: []u8) Error!frames.Frame {
+                                            ^~~~
+src\worker\controller.zig:135:42: error: expected type '[]u8', found '*[]u8'
+        const frame = try self.readFrame(&self.line_buffer);
+                                         ^~~~~~~~~~~~~~~~~
+src\worker\controller.zig:99:45: note: parameter type declared here
+    fn readFrame(self: *Controller, buffer: []u8) Error!frames.Frame {
+                                            ^~~~
+src\worker\controller.zig:269:53: error: root source file struct 'mem' has no member named 'trimRight'
+    var written_reader = std.Io.Reader.fixed(std.mem.trimRight(u8, output.written(), "\n"));
+                                             ~~~~~~~^~~~~~~~~~
+tools\zig\lib\std\mem.zig:1:1: note: struct declared here
+const mem = @This();
+^~~~~
+error: 4 compilation errors
+failed command: "C:\\src\\jackage\\tools\\zig\\zig.exe" test -cflags -std=c11 -D_GNU_SOURCE -fno-sanitize=undefined -- "vendor/quickjs-ng\\quickjs.c" "vendor/quickjs-ng\\dtoa.c" "vendor/quickjs-ng\\libregexp.c" "vendor/quickjs-ng\\libunicode.c" -I "vendor\\quickjs-ng" --dep quickjs "-Mroot=src\\jckg.zig" "-Mquickjs=vendor\\quickjs-ng\\quickjs.zig" -lc --cache-dir .zig-cache --global-cache-dir "C:\\Users\\requi\\AppData\\Local\\zig" --build-root . --name jckg-tests --zig-lib-dir "tools\\zig\\lib\\" --listen=-
+
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-001
+JCKG_EVIDENCE EVAL-002
+JCKG_EVIDENCE EVAL-003
+JCKG_EVIDENCE EVAL-004
+JCKG_EVIDENCE EVAL-005
+JCKG_EVIDENCE EVAL-006
+JCKG_EVIDENCE EVAL-007
+JCKG_EVIDENCE EVAL-008
+JCKG_EVIDENCE EVAL-009
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+failed command: ".\\.zig-cache\\o\\5442bb9b5a4083bb6b9150fda5a229f7\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x851604cc --listen=-
+
+Build Summary: 12/16 steps succeeded (1 failed); 33/33 tests passed
+test transitive failure
++- run test jckg-tests transitive failure
+|  +- compile test jckg-tests debug native 4 errors
++- install jckg-tests transitive failure
+   +- compile test jckg-tests debug native (reused)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x851604cc test --prefix C:\src\jackage\zig-out

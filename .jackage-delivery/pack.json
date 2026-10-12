@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "name": "Jackage delivery kit",
+  "version": "1.0.0",
+  "productImplemented": false,
+  "sourceAudited": false,
+  "caseZero": {
+    "root": "C:\\src\\jackage",
+    "hostOS": "windows",
+    "architecture": "discover locally",
+    "zigVersion": "0.18.0-dev.146+35accc06e",
+    "zigWrapper": "scripts/zig.ps1"
+  },
+  "entryPoint": "JACKAGE_START_HERE.md",
+  "requiredMilestones": 18,
+  "requiredCases": 188,
+  "staticPayloadPolicy": "The root entry point and .jackage-delivery files only. Existing product files remain untouched.",
+  "runtimeDependenciesBundled": [],
+  "optionalToolRuntime": "Python 3.10+ for pack tools. PowerShell 5.1+ for optional Windows support scripts."
+}

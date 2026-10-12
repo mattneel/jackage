@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3a195ac1a9284d989e540a8828eaf755",
+  "case": "PROFILE-003",
+  "caseDigest": "188bdce70bd9c236fb23ae77b8803818a7a4e3ed05aaafc949d0620c5f0effed",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected parent-generation rollback, manifest command ownership, earlier runtime dependency closure and a real spawned command reading the earlier package payload; deliberate current-generation selection fault was detected.",
+  "reviewedUtc": "2026-10-12T08:59:14.676951+00:00",
+  "records": [
+    "6598951a10f44c8ab623ee430ec67213",
+    "3feca49c3ea04258a0f2b35b0e95aa8e",
+    "4e6260b3b5144ce289a407b0733348c2",
+    "d734583b77904ceca898561f84d704d0"
+  ],
+  "recordDigests": {
+    "6598951a10f44c8ab623ee430ec67213": "82e56246676b0b77eea27f303ba93bb1d3e5e519eb76b8cbd4740a9e577797bb",
+    "3feca49c3ea04258a0f2b35b0e95aa8e": "4200151af8a61d38e33e93e16830849b49b224226e69e9859ad2a6238e266946",
+    "4e6260b3b5144ce289a407b0733348c2": "345833bebec8e12f49bdeaf026292414499cbe5bcfc8182e208abccb41701187",
+    "d734583b77904ceca898561f84d704d0": "192565ec71d3f99a9374a9e23ff1af4555bc4986859b1344535650ca09266e16"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

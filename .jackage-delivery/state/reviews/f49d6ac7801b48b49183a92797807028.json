@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "f49d6ac7801b48b49183a92797807028",
+  "case": "PROFILE-002",
+  "caseDigest": "6b648ac1d946c13f8cc8e655478a5e10e6c5af216bcac168e91b030a35990136",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected all six activation checkpoints, generation and pointer file sync, atomic rename, fresh-client recovery and ignored stale pointer temps; deliberate premature in-place active pointer publication was detected by its pre-rename old-generation assertion.",
+  "reviewedUtc": "2026-10-12T08:59:14.609166+00:00",
+  "records": [
+    "b931435f2eaa4070b488303a9b1cbb2d",
+    "19c17657787d4d83b668d2a06b2e3708",
+    "56ef3104448046e4a5eb38517bc37136",
+    "75c06cd4eeb6486c8b6f2074903951dc"
+  ],
+  "recordDigests": {
+    "b931435f2eaa4070b488303a9b1cbb2d": "3e60b2e7a6b09258d09757bb1d40618f3dd025d3b934a4ce505eac64020cb990",
+    "19c17657787d4d83b668d2a06b2e3708": "6235ad2816008fc0dbfbc9d831be178205580c0e7e8d7883d7fd4dd51413ac3d",
+    "56ef3104448046e4a5eb38517bc37136": "2d544618907450cf6def8219b4943736dc8da031eba1224c7176e3949c773c1c",
+    "75c06cd4eeb6486c8b6f2074903951dc": "5a11aa340bb2115019294bcaf3a5ff8ce590c73205306c77cb40d63998380e2c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

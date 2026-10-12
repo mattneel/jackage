@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "934ce67c3b24498ba43bbf2ee8512eeb",
+  "case": "CAN-006",
+  "caseDigest": "e2309878ba7d4d5ff527f6b3a3eecd58f727ecbd668d3f39f68dc4207d84d37e",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected parseUnicodeEscape: unpaired high and low surrogates are rejected, a surrogate followed by ordinary content is rejected, a well-formed pair becomes one scalar value, and raw invalid UTF-8 is rejected; parse failures return no value (no partial result).",
+  "reviewedUtc": "2026-10-12T04:32:35.631894+00:00",
+  "records": [
+    "21ddf7b6e57e43daa4b03a5ad7de430c",
+    "657c8b0490dc4ec6a4e43c2eaf3db3b3",
+    "c94c70ea83044c86870ed7be22fab793",
+    "608358525afd497f80650911a30ef88d"
+  ],
+  "recordDigests": {
+    "21ddf7b6e57e43daa4b03a5ad7de430c": "08d5be4cda76efd0a25bf03ca97af7bdbb275b128df86fc5b71775f85368c3e2",
+    "657c8b0490dc4ec6a4e43c2eaf3db3b3": "9653aad508a6f0af6a573c33e5b80bea20667385d64c28cbb230a2a2fc8ce535",
+    "c94c70ea83044c86870ed7be22fab793": "11d3a20deaf57368030e33f495eb14b4a0b4373772f74f510354748f0d7d1bd4",
+    "608358525afd497f80650911a30ef88d": "845a2d6861ce21ec44c65ed227f3dfaf481bd7d91c2cf9737d226fc9247f7008"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

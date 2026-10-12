@@ -1,0 +1,50 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE TRUST-010
+JCKG_EVIDENCE TRUST-009
+JCKG_EVIDENCE TRUST-011
+JCKG_EVIDENCE TRUST-012
+JCKG_EVIDENCE TRUST-003
+JCKG_EVIDENCE TRUST-002
+JCKG_EVIDENCE TRUST-004
+JCKG_EVIDENCE TRUST-005
+JCKG_EVIDENCE TRUST-006
+JCKG_EVIDENCE TRUST-008
+JCKG_EVIDENCE TRUST-001
+JCKG_EVIDENCE TRUST-007
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-m07\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xc40f26c4 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/16 jckg.test_0...OK
+2/16 eval.mod.test_0...OK
+3/16 exec.mod.test_0...OK
+4/16 profile.mod.test_0...OK
+5/16 trust.archive.test.m07/TRUST-010 reject portable archive attacks atomically...JCKG_EVIDENCE TRUST-010
+OK
+6/16 trust.download.test.m07/TRUST-009 bound and verify downloads...JCKG_EVIDENCE TRUST-009
+OK
+7/16 trust.download.test.m07/TRUST-011 protect authorization redirects...JCKG_EVIDENCE TRUST-011
+OK
+8/16 trust.download.test.m07/TRUST-012 resist computation cache poisoning...JCKG_EVIDENCE TRUST-012
+OK
+9/16 trust.keys.test.m07/TRUST-003 reject bad signatures...JCKG_EVIDENCE TRUST-003
+OK
+10/16 trust.metadata.test.m07/TRUST-002 accept authorized metadata...JCKG_EVIDENCE TRUST-002
+OK
+11/16 trust.metadata.test.m07/TRUST-004 reject rollback...JCKG_EVIDENCE TRUST-004
+OK
+12/16 trust.metadata.test.m07/TRUST-005 reject expiry...JCKG_EVIDENCE TRUST-005
+OK
+13/16 trust.metadata.test.m07/TRUST-006 reject mixed snapshots...JCKG_EVIDENCE TRUST-006
+OK
+14/16 trust.metadata.test.m07/TRUST-008 distinguish offline execution...JCKG_EVIDENCE TRUST-008
+OK
+15/16 trust.root.test.m07/TRUST-001 require root enrollment...JCKG_EVIDENCE TRUST-001
+OK
+16/16 trust.root.test.m07/TRUST-007 rotate roots safely...JCKG_EVIDENCE TRUST-007
+OK
+All 16 tests passed.

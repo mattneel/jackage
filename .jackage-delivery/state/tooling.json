@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "meaning": "Development and bootstrap tooling observed locally. Digests were computed from the artifacts this session fetched; licenses are recorded from the pinned source, not assumed. None of these are product runtime dependencies unless the lockfile says so.",
+  "recordedUtc": "2026-10-12T05:10:00Z",
+  "tools": [
+    {
+      "name": "zig-windows-x86_64",
+      "version": "0.18.0-dev.146+35accc06e",
+      "purpose": "bootstrap compiler for the Windows host (the checkout pin)",
+      "url": "https://ziglang.org/builds/zig-x86_64-windows-0.18.0-dev.146+35accc06e.zip",
+      "sha256": "ec5d64aae44b54ce8425ecd7b40f1fa5c8061d1dc80939b02ed036513d69ae67",
+      "digestSource": "pin recorded in scripts/fetch-zig.ps1; version observed locally as 0.18.0-dev.146+35accc06e, archive digest not re-verified this session",
+      "license": "MIT (tools/zig/LICENSE)",
+      "installedPath": "C:/src/jackage/tools/zig (gitignored)"
+    },
+    {
+      "name": "zig-linux-x86_64",
+      "version": "0.18.0-dev.146+35accc06e",
+      "purpose": "pinned compiler for the declared Linux execution environment (ADR-0001)",
+      "url": "https://ziglang.org/builds/zig-x86_64-linux-0.18.0-dev.146+35accc06e.tar.xz",
+      "sha256": "1061dbb921f62b67765810609a80c17fa69eeced9f21e9a7e0d06b4e0d7a3715",
+      "sizeBytes": 59081176,
+      "digestSource": "read from https://ziglang.org/download/index.json (master entry) and pinned in scripts/fetch-zig-linux.sh",
+      "license": "MIT (\u00a7 LICENSE in the extracted archive)",
+      "installedPath": "guest $HOME/jckg/toolchain/zig-0.18.0-dev.146+35accc06e (outside the checkout)"
+    },
+    {
+      "name": "mutagen",
+      "version": "0.18.1",
+      "purpose": "development synchronization adapter between the Windows checkout and the guest workspace (ADR-0002); never a build input",
+      "url": "https://github.com/mutagen-io/mutagen/releases/download/v0.18.1/mutagen_windows_amd64_v0.18.1.zip",
+      "sha256": "76f8223d5e6b607efdd9516473669ae5492e4f142887352d59bc6934d1f07a2d",
+      "sizeBytes": 102206512,
+      "digestSource": "computed locally after download; release published 2025-02-24",
+      "license": "MIT (LICENSE at tag v0.18.1, 2036 bytes, sha256 886ee5c61fb4b87bfe80499a667e1b0e4ab0216d133b0c7ec9f0859f73127d55)",
+      "installedPath": "%USERPROFILE%/jckg/tooling/mutagen-v0.18.1/mutagen.exe (outside the checkout)"
+    },
+    {
+      "name": "wsl2-ubuntu",
+      "version": "Ubuntu 24.04.5 LTS",
+      "purpose": "declared Linux x86_64 execution environment (ADR-0001)",
+      "kernel": "7.2.6-locietta-WSL2-xanmod1 (user's existing custom kernel, untouched)",
+      "architecture": "x86_64",
+      "logicalCpus": 32,
+      "license": "Ubuntu distribution terms; not redistributed",
+      "installedPath": "existing user environment"
+    }
+  ]
+}

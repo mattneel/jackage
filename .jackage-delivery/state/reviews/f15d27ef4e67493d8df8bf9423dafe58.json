@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "f15d27ef4e67493d8df8bf9423dafe58",
+  "case": "CLI-009",
+  "caseDigest": "0c1ddf304055c68505c6f17da650d55f07cf6ae629f0446095f44e8705cbe0b6",
+  "reviewer": "OMP agent (M01 work unit)",
+  "note": "Inspected src/core/cancel.zig, src/cli/console.zig and the spawned client: a real second thread requesting the token stops the loop with a canceled outcome; a 60 second watch cancelled through stdin exits 130 with a final summary event (status canceled, stopReason stdin) in well under the deadline; the deadline path is reported separately as completed/deadline.",
+  "reviewedUtc": "2026-10-12T04:21:26.559098+00:00",
+  "records": [
+    "5acbb06158804691b191aa1dfcfb6a07",
+    "d496b38cef04487cbfefce8bf8c8172a",
+    "90e259a0bb034275828e6b96e66fc9c3",
+    "966cd70c641943d8909de6ace20bd550"
+  ],
+  "recordDigests": {
+    "5acbb06158804691b191aa1dfcfb6a07": "f5659ec620a165ab15be0c22c972c2342d78050129f6fd0080613f182863d033",
+    "d496b38cef04487cbfefce8bf8c8172a": "eb2e421627cce6beb24156f83d64b2c028f38bb3f4b96b6cd9a16f4590a4c100",
+    "90e259a0bb034275828e6b96e66fc9c3": "4cf8c7c707935bb48c2c927f7387b92c4b436869441879f019be2265102f6f8a",
+    "966cd70c641943d8909de6ace20bd550": "f8bea21b5af6ecf85dd893cc607410a1b5600d9cdfd46fef3742ace79de2e146"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

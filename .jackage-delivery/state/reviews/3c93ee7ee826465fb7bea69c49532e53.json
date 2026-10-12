@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3c93ee7ee826465fb7bea69c49532e53",
+  "case": "CLI-003",
+  "caseDigest": "93efcecdfe836acfd11418f018cb12f5d3eb4edb26c8f95a89d714f86d0d2ee6",
+  "reviewer": "OMP agent (M01 work unit)",
+  "note": "Inspected src/cli/output.zig plus the spawned client: in --json mode every stdout line parses as one JSON document for both success and failure, prose only reaches stderr, the failure document carries code USAGE, and human mode writes no JSON to stdout.",
+  "reviewedUtc": "2026-10-12T04:21:26.135933+00:00",
+  "records": [
+    "94e62938205d4ca29cf3278f363d7c1b",
+    "07ac83e6d17c4dfb80d71e958a7c67cc",
+    "d0841e80c5f14f99b8fc4950f738cae1",
+    "fcdaf609bfdc4a0a8ea1fb8e8a568a53"
+  ],
+  "recordDigests": {
+    "94e62938205d4ca29cf3278f363d7c1b": "51652bdfbeb7f9faa7895ad63667a8fefa6c125bb22bfab2de62671fccfd0f4a",
+    "07ac83e6d17c4dfb80d71e958a7c67cc": "5d5f3f87582472d65821ebd54b96345f515ec85272820fbb57992e0c50fe32ec",
+    "d0841e80c5f14f99b8fc4950f738cae1": "7200d8bf80a213aa220c3ed6b7ba9dd2b33b90f2a9f9c12f56d0e95168659117",
+    "fcdaf609bfdc4a0a8ea1fb8e8a568a53": "f13685bc44053a4329670ce0377195e7eda95be112c62a3c7750e69e3b5c71c6"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

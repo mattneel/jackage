@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cf49f13300d14dfaac76db541d60b584",
+  "case": "EXE-005",
+  "caseDigest": "6cfcf7a98959918c5904d105e262e2709567116f9355cab0a099b5e269e12b2b",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected full DWORD exit retrieval and action_failure classification before collection. Real command exits 37 with partial file; no successful outputs or blob; journal records failure. Exit 513 is preserved. Fault changes nonzero classification; unchanged own assertion fails.",
+  "reviewedUtc": "2026-10-12T10:02:34.140709+00:00",
+  "records": [
+    "07af088cfa5e412cb07314767fb9315e",
+    "41ff31054d0541c3bd667e5bcfe3e7e9",
+    "fadac7595e1e4174add6adc57dbf2d79",
+    "11343219702b442d914e3b9b910e4267"
+  ],
+  "recordDigests": {
+    "07af088cfa5e412cb07314767fb9315e": "da8617a592879bceb4e0d242f7a18658607ff9bdfac341432e22ea802a294b9a",
+    "41ff31054d0541c3bd667e5bcfe3e7e9": "ed86d8c98591a9205a45d53be1030bae604267937005e1437c2c394d5d4b8250",
+    "fadac7595e1e4174add6adc57dbf2d79": "c411d01c1d3eaa773b3cb998ac4cced88aba9c4666b92454729f413de44e7f3f",
+    "11343219702b442d914e3b9b910e4267": "818b12de2c5e9005262bfe111737dcac521b72fc3495b141c87cc203a3c111dd"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

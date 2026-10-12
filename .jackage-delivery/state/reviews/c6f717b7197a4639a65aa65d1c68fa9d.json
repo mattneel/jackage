@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c6f717b7197a4639a65aa65d1c68fa9d",
+  "case": "PLAN-002",
+  "caseDigest": "faa7a0c82ad63916435ed33844cee6b59a03a78f751fda14ff94113cbda17c20",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected the conflict path: the explanation names the package, the requirement text, the requirer (namespace/name@version or root) and the available versions, and is byte-identical across runs for the same graph; a compatible graph resolves, so a conflict is not reported for satisfiable input.",
+  "reviewedUtc": "2026-10-12T05:04:50.854925+00:00",
+  "records": [
+    "86f92131d76a4e04842e48583363a75f",
+    "73dfe2fe904a4a4e8261715603bbc582",
+    "fa4216d8d12c480e8b8873df18effbc1",
+    "9042d4479bc74e7c804ba2410ef94d93"
+  ],
+  "recordDigests": {
+    "86f92131d76a4e04842e48583363a75f": "031f921c237edf2c2993ccddb5519a7f6cf9f1392eb5059ec9e1ec566f551405",
+    "73dfe2fe904a4a4e8261715603bbc582": "97502b9476ac95a993329e0822aca019df0f0a521d7f1a8bbcc6bec527a24603",
+    "fa4216d8d12c480e8b8873df18effbc1": "55f870eab99b48fc82bc80257133bf7049a5f71181d5750c4888400a6027e331",
+    "9042d4479bc74e7c804ba2410ef94d93": "4a7800b14fab79985ca92b879f2b6ac26fe1dafa9436a09a8d3359de2f07d6f9"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

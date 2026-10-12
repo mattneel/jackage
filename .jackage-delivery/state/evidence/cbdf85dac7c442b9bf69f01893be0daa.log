@@ -1,0 +1,39 @@
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-002 separate semantic type checks' failed:
+       JCKG_EVIDENCE EVAL-002
+       expected .failed, found .passed
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6d314f650 in expectEqualInner__func_886 (eval-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6d31500e6 in expectEqual (eval-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\eval\tests.zig:81:5: 0x7ff6d31502d3 in test.m04/EVAL-002 separate semantic type checks (eval-tests_zcu.obj)
+           try std.testing.expectEqual(eval.TypeCheck.failed, try eval.typeCheck(gpa, io, snapshots, fixture.options()));
+           ^
+failed command: ".\\.zig-cache\\o\\d5d2abad79f92687ab877796b7f07360\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x7dd0a0bc --listen=-
+
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-002 separate semantic type checks' failed:
+       JCKG_EVIDENCE EVAL-002
+       expected .failed, found .passed
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6aae1f650 in expectEqualInner__func_885 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6aae200e6 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\eval\tests.zig:81:5: 0x7ff6aae202d3 in test.m04/EVAL-002 separate semantic type checks (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(eval.TypeCheck.failed, try eval.typeCheck(gpa, io, snapshots, fixture.options()));
+           ^
+failed command: ".\\.zig-cache\\o\\12c16cc451af5c7f909e36965e5530b4\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x7dd0a0bc --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x7dd0a0bc test -Dfilter=EVAL-002 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-002

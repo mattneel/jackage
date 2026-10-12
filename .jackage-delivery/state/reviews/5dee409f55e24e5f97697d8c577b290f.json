@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "5dee409f55e24e5f97697d8c577b290f",
+  "case": "PROFILE-006",
+  "caseDigest": "a62e2f769e5e01ff7144e55eda540105718746ae29869ae1d9cef76bbe97f55a",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected persisted owner PID/creation string/start time/full closure, readLease restart loading, live-process release refusal, upgrade collection, open executable holder and final-lease reclamation; deliberate live-holder reconciliation bypass was detected.",
+  "reviewedUtc": "2026-10-12T08:59:14.880881+00:00",
+  "records": [
+    "b9706991c33d45a290a7570207618832",
+    "91fdb638e33d4be39ebffec3cef2efae",
+    "aef9a13ade44403690b24403248c618b",
+    "042f140c65364bb990e9907d637ba596"
+  ],
+  "recordDigests": {
+    "b9706991c33d45a290a7570207618832": "157302197a9c3b91d1f3891fb6305881bb1fa5306f68e2f9d4833fc64d28e1ba",
+    "91fdb638e33d4be39ebffec3cef2efae": "0ea3320064dd15a2200e67b67a8e6d67e1cd2b65eee55b90d783ee1f3655fd16",
+    "aef9a13ade44403690b24403248c618b": "2849d0c186680163b45880a5e9aa5558ff7f1569a5ebbec22861ac4495357282",
+    "042f140c65364bb990e9907d637ba596": "facd1f96dc44c085829db3773a2696e8b52155d27b228e83fbe9eab4917bac2f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "aa4090eaf49b4e788c7ccfd480c35d33",
+  "case": "CLI-004",
+  "caseDigest": "052bad8b0867bc22486c178680294518a7f19370ee4f54f693b7524cce697bf4",
+  "reviewer": "OMP agent (M01 work unit)",
+  "note": "Inspected src/cli/args.zig and src/cli/app.zig: unknown command, unknown flag (with command context), missing value, malformed value and unexpected positional each raise a distinct parse error before any command body runs, so no partial side effect is possible; the exit-code table test covers distinct documented codes.",
+  "reviewedUtc": "2026-10-12T04:21:26.206902+00:00",
+  "records": [
+    "dbeaec5eb61e4b6ba619282f927bf009",
+    "4bc1c302052546948936dbf930dbf982",
+    "a397eff8bc9142a28002c1a9cbc457f3",
+    "7cc3a9df45bc43f68a9605973ea1e449"
+  ],
+  "recordDigests": {
+    "dbeaec5eb61e4b6ba619282f927bf009": "04d689d8f5055e743499bbc33420dc1aadfa2b8b7f123858f0596e954aee3396",
+    "4bc1c302052546948936dbf930dbf982": "f91e16292d29cba94e940769741533e132af7adf4129d9ed60b308252f0e80dd",
+    "a397eff8bc9142a28002c1a9cbc457f3": "7a54a0f3feffe8ee32516dcf890260fbc5a2eb79fd4655a002157939e7f30493",
+    "7cc3a9df45bc43f68a9605973ea1e449": "da280a84ea62287f62bbd06d0b93e252a40ae48e356e47de7728d7317c96dd98"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

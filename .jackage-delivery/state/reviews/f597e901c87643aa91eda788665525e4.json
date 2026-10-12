@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "f597e901c87643aa91eda788665525e4",
+  "case": "CLI-008",
+  "caseDigest": "e34e8c1070af668f2032eac8055e1d19e99f13581df4b8b15e89506c09eb413a",
+  "reviewer": "OMP agent (M01 work unit, re-reviewed after the M03 integration)",
+  "note": "Re-recorded after the executor module landed. Inspected src/cli/commands/doctor.zig and src/exec/native.zig: the report publishes exec.nativeBackend()'s measured table (the placeholder is gone), capabilityDocuments copies each status and evidence verbatim so the report cannot look more confident than the measurement, no capability claims enforced, filesystem/network isolation are unavailable and release-blocking on any platform, and exec.requireCapabilities refuses isolation, an unknown name and every merely-supported capability instead of downgrading. Assertions are target-aware: Windows-specific per-name statuses are not asserted, so the same test is valid in the declared Linux environment.",
+  "reviewedUtc": "2026-10-12T05:08:56.828199+00:00",
+  "records": [
+    "5d7b7dfab04e4dc3acc217006f3b31d8",
+    "05b40138019548f084cfde95e522a831",
+    "42737632b33e423a8bd30b1461006dd7",
+    "5b5f3072a2da42c493a8fee0eed096fc"
+  ],
+  "recordDigests": {
+    "5d7b7dfab04e4dc3acc217006f3b31d8": "46dd6fb225bb0efde71ac33d3abd6569ceccbbdcf176dddbb5e9cf1f5a33534e",
+    "05b40138019548f084cfde95e522a831": "f80befcd1d11f37d78172de03ec187ba558b2bfe38fa1cd4515858abf79af45e",
+    "42737632b33e423a8bd30b1461006dd7": "da592b59e3ec44b82e98038576d508ac27eeeb980d610445cfd7ab340ddf76ab",
+    "5b5f3072a2da42c493a8fee0eed096fc": "8fd390be27a3c472923d8ad6d42b1c1cbab9bf8baf64a8a57b0769debfb9803f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

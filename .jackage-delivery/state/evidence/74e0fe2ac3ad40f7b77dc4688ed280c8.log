@@ -1,0 +1,58 @@
+test
++- run test jckg-tests
+   +- compile test jckg-tests debug native 1 errors
+src\profile\manager.zig:459:21: error: root source file struct 'profile.artifact' has no member named 'verifyReferences'
+        try artifact.verifyReferences(self.store, roots);
+            ~~~~~~~~^~~~~~~~~~~~~~~~~
+src\profile\artifact.zig:1:1: note: struct declared here
+//! Verified runtime artifacts are canonical JSON blobs in core.Store. Runtime
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    installLocked: src\profile\manager.zig:250:49
+    install: src\profile\manager.zig:191:34
+    3 reference(s) hidden; use '-freference-trace=5' to see all references
+error: 1 compilation errors
+failed command: "C:\\src\\jackage\\tools\\zig\\zig.exe" test -cflags -std=c11 -D_GNU_SOURCE -fno-sanitize=undefined -- "vendor/quickjs-ng\\quickjs.c" "vendor/quickjs-ng\\dtoa.c" "vendor/quickjs-ng\\libregexp.c" "vendor/quickjs-ng\\libunicode.c" -I "vendor\\quickjs-ng" --dep quickjs "-Mroot=src\\jckg.zig" "-Mquickjs=vendor\\quickjs-ng\\quickjs.zig" -lc --cache-dir .zig-cache --global-cache-dir "C:\\Users\\requi\\AppData\\Local\\zig" --build-root . --name jckg-tests --zig-lib-dir "tools\\zig\\lib\\" --listen=-
+
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-001
+JCKG_EVIDENCE EVAL-002
+JCKG_EVIDENCE EVAL-003
+JCKG_EVIDENCE EVAL-004
+JCKG_EVIDENCE EVAL-005
+JCKG_EVIDENCE EVAL-006
+JCKG_EVIDENCE EVAL-007
+JCKG_EVIDENCE EVAL-008
+JCKG_EVIDENCE EVAL-009
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+failed command: ".\\.zig-cache\\o\\5fc19a08298540764cd5c185d44e9068\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xb8ec1dc --listen=-
+
+Build Summary: 12/16 steps succeeded (1 failed); 33/33 tests passed
+test transitive failure
++- run test jckg-tests transitive failure
+|  +- compile test jckg-tests debug native 1 errors
++- install jckg-tests transitive failure
+   +- compile test jckg-tests debug native (reused)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xb8ec1dc test --prefix C:\src\jackage\zig-out

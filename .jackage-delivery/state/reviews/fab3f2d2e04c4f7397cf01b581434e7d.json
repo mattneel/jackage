@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "fab3f2d2e04c4f7397cf01b581434e7d",
+  "case": "EVAL-003",
+  "caseDigest": "0a0884dca7cd31793638751635a91a90d29dc81149273143f38fa04c388418ca",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected digest-verified declared local/store sources, bounded snapshot reads, exact in-memory loader resolution, artifact integrity rejection and absent-package denial. Fault: the valid digest-locked local helper should evaluate as locked-artifact; the deliberately rejecting local-source branch returned ModuleDenied before that expected declaration could be produced. Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.414260+00:00",
+  "records": [
+    "6ced418fea2b45d1b7c77ce407a1df68",
+    "5b106daa4d9d44e4a845ef00f298d0a6",
+    "7944e1885614408dabfe3c09bec2fccd",
+    "bf217a7fe3b54715a125c5264480dcdb"
+  ],
+  "recordDigests": {
+    "6ced418fea2b45d1b7c77ce407a1df68": "b538ce00ab8b5e80a3e735f5a40d13417f3b6b5f06197f8ce83c5628d3d1b08a",
+    "5b106daa4d9d44e4a845ef00f298d0a6": "c3a2f9abd7ac1317a28e23c837a6d3c8fcf3a47683c7334b44cba81fa4ebc84f",
+    "7944e1885614408dabfe3c09bec2fccd": "3846770fe0feb53378d7cc01180d38d4229e3c062f420d8d9a711d0169643a66",
+    "bf217a7fe3b54715a125c5264480dcdb": "5aeaa968358afc0ee799b0bdd228c87ba832436c4f8d0370d62b3a27dff95f92"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

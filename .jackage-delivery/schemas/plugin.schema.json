@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jackage.invalid/schemas/plugin.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "enum": [
+        "execution",
+        "package",
+        "repository"
+      ]
+    },
+    "artifact": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "major": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "minor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "major",
+        "minor"
+      ]
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "enforced",
+              "supported",
+              "observed",
+              "unavailable"
+            ]
+          },
+          "evidenceReference": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "status",
+          "evidenceReference"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "name",
+    "family",
+    "artifact",
+    "protocol",
+    "permissions",
+    "capabilities"
+  ]
+}

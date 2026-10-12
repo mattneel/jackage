@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "83a232a48a1349b585c701a8835d2c54",
+  "case": "CAS-007",
+  "caseDigest": "b3d32e41600cb8d957059a94a1bc8eb93c4d4e5506255caf1c78514143405905",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected the commit point under a failing storage layer: a short write fails IntegrityMismatch and a truncated stream fails LengthMismatch (neither publishes), an unusable staging path fails StagingUnreadable, the previously committed object remains addressable and complete, and the store works again afterwards.",
+  "reviewedUtc": "2026-10-12T04:32:36.489862+00:00",
+  "records": [
+    "e6741fefc0214b5e8dabb5f01aa637ab",
+    "1c68f2daecfa4c63b719e4030f33d376",
+    "11e47eb0c585427387cc027fec652d0a",
+    "efe5180a32094319a884e8502a03610c"
+  ],
+  "recordDigests": {
+    "e6741fefc0214b5e8dabb5f01aa637ab": "0890cadb148fe9410fbc97ab93702fcfb031676e951e0b804f2524cc26be0e39",
+    "1c68f2daecfa4c63b719e4030f33d376": "b9cc2c70ef8af8ac3dee8db9c1dd5b8b2a917327a77a124c4ea2717990296b79",
+    "11e47eb0c585427387cc027fec652d0a": "de0f9efd44d4915d8c2eb57660903efc359531c27ba6f3a8b630d2ee543cdf7e",
+    "efe5180a32094319a884e8502a03610c": "9189eba97e4b9f5f2487cbae67ae8b8cd3ff9133464e561a3bdbdadebf62134b"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

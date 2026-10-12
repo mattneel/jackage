@@ -13,3 +13,12 @@ Desktop.ini
 .DS_Store
 .vs/
 .idea/
+
+# Vendored third-party distributions. vendor/manifest.json records every URL,
+# version, and SHA-256; scripts/fetch-vendor.ps1 downloads and verifies them.
+# vendor/quickjs-ng stays committed: it is C source the build compiles directly,
+# so it must not depend on a network fetch.
+/vendor/artifacts/
+/vendor/esbuild/
+/vendor/typescript/
+/vendor/node/

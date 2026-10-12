@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "159e85b6cc68421e858728359f8002de",
+  "case": "EVAL-004",
+  "caseDigest": "84ee8051d460c7673d367ae3f4925a88b8d0fe05d004a1cebd14175db6be7abb",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected I/O-free module normalization/loading and static/dynamic URL, host-absolute, traversal, node:fs and undeclared-package rejection fixtures. Fault: the forbidden URL side-effect import expected ModuleDenied but evaluated a plan (TestExpectedError). Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.487465+00:00",
+  "records": [
+    "de062689c9bf4187814cc7430d6531cd",
+    "4d4709101db04a61b0a3adcc84335100",
+    "b2a0e03f250643a986d30ad02fb6283d",
+    "c86d43f210cb4b808d9e9f405e76252c"
+  ],
+  "recordDigests": {
+    "de062689c9bf4187814cc7430d6531cd": "c4b3f26ccd43889030a36403da2103b8d0af4116baac4d8295dd52837c9826cf",
+    "4d4709101db04a61b0a3adcc84335100": "e754239874cc8d40ba5fde56debb1587ebcf6a8fb61869f9dd1ccc050d971c87",
+    "b2a0e03f250643a986d30ad02fb6283d": "4e07b33e657a65462ae1e6674f0ea70b58abab6b271419f885b3608defc11d50",
+    "c86d43f210cb4b808d9e9f405e76252c": "ea2f7e16f20c709c8de1b5c6bb960deb86c2556cd4fbc901553a2de3c4c9e2e8"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

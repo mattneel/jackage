@@ -1,0 +1,20 @@
+1/10 jckg.test_0...OK
+2/10 audit.mod.test.m00/audit report assembles observed values...JCKG_EVIDENCE M00-REPORT
+OK
+3/10 audit.pin.test.AUD-002 honor the compiler pin...JCKG_EVIDENCE AUD-002
+OK
+4/10 audit.pin.test.AUD-003 reject pin mismatch...JCKG_EVIDENCE AUD-003
+OK
+5/10 audit.host.test.AUD-006 discover host capabilities...JCKG_EVIDENCE AUD-006
+OK
+6/10 audit.inventory.test.AUD-004 map the existing implementation...JCKG_EVIDENCE AUD-004
+OK
+7/10 audit.provenance.test.m00/AUD-007 inspect dependency provenance...JCKG_EVIDENCE AUD-007
+OK
+8/10 audit.manifest.test.AUD-001 preserve the existing checkout...JCKG_EVIDENCE AUD-001
+OK
+9/10 audit.baseline.test.m00/AUD-005 record baseline failures...JCKG_EVIDENCE AUD-005
+OK
+10/10 audit.hostenv.test.m00/AUD-008 preserve legacy WSL state...JCKG_EVIDENCE AUD-008
+OK
+All 10 tests passed.

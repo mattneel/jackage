@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "8bd6fac59bd6438fb252bb6bf4479f9c",
+  "case": "TRUST-007",
+  "caseDigest": "068c25f5d21dbf9794ce4f0138b7b4c6789db2f268e7bc0de5c1dc70da1dfbd5",
+  "reviewer": "OMP agent (M07 trust work unit)",
+  "note": "Inspected rotation: a rotation signed by both the current and the next root at their thresholds is accepted and changes the fingerprint and version; the same rotation applied to the rotated state is refused as a rollback; a rotation carrying only the new root's authorization and one carrying only the old root's are both refused with the correct reason (each candidate is signed by the side that is present, so the refusal is about missing authorization, not a bad signature); a rotation to an expired root is refused; and the failed attempts leave the current enrollment byte-identical.",
+  "reviewedUtc": "2026-10-12T05:25:09.111930+00:00",
+  "records": [
+    "5e83153b623b44beb331bc01560250a9",
+    "1fc92f740e844e7d8fe80387f7a69b40",
+    "0c07e0a779ed49a1a6c7c4dbd21fa07b",
+    "fcda3452fa254fe7a96ab11a20280e51"
+  ],
+  "recordDigests": {
+    "5e83153b623b44beb331bc01560250a9": "8f508a0f374bc15fc2d9c5a093bb756ff9fc7335018b17303384f85187555eab",
+    "1fc92f740e844e7d8fe80387f7a69b40": "fae73b8c8fbe8eb3c7345121b3c84f26f1422b78e9487d53bc56a14402d38815",
+    "0c07e0a779ed49a1a6c7c4dbd21fa07b": "00328aa93b061878a271652768de2cf8ec5bc18adda6a0b067adaf1c1662eea7",
+    "fcda3452fa254fe7a96ab11a20280e51": "9eded33477eca27c6260eb0c95b0c9dee999d7bcaaf688a0b6efdd1c2d5c3261"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

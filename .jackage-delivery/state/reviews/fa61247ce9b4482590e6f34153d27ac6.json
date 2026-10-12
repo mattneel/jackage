@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "fa61247ce9b4482590e6f34153d27ac6",
+  "case": "EXE-003",
+  "caseDigest": "3b5574cce3b744ea94ccfcaa91d92f38d95ae8895b0de121f57d97cbd880b67e",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected whole-workspace no-follow scan, exact declarations and recursive directory roots, sorted portable tree entries and store publication. Real command writes declared and stray files; stray is reported and not imported. Fault includes undeclared entries; unchanged count assertion fails.",
+  "reviewedUtc": "2026-10-12T10:02:33.964607+00:00",
+  "records": [
+    "3446344b458b4b1d9e348c5ff30dd9d1",
+    "be47b19c285e45a988796e03f33f686d",
+    "e29c711f550b43d1a083020c6d2cb1bf",
+    "b20c5395b745414894bf0b5b3ae901be"
+  ],
+  "recordDigests": {
+    "3446344b458b4b1d9e348c5ff30dd9d1": "1bba647905a6cb6f4c324a0b87bd6fd79ba0edb4e6ab6537d7a7581ca9909762",
+    "be47b19c285e45a988796e03f33f686d": "4e8a4868c3531504b06bd85d38e84147b89bef11fb008d5eda15ca6df9f8b160",
+    "e29c711f550b43d1a083020c6d2cb1bf": "827578fa90885123010dfbc2e8541e1492c182bedb8f574bf87c45f01ae1ded4",
+    "b20c5395b745414894bf0b5b3ae901be": "a4a819702d1ef290d1911d1dacb6e1a174a2076ea85a3f3cb55701240b771468"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

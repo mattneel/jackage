@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "project": "fixture-only",
+  "configurationDigest": "sha256:cb5bc1a47455d5932d3735707ecf5b7bf6dd69f29334cc8bafc22a4fa9f566e7",
+  "planDigest": "sha256:ef398b3993196d7f2839340a413e6c361d8248041b06f728111c735a7bba6012",
+  "toolchains": [],
+  "packages": [],
+  "bootstrap": [],
+  "environmentPerimeter": [
+    "Synthetic example only. This is not a Jackage dependency lock."
+  ]
+}

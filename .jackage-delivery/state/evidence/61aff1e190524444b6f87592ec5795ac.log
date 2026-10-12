@@ -1,0 +1,26 @@
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/12 jckg.test_0...OK
+2/12 eval.mod.test_0...OK
+3/12 exec.mod.test_0...OK
+4/12 profile.mod.test_0...OK
+5/12 trust.keys.test.m07/TRUST-003 reject bad signatures...JCKG_EVIDENCE TRUST-003
+OK
+6/12 trust.metadata.test.m07/TRUST-002 accept authorized metadata...JCKG_EVIDENCE TRUST-002
+OK
+7/12 trust.metadata.test.m07/TRUST-004 reject rollback...JCKG_EVIDENCE TRUST-004
+OK
+8/12 trust.metadata.test.m07/TRUST-005 reject expiry...JCKG_EVIDENCE TRUST-005
+OK
+9/12 trust.metadata.test.m07/TRUST-006 reject mixed snapshots...JCKG_EVIDENCE TRUST-006
+OK
+10/12 trust.metadata.test.m07/TRUST-008 distinguish offline execution...JCKG_EVIDENCE TRUST-008
+OK
+11/12 trust.root.test.m07/TRUST-001 require root enrollment...JCKG_EVIDENCE TRUST-001
+OK
+12/12 trust.root.test.m07/TRUST-007 rotate roots safely...JCKG_EVIDENCE TRUST-007
+OK
+All 12 tests passed.

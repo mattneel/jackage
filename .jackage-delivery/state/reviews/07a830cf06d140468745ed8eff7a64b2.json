@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "07a830cf06d140468745ed8eff7a64b2",
+  "case": "PLAN-006",
+  "caseDigest": "0d2926d4fa4d72d2040b63ceeebd67bdac79745b2aac18e2f68ba0d10152c76a",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected isFloating and validation: master, latest, HEAD and an empty identity are refused wherever an identity is required (bootstrap source, toolchain source, package version), while an exact version or commit-style identity validates, so the refusal concerns the identity and not the document shape.",
+  "reviewedUtc": "2026-10-12T05:04:51.300902+00:00",
+  "records": [
+    "a150d5c9935c4d479e48158057f3dac6",
+    "0cbbc620a43e499d879bb10ef7ea0e00",
+    "1996a8ae9aaa4c3eaa39d971fd7a05a8",
+    "033674368e104747a2d3a818aaf8414a"
+  ],
+  "recordDigests": {
+    "a150d5c9935c4d479e48158057f3dac6": "e96269d049a41772485380326015b6e72fbab149c24069f3456cf8762ddf5eaf",
+    "0cbbc620a43e499d879bb10ef7ea0e00": "6763222215ae74478caee2ec9fd26fbdd53a03b1df0d1c18a6acd6a3ce639f00",
+    "1996a8ae9aaa4c3eaa39d971fd7a05a8": "04769e465f11938e07de5eedde9f0b60194b07cebe16aa02beb8e66af5036896",
+    "033674368e104747a2d3a818aaf8414a": "a9fd6808b71ffef75c1ee538bfc2de5a666456efcf35bbf11ccfe21c7af7846d"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

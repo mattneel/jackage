@@ -1,0 +1,24 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-002
+failed command: ".\\.zig-cache\\o\\97c5f53502456d2e59dd4cf3fd8fae24\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x319a1d3a --listen=-
+
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-002
+failed command: ".\\.zig-cache\\o\\49a1c947d72b6012e128d935ce3d5a44\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x319a1d3a --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-002 separate semantic type checks...JCKG_EVIDENCE EVAL-002
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-002 separate semantic type checks...JCKG_EVIDENCE EVAL-002
+OK
+All 5 tests passed.

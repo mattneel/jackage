@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "policy": "Conservative portable tree fixture policy; OS-specific trees can have wider names.",
+  "vectors": [
+    {
+      "path": "src/main.zig",
+      "valid": true
+    },
+    {
+      "path": "hello world.txt",
+      "valid": true
+    },
+    {
+      "path": "café/東京.txt",
+      "valid": true
+    },
+    {
+      "path": ".gitignore",
+      "valid": true
+    },
+    {
+      "path": "bin/jckg",
+      "valid": true
+    },
+    {
+      "path": "a..b",
+      "valid": true
+    },
+    {
+      "path": "é.txt",
+      "valid": true
+    },
+    {
+      "path": "",
+      "valid": false
+    },
+    {
+      "path": "/absolute",
+      "valid": false
+    },
+    {
+      "path": "../escape",
+      "valid": false
+    },
+    {
+      "path": "src/../escape",
+      "valid": false
+    },
+    {
+      "path": "a//b",
+      "valid": false
+    },
+    {
+      "path": "a/./b",
+      "valid": false
+    },
+    {
+      "path": "a/",
+      "valid": false
+    },
+    {
+      "path": "C:/src",
+      "valid": false
+    },
+    {
+      "path": "C:relative",
+      "valid": false
+    },
+    {
+      "path": "..\\escape",
+      "valid": false
+    },
+    {
+      "path": "\\\\server\\share",
+      "valid": false
+    },
+    {
+      "path": "file:stream",
+      "valid": false
+    },
+    {
+      "path": "CON",
+      "valid": false
+    },
+    {
+      "path": "con.txt",
+      "valid": false
+    },
+    {
+      "path": "NUL",
+      "valid": false
+    },
+    {
+      "path": "aux.log",
+      "valid": false
+    },
+    {
+      "path": "COM1",
+      "valid": false
+    },
+    {
+      "path": "LPT9.txt",
+      "valid": false
+    },
+    {
+      "path": "COM¹",
+      "valid": false
+    },
+    {
+      "path": "LPT².txt",
+      "valid": false
+    },
+    {
+      "path": "trailing.",
+      "valid": false
+    },
+    {
+      "path": "trailing ",
+      "valid": false
+    },
+    {
+      "path": "nested/PRN.txt",
+      "valid": false
+    },
+    {
+      "path": "a\u0000b",
+      "valid": false
+    },
+    {
+      "path": "a?b",
+      "valid": false
+    },
+    {
+      "path": "a*b",
+      "valid": false
+    },
+    {
+      "path": "a|b",
+      "valid": false
+    },
+    {
+      "path": "a<b",
+      "valid": false
+    },
+    {
+      "path": "a>b",
+      "valid": false
+    },
+    {
+      "path": "a\"b",
+      "valid": false
+    },
+    {
+      "path": ".hidden/file",
+      "valid": true
+    },
+    {
+      "path": "file.lock",
+      "valid": true
+    },
+    {
+      "path": "readme.md",
+      "valid": true
+    }
+  ]
+}

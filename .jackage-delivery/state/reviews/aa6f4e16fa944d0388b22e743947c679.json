@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "aa6f4e16fa944d0388b22e743947c679",
+  "case": "CAN-008",
+  "caseDigest": "a9424a35a543355456efe4575eacd7ae1ebe8b95890e1782caf22c91b51e5bf5",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected ofBlob against the blob fixture: empty, 16-byte text and 256-byte binary vectors match their recorded digests; a single changed byte changes the identity; the empty blob equals the canonical SHA-256 of zero bytes. Digest conformance for all 15 canonical vectors is checked in the same module.",
+  "reviewedUtc": "2026-10-12T04:32:35.775393+00:00",
+  "records": [
+    "c5f267cedf2b45aa89fb2845069b1b17",
+    "3df82d93c25a4c068fbcf2c89ab715a2",
+    "acdcbb5bf8b948fc9b743693e2691e7a",
+    "9f923c679d75492cba2c306acede7d9d"
+  ],
+  "recordDigests": {
+    "c5f267cedf2b45aa89fb2845069b1b17": "6000e468b2f92e89523bcf4cb02a52f5d781dcbefa15259d14ef814792eb5f0e",
+    "3df82d93c25a4c068fbcf2c89ab715a2": "c54007c30684c2076d3753cefd034503b13ecd6a2c860c72a23cbffd5d1c2af7",
+    "acdcbb5bf8b948fc9b743693e2691e7a": "c20d6babe1e73bcf158dc8ec70528d599ea3ab9eb0322eb47b1882cffc3da62c",
+    "9f923c679d75492cba2c306acede7d9d": "6600446346eedc14d906c07b8f14bb96a669df48e2b191ee578b30063586fab5"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

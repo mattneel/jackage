@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "d5bc74dac7fc48119ae1bfede8707516",
+  "case": "PROFILE-008",
+  "caseDigest": "c4f4dff1a5b4f786888806436c8a994e064e3528bdbed38e52d03c3ee9195ab2",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected optional repository prefix, exactly one consumed runner separator and real program argv with help flags, further separators, quotes, Unicode and empty tokens; deliberate two-token separator consumption fault was detected.",
+  "reviewedUtc": "2026-10-12T08:59:15.018163+00:00",
+  "records": [
+    "16de7a0093794239bb2f51156c70951f",
+    "5d222ef95cc44c588a3f98d620720a43",
+    "8775d256a91846608639f45bee3c7c77",
+    "9891d08a773743c9987c6c97df3c53fa"
+  ],
+  "recordDigests": {
+    "16de7a0093794239bb2f51156c70951f": "4b09ac40143fd5192a956c277898d7c1e8b54d759f08540478bebe8578312275",
+    "5d222ef95cc44c588a3f98d620720a43": "15c2b92a8f5a68cf8f59744ca43a1e462c2898e79e8fc0329d970c1441305f05",
+    "8775d256a91846608639f45bee3c7c77": "320604e354887a9f1256f19ddd19aad504a1ee8bea7e1746ba40ae8a9c2fe341",
+    "9891d08a773743c9987c6c97df3c53fa": "95cab8db11c033085933e4606643e91be82b14ca4d207f15f5102355afeaf02a"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

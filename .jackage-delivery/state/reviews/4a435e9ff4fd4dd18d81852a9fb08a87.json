@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "4a435e9ff4fd4dd18d81852a9fb08a87",
+  "case": "CAN-005",
+  "caseDigest": "ca4c38420a6b4aac18c64ad2e96030bec5987041b29a2fd836ec344b6e2c1bdb",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected encodeString: non-ASCII bytes are emitted literally, escaped input decodes to the same bytes as literal input, astral characters stay four-byte UTF-8, controls use the documented short escapes and lowercase \\u00xx; the fixture's composed/decomposed pair stays different (no normalization).",
+  "reviewedUtc": "2026-10-12T04:32:35.558230+00:00",
+  "records": [
+    "b624f007b667409fb67c79ab4b0a2a70",
+    "7c5a1c151007453eb5f7bd4c0f7a496b",
+    "7ff24ba1ce894d8fa07016ca4c6cb1db",
+    "1ac605505a3046a38715159dee962e15"
+  ],
+  "recordDigests": {
+    "b624f007b667409fb67c79ab4b0a2a70": "4cc53e6da88ca92914129b114ebe88cd3b8780cbadf04695a34b188172f7b6f3",
+    "7c5a1c151007453eb5f7bd4c0f7a496b": "4d90ca2c8cedbd3aaa83dd0e66bb845cc19a3d76e7baf1847c9e09b609062b05",
+    "7ff24ba1ce894d8fa07016ca4c6cb1db": "41cb6a8ee2957664f05e0c6d74064ddd6f29e3cdcf7ee15dd27eec8a075af13c",
+    "1ac605505a3046a38715159dee962e15": "32bf9672634eba98b8b6cddf1b6c108fa056fbfce87f9dd5aa1d174338f19eeb"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

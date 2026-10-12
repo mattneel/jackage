@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c7cc9b9967b64f0f8b7e487d77415381",
+  "case": "EVAL-002",
+  "caseDigest": "a7b91c391590ae25d4c4970b2ddde4774ddbec0109fc1386a47af1b6c282f9a7",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected real TypeScript compiler diagnostics under the explicit-map CompilerHost, transform-only success, required semantic failure and unavailable-checker rejection. Fault: real semantic stage expected .failed for the number/string mismatch but reported .passed (TestExpectedEqual). Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.338454+00:00",
+  "records": [
+    "03e89082d2c1467c8d228b07a74ce835",
+    "cbdf85dac7c442b9bf69f01893be0daa",
+    "d79ab7b40a4046c498709c0814513b04",
+    "8d53c3b53a864ed59c22983068fde922"
+  ],
+  "recordDigests": {
+    "03e89082d2c1467c8d228b07a74ce835": "344275e61cc502cfe9f885db23c0ac1d3afe8445b0fb80503edc3b3db501df25",
+    "cbdf85dac7c442b9bf69f01893be0daa": "5ae31077d3facef0e9ee448789d0229f90ca568ae11aff45bcfca23802e4eb01",
+    "d79ab7b40a4046c498709c0814513b04": "57e7d64e0b299b9a25042591d330d1b53d301fffff40ab43dd43c1f85aab0d3b",
+    "8d53c3b53a864ed59c22983068fde922": "de687cafbe44bcd5a7610f44f55e6ddab7c5811a97c6882f60591713d066e347"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

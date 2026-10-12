@@ -1,0 +1,19 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-008
+failed command: ".\\.zig-cache\\o\\0a80406e9650fa77c4624fd60c5df66c\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xd9218f52 --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-008 bound heap allocation and release engine resources...JCKG_EVIDENCE EVAL-008
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-008 bound heap allocation and release engine resources...JCKG_EVIDENCE EVAL-008
+OK
+All 5 tests passed.

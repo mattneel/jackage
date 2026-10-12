@@ -1,0 +1,47 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE PLAN-008
+JCKG_EVIDENCE PLAN-011
+JCKG_EVIDENCE PLAN-005
+JCKG_EVIDENCE PLAN-006
+JCKG_EVIDENCE PLAN-007
+JCKG_EVIDENCE PLAN-004
+JCKG_EVIDENCE PLAN-009
+JCKG_EVIDENCE PLAN-010
+JCKG_EVIDENCE PLAN-001
+JCKG_EVIDENCE PLAN-002
+JCKG_EVIDENCE PLAN-003
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-PLAN\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xa42eb487 --listen=-
+
+=== eval-tests.exe ===
+1/2 eval_tests.test_0...OK
+2/2 eval.mod.test_0...OK
+All 2 tests passed.
+=== jckg-tests.exe ===
+1/15 jckg.test_0...OK
+2/15 eval.mod.test_0...OK
+3/15 exec.mod.test_0...OK
+4/15 plan.cache.test.m05/PLAN-008 separate action and artifact identity...JCKG_EVIDENCE PLAN-008
+OK
+5/15 plan.cache.test.m05/PLAN-011 preserve cache policy...JCKG_EVIDENCE PLAN-011
+OK
+6/15 plan.lockfile.test.m05/PLAN-005 lock complete inputs...JCKG_EVIDENCE PLAN-005
+OK
+7/15 plan.lockfile.test.m05/PLAN-006 refuse floating locked input...JCKG_EVIDENCE PLAN-006
+OK
+8/15 plan.lockfile.test.m05/PLAN-007 honor locked mode...JCKG_EVIDENCE PLAN-007
+OK
+9/15 plan.planner.test.m05/PLAN-004 reject graph cycles...JCKG_EVIDENCE PLAN-004
+OK
+10/15 plan.planner.test.m05/PLAN-009 schedule dependencies...JCKG_EVIDENCE PLAN-009
+OK
+11/15 plan.planner.test.m05/PLAN-010 separate platforms...JCKG_EVIDENCE PLAN-010
+OK
+12/15 plan.resolver.test.m05/PLAN-001 resolve exact closure...JCKG_EVIDENCE PLAN-001
+OK
+13/15 plan.resolver.test.m05/PLAN-002 explain conflicts...JCKG_EVIDENCE PLAN-002
+OK
+14/15 plan.resolver.test.m05/PLAN-003 preserve namespaces...JCKG_EVIDENCE PLAN-003
+OK
+15/15 profile.mod.test_0...OK
+All 15 tests passed.

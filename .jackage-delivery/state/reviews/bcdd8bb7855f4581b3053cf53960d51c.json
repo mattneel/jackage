@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "bcdd8bb7855f4581b3053cf53960d51c",
+  "case": "EVAL-007",
+  "caseDigest": "0d8683181c1deb7a18e1a67b12639f3699a5ed62ca1fb7f5790fcec69821e6d6",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected real QuickJS interrupt handler, fixed monotonic deadline, infinite-loop termination, empty failed-evaluation cache and recovery. Fault: the infinite loop expected DeadlineExceeded but returned EvaluationFailed after the timeout verdict flag was cleared (TestExpectedEqual); interruption remained enabled to keep the fault run bounded. Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.715519+00:00",
+  "records": [
+    "67ac917aca004cdd9a80951cdf149f2d",
+    "31912fabf465421d97eb89f9754819dc",
+    "f94f2d6bae634bd09ec6f64718e3763b",
+    "8f887ded9e2c4aca8104d80df96a9511"
+  ],
+  "recordDigests": {
+    "67ac917aca004cdd9a80951cdf149f2d": "c0cc8970fb5480a043e7133473fad112003424a226798bb1a852bc651099ae5c",
+    "31912fabf465421d97eb89f9754819dc": "40f40238f2f193d12ca0f55c7ba9321af3db1582312d86d21c72d5a2d61de7e9",
+    "f94f2d6bae634bd09ec6f64718e3763b": "7555cb03b7782aa04259873fb22f43b8c0d962d00b83336f7982feb00fc599de",
+    "8f887ded9e2c4aca8104d80df96a9511": "c1cc1e7581275e88e6b409f6ec8391e16923f179070510f302c55cfa831ecaa6"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

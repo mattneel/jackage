@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "20b23b6d5b0e4106903124cb66302a19",
+  "case": "CAN-003",
+  "caseDigest": "8cd4d8a09b30cf4b1fbef12a1beed240e133b83173a7fb1df4b2b07a42daa14b",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected the number path: floats, exponents, negative zero, unsafe integers and out-of-range integers are rejected with positioned diagnostics; 9007199254740991 and -9007199254740991 are accepted; all 8 fixture rejection vectors are refused with a matching reason.",
+  "reviewedUtc": "2026-10-12T04:32:35.413040+00:00",
+  "records": [
+    "eaf6dfa8ef144b8b84e8b9b040bd9fad",
+    "aef21d064ebc47bcaf11e0a386b8ed42",
+    "c4a6ce751e5744a4952de93722bb2d48",
+    "8e170bf5bb6144ad8a3eabbf8c0fee7c"
+  ],
+  "recordDigests": {
+    "eaf6dfa8ef144b8b84e8b9b040bd9fad": "bed210f104bffed177eacc6e72a542bdbae14fbfe3eac35fadaabb29aac18ac5",
+    "aef21d064ebc47bcaf11e0a386b8ed42": "0c886cc1277dd9a7450369c330874f255a1a8576daf73eff469fdce90c1228a1",
+    "c4a6ce751e5744a4952de93722bb2d48": "a4e1936a565d44cea7f4cdba3fccdc2ab40ac9649444695ed56240f0efae01ba",
+    "8e170bf5bb6144ad8a3eabbf8c0fee7c": "691b9300431adf724ea537d5634271bc2323be948352340e31ed257bef8bb7d9"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "bf5d3c6a4e414abb9f3fa95f89f90681",
+  "case": "TRUST-011",
+  "caseDigest": "6cde882276dc8b470adfb8f7bcd3dfde7bf076970c1765309972964afc6cc910",
+  "reviewer": "OMP agent (M07 transport work unit)",
+  "note": "Inspected manual redirects with canonical host, scheme and effective-port origin comparison; authenticated cross-origin requests are refused before connection, unauthenticated redirects send no authorization. URL userinfo/token/encoded-token and header-injection checks, fixed error names and credential-free fixture counters keep secrets out of output. The inverted auth guard admitted an authenticated cross-host response and produced TestExpectedError. Refreshed opaque-token tests include multiple scheme/token spaces and outer whitespace, with normalization before URL credential detection and no request sent.",
+  "reviewedUtc": "2026-10-12T06:38:16.821332+00:00",
+  "records": [
+    "746ec2e6a4a44082a1276fd71c6488b4",
+    "15c16652556f4e49aaae445acc0d5808",
+    "23115f5b91734dff8e5eb620eea202bd",
+    "cb8806141a0945f6982c6de74fcfb338"
+  ],
+  "recordDigests": {
+    "746ec2e6a4a44082a1276fd71c6488b4": "65c0177c663c335c9a619cd4e6cd7a49bbd14049e0db7d46beb09cda73dae8c7",
+    "15c16652556f4e49aaae445acc0d5808": "cfe0ebb6bf3f5ab1ca64d3c33b49842332bc05fa075236a2999204c5445ac836",
+    "23115f5b91734dff8e5eb620eea202bd": "2bcfe51344c025187f083b255af02ea5bf0c4c75eb36ddb35dd14a52930eeb5c",
+    "cb8806141a0945f6982c6de74fcfb338": "864e1c454050eb9429bf8ed3ed5e0be2c7ee505785cc3900655fa517a6fe0e59"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

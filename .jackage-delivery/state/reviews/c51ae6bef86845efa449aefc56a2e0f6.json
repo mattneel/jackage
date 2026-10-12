@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c51ae6bef86845efa449aefc56a2e0f6",
+  "case": "EXE-001",
+  "caseDigest": "0384e67627392572b04f4479b83e7d55b4fd26a4f3355cf3821b667d4981d7ad",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected exact CreateProcessW application name, native-image preflight, CRT argv wire encoding and explicit inherited-handle list; pinned std explicit spawn can still use ambient PATHEXT and cmd.exe, and Windows itself can dispatch scripts. Real jckg JSON checks spaces, quotes, metacharacters, empty tokens, backslashes and literal declared %VAR% plus &; real .cmd and missing.exe.cmd under ambient PATHEXT are refused with no shell side effects. Fault mutates one real argument; assertions unchanged.",
+  "reviewedUtc": "2026-10-12T10:02:33.796209+00:00",
+  "records": [
+    "ba33009020c441a28cf3a497ce4c6ba2",
+    "4ba6ea54ce0c41988ef627a3bac1fdba",
+    "d12044fe55f74a1391b66ce856353c0f",
+    "9734d9d4d6aa45b7a4ff341b5b89b9a4"
+  ],
+  "recordDigests": {
+    "ba33009020c441a28cf3a497ce4c6ba2": "d45091928dd40d4a53bb529953a44754cb2560e549c1fcf4466965f896ee15b5",
+    "4ba6ea54ce0c41988ef627a3bac1fdba": "3297276c76a2cfd1566c8d75ee44b51a4667cb5032809fb04495ecdec31fbf36",
+    "d12044fe55f74a1391b66ce856353c0f": "12fc3e1da073576481645c4da183aa8eb2f4cbd22f7cad4529a28d72245cad8c",
+    "9734d9d4d6aa45b7a4ff341b5b89b9a4": "0e1ef6cc5194f181ec54a718f6e87b76d26a638a9443d5c86c70ed93c60a9fa1"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

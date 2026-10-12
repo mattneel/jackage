@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "21ddb8a221f448deadda541a254b65b1",
+  "case": "PLAN-011",
+  "caseDigest": "7354f0e4d9bf79188a3c67f3f15bb46a7d4fe69f041a2640d9b7189559193cbf",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected cache policy matching: a development result does not answer a release request, and the incompatibility reason distinguishes missing release provenance, a missing independent reproduction and a different backend; a qualified release result is recorded as a discrepancy under the same action identity, becomes the hit for release requests while the development entry stays visible, an unknown identity is a miss, and a non-cacheable action never enters the cache.",
+  "reviewedUtc": "2026-10-12T05:04:51.854495+00:00",
+  "records": [
+    "f7297ed8a075438986ba7af4298adcfb",
+    "8910cf65172a4c04a78d075696aa78a2",
+    "4dafed021f324e119c3c09de01be6dd4",
+    "c560d5c7b24243168dfd81ceaaef0647"
+  ],
+  "recordDigests": {
+    "f7297ed8a075438986ba7af4298adcfb": "641e345faf47e40eaedc929e236efb11189fb2062a17689e33c4bb4ef666338b",
+    "8910cf65172a4c04a78d075696aa78a2": "261eccc07f2a8f1babe1187be29e47b479384909b1b663b5ac23403ddb66500a",
+    "4dafed021f324e119c3c09de01be6dd4": "ec13438312b13eefd18c132784a26193dfb721c544c31f372eaa05fdd95f7e0e",
+    "c560d5c7b24243168dfd81ceaaef0647": "632cbd6d28710d0fa00ac6d7fb07a7c06579baba0474069187f38b47117e2223"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

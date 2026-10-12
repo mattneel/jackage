@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b9dde1f0ef564516bd87b4ab7c9d54fb",
+  "case": "PLAN-004",
+  "caseDigest": "7039ba0b0c29ac3ec07f77b6bc96425dfe263c224d35cc851613e077d829a133",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected src/plan/planner.zig: two-node and three-node cycles, a self dependency, an unknown dependency and a duplicate action name are each refused before execution, and the reported cycle path names the involved actions; the acyclic fixture graph validates with no cycle reported.",
+  "reviewedUtc": "2026-10-12T05:04:51.072516+00:00",
+  "records": [
+    "cfb380ffcf2f40bea780abfc7ba7432b",
+    "6102f46b5cc9482c9d461154f491f577",
+    "d8b201be5065490e98ead49d6e3186db",
+    "9869102909a14b899a7b0a2709b271f4"
+  ],
+  "recordDigests": {
+    "cfb380ffcf2f40bea780abfc7ba7432b": "5c3ee01acb6a0e7d7072a7e5ecf9e9c381ca858fc0327015bcb85350414d13c0",
+    "6102f46b5cc9482c9d461154f491f577": "290372f2040eb81269fafdf39ea1853038726d72e9b54d09e9c9fd51e62ed272",
+    "d8b201be5065490e98ead49d6e3186db": "db7d5ad358872e18d1292b878ea5298fccb37d5aef6d40d4206c72413a11bade",
+    "9869102909a14b899a7b0a2709b271f4": "ae8108813b7f52984a4fe711218a0859a1930271ba641cab34be660783915f94"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

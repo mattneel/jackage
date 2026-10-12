@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "ecfb8e68635044988cb3c848cb2e06ca",
+  "case": "PLAN-001",
+  "caseDigest": "47e8ab615583aa7607758b0afd1891d263dfa02310bbcd252ab8884bd0065b17",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected src/plan/resolver.zig: requirements are processed in key order and candidates newest-first, so the same pool and roots always yield the same exact closure (asserted by running resolution twice and comparing namespace, name, version and artifact digest); an exact requirement pins one version while newer candidates exist; an unsatisfiable root reports a conflict instead of guessing.",
+  "reviewedUtc": "2026-10-12T05:04:50.742800+00:00",
+  "records": [
+    "6672b5d85a904ca0916c34b08e700e16",
+    "c5eeb4e6e62b4f3bbd96e9d995964b5d",
+    "289407ba9bc4442281fa306f897150b5",
+    "37ed6eb710af4d9083b90f347c0f4c2b"
+  ],
+  "recordDigests": {
+    "6672b5d85a904ca0916c34b08e700e16": "8d37b76a1f360ccec5605df81d86d4e10d3c447e85e3f051bf68a4b7e6bbb41d",
+    "c5eeb4e6e62b4f3bbd96e9d995964b5d": "5de90106dfab589c2e33f6631f53f87e25d4eaf540389ae6e2c3e6af317dd498",
+    "289407ba9bc4442281fa306f897150b5": "86874077d01e2395a308bf4ae66905547f87c371cd38969bd6c41fc2cd1f0301",
+    "37ed6eb710af4d9083b90f347c0f4c2b": "9bd086d094d425f2ae4533c4ffbe5b6805deb96bedb95ce0b13cdd2da14e9b55"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b9cfdd294f34421f8e43322d1d97d2e4",
+  "case": "PLAN-003",
+  "caseDigest": "fe7378573e7f7be938acbff64c3873cb19b9b29666e1c4798fc72a5561cd880d",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected candidate selection: a requirement on one repository namespace cannot be satisfied by an identically named package from another namespace, even at the same version; both namespaces resolve side by side into distinct selections with distinct artifact digests.",
+  "reviewedUtc": "2026-10-12T05:04:50.959990+00:00",
+  "records": [
+    "a49d1546d6914d3da990189a28ff2661",
+    "7ccd36b80782429cbca911d3e9185932",
+    "b9f9eb168327449c98f02d9c906de726",
+    "9543379f3cba452393768e8f5fcf9b86"
+  ],
+  "recordDigests": {
+    "a49d1546d6914d3da990189a28ff2661": "5ee1b57fa1ef1ee5501168503a75c342b5e2d69cd047ba69b5c340a8a65da6f8",
+    "7ccd36b80782429cbca911d3e9185932": "d432b7bd682e46328738b3e240efc3d04d47dd9d4a652f211fe2d6414fdfcbd2",
+    "b9f9eb168327449c98f02d9c906de726": "065a733c550fc0283bda4e20a37199e1471f95dd7fe29dd495c12a0e2edc166d",
+    "9543379f3cba452393768e8f5fcf9b86": "d9db2599f52181cae33ad4d9b3caafbc74eaed2d20daa696b5f0be9f5561d6fb"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

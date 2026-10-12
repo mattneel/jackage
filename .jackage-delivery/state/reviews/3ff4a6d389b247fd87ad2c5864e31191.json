@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3ff4a6d389b247fd87ad2c5864e31191",
+  "case": "CAN-010",
+  "caseDigest": "dd40fe252c1a3aaddc84dc13cb179ade3e5abc2091782927f114d9955b6b2e53",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected tree validation: duplicate and unordered paths, a file that is an ancestor of another entry, missing or malformed per-kind metadata (digest, length, symlink target) and file metadata on a directory are all rejected before materialization; a valid tree yields a stable tree digest and the canonical array carries kind/path/digest/byteLength/executable/target.",
+  "reviewedUtc": "2026-10-12T04:32:35.930276+00:00",
+  "records": [
+    "30187dc2d30446bd862dc84d2c77dffa",
+    "98e10ef3122f47239ba2299606bfc665",
+    "31ae741884254964b01ab5908e0b6c0c",
+    "025c283ea79f4ca8a56e44949324611b"
+  ],
+  "recordDigests": {
+    "30187dc2d30446bd862dc84d2c77dffa": "d2b6aaec0b30c2419e60c1fa88cabd281dd773fcaba602b6e266f8a8961a9ac7",
+    "98e10ef3122f47239ba2299606bfc665": "5dd8a4bc7116e3cac34391f7a943b88f266120b5e22bf729450f4a29c7dca5b8",
+    "31ae741884254964b01ab5908e0b6c0c": "c5aadeb55c9fecaea8db8a0fab5de4dbab19bfb825de282c40b8c05f354e7c40",
+    "025c283ea79f4ca8a56e44949324611b": "e6c264fbf62bf33a3c97bd88686a0a96b32c57c8635c0685e64bfcf6824f45e7"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

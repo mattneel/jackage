@@ -1,0 +1,3390 @@
+{
+  "schemaVersion": 1,
+  "meaning": "Required product behavior. No product tests ran during pack preparation.",
+  "cases": [
+    {
+      "id": "AUD-001",
+      "milestone": "M00",
+      "title": "Preserve the existing checkout",
+      "given": "The repository contains uncommitted user changes.",
+      "when": "The audit and first test setup run.",
+      "then": "Unrelated file bytes and Git state remain unchanged.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "PROJECT_CONTEXT.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "AUD-002",
+      "milestone": "M00",
+      "title": "Honor the compiler pin",
+      "given": "The local wrapper reports the supplied compiler version.",
+      "when": "The agent starts development.",
+      "then": "All Windows compiler calls use the wrapper and no pin changes occur.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "PROJECT_CONTEXT.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "AUD-003",
+      "milestone": "M00",
+      "title": "Reject pin mismatch",
+      "given": "A fixture wrapper reports a different compiler version.",
+      "when": "The baseline checks its identity.",
+      "then": "The check fails explicitly instead of silently selecting global Zig.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "PROJECT_CONTEXT.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "AUD-004",
+      "milestone": "M00",
+      "title": "Map existing implementation",
+      "given": "The build files and source already contain code.",
+      "when": "The audit inventories modules and tests.",
+      "then": "The report identifies reusable behavior and no replacement scaffold appears.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "PROJECT_CONTEXT.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "AUD-005",
+      "milestone": "M00",
+      "title": "Record baseline failures",
+      "given": "An existing test fails before edits.",
+      "when": "The baseline runs.",
+      "then": "The report preserves the real exit code and separates that failure from new changes.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "PROJECT_CONTEXT.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "AUD-006",
+      "milestone": "M00",
+      "title": "Discover host capabilities",
+      "given": "The host has a specific OS, architecture, and SDK set.",
+      "when": "The capability inventory runs.",
+      "then": "The report contains observed values and labels unavailable targets honestly.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "PROJECT_CONTEXT.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "AUD-007",
+      "milestone": "M00",
+      "title": "Inspect dependency provenance",
+      "given": "The build uses pinned external inputs.",
+      "when": "The audit inspects bootstrap and dependency paths.",
+      "then": "The report records verification and license gaps without invented digests.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "PROJECT_CONTEXT.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "AUD-008",
+      "milestone": "M00",
+      "title": "Preserve legacy WSL state",
+      "given": "The user has existing WSL source and a custom kernel.",
+      "when": "Case-zero preparation runs.",
+      "then": "No WSL disk, source directory, kernel, or host security setting changes.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "PROJECT_CONTEXT.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-001",
+      "milestone": "M01",
+      "title": "Report real version",
+      "given": "A built client exists.",
+      "when": "The version command runs.",
+      "then": "It reports the product build identity and exits successfully.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-002",
+      "milestone": "M01",
+      "title": "Provide usable help",
+      "given": "The parser has all registered commands.",
+      "when": "Root and command help run.",
+      "then": "Help reflects actual command metadata and contains no fictitious implemented features.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-003",
+      "milestone": "M01",
+      "title": "Separate JSON output",
+      "given": "Structured output is selected.",
+      "when": "Success and failure commands run.",
+      "then": "Stdout contains only valid documented JSON or JSON-line events.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-004",
+      "milestone": "M01",
+      "title": "Reject invalid syntax",
+      "given": "Unknown flags and malformed arguments exist.",
+      "when": "The parser receives them.",
+      "then": "It returns a stable usage error without partial side effects.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-005",
+      "milestone": "M01",
+      "title": "Preserve argument boundaries",
+      "given": "Arguments contain spaces, quotes, Unicode, and shell metacharacters.",
+      "when": "The CLI dispatches a task.",
+      "then": "The receiver observes the exact argv values without implicit shell evaluation.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-006",
+      "milestone": "M01",
+      "title": "Avoid implicit prompts",
+      "given": "Stdin is noninteractive and trust is missing.",
+      "when": "A command needs authorization.",
+      "then": "It returns an explicit policy error instead of waiting or autoapproving.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-007",
+      "milestone": "M01",
+      "title": "Initialize safely",
+      "given": "Project declarations already exist.",
+      "when": "The init command runs.",
+      "then": "Existing files remain unchanged and conflicts are reported.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-008",
+      "milestone": "M01",
+      "title": "Diagnose honestly",
+      "given": "The native executor lacks a strict capability.",
+      "when": "Doctor reports capabilities.",
+      "then": "The missing enforcement appears explicitly and cannot become release support.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-009",
+      "milestone": "M01",
+      "title": "Respect cancellation",
+      "given": "A long client operation is active.",
+      "when": "The user cancels it.",
+      "then": "The CLI stops cleanly and emits a final cancellation result.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CLI-010",
+      "milestone": "M01",
+      "title": "Keep secrets out of errors",
+      "given": "A fixture URL and environment contain token-shaped secrets.",
+      "when": "Commands fail at each boundary.",
+      "then": "Public diagnostics and structured output omit the secret values.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-001",
+      "milestone": "M02",
+      "title": "Canonical object order",
+      "given": "Objects have equal key/value pairs in different insertion orders.",
+      "when": "The encoder serializes them.",
+      "then": "Their canonical bytes and action identities match.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-002",
+      "milestone": "M02",
+      "title": "Preserve array order",
+      "given": "Arrays contain equal elements in different orders.",
+      "when": "The encoder serializes them.",
+      "then": "The resulting bytes and identities differ.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-003",
+      "milestone": "M02",
+      "title": "Reject invalid numbers",
+      "given": "Inputs contain floats, NaN, infinity, negative zero, or unsafe integers.",
+      "when": "The core parses canonical values.",
+      "then": "Each invalid value fails before identity calculation.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-004",
+      "milestone": "M02",
+      "title": "Reject duplicate keys",
+      "given": "Raw JSON repeats an object key.",
+      "when": "The parser reads it.",
+      "then": "The parser rejects the duplicate rather than retaining one value.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-005",
+      "milestone": "M02",
+      "title": "Preserve Unicode bytes",
+      "given": "Valid Unicode strings differ by normalization form.",
+      "when": "The encoder hashes them.",
+      "then": "It preserves their scalar values and never normalizes silently.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-006",
+      "milestone": "M02",
+      "title": "Reject invalid Unicode",
+      "given": "A value contains an unpaired surrogate.",
+      "when": "The encoder receives it.",
+      "then": "It returns a defined validation error.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-007",
+      "milestone": "M02",
+      "title": "Apply digest domains",
+      "given": "The same canonical bytes are used for tree, action, and plan values.",
+      "when": "Their identities are calculated.",
+      "then": "The versioned NUL-terminated domain prefixes produce distinct digests.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-008",
+      "milestone": "M02",
+      "title": "Verify raw blob bytes",
+      "given": "Empty, binary, and text fixture blobs exist.",
+      "when": "The store imports them.",
+      "then": "Their digests match independent golden vectors.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-009",
+      "milestone": "M02",
+      "title": "Reject unsafe portable paths",
+      "given": "Traversal, drive, alternate stream, and reserved-name fixtures exist.",
+      "when": "Portable tree validation runs.",
+      "then": "It rejects invalid paths without filesystem effects.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAN-010",
+      "milestone": "M02",
+      "title": "Validate tree structure",
+      "given": "One tree contains duplicate paths or a file ancestor of another entry.",
+      "when": "The tree is validated.",
+      "then": "It fails before materialization.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAS-001",
+      "milestone": "M02",
+      "title": "Publish verified bytes atomically",
+      "given": "A valid blob arrives through staging.",
+      "when": "The store commits it.",
+      "then": "Only a complete verified object becomes addressable.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAS-002",
+      "milestone": "M02",
+      "title": "Reject corrupt bytes",
+      "given": "Downloaded bytes differ from the expected digest.",
+      "when": "Import attempts commitment.",
+      "then": "No trusted object appears and the mismatch is reported.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAS-003",
+      "milestone": "M02",
+      "title": "Converge concurrent writes",
+      "given": "Two writers import the same digest.",
+      "when": "Both complete concurrently.",
+      "then": "One valid immutable object remains with no corrupt intermediate state.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAS-004",
+      "milestone": "M02",
+      "title": "Recover interrupted import",
+      "given": "A process stops at each import transaction point.",
+      "when": "The store reopens.",
+      "then": "Recovery exposes only complete committed objects.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAS-005",
+      "milestone": "M02",
+      "title": "Protect immutable inputs",
+      "given": "A worker receives a writable workspace from a stored tree.",
+      "when": "It changes workspace files.",
+      "then": "The original store bytes remain unchanged.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAS-006",
+      "milestone": "M02",
+      "title": "Preserve runtime references",
+      "given": "A package needs a runtime dependency after compilation.",
+      "when": "Its closure is installed and collected.",
+      "then": "The dependency remains reachable and execution succeeds.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAS-007",
+      "milestone": "M02",
+      "title": "Handle full disk",
+      "given": "A fixture storage layer returns disk-full errors.",
+      "when": "Import or metadata commitment runs.",
+      "then": "The old valid state remains recoverable and no partial object becomes trusted.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "CAS-008",
+      "milestone": "M02",
+      "title": "Respect destination semantics",
+      "given": "A valid Linux tree has Windows-incompatible names.",
+      "when": "Windows materialization is requested.",
+      "then": "The operation fails explicitly without silent name rewriting.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-001",
+      "milestone": "M03",
+      "title": "Execute exact argv",
+      "given": "A declared tool and argument array exist.",
+      "when": "The native executor launches the tool.",
+      "then": "The tool receives exact arguments and a recorded exit result.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-002",
+      "milestone": "M03",
+      "title": "Clear ambient environment",
+      "given": "The host environment contains undeclared variables.",
+      "when": "A clean action starts.",
+      "then": "The process receives only the declared environment and documented platform minimum.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-003",
+      "milestone": "M03",
+      "title": "Collect only declared outputs",
+      "given": "The process writes declared and undeclared paths.",
+      "when": "Output collection runs.",
+      "then": "Only declared valid outputs become artifacts.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-004",
+      "milestone": "M03",
+      "title": "Reject output escape",
+      "given": "A process creates a symlink or reparse escape at an output path.",
+      "when": "The collector traverses outputs.",
+      "then": "It rejects the escape and publishes no escaped data.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-005",
+      "milestone": "M03",
+      "title": "Retain action failure",
+      "given": "A process exits with a nonzero status.",
+      "when": "The executor returns.",
+      "then": "It records action failure and excludes partial output from successful cache results.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-006",
+      "milestone": "M03",
+      "title": "Distinguish launch failure",
+      "given": "The declared executable cannot launch.",
+      "when": "The executor starts the action.",
+      "then": "It returns infrastructure or launch failure distinct from process exit.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-007",
+      "milestone": "M03",
+      "title": "Cancel descendants",
+      "given": "A process creates children and grandchildren.",
+      "when": "The controller cancels or times out the action.",
+      "then": "The owned process tree stops before its leases are released.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-008",
+      "milestone": "M03",
+      "title": "Report native limitations",
+      "given": "The native backend cannot prevent arbitrary file access.",
+      "when": "A strict action selects it.",
+      "then": "Policy matching refuses the action rather than downgrading it.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-009",
+      "milestone": "M03",
+      "title": "Bound diagnostics",
+      "given": "A process emits excessive stdout and stderr.",
+      "when": "The configured log budget is reached.",
+      "then": "The system applies its declared limit without deadlock or unbounded memory use.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EXE-010",
+      "milestone": "M03",
+      "title": "Reconcile controller failure",
+      "given": "The controller stops while an action continues.",
+      "when": "A new controller starts.",
+      "then": "It reconciles actual process and lease state before retry or collection.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "ARCHITECTURE.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-001",
+      "milestone": "M04",
+      "title": "Transform real TypeScript",
+      "given": "A module contains types, interfaces, and imports.",
+      "when": "The pinned transformation pipeline runs.",
+      "then": "QuickJS-NG receives valid JavaScript and evaluates the intended declarations.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-002",
+      "milestone": "M04",
+      "title": "Separate type checks",
+      "given": "A syntactically valid module has a type error.",
+      "when": "The declared type-check stage runs.",
+      "then": "It fails even if syntax transformation alone succeeds.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-003",
+      "milestone": "M04",
+      "title": "Resolve locked imports",
+      "given": "A configuration imports a declared locked module.",
+      "when": "Evaluation runs offline.",
+      "then": "It uses the exact module artifact and does not consult global packages.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-004",
+      "milestone": "M04",
+      "title": "Deny undeclared imports",
+      "given": "A module requests a network URL or escaped host path.",
+      "when": "The loader resolves it.",
+      "then": "Policy denies the import before data or process access.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-005",
+      "milestone": "M04",
+      "title": "Deny ambient effects",
+      "given": "Configuration attempts time, randomness, host environment, files, and processes.",
+      "when": "It executes in the evaluator.",
+      "then": "Undeclared effects fail and no host secret is exposed.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-006",
+      "milestone": "M04",
+      "title": "Produce repeatable plans",
+      "given": "Equal source modules and declared inputs exist.",
+      "when": "Independent evaluation workers run.",
+      "then": "Their canonical plan digests match.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-007",
+      "milestone": "M04",
+      "title": "Stop infinite evaluation",
+      "given": "A module loops forever.",
+      "when": "Evaluation exceeds its budget.",
+      "then": "The worker stops within the enforced deadline and publishes no plan.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-008",
+      "milestone": "M04",
+      "title": "Bound allocation",
+      "given": "A module exhausts its allowed heap or stack.",
+      "when": "The limit is reached.",
+      "then": "The host reports a resource failure and releases worker resources.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-009",
+      "milestone": "M04",
+      "title": "Reject active values",
+      "given": "Results contain functions, cycles, accessors, prototypes, or unresolved promises.",
+      "when": "The host extracts the plan.",
+      "then": "It accepts only inert schema-valid data without uncontrolled callbacks.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-010",
+      "milestone": "M04",
+      "title": "Reject untrusted bytecode",
+      "given": "A channel supplies engine bytecode as configuration.",
+      "when": "Evaluation is requested.",
+      "then": "The source-only policy refuses it.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "EVAL-011",
+      "milestone": "M04",
+      "title": "Key local evaluator cache",
+      "given": "The engine, transformer, options, or source changes.",
+      "when": "Cached evaluation is considered.",
+      "then": "The changed identity prevents stale bytecode or plan reuse.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "EVALUATOR.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-001",
+      "milestone": "M05",
+      "title": "Resolve exact closure",
+      "given": "A fixture graph contains compatible version candidates.",
+      "when": "Resolution runs twice.",
+      "then": "It selects the same exact namespaced closure.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-002",
+      "milestone": "M05",
+      "title": "Explain conflicts",
+      "given": "A graph has incompatible dependency constraints.",
+      "when": "Resolution runs.",
+      "then": "A stable explanation identifies the conflicting dependencies.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-003",
+      "milestone": "M05",
+      "title": "Preserve namespaces",
+      "given": "Two repositories publish the same package name.",
+      "when": "A namespaced dependency resolves.",
+      "then": "The unrelated repository cannot satisfy it.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-004",
+      "milestone": "M05",
+      "title": "Reject graph cycles",
+      "given": "Actions or dependencies contain a prohibited cycle.",
+      "when": "Plan validation runs.",
+      "then": "It reports the cycle before execution.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-005",
+      "milestone": "M05",
+      "title": "Lock complete inputs",
+      "given": "A project uses source, tools, evaluator modules, and a platform SDK.",
+      "when": "A lockfile is committed.",
+      "then": "Every required input has an exact identity and provenance boundary.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-006",
+      "milestone": "M05",
+      "title": "Refuse floating locked input",
+      "given": "A locked source contains only master or latest.",
+      "when": "Locked execution begins.",
+      "then": "Validation refuses the unresolved identity.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-007",
+      "milestone": "M05",
+      "title": "Honor locked mode",
+      "given": "New metadata offers different versions.",
+      "when": "A locked task runs.",
+      "then": "It neither changes the lock nor silently re-resolves dependencies.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-008",
+      "milestone": "M05",
+      "title": "Separate action and artifact identity",
+      "given": "Equal action identities produce different output bytes.",
+      "when": "Results enter the cache.",
+      "then": "The discrepancy remains visible and cannot silently replace an earlier result.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-009",
+      "milestone": "M05",
+      "title": "Schedule dependencies",
+      "given": "A graph includes independent and dependent actions.",
+      "when": "The scheduler runs with bounded concurrency.",
+      "then": "It executes only ready nodes and respects dependencies and limits.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-010",
+      "milestone": "M05",
+      "title": "Separate platforms",
+      "given": "A Linux action emits a Windows executable.",
+      "when": "The test plan is selected.",
+      "then": "Native Windows tests require a compatible executor rather than a Linux compile result.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAN-011",
+      "milestone": "M05",
+      "title": "Preserve cache policy",
+      "given": "A cached result lacks the requested release provenance.",
+      "when": "The scheduler considers a hit.",
+      "then": "It rejects the incompatible hit or executes a qualified action.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-001",
+      "milestone": "M06",
+      "title": "Install a closure",
+      "given": "A trusted local package and dependencies exist.",
+      "when": "Install completes.",
+      "then": "A valid profile generation references the complete runtime closure.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-002",
+      "milestone": "M06",
+      "title": "Activate atomically",
+      "given": "Installation stops at every activation transaction point.",
+      "when": "The client restarts.",
+      "then": "Either the old or complete new generation remains selected.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-003",
+      "milestone": "M06",
+      "title": "Rollback a generation",
+      "given": "Two valid generations exist.",
+      "when": "Rollback selects the earlier generation.",
+      "then": "Commands resolve to the earlier package closure.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-004",
+      "milestone": "M06",
+      "title": "Remove references safely",
+      "given": "A package is removed from a profile.",
+      "when": "The generation changes.",
+      "then": "User source remains untouched and shared dependencies stay reachable.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-005",
+      "milestone": "M06",
+      "title": "Handle executable collision",
+      "given": "Two selected packages expose the same command name.",
+      "when": "The profile is constructed.",
+      "then": "The documented conflict policy prevents silent ambiguous replacement.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-006",
+      "milestone": "M06",
+      "title": "Preserve active executable",
+      "given": "A prior generation has an active process or open executable.",
+      "when": "Upgrade and collection run.",
+      "then": "The active closure remains usable until its lease ends.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-007",
+      "milestone": "M06",
+      "title": "Run transiently",
+      "given": "A verified package is available.",
+      "when": "jckgx executes its default entry point.",
+      "then": "The installed profile and global PATH remain unchanged.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-008",
+      "milestone": "M06",
+      "title": "Forward runner arguments",
+      "given": "The package receives help flags, separators, and quoted arguments.",
+      "when": "jckgx dispatches it.",
+      "then": "Its argv matches the documented package-argument grammar.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-009",
+      "milestone": "M06",
+      "title": "Preserve runner exit",
+      "given": "A package exits unsuccessfully.",
+      "when": "jckgx returns.",
+      "then": "The caller receives the documented program status and structured result.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PROFILE-010",
+      "milestone": "M06",
+      "title": "Lease concurrent runners",
+      "given": "Multiple jckgx instances share an artifact.",
+      "when": "One exits while collection runs.",
+      "then": "Remaining executions retain the full closure without writable workspace sharing.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CLI_UX.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-001",
+      "milestone": "M07",
+      "title": "Require root enrollment",
+      "given": "A new repository has no trusted root.",
+      "when": "Noninteractive installation begins.",
+      "then": "It fails without trusting HTTPS or a self-provided checksum alone.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-002",
+      "milestone": "M07",
+      "title": "Accept authorized metadata",
+      "given": "Valid root, timestamp, snapshot, and targets metadata exist.",
+      "when": "The client updates.",
+      "then": "It selects only artifacts authorized by the trusted metadata chain.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-003",
+      "milestone": "M07",
+      "title": "Reject bad signatures",
+      "given": "Metadata lacks its required signatures or threshold.",
+      "when": "Verification runs.",
+      "then": "The update fails without modifying trusted state.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-004",
+      "milestone": "M07",
+      "title": "Reject rollback",
+      "given": "A repository serves older verified metadata after a newer version.",
+      "when": "The client updates.",
+      "then": "Persisted rollback protection rejects it.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-005",
+      "milestone": "M07",
+      "title": "Reject expiry",
+      "given": "Metadata exceeds its permitted validity period.",
+      "when": "An online update occurs.",
+      "then": "The client reports expiry and does not silently use stale metadata.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-006",
+      "milestone": "M07",
+      "title": "Reject mixed snapshots",
+      "given": "Valid metadata files come from incompatible snapshots.",
+      "when": "The client assembles an update.",
+      "then": "Hash and version checks reject the mixture.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-007",
+      "milestone": "M07",
+      "title": "Rotate roots safely",
+      "given": "An authorized root rotation exists.",
+      "when": "The client updates across interruption points.",
+      "then": "Only verified sequential root state becomes trusted.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-008",
+      "milestone": "M07",
+      "title": "Distinguish offline execution",
+      "given": "A previously trusted installed artifact exists but online metadata expired.",
+      "when": "Offline run and online update are requested separately.",
+      "then": "Each follows its explicit policy without claiming fresh metadata.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-009",
+      "milestone": "M07",
+      "title": "Bound and verify downloads",
+      "given": "An asset has a declared length and digest.",
+      "when": "Transfer truncates, expands, or returns different bytes.",
+      "then": "The client rejects it before store publication.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-010",
+      "milestone": "M07",
+      "title": "Reject archive attacks",
+      "given": "Local fixtures contain traversal, links, devices, duplicates, and excessive expansion.",
+      "when": "Extraction runs in a disposable root.",
+      "then": "No file escapes and limits stop unsafe extraction.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-011",
+      "milestone": "M07",
+      "title": "Protect auth redirects",
+      "given": "An authenticated request redirects to an unrelated origin.",
+      "when": "The HTTP adapter follows allowed redirects.",
+      "then": "It does not forward credentials across the trust boundary.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "TRUST-012",
+      "milestone": "M07",
+      "title": "Resist cache poisoning",
+      "given": "An untrusted cache advertises a result for a known action.",
+      "when": "A release action considers the result.",
+      "then": "Required provenance checks prevent unauthorized acceptance.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-001",
+      "milestone": "M08",
+      "title": "Deny undeclared filesystem",
+      "given": "A strict Linux action attempts host-file reads.",
+      "when": "The real reference backend executes it.",
+      "then": "Reads outside declared roots fail and the behavior is captured.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-002",
+      "milestone": "M08",
+      "title": "Deny network",
+      "given": "A strict action attempts outbound and host-loopback connections.",
+      "when": "The real backend executes it.",
+      "then": "Undeclared network access fails under the documented perimeter.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-003",
+      "milestone": "M08",
+      "title": "Isolate writable state",
+      "given": "Two strict actions use equal input trees.",
+      "when": "One attempts to mutate inputs or the other's workspace.",
+      "then": "The attempt fails or remains private with unchanged store inputs.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-004",
+      "milestone": "M08",
+      "title": "Use stable logical paths",
+      "given": "Equal actions execute from different physical checkout roots.",
+      "when": "Their outputs are compared.",
+      "then": "Declared path-independent artifacts match or the limitation remains explicit.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-005",
+      "milestone": "M08",
+      "title": "Enforce resources",
+      "given": "A strict process exceeds memory, process, or time limits.",
+      "when": "Limits trigger.",
+      "then": "The action stops with a defined result and no orphaned descendants.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-006",
+      "milestone": "M08",
+      "title": "Authenticate workers",
+      "given": "A fake endpoint presents an untrusted identity.",
+      "when": "The client requests remote execution.",
+      "then": "Connection authorization fails before source or credentials transfer.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-007",
+      "milestone": "M08",
+      "title": "Verify returned artifacts",
+      "given": "A remote worker returns corrupt or undeclared outputs.",
+      "when": "The client collects results.",
+      "then": "It rejects them before trusted store or cache commitment.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-008",
+      "milestone": "M08",
+      "title": "Handle transport interruption",
+      "given": "A transfer or execution stream disconnects.",
+      "when": "The client reconnects.",
+      "then": "It reconciles the action and verifies resumed data rather than guessing success.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-009",
+      "milestone": "M08",
+      "title": "Cross Windows to Linux",
+      "given": "The actual Windows client requests a Linux action.",
+      "when": "The declared transport executes it.",
+      "then": "Inputs materialize on Linux-native storage and validated results return.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "STRICT-010",
+      "milestone": "M08",
+      "title": "Reject fake capabilities",
+      "given": "A backend claims capabilities without the required support status.",
+      "when": "A strict action is matched.",
+      "then": "The core refuses unsupported or incompatible guarantees.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "SECURITY.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SELF-001",
+      "milestone": "M09",
+      "title": "Realize own environment",
+      "given": "The reviewed Jackage recipe and lock exist.",
+      "when": "B0 realizes its toolchain.",
+      "then": "All required tools come from declared verified inputs.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SELF-002",
+      "milestone": "M09",
+      "title": "Build stage one",
+      "given": "B0 executes the locked Jackage build.",
+      "when": "The build completes.",
+      "then": "A functional B1 client and its provenance exist.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SELF-003",
+      "milestone": "M09",
+      "title": "Build stage two",
+      "given": "B1 starts from fresh work and output directories.",
+      "when": "It rebuilds Jackage without result-cache reuse.",
+      "then": "B2 produces the declared comparable artifacts.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SELF-004",
+      "milestone": "M09",
+      "title": "Compare stages",
+      "given": "B1 and B2 use equivalent declared recipes and toolchains.",
+      "when": "Artifact digests are compared.",
+      "then": "Equal payloads pass and unequal payloads produce a reproducibility failure.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SELF-005",
+      "milestone": "M09",
+      "title": "Keep compiler exact",
+      "given": "A newer master build appears online.",
+      "when": "Self-hosted builds run in locked mode.",
+      "then": "They retain the supplied pin until an authorized lock change.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SELF-006",
+      "milestone": "M09",
+      "title": "Bootstrap without Jackage",
+      "given": "A clean test environment lacks installed jckg.",
+      "when": "The documented bootstrap runs.",
+      "then": "It produces or verifies the first client from declared external inputs.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SELF-007",
+      "milestone": "M09",
+      "title": "Preserve primary source",
+      "given": "A Linux self-hosted build uses the Windows checkout snapshot.",
+      "when": "The action runs.",
+      "then": "No independently maintained ~/src checkout is required.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SELF-008",
+      "milestone": "M09",
+      "title": "Install self package",
+      "given": "A local signed channel advertises the Jackage build.",
+      "when": "Install and jckgx execute that package.",
+      "then": "Both clients run through the same verification path.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-001",
+      "milestone": "M10",
+      "title": "Plan package actions",
+      "given": "An artifact tree is ready.",
+      "when": "A package backend describes an output.",
+      "then": "Its tools and effects appear as ordinary declared actions.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-002",
+      "milestone": "M10",
+      "title": "Build deterministic ZIP",
+      "given": "Equal input trees have different host enumeration orders and times.",
+      "when": "ZIP creation repeats.",
+      "then": "The declared unsigned archive bytes match.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-003",
+      "milestone": "M10",
+      "title": "Build deterministic tar",
+      "given": "A tree includes executable files, directories, and supported links.",
+      "when": "Tar creation repeats.",
+      "then": "Metadata policy and archive bytes match.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-004",
+      "milestone": "M10",
+      "title": "Round-trip tree",
+      "given": "A safe portable archive is built.",
+      "when": "It is extracted through the product validator.",
+      "then": "The resulting supported tree identity matches the original.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-005",
+      "milestone": "M10",
+      "title": "Construct OCI layout",
+      "given": "A runtime closure and image configuration exist.",
+      "when": "The OCI backend runs.",
+      "then": "A valid image layout with verified descriptor digests results.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-006",
+      "milestone": "M10",
+      "title": "Preserve OCI platform",
+      "given": "Image outputs target different architectures.",
+      "when": "The backend creates configuration and an index.",
+      "then": "Each descriptor has the correct platform and validated digest.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-007",
+      "milestone": "M10",
+      "title": "Exclude build-only inputs",
+      "given": "A package has build and runtime dependencies.",
+      "when": "Its release image is assembled.",
+      "then": "Only the declared runtime closure enters the payload.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-008",
+      "milestone": "M10",
+      "title": "Separate signing",
+      "given": "An unsigned package is reproducible.",
+      "when": "A signing action runs with test authority.",
+      "then": "Unsigned and signed identities remain distinct with explicit envelope policy.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PACK-009",
+      "milestone": "M10",
+      "title": "Inspect real image",
+      "given": "A Jackage-produced OCI image exists.",
+      "when": "A compatible actual runtime starts it.",
+      "then": "Its declared entry point runs and expected dependencies exist.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-001",
+      "milestone": "M11",
+      "title": "Run Windows x86_64",
+      "given": "A native Windows x86_64 client exists.",
+      "when": "Install, rollback, run, and build smoke tests execute.",
+      "then": "Actual native results pass with platform details.",
+      "platforms": [
+        "windows-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-002",
+      "milestone": "M11",
+      "title": "Run Windows aarch64",
+      "given": "A native Windows aarch64 client exists.",
+      "when": "The same smoke tests execute.",
+      "then": "Actual native results pass without a cross-compile-only claim.",
+      "platforms": [
+        "windows-aarch64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-003",
+      "milestone": "M11",
+      "title": "Run Linux x86_64",
+      "given": "A native Linux x86_64 client exists.",
+      "when": "The same smoke tests and strict checks execute.",
+      "then": "Actual native results pass with the declared ABI.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-004",
+      "milestone": "M11",
+      "title": "Run Linux aarch64",
+      "given": "A native Linux aarch64 client exists.",
+      "when": "The same smoke tests and strict checks execute.",
+      "then": "Actual native results pass with platform details.",
+      "platforms": [
+        "linux-aarch64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-005",
+      "milestone": "M11",
+      "title": "Run macOS x86_64",
+      "given": "A native macOS x86_64 client and authorized SDK exist.",
+      "when": "Native smoke tests execute.",
+      "then": "Results and SDK boundaries are recorded.",
+      "platforms": [
+        "macos-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-006",
+      "milestone": "M11",
+      "title": "Run macOS aarch64",
+      "given": "A native macOS aarch64 client and authorized SDK exist.",
+      "when": "Native smoke tests execute.",
+      "then": "Results and SDK boundaries are recorded.",
+      "platforms": [
+        "macos-aarch64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-007",
+      "milestone": "M11",
+      "title": "Validate Windows filesystem",
+      "given": "A disposable tree contains long paths, Unicode, reparse points, and locked executables.",
+      "when": "Native store and profile tests run.",
+      "then": "Supported cases work and unsafe cases fail explicitly.",
+      "platforms": [
+        "windows-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-008",
+      "milestone": "M11",
+      "title": "Validate Debian package",
+      "given": "A Debian package backend produces Jackage.",
+      "when": "A disposable Debian environment inspects and installs it.",
+      "then": "Metadata, executable, dependency, and uninstall smoke tests pass.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-009",
+      "milestone": "M11",
+      "title": "Validate RPM package",
+      "given": "An RPM backend produces Jackage.",
+      "when": "A disposable RPM environment inspects and installs it.",
+      "then": "Native package smoke tests pass.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-010",
+      "milestone": "M11",
+      "title": "Validate MSIX",
+      "given": "A Windows package backend produces an MSIX fixture.",
+      "when": "Native tools validate it and authorized disposable installation runs.",
+      "then": "Manifest, architecture, and payload checks pass.",
+      "platforms": [
+        "windows-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-011",
+      "milestone": "M11",
+      "title": "Validate macOS package",
+      "given": "A macOS backend produces an unsigned test package.",
+      "when": "Native tools inspect it and an authorized disposable installation runs.",
+      "then": "Package layout and executable checks pass.",
+      "platforms": [
+        "macos-aarch64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLAT-012",
+      "milestone": "M11",
+      "title": "Declare SDK perimeter",
+      "given": "A release action requires a proprietary SDK.",
+      "when": "The dependency closure and publication plan are validated.",
+      "then": "The SDK boundary and redistribution policy are explicit.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-001",
+      "milestone": "M12",
+      "title": "Protect user source",
+      "given": "A disposable primary checkout and managed store exist.",
+      "when": "GC and cache eviction run.",
+      "then": "Source bytes and uncommitted files remain untouched.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-002",
+      "milestone": "M12",
+      "title": "Trace roots",
+      "given": "Profiles, pins, runtime references, and leases retain objects.",
+      "when": "Collection computes reachability.",
+      "then": "Every retained object has an attributable root or lease.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-003",
+      "milestone": "M12",
+      "title": "Race leases safely",
+      "given": "A new action lease races candidate selection.",
+      "when": "GC applies deletion.",
+      "then": "The action retains access or retries safely before execution.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-004",
+      "milestone": "M12",
+      "title": "Recover stale lease",
+      "given": "A controller crashes and its PID is reused.",
+      "when": "Lease recovery runs.",
+      "then": "It does not delete active work through a naive PID or time check.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-005",
+      "milestone": "M12",
+      "title": "Bound caches",
+      "given": "Multiple project caches exceed the policy ceiling.",
+      "when": "Eviction runs with active leases and pins.",
+      "then": "Eligible caches shrink and unsatisfied budgets remain explicit.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-006",
+      "milestone": "M12",
+      "title": "Separate platform caches",
+      "given": "Windows and Linux build the same project.",
+      "when": "Workspace synchronization runs.",
+      "then": "Neither platform's compiler cache copies into the other's source tree.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-007",
+      "milestone": "M12",
+      "title": "Snapshot stable bytes",
+      "given": "A source file changes during capture.",
+      "when": "Snapshot construction runs.",
+      "then": "It retries or reports instability rather than committing inconsistent metadata.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-008",
+      "milestone": "M12",
+      "title": "Preserve source manifest",
+      "given": "A checkout contains ignored output, generated required source, and secrets.",
+      "when": "A preview and snapshot run.",
+      "then": "Explicit manifest policy includes required input and excludes prohibited data.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-009",
+      "milestone": "M12",
+      "title": "Protect host edits",
+      "given": "A guest exports edits while the host changed the same file.",
+      "when": "Reconciliation runs.",
+      "then": "It reports divergence and never silently overwrites host source.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-010",
+      "milestone": "M12",
+      "title": "Deliver watcher events",
+      "given": "An editor performs write, atomic replacement, rename, and delete operations.",
+      "when": "Guest updates apply on a native Linux workspace.",
+      "then": "Real watcher tests observe the documented changes.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-011",
+      "milestone": "M12",
+      "title": "Measure native execution",
+      "given": "Fixed cold and warm workloads exist.",
+      "when": "Native-baseline and backend benchmarks run.",
+      "then": "Results separate transfer and meet the declared execution budget or fail.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "SPACE-012",
+      "milestone": "M12",
+      "title": "Measure reclaim",
+      "given": "A disposable VM disk grows with known cache data.",
+      "when": "Deletion, trim, and supported compaction run.",
+      "then": "The report compares actual host allocation and reports unsupported reclaim honestly.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "STORAGE_WORKSPACES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-001",
+      "milestone": "M13",
+      "title": "Negotiate versions",
+      "given": "Core and plugin offer incompatible major versions.",
+      "when": "Handshake runs.",
+      "then": "No action starts and a version error results.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-002",
+      "milestone": "M13",
+      "title": "Bound frames",
+      "given": "A plugin sends oversized or malformed JSON frames.",
+      "when": "The core reads its stream.",
+      "then": "It rejects the frame without unbounded allocation or partial dispatch.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-003",
+      "milestone": "M13",
+      "title": "Separate plugin diagnostics",
+      "given": "A plugin logs diagnostic output.",
+      "when": "Protocol exchange runs.",
+      "then": "Diagnostics remain off protocol stdout and stay within limits.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-004",
+      "milestone": "M13",
+      "title": "Apply backpressure",
+      "given": "A plugin produces events faster than the consumer reads.",
+      "when": "A long action runs.",
+      "then": "Bounded buffers preserve protocol progress or trigger a defined limit.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-005",
+      "milestone": "M13",
+      "title": "Cancel external action",
+      "given": "A plugin owns a process tree.",
+      "when": "Core cancellation arrives.",
+      "then": "The action reaches a reconciled terminal state before lease release.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-006",
+      "milestone": "M13",
+      "title": "Interchange executors",
+      "given": "Two independent executor implementations support a contract subset.",
+      "when": "The same conformance actions run.",
+      "then": "Both satisfy identical behavior and report their distinct limitations.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-007",
+      "milestone": "M13",
+      "title": "Interchange package plugins",
+      "given": "Two independent package implementations describe package actions.",
+      "when": "Their common contract suite runs.",
+      "then": "Plans remain declarative and no host callback escapes policy.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-008",
+      "milestone": "M13",
+      "title": "Interchange repositories",
+      "given": "Two transport plugins serve equivalent signed metadata and assets.",
+      "when": "Resolution and fetch run.",
+      "then": "Core trust behavior is identical across transports.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-009",
+      "milestone": "M13",
+      "title": "Constrain plugin authority",
+      "given": "A plugin requests undeclared filesystem or credential authority.",
+      "when": "Core policy evaluates the request.",
+      "then": "The request fails without automatic permission expansion.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "PLUGIN-010",
+      "milestone": "M13",
+      "title": "Recover plugin crash",
+      "given": "A plugin terminates during an action.",
+      "when": "Core recovery runs.",
+      "then": "Action status remains unknown until reconciled and no false success is cached.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CONTRACTS.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-001",
+      "milestone": "M14",
+      "title": "Discover repository channel",
+      "given": "A fixture GitHub API serves a pinned discovery descriptor.",
+      "when": "The user-style repo URL is resolved.",
+      "then": "The client records the descriptor revision and separately verifies trust.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-002",
+      "milestone": "M14",
+      "title": "Use Pages-only channel",
+      "given": "A static fixture hosts metadata and artifact assets.",
+      "when": "Install resolves through it.",
+      "then": "The complete verified package installs without a custom server.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-003",
+      "milestone": "M14",
+      "title": "Use Releases-only channel",
+      "given": "Release fixtures host versioned metadata and assets.",
+      "when": "Install resolves through discovery.",
+      "then": "The complete verified package installs without Pages.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-004",
+      "milestone": "M14",
+      "title": "Use hybrid channel",
+      "given": "Static metadata points to release assets.",
+      "when": "Install and offline rerun execute.",
+      "then": "Digests and authorization remain consistent across transports.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-005",
+      "milestone": "M14",
+      "title": "Handle rate limits",
+      "given": "A fixture API returns rate limits and pagination.",
+      "when": "The adapter refreshes metadata.",
+      "then": "Bounded retry and complete pagination preserve correct resolution.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-006",
+      "milestone": "M14",
+      "title": "Handle changed locator",
+      "given": "A repository moves or an asset URL changes.",
+      "when": "The client resolves a locked artifact.",
+      "then": "It accepts only the same authorized identity and digest.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-007",
+      "milestone": "M14",
+      "title": "Dry-run publication",
+      "given": "A local publication plan is complete.",
+      "when": "Dry run executes.",
+      "then": "No remote mutation or signing authority use occurs.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-008",
+      "milestone": "M14",
+      "title": "Publish transactionally",
+      "given": "Authorized local fixture publication has multiple assets.",
+      "when": "Upload fails before final metadata activation.",
+      "then": "No visible channel state advertises absent artifacts.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-009",
+      "milestone": "M14",
+      "title": "Retry publication safely",
+      "given": "An identical publication partially completed.",
+      "when": "The authorized operation retries.",
+      "then": "It detects existing identical assets and completes without conflicting state.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-010",
+      "milestone": "M14",
+      "title": "Reject unauthorized publication",
+      "given": "No explicit publication grant exists.",
+      "when": "A build or agent requests publication.",
+      "then": "The operation fails even when all tests pass.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "GH-011",
+      "milestone": "M14",
+      "title": "Smoke-test public transport",
+      "given": "The user authorizes a read-only public channel test.",
+      "when": "The real GitHub adapter fetches it.",
+      "then": "Actual API behavior and verified digests are recorded without writes.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "REPOSITORIES_TRUST.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "IMAGE-001",
+      "milestone": "M15",
+      "title": "Assemble dev environment",
+      "given": "The Jackage environment declaration is locked.",
+      "when": "An OCI development image is built.",
+      "then": "It contains declared tools and no host credentials.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "IMAGE-002",
+      "milestone": "M15",
+      "title": "Run development image",
+      "given": "A real compatible runtime is available.",
+      "when": "The image builds and tests a Jackage fixture.",
+      "then": "The declared tools execute on native guest storage.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "IMAGE-003",
+      "milestone": "M15",
+      "title": "Assemble release image",
+      "given": "A Jackage runtime closure is selected.",
+      "when": "The release image backend runs.",
+      "then": "Build-only tools and mutable caches remain outside the payload.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "IMAGE-004",
+      "milestone": "M15",
+      "title": "Build root filesystem",
+      "given": "A locked runtime manifest exists.",
+      "when": "The rootfs exporter runs.",
+      "then": "The exported filesystem passes closure and entry-point tests.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "IMAGE-005",
+      "milestone": "M15",
+      "title": "Validate ext4 image",
+      "given": "The backend creates a disposable ext4 image.",
+      "when": "Filesystem inspection and mount tests run.",
+      "then": "File contents and metadata satisfy the declared payload contract.",
+      "platforms": [
+        "linux-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "IMAGE-006",
+      "milestone": "M15",
+      "title": "Validate VHDX container",
+      "given": "A VHDX contains a declared guest filesystem.",
+      "when": "A real compatible host attaches it.",
+      "then": "The guest payload is valid and the container lifecycle is safe.",
+      "platforms": [
+        "windows-x86_64"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "IMAGE-007",
+      "milestone": "M15",
+      "title": "Report image reproducibility",
+      "given": "Repeated image builds contain variable wrapper fields.",
+      "when": "Reproduction compares declared artifacts.",
+      "then": "The report distinguishes payload equality from whole-image byte equality.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "IMAGE-008",
+      "milestone": "M15",
+      "title": "Exclude user state",
+      "given": "A developer workspace contains secrets, caches, and Git metadata.",
+      "when": "Images build from their manifests.",
+      "then": "Prohibited user state is absent from every layer and image payload.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "PLATFORMS_PACKAGING.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "FACTORY-001",
+      "milestone": "M16",
+      "title": "Use one human-agent contract",
+      "given": "A human and OMP select the same locked task.",
+      "when": "Each requests execution.",
+      "then": "The same plan, policy, and artifact identities govern both paths.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "FACTORY-002",
+      "milestone": "M16",
+      "title": "Expose structured progress",
+      "given": "OMP runs a long task through the documented interface.",
+      "when": "Progress and failure events arrive.",
+      "then": "The agent can interpret schema-valid events without terminal scraping.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "FACTORY-003",
+      "milestone": "M16",
+      "title": "Preserve agent secrets",
+      "given": "OMP has provider credentials on the host.",
+      "when": "It launches a strict build.",
+      "then": "The build cannot read those credentials or inherit provider authority.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "FACTORY-004",
+      "milestone": "M16",
+      "title": "Isolate parallel agents",
+      "given": "Two work units start from a shared source baseline.",
+      "when": "Agents edit and build concurrently.",
+      "then": "They use distinct mutable workspaces and explicit integration.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "FACTORY-005",
+      "milestone": "M16",
+      "title": "Migrate a legacy fixture",
+      "given": "A disposable project has separate Windows and Linux caches.",
+      "when": "The migration guide runs.",
+      "then": "Source survives and managed cache ownership becomes measurable.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "FACTORY-006",
+      "milestone": "M16",
+      "title": "Rollback migration",
+      "given": "The migrated disposable project retains a previous workflow.",
+      "when": "The rollback guide runs.",
+      "then": "The project returns to the previous workflow without source loss.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "FACTORY-007",
+      "milestone": "M16",
+      "title": "Demonstrate full pipeline",
+      "given": "Jackage source and all authorized local inputs exist.",
+      "when": "Build, test, package, local publish, install, run, rollback, and collect execute.",
+      "then": "Every stage produces actual evidence through the public interfaces.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "FACTORY-008",
+      "milestone": "M16",
+      "title": "Resume agent work",
+      "given": "An agent stops after a partial milestone.",
+      "when": "A new OMP session reads the handoff.",
+      "then": "It resumes the exact next test without repeating a destructive setup.",
+      "platforms": [
+        "host"
+      ],
+      "required": true,
+      "spec": "CASE_ZERO.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-001",
+      "milestone": "M17",
+      "title": "Replay clean checkout",
+      "given": "A release candidate and locks exist.",
+      "when": "Independent CI rebuilds and tests from clean state.",
+      "then": "Results identify exact source, tools, platform, and executed commands.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-002",
+      "milestone": "M17",
+      "title": "Reject fake coverage",
+      "given": "Required cases contain only mocks, skipped tests, or documentation.",
+      "when": "The release gate runs.",
+      "then": "It refuses full delivery.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-003",
+      "milestone": "M17",
+      "title": "Reproduce without result cache",
+      "given": "Equal declared release inputs exist on independent workers.",
+      "when": "Both execute with fresh action results.",
+      "then": "Declared unsigned artifact bytes match or the claim fails.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-004",
+      "milestone": "M17",
+      "title": "Exercise recovery matrix",
+      "given": "Persistent operations have crash injection points.",
+      "when": "The recovery suite interrupts them.",
+      "then": "Trust, store, profile, and lease state remain consistent.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-005",
+      "milestone": "M17",
+      "title": "Exercise malicious inputs",
+      "given": "Minimized parser, archive, metadata, and protocol attack fixtures exist.",
+      "when": "Regression and bounded fuzz runs execute.",
+      "then": "No known crash, escape, or unauthorized acceptance remains.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-006",
+      "milestone": "M17",
+      "title": "Review dependencies",
+      "given": "The complete bootstrap and runtime dependency graph exists.",
+      "when": "License and security review runs.",
+      "then": "Provenance and redistribution blockers are explicit.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-007",
+      "milestone": "M17",
+      "title": "Validate performance report",
+      "given": "Fixed benchmark definitions and raw measurements exist.",
+      "when": "A reviewer reproduces the report.",
+      "then": "Claimed execution and reclaim results match evidence.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-008",
+      "milestone": "M17",
+      "title": "Publish support matrix",
+      "given": "Native evidence is missing for a target.",
+      "when": "Release metadata and documentation are generated.",
+      "then": "The target remains unsupported or blocked rather than silently claimed.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-009",
+      "milestone": "M17",
+      "title": "Verify user documentation",
+      "given": "Installation, migration, recovery, and rollback instructions exist.",
+      "when": "A clean disposable environment follows them.",
+      "then": "Commands match actual behavior and no undocumented manual step is required.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    },
+    {
+      "id": "RELEASE-010",
+      "milestone": "M17",
+      "title": "Retain publication boundary",
+      "given": "All release gates pass without production authority.",
+      "when": "The final report completes.",
+      "then": "No public upload, push, signing operation, or paid resource creation occurs automatically.",
+      "platforms": [
+        "portable"
+      ],
+      "required": true,
+      "spec": "RELEASE_GATES.md",
+      "testKinds": [
+        "behavior",
+        "negative-or-recovery"
+      ],
+      "statusAtDelivery": "not_started"
+    }
+  ]
+}

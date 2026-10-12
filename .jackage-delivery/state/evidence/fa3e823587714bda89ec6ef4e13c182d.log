@@ -1,0 +1,24 @@
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-004
+failed command: ".\\.zig-cache\\o\\9fd853323df5cef5cee754e90c3f6cdf\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x3550f62d --listen=-
+
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-004
+failed command: ".\\.zig-cache\\o\\825ae68ae91847372ce1fc18a21bdf47\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x3550f62d --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access...JCKG_EVIDENCE EVAL-004
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access...JCKG_EVIDENCE EVAL-004
+OK
+All 5 tests passed.

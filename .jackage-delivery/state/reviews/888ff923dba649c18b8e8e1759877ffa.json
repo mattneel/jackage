@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "888ff923dba649c18b8e8e1759877ffa",
+  "case": "AUD-007",
+  "caseDigest": "0f3a8d95f6135a24ea0d7c669e75815b8ac2c9c357927203336f90ba69327fa5",
+  "reviewer": "OMP agent (M00 work unit)",
+  "note": "Inspected src/audit/provenance.zig: build.zig.zon dependency table parsed (0 declared here, 2 in a fixture with a commented-out entry), the bootstrap archive SHA-256 read from scripts/fetch-zig.ps1, malformed pins yield null instead of an invented digest, and the absent project licence is recorded as a gap.",
+  "reviewedUtc": "2026-10-12T03:57:22.650641+00:00",
+  "records": [
+    "8dd35cc9fc184a4db3b56452015bce1d",
+    "244285cd08b14b45851c52ff576ed9bf",
+    "ed540f05245b4d6daa2994efc9426474",
+    "25f4e13dc65948e6ad779d06458127ff"
+  ],
+  "recordDigests": {
+    "8dd35cc9fc184a4db3b56452015bce1d": "93b828c174f3cd04e1a65e55530f3df9b3592d82f591224f14a803f8976ef2a8",
+    "244285cd08b14b45851c52ff576ed9bf": "ba03e96965336f60151da283af246e153ac4efe7e523756409052b77af69af6c",
+    "ed540f05245b4d6daa2994efc9426474": "8a33b82ae88e29223513fb767c7243d793dec2305d86c97fd82127272b3bee9d",
+    "25f4e13dc65948e6ad779d06458127ff": "de4ce946a1f88727674227077456aba533258cefd27238182b21672a19fbcbd9"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

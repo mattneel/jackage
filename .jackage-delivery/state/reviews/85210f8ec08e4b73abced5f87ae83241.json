@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "85210f8ec08e4b73abced5f87ae83241",
+  "case": "PROFILE-010",
+  "caseDigest": "e5ca06c76fc83f4fcb31ce4e87f6d85192e6e885eaefc98e7b5adb55c084b5e7",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected unique copied writable workspaces, immutable store bytes, two live runners sharing a closure, collection after one exits and final reclamation; deliberate artifact-keyed workspace reuse fault was detected.",
+  "reviewedUtc": "2026-10-12T08:59:15.154556+00:00",
+  "records": [
+    "5798f076756742b7aa8bce741d20f9fe",
+    "68e5029e144f41c8af74113612486434",
+    "9b71a6550b234da2ba74696ff8be3efc",
+    "d7233580744a4dba8bc415977c51321b"
+  ],
+  "recordDigests": {
+    "5798f076756742b7aa8bce741d20f9fe": "e66f37af5785c403be81e2a41125e2624306aa71e4f5a4581e0847af2d7662a2",
+    "68e5029e144f41c8af74113612486434": "24644a4cf18d9062082eab23b9aefc29d92101f368a019a96f33388196d50a71",
+    "9b71a6550b234da2ba74696ff8be3efc": "a38b25d4b4b9f851b008892ea0c3e08048710b23c2a276c0a19ce34ffef42283",
+    "d7233580744a4dba8bc415977c51321b": "1901887173389710391f4cd549b8f36a9837a13e1c2ac5d59b7d81ff6f83b9ad"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,30 @@
+test
++- run test w
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+failed command: ".\\.zig-cache\\o\\a9824a74d1c84709a1675ac8966cfdcc\\test.exe" "--cache-dir=.\\.zig-cache" --seed=0xc076f43f --listen=-
+
+1/9 jckg.test_0...OK
+2/9 core.store.test.m02/CAS-001 publish verified bytes atomically...JCKG_EVIDENCE CAS-001
+OK
+3/9 core.store.test.m02/CAS-002 reject corrupt bytes...JCKG_EVIDENCE CAS-002
+OK
+4/9 core.store.test.m02/CAS-003 converge concurrent writes...JCKG_EVIDENCE CAS-003
+OK
+5/9 core.store.test.m02/CAS-004 recover interrupted import...JCKG_EVIDENCE CAS-004
+OK
+6/9 core.store.test.m02/CAS-005 protect immutable inputs...JCKG_EVIDENCE CAS-005
+OK
+7/9 core.store.test.m02/CAS-006 preserve runtime references...JCKG_EVIDENCE CAS-006
+OK
+8/9 core.store.test.m02/CAS-007 handle full disk...JCKG_EVIDENCE CAS-007
+OK
+9/9 core.store.test.m02/CAS-008 respect destination semantics...JCKG_EVIDENCE CAS-008
+OK
+All 9 tests passed.

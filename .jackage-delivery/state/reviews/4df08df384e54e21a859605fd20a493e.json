@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "4df08df384e54e21a859605fd20a493e",
+  "case": "STRICT-006",
+  "caseDigest": "fc5f61987a16b82f48bab809f4f98d8a1f33008a01aa1cab844031e7931a39d0",
+  "reviewer": "OMP agent (M08 sandbox)",
+  "note": "Worker authentication: session tokens and nonce-bound challenge responses are MACed with HmacSha256 over the canonical claims (session, worker, expires, nonce) and compared in constant time. Inspected src/worker/auth.zig: an edited token fails the MAC check rather than being re-scoped, a genuine foreign-session token fails the binding check before any work, and artifact requests are checked against a per-session scope so session A cannot reach session B's artifacts. Fault evidence confirms the check is load-bearing: skipping the comparison makes the case fail (exit 1), and the revert was byte-identical (verified with diff). Portable case, recorded on windows-x86_64.",
+  "reviewedUtc": "2026-10-12T10:37:53.512235+00:00",
+  "records": [
+    "c3a7b69f86df45e5a02d83705499f74f",
+    "7a25689718df4e869eb9386c0418039c",
+    "2c0fb5dd17114bd7b5fb6ab8bb6d3be3",
+    "a01771cd931640eca440d0519e315ad3"
+  ],
+  "recordDigests": {
+    "c3a7b69f86df45e5a02d83705499f74f": "b67d10f9383d0015f6972a4a9cfe7bf0e2ab9211074743a13769671d03c90f21",
+    "7a25689718df4e869eb9386c0418039c": "933f516e599f885eb79d81a34b9c65937ce4e022df7a5cf26072649666568a51",
+    "2c0fb5dd17114bd7b5fb6ab8bb6d3be3": "8c15b6ae12a35982fad0be47a900670cb12dcbe266c438d8b8a95cdad34f290d",
+    "a01771cd931640eca440d0519e315ad3": "c953b608823c2113d48c42b1a5b020aa0e8e2345d830f0e26d65fe9bc2bf5205"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

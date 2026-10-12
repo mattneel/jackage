@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "153df640898645f3ab49b0ee4bc8e28f",
+  "case": "CAS-005",
+  "caseDigest": "f32118f9757ca1f06d9f1dd438029a82c5967510629832be46195e44a7967018",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected materializeBlob: the workspace receives a real copy, worker edits (including the executable bit) do not change the stored bytes, re-materialization restores the original content, and the stored object still verifies after the workspace changes.",
+  "reviewedUtc": "2026-10-12T04:32:36.330274+00:00",
+  "records": [
+    "95999b77fc714c659350d3c11985c29c",
+    "49e13ce6f22747bb8a42a84f1bd00a0d",
+    "e81fc282f1c743d1a087d9870c3b9b78",
+    "0cf1c5e0107e4eae8cb7d724a2e06d2c"
+  ],
+  "recordDigests": {
+    "95999b77fc714c659350d3c11985c29c": "6dc37a9fb4d6e0687676d949c4aef0d6cb6275bc960d820dbdc6f2fb252c9ee3",
+    "49e13ce6f22747bb8a42a84f1bd00a0d": "a1e7bc54155d399373168d9bde05b882567c69c1f2fce3ee5cd5bea1aa9abc2b",
+    "e81fc282f1c743d1a087d9870c3b9b78": "cc8d6e9d923ae7ab9e76f7f89daf3492b0752cf6c03366451218998c04966ce4",
+    "0cf1c5e0107e4eae8cb7d724a2e06d2c": "45f29b98acda25fbc716bfcdd7497422e621f8d97073d8d805a150100d8dd248"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,320 @@
+{
+  "probeUtc": "2026-10-12T03:43:50.3124113Z",
+  "os": {
+    "caption": "Microsoft Windows 11 Pro",
+    "version": "10.0.26200",
+    "buildNumber": "26200",
+    "architecture": "64-bit",
+    "installDate": "2026-01-12T19:45:54-05:00"
+  },
+  "host": {
+    "manufacturer": "Micro-Star International Co., Ltd.",
+    "model": "Raider A18 HX A9WJG",
+    "logicalProcessors": 32,
+    "physicalMemoryBytes": 66187247616,
+    "processorName": "AMD Ryzen 9 9955HX3D 16-Core Processor         ",
+    "processorArchitecture": "AMD64",
+    "processorIdentifier": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD"
+  },
+  "powershell": "7.6.6",
+  "dotnet": null,
+  "environment": {
+    "systemRoot": "C:\\Windows",
+    "temp": "C:\\Users\\requi\\AppData\\Local\\Temp",
+    "userProfilePresent": true,
+    "pathSeparator": ";",
+    "caseSensitiveFs": false
+  },
+  "volumes": [],
+  "tools": {
+    "git": {
+      "present": true,
+      "version": "git version 2.54.0.windows.1",
+      "path": "C:\\Program Files\\Git\\cmd\\git.exe"
+    },
+    "python": {
+      "present": true,
+      "version": "Python 3.13.15",
+      "path": "C:\\Users\\requi\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+    },
+    "python3": {
+      "present": true,
+      "version": "Python 3.14.7",
+      "path": "C:\\Users\\requi\\AppData\\Local\\Python\\bin\\python3.exe"
+    },
+    "py": {
+      "present": true,
+      "version": "Python 3.14.8",
+      "path": "C:\\Users\\requi\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe"
+    },
+    "pwsh": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+    },
+    "powershell": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    },
+    "node": {
+      "present": true,
+      "version": "v26.7.0",
+      "path": "C:\\nvm4w\\nodejs\\node.exe"
+    },
+    "npm": {
+      "present": true,
+      "version": "12.0.2",
+      "path": "C:\\nvm4w\\nodejs\\npm.ps1"
+    },
+    "bun": {
+      "present": true,
+      "version": "1.4.2",
+      "path": "C:\\Users\\requi\\AppData\\Local\\Microsoft\\WinGet\\Links\\bun.exe"
+    },
+    "deno": {
+      "present": false
+    },
+    "clang": {
+      "present": false
+    },
+    "clang-cl": {
+      "present": false
+    },
+    "cl": {
+      "present": false
+    },
+    "link": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Program Files\\Git\\usr\\bin\\link.exe"
+    },
+    "cmake": {
+      "present": true,
+      "version": "cmake version 4.4.3",
+      "path": "C:\\Program Files\\CMake\\bin\\cmake.exe"
+    },
+    "ninja": {
+      "present": false
+    },
+    "make": {
+      "present": false
+    },
+    "gcc": {
+      "present": false
+    },
+    "ld": {
+      "present": false
+    },
+    "curl": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Windows\\system32\\curl.exe"
+    },
+    "tar": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Windows\\system32\\tar.exe"
+    },
+    "7z": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Users\\requi\\scoop\\shims\\7z.exe"
+    },
+    "gpg": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Program Files\\Git\\usr\\bin\\gpg.exe"
+    },
+    "openssl": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Program Files\\Git\\usr\\bin\\openssl.exe"
+    },
+    "signtool": {
+      "present": false
+    },
+    "makensis": {
+      "present": false
+    },
+    "dpkg-deb": {
+      "present": false
+    },
+    "rpmbuild": {
+      "present": false
+    },
+    "qemu-system-x86_64": {
+      "present": false
+    },
+    "icacls": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Windows\\system32\\icacls.exe"
+    },
+    "msiexec": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Windows\\system32\\msiexec.exe"
+    },
+    "docker": {
+      "present": true,
+      "version": "Docker version 29.2.1, build a5c7197",
+      "path": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe"
+    },
+    "podman": {
+      "present": false
+    },
+    "ssh": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Windows\\System32\\OpenSSH\\ssh.exe"
+    },
+    "ssh-keygen": {
+      "present": true,
+      "version": null,
+      "path": "C:\\Windows\\System32\\OpenSSH\\ssh-keygen.exe"
+    },
+    "rustc": {
+      "present": true,
+      "version": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+      "path": "C:\\Users\\requi\\.cargo\\bin\\rustc.exe"
+    },
+    "cargo": {
+      "present": true,
+      "version": "cargo 1.92.0 (344c4567c 2025-10-21)",
+      "path": "C:\\Users\\requi\\.cargo\\bin\\cargo.exe"
+    },
+    "go": {
+      "present": false
+    },
+    "java": {
+      "present": true,
+      "version": "openjdk version \"1.8.0_472\"",
+      "path": "C:\\Program Files\\Eclipse Adoptium\\jre-8.0.472.8-hotspot\\bin\\java.exe"
+    },
+    "wix": {
+      "present": false
+    }
+  },
+  "wsl": {
+    "executable": "C:\\Windows\\system32\\wsl.exe",
+    "distributions": {
+      "value": "  NAME              STATE           VERSION\n\n* Ubuntu            Running         2\n\n  docker-desktop    Running         2\n\n",
+      "status": "ok"
+    },
+    "status": {
+      "value": "Default Distribution: Ubuntu\n\nDefault Version: 2\n\n",
+      "status": "ok"
+    }
+  },
+  "virtualization": {
+    "value": {
+      "hypervisorPresent": true,
+      "features": [
+        {
+          "Name": "VirtualMachinePlatform",
+          "InstallState": 1
+        },
+        {
+          "Name": "HypervisorPlatform",
+          "InstallState": 1
+        },
+        {
+          "Name": "Microsoft-Windows-Subsystem-Linux",
+          "InstallState": 1
+        },
+        {
+          "Name": "Microsoft-Hyper-V-All",
+          "InstallState": 1
+        },
+        {
+          "Name": "Containers-DisposableClientVM",
+          "InstallState": 2
+        }
+      ]
+    },
+    "status": "ok"
+  },
+  "sdk": {
+    "microsoftVisualStudio": {
+      "value": {
+        "instanceId": "8be6121e",
+        "installDate": "2026-06-09T05:30:03Z",
+        "installationName": "VisualStudio/18.9.2+12120.119",
+        "installationPath": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community",
+        "installationVersion": "18.9.12120.119",
+        "productId": "Microsoft.VisualStudio.Product.Community",
+        "productPath": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\devenv.exe",
+        "state": 4294967295,
+        "isComplete": true,
+        "isLaunchable": true,
+        "isPrerelease": false,
+        "isRebootRequired": false,
+        "displayName": "Visual Studio Community 2026",
+        "description": "Everything you need to build modern apps - free for you, built for impact.",
+        "channelId": "VisualStudio.18.Release",
+        "channelUri": "https://aka.ms/vs/18/stable/channel",
+        "enginePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service",
+        "expirationDate": "2026-11-18T12:00:00-05:00",
+        "installedChannelId": "VisualStudio.18.Release",
+        "installedChannelUri": "https://aka.ms/vs/18/stable/channel",
+        "releaseNotes": "https://docs.microsoft.com/en-us/visualstudio/releases/18/release-notes-v18.9#18.9.2",
+        "resolvedInstallationPath": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community",
+        "retirementDate": "2027-02-16T12:00:00-05:00",
+        "thirdPartyNotices": "https://go.microsoft.com/fwlink/?LinkId=661480",
+        "updateDate": "2026-08-26T19:59:30.6865969Z",
+        "catalog": {
+          "buildBranch": "stable",
+          "buildVersion": "18.9.12120.119",
+          "featureReleaseMonth": "08",
+          "featureReleaseYear": "2026",
+          "id": "VisualStudio/18.9.2+12120.119",
+          "includeBuildVersionInDisplayVersion": "False",
+          "localBuild": "build-lab",
+          "manifestName": "VisualStudio",
+          "manifestType": "installer",
+          "productDisplayVersion": "18.9.2",
+          "productLine": "Dev18",
+          "productLineVersion": "18",
+          "productMilestone": "RTW",
+          "productMilestoneIsPreRelease": "False",
+          "productName": "Visual Studio",
+          "productPatchVersion": "2",
+          "productPreReleaseMilestoneSuffix": "1.0",
+          "productRelease": "RTW",
+          "productSemanticVersion": "18.9.2+12120.119",
+          "requiredEngineVersion": "4.9.50.62957"
+        },
+        "properties": {
+          "campaignId": "",
+          "channelManifestId": "VisualStudio.18.Release/18.9.2+12120.119",
+          "includeRecommended": "1",
+          "nickname": "",
+          "setupEngineFilePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\setup.exe"
+        }
+      },
+      "status": "ok"
+    },
+    "windowsKits": {
+      "value": [
+        "10.0.18362.0",
+        "10.0.19041.0",
+        "10.0.22621.0",
+        "10.0.26100.0",
+        "10.0.28000.0",
+        "wdf"
+      ],
+      "status": "ok"
+    }
+  },
+  "linuxToolchains": {},
+  "reparseAndLongPath": {
+    "value": {
+      "longPathCreated": true,
+      "longPathCharacters": 526,
+      "caseInsensitiveLookup": true,
+      "alternateDataStreamWritable": true
+    },
+    "status": "ok"
+  }
+}

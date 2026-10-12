@@ -1,0 +1,33 @@
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks' failed:
+       JCKG_EVIDENCE EVAL-009
+       expected ActiveValue, evaluated a plan
+       C:\src\jackage\src\eval\tests.zig:36:9: 0x7ff7b81d8b9a in expectRejected (eval-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\eval\tests.zig:226:29: 0x7ff7b81dfbac in test.m04/EVAL-009 reject active values without invoking callbacks (eval-tests_zcu.obj)
+           for (rejected) |source| try expectRejected(error.ActiveValue, run(source, fixture.options(), null));
+                                   ^
+failed command: ".\\.zig-cache\\o\\f35173b0a4de220b64fdad8cc8c8debe\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x8e4b538e --listen=-
+
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks' failed:
+       JCKG_EVIDENCE EVAL-009
+       expected ActiveValue, evaluated a plan
+       C:\src\jackage\src\eval\tests.zig:36:9: 0x7ff70afd8b9a in expectRejected (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\eval\tests.zig:226:29: 0x7ff70afdfbac in test.m04/EVAL-009 reject active values without invoking callbacks (jckg-tests_zcu.obj)
+           for (rejected) |source| try expectRejected(error.ActiveValue, run(source, fixture.options(), null));
+                                   ^
+failed command: ".\\.zig-cache\\o\\2aa2cee14d962de491cc56cb1077c76f\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x8e4b538e --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x8e4b538e test -Dfilter=EVAL-009 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-009

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "vectors": [
+    {
+      "text": "{\"a\":1,\"a\":2}",
+      "reason": "duplicate object key"
+    },
+    {
+      "text": "1.0",
+      "reason": "floating point"
+    },
+    {
+      "text": "-0",
+      "reason": "negative zero"
+    },
+    {
+      "text": "9007199254740992",
+      "reason": "unsafe integer"
+    },
+    {
+      "text": "NaN",
+      "reason": "non-finite number"
+    },
+    {
+      "text": "Infinity",
+      "reason": "non-finite number"
+    },
+    {
+      "text": "\"\\ud800\"",
+      "reason": "unpaired surrogate"
+    },
+    {
+      "text": "[1,]",
+      "reason": "syntax error"
+    }
+  ]
+}

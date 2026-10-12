@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "c4929ac139a0453eb8fbe349a66c526c",
+  "case": "PLAN-008",
+  "caseDigest": "b767a139c016b7ca90c16f03d732ccd204eca374dd2c7653fdd53e9b89dce7d8",
+  "reviewer": "OMP agent (M05 work unit)",
+  "note": "Inspected src/plan/cache.zig: the first result is inserted, an identical result converges, and a different artifact under the same action identity produces a discrepancy that keeps both entries and leaves the earlier artifact addressable; a non-cacheable action is refused and duplicate output names are rejected before recording.",
+  "reviewedUtc": "2026-10-12T05:04:51.515621+00:00",
+  "records": [
+    "9213e49d27704062b46e9fc591eb9160",
+    "1d5aa8a3ddd2414c8493ac51f3dad5fb",
+    "8e44faabceca45d7b7ca79d9b8165a08",
+    "5590edafac7243ee9919e2af113eff5c"
+  ],
+  "recordDigests": {
+    "9213e49d27704062b46e9fc591eb9160": "294057027c3db81ee85c2fd0710168f605f3620eea9ef099e0f5ee404d4a6e61",
+    "1d5aa8a3ddd2414c8493ac51f3dad5fb": "4eb5276067c77d177f2790364ada917f65af9bb574cffd48dd5b6b2874c1d42d",
+    "8e44faabceca45d7b7ca79d9b8165a08": "3f9b88a196d8fd92535f36a48064219b9e52ae8222b29e7684b666c11d6589d9",
+    "5590edafac7243ee9919e2af113eff5c": "32362a1250d92529067ae109f1562313ef533bd5c833c1b8ea0831f97d80e36f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

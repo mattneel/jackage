@@ -1,0 +1,27 @@
+vendor tool modes: 2 executable file(s) ensured
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+failed command: ./.zig-cache/o/738decb2efd0ca5e1dd638f93e8e112d/eval-tests --cache-dir=./.zig-cache --seed=0xd663f48b --listen=-
+
+=== eval-tests ===
+OK
+25/33 core.store.test.m02/CAS-002 reject corrupt bytes...JCKG_EVIDENCE CAS-002
+OK
+26/33 core.store.test.m02/CAS-003 converge concurrent writes...JCKG_EVIDENCE CAS-003
+OK
+27/33 core.store.test.m02/CAS-004 recover interrupted import...JCKG_EVIDENCE CAS-004
+OK
+28/33 core.store.test.m02/CAS-005 protect immutable inputs...JCKG_EVIDENCE CAS-005
+OK
+29/33 core.store.test.m02/CAS-006 preserve runtime references...JCKG_EVIDENCE CAS-006
+OK
+30/33 core.store.test.m02/CAS-007 handle full disk...JCKG_EVIDENCE CAS-007
+OK
+31/33 core.store.test.m02/CAS-008 respect destination semantics...JCKG_EVIDENCE CAS-008
+OK
+32/33 core.tree.test.m02/CAN-009 reject unsafe portable paths...JCKG_EVIDENCE CAN-009
+OK
+33/33 core.tree.test.m02/CAN-010 validate tree structure...JCKG_EVIDENCE CAN-010
+OK
+All 33 tests passed.

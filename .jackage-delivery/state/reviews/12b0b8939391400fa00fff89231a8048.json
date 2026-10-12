@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "12b0b8939391400fa00fff89231a8048",
+  "case": "CLI-010",
+  "caseDigest": "998368fee8930ef9e985e32dd057f0121f997fa1456dbe8123f72c76764f9884",
+  "reviewer": "OMP agent (M01 work unit)",
+  "note": "Inspected src/core/redact.zig and the spawned client with a token-shaped URL and environment: neither stdout nor stderr contains the credential on the success, usage-error or policy-denial paths, while '***@example.invalid/org/repo.git' keeps the diagnostic useful; redaction is applied at the emitter boundary so structured errors cannot leak.",
+  "reviewedUtc": "2026-10-12T04:21:26.631361+00:00",
+  "records": [
+    "d475f9f4c30a477383eaf6fc03d2497c",
+    "bce49b0d1ed84304a4a8c3a77c02a5c3",
+    "aef15ccf204c44c3a3cc94d179d4ce77",
+    "6a58120f512a46a090e41c96486c8f24"
+  ],
+  "recordDigests": {
+    "d475f9f4c30a477383eaf6fc03d2497c": "2a8528842ebdc619c2661396eb776f499b7cbea19ddd15aed3bd51f6b7e2e909",
+    "bce49b0d1ed84304a4a8c3a77c02a5c3": "75b863219c0c2568ec9f8bb593f65906c7e6e4460f28525af371411833483ab9",
+    "aef15ccf204c44c3a3cc94d179d4ce77": "f7ca3d500acbe2442d7fb71df3b810b156fc875e172407ca5744d244d0fa913b",
+    "6a58120f512a46a090e41c96486c8f24": "3d9a3ecea84f6f53d8e8ff685be2d4ab4ecc7043254e681ede771b05203dd29d"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,33 @@
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-008 bound heap allocation and release engine resources' failed:
+       JCKG_EVIDENCE EVAL-008
+       expected ResourceLimit, evaluated a plan
+       C:\src\jackage\src\eval\tests.zig:36:9: 0x7ff642838b9a in expectRejected (eval-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\eval\tests.zig:195:20: 0x7ff64283fc7e in test.m04/EVAL-008 bound heap allocation and release engine resources (eval-tests_zcu.obj)
+           for (0..3) |_| try expectRejected(error.ResourceLimit, run("const allocation = new Array(2000000).fill(7); " ++ plain, options, &cache));
+                          ^
+failed command: ".\\.zig-cache\\o\\c62c31fc91d98fb435442497db22e0de\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x4634c0e6 --listen=-
+
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-008 bound heap allocation and release engine resources' failed:
+       JCKG_EVIDENCE EVAL-008
+       expected ResourceLimit, evaluated a plan
+       C:\src\jackage\src\eval\tests.zig:36:9: 0x7ff6aa898b9a in expectRejected (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\eval\tests.zig:195:20: 0x7ff6aa89fc7e in test.m04/EVAL-008 bound heap allocation and release engine resources (jckg-tests_zcu.obj)
+           for (0..3) |_| try expectRejected(error.ResourceLimit, run("const allocation = new Array(2000000).fill(7); " ++ plain, options, &cache));
+                          ^
+failed command: ".\\.zig-cache\\o\\2c5b154dd61ad86ff0c44efe8b228208\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x4634c0e6 --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x4634c0e6 test -Dfilter=EVAL-008 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-008

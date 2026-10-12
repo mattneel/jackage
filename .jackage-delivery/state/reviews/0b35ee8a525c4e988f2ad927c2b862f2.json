@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "0b35ee8a525c4e988f2ad927c2b862f2",
+  "case": "CAN-001",
+  "caseDigest": "11de182189772bb44fb10725da0061cdadafae6765012a089724e01797c9cd28",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected src/core/canonical.zig: objects sort by UTF-8 key bytes at parse and at canonicalize; equal pairs in different textual order produce identical bytes; an unsorted caller-built object is detectable via isCanonical; all 15 fixture vectors encode to their recorded canonicalUtf8Hex.",
+  "reviewedUtc": "2026-10-12T04:32:35.258891+00:00",
+  "records": [
+    "5cff087454984ba0a1365963eb8ce7ba",
+    "77dc403b9a7b4f9d9afa5eff52247864",
+    "d5630f6ba4b44a7cb03c71dcee82db3d",
+    "198f71ab11624e4786543036a05dcf83"
+  ],
+  "recordDigests": {
+    "5cff087454984ba0a1365963eb8ce7ba": "db5aaa71089b9573b882e60b29706a9ac3a9a62e3e64037317f399373a1868d1",
+    "77dc403b9a7b4f9d9afa5eff52247864": "79574c23aaa55b07fc2c7c0bdf54980ec129ded8dccdb8bc9ac6777e835528e6",
+    "d5630f6ba4b44a7cb03c71dcee82db3d": "5d79bec0defd096fe6216062d9fd77643bbf89ee5ad367344457ec511ce9595f",
+    "198f71ab11624e4786543036a05dcf83": "809f73c39a1f64d1c470b611672df3fa844eeb0b15ef9b4613e9726008bd89a9"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

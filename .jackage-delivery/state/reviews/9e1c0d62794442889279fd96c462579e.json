@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "9e1c0d62794442889279fd96c462579e",
+  "case": "PROFILE-004",
+  "caseDigest": "a013e4d321580167cc7e342752589e86583dab6ae39e248ba1e09a67f3094871",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected removal generation, unchanged user-owned source, collector history pruning and shared dependency reachability; deliberate retained-selection removal fault was detected.",
+  "reviewedUtc": "2026-10-12T08:59:14.744420+00:00",
+  "records": [
+    "1e1e2f392fd14e25828d652a70eb95fc",
+    "f2af6de7b490488399e95313484d13f5",
+    "7aa915dbbb8641c3941d5228d6aed17a",
+    "4ea374b2cb7c4fefa092e0e2f55268a1"
+  ],
+  "recordDigests": {
+    "1e1e2f392fd14e25828d652a70eb95fc": "eed1b04513cb1a7596f3647bd3139682e25aa6f5a3bb4d37050ee687fdd14044",
+    "f2af6de7b490488399e95313484d13f5": "95a6d05b1311a311dd0ad2c95445846c020b7d210ecab7c122da0f24ff7c679f",
+    "7aa915dbbb8641c3941d5228d6aed17a": "2c5fb2a1fd6b7b8b079e81efbb36065b9d216459a10e52d403a3d41bba982a43",
+    "4ea374b2cb7c4fefa092e0e2f55268a1": "cb9d770fba86098650c984586659398b3e00ff57a5230cad1520ecf8156402a4"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

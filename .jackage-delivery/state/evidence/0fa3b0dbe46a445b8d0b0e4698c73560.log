@@ -1,0 +1,95 @@
+test
++- run test 1 pass, 8 fail (9 total)
+error: 'audit.pin.test.AUD-002 honor the compiler pin' failed:
+       JCKG_EVIDENCE AUD-002
+       C:\src\jackage\src\audit\pin.zig:30:67: 0x7ff798273635 in verify (test_zcu.obj)
+               if (std.mem.eql(u8, self.expected, trimReport(reported))) return error.PinMismatch; // DELIBERATE FAULT
+                                                                         ^
+       C:\src\jackage\src\audit\pin.zig:55:5: 0x7ff7982737d3 in test.AUD-002 honor the compiler pin (test_zcu.obj)
+           try pin.verify("0.18.0-dev.146+35accc06e\n");
+           ^
+error: 'audit.pin.test.AUD-003 reject pin mismatch' failed:
+       JCKG_EVIDENCE AUD-003
+       expected error.PinMismatch, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff79827289a in expectError__func_1119 (test_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\audit\pin.zig:79:5: 0x7ff798272a2d in test.AUD-003 reject pin mismatch (test_zcu.obj)
+           try std.testing.expectError(error.PinMismatch, pin.verify("0.15.1"));
+           ^
+error: 'audit.host.test.AUD-006 discover host capabilities' failed:
+       JCKG_EVIDENCE AUD-006
+       expected .x86_64, found .other
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff79827000c in expectEqualInner__func_1099 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff798270200 in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\audit\host.zig:195:5: 0x7ff79827026b in test.AUD-006 discover host capabilities (test_zcu.obj)
+           try std.testing.expectEqual(Arch.x86_64, facts.arch);
+           ^
+error: 'audit.inventory.test.AUD-004 map the existing implementation' failed:
+       JCKG_EVIDENCE AUD-004
+       
+       ====== expected this output: =========
+       3c351e69d0c382bcf1c3f2c65a4881d8e856fb72466c536f5c9966832d181cbb␃
+       
+       ======== instead found this: =========
+       645182027782aac6e1c4546b424d104e152263c6e0a72c908148f8a96e49c377␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       3c351e69d0c382bcf1c3f2c65a4881d8e856fb72466c536f5c9966832d181cbb
+       ^ ('\x33')
+       found:
+       645182027782aac6e1c4546b424d104e152263c6e0a72c908148f8a96e49c377
+       ^ ('\x36')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff798222eab in expectEqualStrings (test_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\audit\inventory.zig:128:5: 0x7ff7982670e4 in test.AUD-004 map the existing implementation (test_zcu.obj)
+           try std.testing.expectEqualStrings(
+           ^
+error: 'audit.provenance.test.m00/AUD-007 inspect dependency provenance' failed:
+       JCKG_EVIDENCE AUD-007
+       C:\src\jackage\src\audit\provenance.zig:281:55: 0x7ff79825b305 in test.m00/AUD-007 inspect dependency provenance (test_zcu.obj)
+           const pinned = provenance.toolchain_sha256 orelse return error.MissingToolchainPin;
+                                                             ^
+error: 'audit.manifest.test.AUD-001 preserve the existing checkout' failed:
+       JCKG_EVIDENCE AUD-001
+       C:\src\jackage\src\audit\manifest.zig:155:67: 0x7ff7982345e1 in verify (test_zcu.obj)
+                       if (std.mem.eql(u8, &actual, &record.digest_hex)) return error.ContentChanged; // DELIBERATE FAULT
+                                                                         ^
+       C:\src\jackage\src\audit\manifest.zig:201:5: 0x7ff798233188 in test.AUD-001 preserve the existing checkout (test_zcu.obj)
+           try verify(io, cwd, manifest);
+           ^
+error: 'audit.baseline.test.m00/AUD-005 record baseline failures' failed:
+       JCKG_EVIDENCE AUD-005
+       expected 1, found 0
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff79822d79a in expectEqualInner__func_882 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff79822e840 in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\audit\baseline.zig:178:5: 0x7ff79822e92c in test.m00/AUD-005 record baseline failures (test_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 1), repaired.countOf(.fixed));
+           ^
+error: 'audit.hostenv.test.m00/AUD-008 preserve legacy WSL state' failed:
+       JCKG_EVIDENCE AUD-008
+       C:\src\jackage\src\audit\hostenv.zig:118:65: 0x7ff798224e8e in assertUnchanged (test_zcu.obj)
+           if (std.mem.eql(u8, &before.digest_hex, &after.digest_hex)) return error.WslStateChanged; // DELIBERATE FAULT
+                                                                       ^
+       C:\src\jackage\src\audit\hostenv.zig:156:5: 0x7ff798224237 in test.m00/AUD-008 preserve legacy WSL state (test_zcu.obj)
+           try assertUnchanged(first, second);
+           ^
+failed command: ".\\.zig-cache\\o\\5679351cc7c542de643d6d93515ac05d\\test.exe" "--cache-dir=.\\.zig-cache" --seed=0xd885c05b --listen=-
+
+Build Summary: 5/7 steps succeeded (1 failed); 1/9 tests passed (8 failed)
+test transitive failure
++- run test 1 pass, 8 fail (9 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xd885c05b test -Dfilter=AUD

@@ -1,0 +1,158 @@
+test
++- run test jckg-tests 3 pass, 11 fail (14 total); 1 leaks
+error: 'plan.cache.test.m05/PLAN-008 separate action and artifact identity' failed:
+       JCKG_EVIDENCE PLAN-008
+       expected .converged, found .discrepancy
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6e2d10540 in expectEqualInner__func_1163 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6e2d10b3a in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:/src/jackage/tools/zig/lib/std/testing.zig:157:17: 0x7ff6e2d10bae in expectEqualInner__func_1162 (jckg-tests_zcu.obj)
+                       try expectEqual(@as(Tag, expected), @as(Tag, actual));
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6e2d187a4 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\plan\cache.zig:233:5: 0x7ff6e2d18845 in test.m05/PLAN-008 separate action and artifact identity (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(RecordOutcome.converged, try cache.record(first));
+           ^
+error: 'plan.cache.test.m05/PLAN-011 preserve cache policy' failed:
+       JCKG_EVIDENCE PLAN-011
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6e2ca87df in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\plan\cache.zig:295:5: 0x7ff6e2d11410 in test.m05/PLAN-011 preserve cache policy (jckg-tests_zcu.obj)
+           try std.testing.expect(std.mem.indexOf(u8, refused.incompatible.reason, "release provenance") != null);
+           ^
+error: 'plan.lockfile.test.m05/PLAN-005 lock complete inputs' failed:
+       JCKG_EVIDENCE PLAN-005
+       expected error.MissingInput, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6e2ce2a1a in expectError__func_1084 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\plan\lockfile.zig:392:5: 0x7ff6e2d0f90c in test.m05/PLAN-005 lock complete inputs (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.MissingInput, validate(missing_boundary));
+           ^
+error: 'plan.lockfile.test.m05/PLAN-006 refuse floating locked input' failed:
+       JCKG_EVIDENCE PLAN-006
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6e2ca87df in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\plan\lockfile.zig:411:5: 0x7ff6e2d0cba2 in test.m05/PLAN-006 refuse floating locked input (jckg-tests_zcu.obj)
+           try std.testing.expect(isFloating("master"));
+           ^
+error: 'plan.lockfile.test.m05/PLAN-007 honor locked mode' failed:
+       JCKG_EVIDENCE PLAN-007
+       expected error.LockedDigestMismatch, found .{ .selections = { .{ .namespace = { ... }, .name = { ... }, .version = .{ ... }, .artifact_digest = { ... } }, .{ .namespace = { ... }, .name = { ... }, .version = .{ ... }, .artifact_digest = { ... } } }, .gpa = .{ .ptr = anyopaque@7ff6e2e0a900, .vtable = .{ .alloc = fn (*anyopaque, usize, mem.Alignment, usize) ?[*]u8@7ff6e2c883c0, .resize = fn (*anyopaque, []u8, mem.Alignment, usize, usize) bool@7ff6e2c8ef40, .remap = fn (*anyopaque, []u8, mem.Alignment, usize, usize) ?[*]u8@7ff6e2c88c70, .free = fn (*anyopaque, []u8, mem.Alignment, usize) void@7ff6e2c8f640 } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6e2ce2bc5 in expectError__func_1085 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\plan\lockfile.zig:515:5: 0x7ff6e2ce3bb2 in test.m05/PLAN-007 honor locked mode (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.LockedDigestMismatch, lockedResolution(gpa, lock, &changed_pool));
+           ^
+       [SafeAllocator] (err): leaked [addr: 2bd1150, len: 160 (0xa0) align: 8] allocated at: 
+       C:\src\jackage\src\plan\lockfile.zig:259:37: 0x7ff6e2ce4493 in lockedResolution (jckg-tests_zcu.obj)
+           const selections = try gpa.alloc(resolver.Selection, lock.packages.len);
+                                           ^
+       C:\src\jackage\src\plan\lockfile.zig:515:77: 0x7ff6e2ce3a23 in test.m05/PLAN-007 honor locked mode (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.LockedDigestMismatch, lockedResolution(gpa, lock, &changed_pool));
+                                                                                   ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff6e2b2d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff6e2b2d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff6e2b2b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff6e2b2b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff6e2d197d7 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       ???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+       (additional stack frames may have been skipped...)
+error: 'plan.planner.test.m05/PLAN-004 reject graph cycles' failed:
+       JCKG_EVIDENCE PLAN-004
+       expected error.CycleDetected, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff6e2cdee4a in expectError__func_1074 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\plan\planner.zig:567:5: 0x7ff6e2cdf00c in test.m05/PLAN-004 reject graph cycles (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.CycleDetected, validate(cyclic));
+           ^
+error: 'plan.planner.test.m05/PLAN-009 schedule dependencies' failed:
+       JCKG_EVIDENCE PLAN-009
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6e2ca87df in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\plan\planner.zig:665:5: 0x7ff6e2cce124 in test.m05/PLAN-009 schedule dependencies (jckg-tests_zcu.obj)
+           try std.testing.expect(recorder.started[2] >= recorder.finished[0]);
+           ^
+error: 'plan.planner.test.m05/PLAN-010 separate platforms' failed:
+       JCKG_EVIDENCE PLAN-010
+       
+       ====== expected this output: =========
+       windows-native␃
+       
+       ======== instead found this: =========
+       linux-native␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       windows-native
+       ^ ('\x77')
+       found:
+       linux-native
+       ^ ('\x6c')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff6e2ca89d1 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\plan\planner.zig:710:5: 0x7ff6e2cca5cc in test.m05/PLAN-010 separate platforms (jckg-tests_zcu.obj)
+           try std.testing.expectEqualStrings("windows-native", placement.assigned[1].executor_name);
+           ^
+error: 'plan.resolver.test.m05/PLAN-001 resolve exact closure' failed:
+       JCKG_EVIDENCE PLAN-001
+       expected 1, found 0
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6e2cc5f77 in expectEqualInner__func_994 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6e2cc6a34 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\plan\resolver.zig:400:5: 0x7ff6e2cc6b85 in test.m05/PLAN-001 resolve exact closure (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(u32, 1), app.version.minor);
+           ^
+error: 'plan.resolver.test.m05/PLAN-002 explain conflicts' failed:
+       JCKG_EVIDENCE PLAN-002
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff6e2ca87df in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\plan\resolver.zig:470:5: 0x7ff6e2cc3757 in test.m05/PLAN-002 explain conflicts (jckg-tests_zcu.obj)
+           try std.testing.expect(first == .conflict);
+           ^
+error: 'plan.resolver.test.m05/PLAN-003 preserve namespaces' failed:
+       JCKG_EVIDENCE PLAN-003
+       expected 2, found 1024
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff6e2ca8b1a in expectEqualInner__func_870 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff6e2ca93f5 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\plan\resolver.zig:545:5: 0x7ff6e2ca9612 in test.m05/PLAN-003 preserve namespaces (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 2), both.resolved.selections.len);
+           ^
+failed command: ".\\.zig-cache\\o\\282f3818523889e4eaed06b9e097e539\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x51672161 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 3/14 tests passed (11 failed)
+test transitive failure
++- run test jckg-tests 3 pass, 11 fail (14 total); 1 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x51672161 test -Dfilter=PLAN --prefix C:\src\jackage\.zig-cache\test-prefix-PLAN

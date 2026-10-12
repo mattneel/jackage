@@ -1,0 +1,40 @@
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       /home/autark/jckg/toolchain/zig-0.18.0-dev.146+35accc06e/lib/std/testing.zig:641:13: 0x130990b in expectError__func_1135 (std.zig)
+                   return error.TestUnexpectedError;
+                   ^
+       /home/autark/jckg/dev/src/eval/tests.zig:197:29: 0x139eb6e in test.m04/EVAL-009 reject active values without invoking callbacks (eval_tests.zig)
+           for (rejected) |source| try std.testing.expectError(error.ActiveValue, run(source, fixture.options(), null));
+                                   ^
+error: 'eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode' failed:
+       JCKG_EVIDENCE EVAL-010
+       /home/autark/jckg/dev/src/eval/frontend.zig:198:58: 0x128ec2c in evaluate (eval_tests.zig)
+           const transformer = options.tools.transformer orelse return error.TransformerUnavailable;
+                                                                ^
+       /home/autark/jckg/dev/src/eval/tests.zig:24:87: 0x1292c2f in run (eval_tests.zig)
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       /home/autark/jckg/dev/src/eval/tests.zig:220:22: 0x139dd4e in test.m04/EVAL-010 refuse real untrusted engine bytecode (eval_tests.zig)
+           const recovery = try run(plain, fixture.options(), null); defer recovery.deinit(gpa);
+                            ^
+error: 'eval.tests.test.m04/EVAL-011 key cache by engine transformer options and sources' failed:
+       JCKG_EVIDENCE EVAL-011
+       /home/autark/jckg/dev/src/eval/frontend.zig:198:58: 0x128ec2c in evaluate (eval_tests.zig)
+           const transformer = options.tools.transformer orelse return error.TransformerUnavailable;
+                                                                ^
+       /home/autark/jckg/dev/src/eval/tests.zig:24:87: 0x1292c2f in run (eval_tests.zig)
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       /home/autark/jckg/dev/src/eval/tests.zig:228:21: 0x1309bc7 in test.m04/EVAL-011 key cache by engine transformer options and sources (eval_tests.zig)
+           const initial = try run(plain, fixture.options(), &cache); defer initial.deinit(gpa);
+                           ^
+failed command: ./.zig-cache/o/2ac509d84cab52c04464aad6cb6dc57f/eval-tests --cache-dir=./.zig-cache --seed=0x4ebfb02e --listen=-
+
+Build Summary: 11/16 steps succeeded (2 failed); 25/36 tests passed (11 failed)
+test transitive failure
++- run test jckg-tests transitive failure
+|  +- compile test jckg-tests debug native 2 errors
++- install jckg-tests transitive failure
+|  +- compile test jckg-tests debug native (reused)
++- run test eval-tests 22 pass, 11 fail (33 total)
+

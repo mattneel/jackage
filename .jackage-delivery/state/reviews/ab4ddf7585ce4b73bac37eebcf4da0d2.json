@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "ab4ddf7585ce4b73bac37eebcf4da0d2",
+  "case": "AUD-006",
+  "caseDigest": "05b236c6d8c6611f76b5d8448ec79cac49c49a99da22f19826475b68111b169a",
+  "reviewer": "OMP agent (M00 work unit)",
+  "note": "Inspected src/audit/host.zig: detect() uses builtin target tags, the pinned std's page-size range, cpu count, and this process's own executable path; supportMatrix labels windows-x86_64 native and the other five delivery targets unavailable with named reasons. Host facts cross-checked against the independent PowerShell inventory.",
+  "reviewedUtc": "2026-10-12T03:57:22.592682+00:00",
+  "records": [
+    "662a1f1257cf4aa7bb2680f83ae40ff1",
+    "0588223946614a0689cc0b71068928c3",
+    "e3763b6b541c412a9a389d1dd051893e",
+    "c3355dc2eb6a482b87dc01f2b8d37f0f"
+  ],
+  "recordDigests": {
+    "662a1f1257cf4aa7bb2680f83ae40ff1": "476011d56c57ac3d76b66fc163b8c7835b56f3b3a9bd0013a60cd226dda7b9ae",
+    "0588223946614a0689cc0b71068928c3": "679ac9d9b9ceeb17c58d0d46aa532f86994afff6dbee82235cc19b6012544b79",
+    "e3763b6b541c412a9a389d1dd051893e": "b1253772da0a757cac356d579f4d98087a3be41222fb1d3eae62e288e46a9bf9",
+    "c3355dc2eb6a482b87dc01f2b8d37f0f": "8790a79b9b3934c3bdf105da892686474122c0fd520aba88a5ac0f7dd7521960"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

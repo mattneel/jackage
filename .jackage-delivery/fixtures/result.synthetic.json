@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "actionDigest": "sha256:7b16e4296462adf68e6f92713195c6fcd34f16e1d1b7a70a5b19dd76213d6f6f",
+  "status": "policy-denied",
+  "exitCode": null,
+  "outputs": {},
+  "backendIdentity": "fixture-only",
+  "environmentDigest": "sha256:cb5bc1a47455d5932d3735707ecf5b7bf6dd69f29334cc8bafc22a4fa9f566e7",
+  "diagnostics": [
+    {
+      "code": "CAPABILITY_UNAVAILABLE",
+      "message": "The fixture executor cannot enforce the requested filesystem policy."
+    }
+  ]
+}

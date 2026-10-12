@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "24f2b43833434d17a4d83652d3ec1bc9",
+  "case": "CAS-003",
+  "caseDigest": "7f99be491c863ca1f07f1a6425e86d3ce04aad1755ba395055ca57c8292fef36",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected convergent publication with two real threads importing identical bytes: both succeed, exactly one immutable object exists, its bytes verify, staging is empty, and a later import converges on the existing object instead of replacing it.",
+  "reviewedUtc": "2026-10-12T04:32:36.170755+00:00",
+  "records": [
+    "83a100e1f7464add8485293d37d1300d",
+    "945b1f2843944c38b8d8a9a212285b27",
+    "42e9cacd89dd4ad88791ba3d2d69c50e",
+    "86ed07e16d1d4ecc9fac7f54ee007511"
+  ],
+  "recordDigests": {
+    "83a100e1f7464add8485293d37d1300d": "02f4d6de53d5c13f60614877fe2e0ce3fde463759100c5ed5de529a788a82ac7",
+    "945b1f2843944c38b8d8a9a212285b27": "a6b13654218c906bc0ff8ddd59fc2d65f700a03c91e916c20ab0b311022f280c",
+    "42e9cacd89dd4ad88791ba3d2d69c50e": "4af48ab81b66964dcab0ade77d967c974c5011956be54eca1257384d8f10da43",
+    "86ed07e16d1d4ecc9fac7f54ee007511": "d4b2c2fe61f0663e3130949166fd69f565ead548f8bb4b31a4731b28b12dec55"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

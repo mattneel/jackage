@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "d92a42128af14c22b557d003241d9c24",
+  "case": "EVAL-005",
+  "caseDigest": "5ce6d074365ef443241b4a8a7a03199f9eb494e9eed5b42228633a26468e9e4d",
+  "reviewer": "OMP agent (M04 work unit)",
+  "note": "Inspected removal of Date, performance/timeOrigin and Math.random; absent process/fs/environment bridges; empty native-tool environment and explicit input-only SDK. Fault: Date.now() expected EvaluationFailed under the ambient-clock policy but evaluated a plan (TestExpectedError). Characterize/fault/green/full-suite-regression records were inspected in order; no fault used a compile failure, panic or skipped test.",
+  "reviewedUtc": "2026-10-12T09:49:31.566115+00:00",
+  "records": [
+    "0c6bd57b5aa7402abdb373670ca288fb",
+    "e184ac6b9d84453986666e1deed1f630",
+    "d0dba8021bd14bb8be6189de8028c268",
+    "94a6fda357974be8b3fb29d6603bec99"
+  ],
+  "recordDigests": {
+    "0c6bd57b5aa7402abdb373670ca288fb": "3e705bc0d409a0677cfac66d1f6810cf741a7683201870c389f1644232a6f451",
+    "e184ac6b9d84453986666e1deed1f630": "9ecf5f1f4e473e05b479be2875076ebafa3fd832597c836cc1f8dd43caa51686",
+    "d0dba8021bd14bb8be6189de8028c268": "86a80e1c5e9462a846669b4f470253561a0c73ed6614682dff9d23f9d376d121",
+    "94a6fda357974be8b3fb29d6603bec99": "5b2cbc6c686cac48c542b7390e5f55c0d3a99a26c937f4f7d6be7eedc4bd42f5"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

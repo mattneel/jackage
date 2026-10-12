@@ -1,0 +1,46 @@
+test_array_order (test_kit_tools.CanonicalOracleTests.test_array_order) ... ok
+test_blob_vectors (test_kit_tools.CanonicalOracleTests.test_blob_vectors) ... ok
+test_bool_not_integer (test_kit_tools.CanonicalOracleTests.test_bool_not_integer) ... ok
+test_domain_prefix_contains_nul (test_kit_tools.CanonicalOracleTests.test_domain_prefix_contains_nul) ... ok
+test_float_rejected (test_kit_tools.CanonicalOracleTests.test_float_rejected) ... ok
+test_golden_vectors (test_kit_tools.CanonicalOracleTests.test_golden_vectors) ... ok
+test_integer_bounds (test_kit_tools.CanonicalOracleTests.test_integer_bounds) ... ok
+test_invalid_json_fixtures (test_kit_tools.CanonicalOracleTests.test_invalid_json_fixtures) ... ok
+test_nonstring_object_key_rejected (test_kit_tools.CanonicalOracleTests.test_nonstring_object_key_rejected) ... ok
+test_object_order (test_kit_tools.CanonicalOracleTests.test_object_order) ... ok
+test_path_vectors (test_kit_tools.CanonicalOracleTests.test_path_vectors) ... ok
+test_surrogate_rejected (test_kit_tools.CanonicalOracleTests.test_surrogate_rejected) ... ok
+test_unicode_is_not_normalized (test_kit_tools.CanonicalOracleTests.test_unicode_is_not_normalized) ... ok
+test_unknown_domain_rejected (test_kit_tools.CanonicalOracleTests.test_unknown_domain_rejected) ... ok
+test_changed_case_invalidates_evidence (test_kit_tools.EvidenceTests.test_changed_case_invalidates_evidence) ... ok
+test_characterization_route (test_kit_tools.EvidenceTests.test_characterization_route) ... ok
+test_duplicate_case_catalog_rejected (test_kit_tools.EvidenceTests.test_duplicate_case_catalog_rejected) ... ok
+test_fault_without_characterization_rejected (test_kit_tools.EvidenceTests.test_fault_without_characterization_rejected) ... ok
+test_green_requires_success (test_kit_tools.EvidenceTests.test_green_requires_success) ... ok
+test_initial_status_is_incomplete (test_kit_tools.EvidenceTests.test_initial_status_is_incomplete) ... ok
+test_log_budget_is_not_green (test_kit_tools.EvidenceTests.test_log_budget_is_not_green) ... ok
+test_marker_required_in_real_output (test_kit_tools.EvidenceTests.test_marker_required_in_real_output) ... ok
+test_milestone_cycle_rejected (test_kit_tools.EvidenceTests.test_milestone_cycle_rejected) ... ok
+test_missing_executable_is_infrastructure (test_kit_tools.EvidenceTests.test_missing_executable_is_infrastructure) ... ok
+test_new_failure_invalidates_old_review (test_kit_tools.EvidenceTests.test_new_failure_invalidates_old_review) ... ok
+test_real_bundle_needs_review (test_kit_tools.EvidenceTests.test_real_bundle_needs_review) ... ok
+test_record_mutation_invalidates_review (test_kit_tools.EvidenceTests.test_record_mutation_invalidates_review) ... ok
+test_red_green_command_mismatch_rejected (test_kit_tools.EvidenceTests.test_red_green_command_mismatch_rejected) ... ok
+test_red_requires_failure (test_kit_tools.EvidenceTests.test_red_requires_failure) ... ok
+test_review_needs_name_and_note (test_kit_tools.EvidenceTests.test_review_needs_name_and_note) ... ok
+test_review_without_regression_rejected (test_kit_tools.EvidenceTests.test_review_without_regression_rejected) ... ok
+test_reviewed_bundle_completes_local_structure (test_kit_tools.EvidenceTests.test_reviewed_bundle_completes_local_structure) ... ok
+test_tampered_log_rejected (test_kit_tools.EvidenceTests.test_tampered_log_rejected) ... ok
+test_timeout_is_not_red (test_kit_tools.EvidenceTests.test_timeout_is_not_red) ... ok
+test_unknown_case_cannot_record (test_kit_tools.EvidenceTests.test_unknown_case_cannot_record) ... ok
+test_wrong_platform_rejected (test_kit_tools.EvidenceTests.test_wrong_platform_rejected) ... ok
+test_evidence_path_escape_rejected (test_kit_tools.PackTests.test_evidence_path_escape_rejected) ... ok
+test_manifest_excludes_existing_product_paths (test_kit_tools.PackTests.test_manifest_excludes_existing_product_paths) ... ok
+test_native_roles_are_not_relabelable (test_kit_tools.PackTests.test_native_roles_are_not_relabelable) ... ok
+test_timestamp_timezone_required (test_kit_tools.PackTests.test_timestamp_timezone_required) ... ok
+test_validate_catalog (test_kit_tools.PackTests.test_validate_catalog) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 25.334s
+
+OK

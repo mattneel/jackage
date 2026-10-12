@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "47dde7d4ddf14bf69db8ca5d92aeb290",
+  "case": "EXE-007",
+  "caseDigest": "ca5a39c2c54e90d59c345aa67f918b6d722b79ce063b04745545380e7e171ef0",
+  "reviewer": "OMP agent (M03 work unit)",
+  "note": "Inspected token/deadline polling, creation-time-checked taskkill /T /F and verification before completion/collection. Real cmd -> cmd -> jckg tree exposes at least two descendants; cancellation and timeout assert every observed identity gone before release. Grandchild writes to NUL so pipe closure cannot hide a missed kill; fixture-only deferred cleanup executes after assertions. Fault kills only the root and falsely releases tree ownership, making the unchanged descendant-gone assertion fail. No job-object, detached-process or snapshot-race guarantee. Timing property: no descendant survives the action's exit, meaning every observed identity is gone immediately when Executor.run returns, before any fixture cleanup defer; reverted green uses the same assertions and timing.",
+  "reviewedUtc": "2026-10-12T10:02:34.331070+00:00",
+  "records": [
+    "fc2cb3ae1d284b78a12bcf023fdd81e5",
+    "d8909f8a24154d03b563805bb4ae3143",
+    "a483959a97114328a2cd62ba766145cc",
+    "8ee732ef3390453780ad13fa54ff833d"
+  ],
+  "recordDigests": {
+    "fc2cb3ae1d284b78a12bcf023fdd81e5": "e12e1784b4f9d0201a4c600a27c5dd2a837fa2f64591f26c007d379080be1553",
+    "d8909f8a24154d03b563805bb4ae3143": "494da2491fa536e36cf7550dd3acd550fb3efd19d400c98345e917398adbf335",
+    "a483959a97114328a2cd62ba766145cc": "8363c0d01c6f6c8379d443097e9e542a8ed049e3b37aef0790d54797cfa5f296",
+    "8ee732ef3390453780ad13fa54ff833d": "fa156a2bbbd5fa84659cf1ab45c675797331d14bee65db84b3e6f825be6a0cd6"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

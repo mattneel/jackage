@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "d1d9330a3a8743d9b2ed907df8871c73",
+  "case": "PROFILE-005",
+  "caseDigest": "7c342b2058d21875da35d2133f05be3abcbb4e9693bdd3cd9f31e18b99a35659",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected collision diagnostic naming both packages, case-insensitive Windows policy, explicit command owner and order-independent selection; deliberate implicit collision owner fault was detected.",
+  "reviewedUtc": "2026-10-12T08:59:14.810366+00:00",
+  "records": [
+    "46fff421e5824360a8ddec9cf3981e7b",
+    "50e60d94a2c34c2e84467f8adfadbc5c",
+    "c2808cd252f1438fa0ac29eabce8c076",
+    "cfb0df9c5f694b3998a087cfb0f3c9fe"
+  ],
+  "recordDigests": {
+    "46fff421e5824360a8ddec9cf3981e7b": "0f46780652f76cf6ea2f1926866ce361b7cbb43955b931622400a16fcb4c5700",
+    "50e60d94a2c34c2e84467f8adfadbc5c": "152be18af1d89780f3eac8d545e0e5c84363c772115c2ca1ae6e1cf63b55d44d",
+    "c2808cd252f1438fa0ac29eabce8c076": "7165d970974c066cf8fde47ebf5addc1f0a62471603d1142aec03ac293fd6cf8",
+    "cfb0df9c5f694b3998a087cfb0f3c9fe": "efe65ea62fa6293fbff27d75865aa711535571d38a45950bc35b33754b55698f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

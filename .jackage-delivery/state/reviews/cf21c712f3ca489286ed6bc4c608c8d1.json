@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cf21c712f3ca489286ed6bc4c608c8d1",
+  "case": "CAN-007",
+  "caseDigest": "bc06f121583ca75ec6e42ca9a67e8688ff01b3cfc7609b6801d630c0a88a458e",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected src/core/digest.zig: each domain has its own NUL-terminated prefix, identical canonical bytes produce three different identities, digests are stable per domain, the displayed form is 71 bytes with a sha256: prefix and lowercase hex, uppercase input normalizes, malformed digests are rejected.",
+  "reviewedUtc": "2026-10-12T04:32:35.703367+00:00",
+  "records": [
+    "0d3bf83b3b2b42748b77ad7ca163527e",
+    "b2ddf6fc86cd4324b6a27025754c9497",
+    "4da4943e6c20463c8f3cb497a2bba7e4",
+    "d038a33c737c4366933a5507c6e16693"
+  ],
+  "recordDigests": {
+    "0d3bf83b3b2b42748b77ad7ca163527e": "f8ea76db256d1a940d822e999dec6290ad28834ac6798364db3638b1cf9c2df2",
+    "b2ddf6fc86cd4324b6a27025754c9497": "db2107083b3e332ae8a8c1daebb88599e9462d4776053ecda4aad29d6b1d1fff",
+    "4da4943e6c20463c8f3cb497a2bba7e4": "807d37c1ec681eb2a4e3c4b3574360d941f45d49243b0f34d060641c50143adf",
+    "d038a33c737c4366933a5507c6e16693": "7c37604687ccfd90b24fa08057b74ec592a7ebd72cca2c4bb0905b7c36614723"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

@@ -1,0 +1,63 @@
+test
++- run test eval-tests 2 pass, 1 fail (3 total)
+error: 'eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode' failed:
+       JCKG_EVIDENCE EVAL-010
+       expected error.UntrustedBytecode, found error.InvalidSource
+       C:\src\jackage\src\eval\engine.zig:23:49: 0x7ff77448661f in validateSource (eval-tests_zcu.obj)
+           if (!std.unicode.utf8ValidateSlice(source)) return error.InvalidSource;
+                                                       ^
+       C:\src\jackage\src\eval\frontend.zig:229:9: 0x7ff77443c620 in evaluate (eval-tests_zcu.obj)
+               try engine.validateSource(bytes);
+               ^
+       C:\src\jackage\src\eval\tests.zig:24:87: 0x7ff77443f3cd in run (eval-tests_zcu.obj)
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff774438a72 in expectEqualInner__func_865 (eval-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff774438c8c in expectEqual (eval-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\eval\tests.zig:37:21: 0x7ff774438cf1 in expectRejected (eval-tests_zcu.obj)
+           } else |actual| try std.testing.expectEqual(expected, actual);
+                           ^
+       C:\src\jackage\src\eval\tests.zig:247:5: 0x7ff7744400c9 in test.m04/EVAL-010 refuse real untrusted engine bytecode (eval-tests_zcu.obj)
+           try expectRejected(error.UntrustedBytecode, run(bytes[0..size], options, null));
+           ^
+failed command: ".\\.zig-cache\\o\\c3c3b8ee11adad6efb280f100b49af67\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xed6b984f --listen=-
+
+test
++- run test jckg-tests 4 pass, 1 fail (5 total)
+error: 'eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode' failed:
+       JCKG_EVIDENCE EVAL-010
+       expected error.UntrustedBytecode, found error.InvalidSource
+       C:\src\jackage\src\eval\engine.zig:23:49: 0x7ff619b9661f in validateSource (jckg-tests_zcu.obj)
+           if (!std.unicode.utf8ValidateSlice(source)) return error.InvalidSource;
+                                                       ^
+       C:\src\jackage\src\eval\frontend.zig:229:9: 0x7ff619b4c620 in evaluate (jckg-tests_zcu.obj)
+               try engine.validateSource(bytes);
+               ^
+       C:\src\jackage\src\eval\tests.zig:24:87: 0x7ff619b4f3cd in run (jckg-tests_zcu.obj)
+       fn run(source: []const u8, options: eval.Options, cache: ?*eval.Cache) !eval.Result { return eval.evaluate(gpa, io, &.{locked("config.ts", source)}, options, cache); }
+                                                                                             ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff619b48a72 in expectEqualInner__func_864 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff619b48c8c in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\eval\tests.zig:37:21: 0x7ff619b48cf1 in expectRejected (jckg-tests_zcu.obj)
+           } else |actual| try std.testing.expectEqual(expected, actual);
+                           ^
+       C:\src\jackage\src\eval\tests.zig:247:5: 0x7ff619b500c9 in test.m04/EVAL-010 refuse real untrusted engine bytecode (jckg-tests_zcu.obj)
+           try expectRejected(error.UntrustedBytecode, run(bytes[0..size], options, null));
+           ^
+failed command: ".\\.zig-cache\\o\\e08c38c47b281ffa0ad556d532d839ef\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xed6b984f --listen=-
+
+Build Summary: 13/16 steps succeeded (2 failed); 6/8 tests passed (2 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 1 fail (5 total)
++- run test eval-tests 2 pass, 1 fail (3 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xed6b984f test -Dfilter=EVAL-010 --prefix C:\src\jackage\.zig-cache\test-prefix-EVAL-010

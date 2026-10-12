@@ -1,0 +1,149 @@
+test
++- run test jckg-tests 4 pass, 8 fail (12 total); 2 leaks
+error: 'trust.keys.test.m07/TRUST-003 reject bad signatures' failed:
+       JCKG_EVIDENCE TRUST-003
+       expected error.InvalidSignature, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff65fc3a13a in expectError__func_1052 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\trust\keys.zig:231:5: 0x7ff65fc3aea0 in test.m07/TRUST-003 reject bad signatures (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.InvalidSignature, ring.verifyThreshold(.root, 1, tampered, &.{good}));
+           ^
+error: 'trust.metadata.test.m07/TRUST-002 accept authorized metadata' failed:
+       JCKG_EVIDENCE TRUST-002
+       C:\src\jackage\src\trust\keys.zig:152:29: 0x7ff65fbeaa57 in verifyThreshold (jckg-tests_zcu.obj)
+               if (threshold == 0) return error.ThresholdNotMet;
+                                   ^
+       C:\src\jackage\src\trust\metadata.zig:196:9: 0x7ff65fc2d192 in verifyChain (jckg-tests_zcu.obj)
+               return error.NotAuthorized;
+               ^
+       C:\src\jackage\src\trust\metadata.zig:398:5: 0x7ff65fc38b61 in test.m07/TRUST-002 accept authorized metadata (jckg-tests_zcu.obj)
+           try verifyChain(
+           ^
+error: 'trust.metadata.test.m07/TRUST-004 reject rollback' failed:
+       JCKG_EVIDENCE TRUST-004
+       C:\src\jackage\src\trust\keys.zig:152:29: 0x7ff65fbeaa57 in verifyThreshold (jckg-tests_zcu.obj)
+               if (threshold == 0) return error.ThresholdNotMet;
+                                   ^
+       C:\src\jackage\src\trust\metadata.zig:196:9: 0x7ff65fc2d192 in verifyChain (jckg-tests_zcu.obj)
+               return error.NotAuthorized;
+               ^
+       C:\src\jackage\src\trust\metadata.zig:479:5: 0x7ff65fc36c3a in test.m07/TRUST-004 reject rollback (jckg-tests_zcu.obj)
+           try verifyChain(
+           ^
+error: 'trust.metadata.test.m07/TRUST-005 reject expiry' failed:
+       JCKG_EVIDENCE TRUST-005
+       expected error.Expired, found error.NotAuthorized
+       C:\src\jackage\src\trust\keys.zig:152:29: 0x7ff65fbeaa57 in verifyThreshold (jckg-tests_zcu.obj)
+               if (threshold == 0) return error.ThresholdNotMet;
+                                   ^
+       C:\src\jackage\src\trust\metadata.zig:196:9: 0x7ff65fc2d192 in verifyChain (jckg-tests_zcu.obj)
+               return error.NotAuthorized;
+               ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff65fc295d7 in expectError__func_1034 (jckg-tests_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\trust\metadata.zig:576:5: 0x7ff65fc35015 in test.m07/TRUST-005 reject expiry (jckg-tests_zcu.obj)
+           try std.testing.expectError(
+           ^
+error: 'trust.metadata.test.m07/TRUST-006 reject mixed snapshots' failed:
+       JCKG_EVIDENCE TRUST-006
+       expected error.VersionMismatch, found error.NotAuthorized
+       C:\src\jackage\src\trust\keys.zig:152:29: 0x7ff65fbeaa57 in verifyThreshold (jckg-tests_zcu.obj)
+               if (threshold == 0) return error.ThresholdNotMet;
+                                   ^
+       C:\src\jackage\src\trust\metadata.zig:196:9: 0x7ff65fc2d192 in verifyChain (jckg-tests_zcu.obj)
+               return error.NotAuthorized;
+               ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff65fc295d7 in expectError__func_1034 (jckg-tests_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\trust\metadata.zig:674:5: 0x7ff65fc33316 in test.m07/TRUST-006 reject mixed snapshots (jckg-tests_zcu.obj)
+           try std.testing.expectError(
+           ^
+error: 'trust.metadata.test.m07/TRUST-008 distinguish offline execution' failed:
+       JCKG_EVIDENCE TRUST-008
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff65fbda61f in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\trust\metadata.zig:756:5: 0x7ff65fc2b11d in test.m07/TRUST-008 distinguish offline execution (jckg-tests_zcu.obj)
+           try std.testing.expect(!policy.allow_new_metadata);
+           ^
+error: 'trust.root.test.m07/TRUST-001 require root enrollment' failed:
+       JCKG_EVIDENCE TRUST-001
+       expected error.FingerprintNotApproved, found .{ .repository_identity = { 101, 120, 97, 109, 112, 108, 101, 46, 105, 110, 118, 97, 108, 105, 100, 47, 97, 99, 109, 101 }, .fingerprint = { 64, 207, 73, 13, 188, 30, 172, 154, 104, 193, 28, 249, 237, 106, 12, 249, 232, 161, 102, 100, 179, 21, 185, 82, 37, 111, 179, 8, 104, 224, 96, 158 }, .root = .{ .version = 1, .expires = { 50, 48, 50, 55, 45, 48, 49, 45, 48, 49, 84, 48, 48, 58, 48, 48, 58, 48, 48, 90 }, .roles = { .{ ... }, .{ ... } }, .consistent_snapshot = true, .gpa = .{ .ptr = anyopaque@7ff65fd31900, .vtable = .{ ... } } }, .gpa = .{ .ptr = anyopaque@7ff65fd31900, .vtable = .{ .alloc = fn (*anyopaque, usize, mem.Alignment, usize) ?[*]u8@7ff65fbb83c0, .resize = fn (*anyopaque, []u8, mem.Alignment, usize, usize) bool@7ff65fbbef40, .remap = fn (*anyopaque, []u8, mem.Alignment, usize, usize) ?[*]u8@7ff65fbb8c70, .free = fn (*anyopaque, []u8, mem.Alignment, usize) void@7ff65fbbf640 } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff65fc26860 in expectError__func_1026 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\trust\root.zig:306:5: 0x7ff65fc27867 in test.m07/TRUST-001 require root enrollment (jckg-tests_zcu.obj)
+           try std.testing.expectError(
+           ^
+       [SafeAllocator] (err): leaked [addr: 2bc0738, len: 20 (0x14) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff65faae93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\trust\root.zig:194:44: 0x7ff65fbd980f in enroll (jckg-tests_zcu.obj)
+               .repository_identity = try gpa.dupe(u8, repository_identity),
+                                                  ^
+       C:\src\jackage\src\trust\root.zig:308:15: 0x7ff65fc276d7 in test.m07/TRUST-001 require root enrollment (jckg-tests_zcu.obj)
+               enroll(gpa, "example.invalid/acme", other_root, fingerprint_value, fixture_now),
+                     ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff65fa5d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff65fa5d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff65fa5b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff65fa5b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff65fc3df27 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+error: 'trust.root.test.m07/TRUST-007 rotate roots safely' failed:
+       JCKG_EVIDENCE TRUST-007
+       expected error.RotationNotAuthorized, found .{ .repository_identity = { 101, 120, 97, 109, 112, 108, 101, 46, 105, 110, 118, 97, 108, 105, 100, 47, 97, 99, 109, 101 }, .fingerprint = { 79, 47, 45, 253, 126, 54, 227, 234, 63, 63, 138, 245, 139, 246, 128, 30, 150, 104, 186, 228, 147, 209, 111, 230, 123, 51, 227, 180, 171, 212, 152, 232 }, .root = .{ .version = 3, .expires = { 50, 48, 50, 55, 45, 48, 49, 45, 48, 49, 84, 48, 48, 58, 48, 48, 58, 48, 48, 90 }, .roles = { .{ ... }, .{ ... } }, .consistent_snapshot = true, .gpa = .{ .ptr = anyopaque@7ff65fd31900, .vtable = .{ ... } } }, .gpa = .{ .ptr = anyopaque@7ff65fd31900, .vtable = .{ .alloc = fn (*anyopaque, usize, mem.Alignment, usize) ?[*]u8@7ff65fbb83c0, .resize = fn (*anyopaque, []u8, mem.Alignment, usize, usize) bool@7ff65fbbef40, .remap = fn (*anyopaque, []u8, mem.Alignment, usize, usize) ?[*]u8@7ff65fbb8c70, .free = fn (*anyopaque, []u8, mem.Alignment, usize) void@7ff65fbbf640 } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff65fbda9b0 in expectError__func_873 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\trust\root.zig:419:5: 0x7ff65fbdeddb in test.m07/TRUST-007 rotate roots safely (jckg-tests_zcu.obj)
+           try std.testing.expectError(
+           ^
+       [SafeAllocator] (err): leaked [addr: 2be0ed0, len: 20 (0x14) align: 1] allocated at: 
+       C:/src/jackage/tools/zig/lib/std/mem/Allocator.zig:481:40: 0x7ff65faae93c in dupe__func_190 (jckg-tests_zcu.obj)
+           const new_buf = try allocator.alloc(T, m.len);
+                                              ^
+       C:\src\jackage\src\trust\root.zig:238:44: 0x7ff65fbda314 in rotate (jckg-tests_zcu.obj)
+               .repository_identity = try gpa.dupe(u8, current.repository_identity),
+                                                  ^
+       C:\src\jackage\src\trust\root.zig:421:15: 0x7ff65fbdebe0 in test.m07/TRUST-007 rotate roots safely (jckg-tests_zcu.obj)
+               rotate(gpa, current, third_for_new_only, old_ring, new_ring, &.{}, &.{new_only_signature}, fixture_now),
+                     ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff65fa5d2f4 in mainServer (jckg-tests_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff65fa5d956 in main (jckg-tests_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff65fa5b481 in callMain (jckg-tests_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff65fa5b481 in main (jckg-tests_zcu.obj)
+                   return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                                  ^
+       C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff65fc3df27 in __tmainCRTStartup (crt2.obj)
+           ret = _tmain (argc, argv, envp);
+       
+       (additional stack frames may have been skipped...)
+failed command: ".\\.zig-cache\\o\\e7e9e3972e8088b9969fb6a4c0dbaf6c\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x9f1d8730 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/12 tests passed (8 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 8 fail (12 total); 2 leaks
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x9f1d8730 test -Dfilter=TRUST --prefix C:\src\jackage\.zig-cache\test-prefix-TRUST

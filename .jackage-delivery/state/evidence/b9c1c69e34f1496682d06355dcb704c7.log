@@ -1,0 +1,14 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EXE-001
+JCKG_EVIDENCE EXE-002
+JCKG_EVIDENCE EXE-003
+JCKG_EVIDENCE EXE-004
+JCKG_EVIDENCE EXE-005
+JCKG_EVIDENCE EXE-006
+JCKG_EVIDENCE EXE-007
+JCKG_EVIDENCE EXE-008
+JCKG_EVIDENCE EXE-009
+JCKG_EVIDENCE EXE-010
+failed command: ".\\.zig-cache\\o\\2608baa4f29dde831080cda454169808\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xbc4bc7d9 --listen=-
+

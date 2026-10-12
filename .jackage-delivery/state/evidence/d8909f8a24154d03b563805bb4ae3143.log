@@ -1,0 +1,134 @@
+test
++- run test jckg-tests 4 pass, 10 fail (14 total)
+error: 'exec.tests.test.m03/EXE-001 Execute exact argv' failed:
+       JCKG_EVIDENCE EXE-001
+       
+       ====== expected this output: =========
+       with spaces␃
+       
+       ======== instead found this: =========
+       with_spaces␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       with spaces
+           ^ ('\x20')
+       found:
+       with_spaces
+           ^ ('\x5f')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff7ab8d8991 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\exec\tests.zig:155:9: 0x7ff7ab9668ac in test.m03/EXE-001 Execute exact argv (jckg-tests_zcu.obj)
+               try std.testing.expectEqualStrings(argument, parsed.value.tokens[index + 1].value);
+               ^
+error: 'exec.tests.test.m03/EXE-002 Clear ambient environment' failed:
+       JCKG_EVIDENCE EXE-002
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff7ab8bceef in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\exec\tests.zig:213:5: 0x7ff7ab9653d3 in test.m03/EXE-002 Clear ambient environment (jckg-tests_zcu.obj)
+           try std.testing.expect(std.mem.indexOf(u8, result.stdout, "JCKG_M03_PARENT_ONLY") == null);
+           ^
+error: 'exec.tests.test.m03/EXE-003 Collect only declared outputs' failed:
+       JCKG_EVIDENCE EXE-003
+       expected 4, found 5
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7ab8bcdca in expectEqualInner__func_871 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7ab963be3 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\exec\tests.zig:239:5: 0x7ff7ab963c91 in test.m03/EXE-003 Collect only declared outputs (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 4), outputs.entries.len);
+           ^
+error: 'exec.tests.test.m03/EXE-004 Reject output escape' failed:
+       JCKG_EVIDENCE EXE-004
+       expected .infrastructure, found .success
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7ab8d86c0 in expectEqualInner__func_893 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7ab96153d in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\exec\tests.zig:278:5: 0x7ff7ab9615f4 in test.m03/EXE-004 Reject output escape (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(native.Status.infrastructure, result.status);
+           ^
+error: 'exec.tests.test.m03/EXE-005 Retain action failure' failed:
+       JCKG_EVIDENCE EXE-005
+       expected .action_failure, found .infrastructure
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7ab8d86c0 in expectEqualInner__func_893 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7ab960183 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\exec\tests.zig:307:5: 0x7ff7ab960221 in test.m03/EXE-005 Retain action failure (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(native.Status.action_failure, result.status);
+           ^
+error: 'exec.tests.test.m03/EXE-006 Distinguish launch failure' failed:
+       JCKG_EVIDENCE EXE-006
+       expected .launch_failure, found .action_failure
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7ab8d86c0 in expectEqualInner__func_893 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7ab95f134 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\exec\tests.zig:335:5: 0x7ff7ab95f1dc in test.m03/EXE-006 Distinguish launch failure (jckg-tests_zcu.obj)
+           try std.testing.expectEqual(native.Status.launch_failure, result.status);
+           ^
+error: 'exec.tests.test.m03/EXE-007 Cancel descendants' failed:
+       JCKG_EVIDENCE EXE-007
+       expected .gone, found .live
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7ab958d70 in expectEqualInner__func_1302 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7ab9591b7 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\exec\tests.zig:412:64: 0x7ff7ab959201 in expectTreeGone (jckg-tests_zcu.obj)
+           for (observer.descendants[0..observer.count]) |descendant| try std.testing.expectEqual(windows.State.gone, windows.state(descendant));
+                                                                      ^
+       C:\src\jackage\src\exec\tests.zig:446:5: 0x7ff7ab959ad9 in test.m03/EXE-007 Cancel descendants (jckg-tests_zcu.obj)
+           try expectTreeGone(observer);
+           ^
+error: 'exec.tests.test.m03/EXE-008 Report native limitations' failed:
+       JCKG_EVIDENCE EXE-008
+       expected error.CapabilityUnavailable, found void
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff7ab95277a in expectError__func_1269 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\exec\tests.zig:488:9: 0x7ff7ab952eb1 in test.m03/EXE-008 Report native limitations (jckg-tests_zcu.obj)
+               try std.testing.expectError(error.CapabilityUnavailable, native.requireCapabilities(&.{name}));
+        
+error: 'exec.tests.test.m03/EXE-009 Bound diagnostics' failed:
+              ^
+       JCKG_EVIDENCE EXE-009
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff7ab8bceef in expect (jckg-tests_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\exec\tests.zig:518:5: 0x7ff7ab951373 in test.m03/EXE-009 Bound diagnostics (jckg-tests_zcu.obj)
+           try std.testing.expect(result.stdout.len + result.stderr.len <= request.log_budget);
+           ^
+error: 'exec.tests.test.m03/EXE-010 Reconcile controller failure' failed:
+       JCKG_EVIDENCE EXE-010
+       expected .live, found .gone
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff7ab8bce90 in expectEqualInner__func_873 (jckg-tests_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff7ab8da37b in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\exec\tests.zig:565:13: 0x7ff7ab8da464 in test.m03/EXE-010 Reconcile controller failure (jckg-tests_zcu.obj)
+                   try std.testing.expectEqual(journal_module.ProcessState.live, observation.process_state);
+                   ^
+failed command: ".\\.zig-cache\\o\\3db86ef676c48c7ac41fb7fa4b7a7b3d\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x9e3cd271 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 4/14 tests passed (10 failed)
+test transitive failure
++- run test jckg-tests 4 pass, 10 fail (14 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x9e3cd271 test -Dfilter=m03 --prefix C:\src\jackage\.zig-cache\test-prefix-m03

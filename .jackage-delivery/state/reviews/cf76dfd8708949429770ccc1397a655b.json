@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cf76dfd8708949429770ccc1397a655b",
+  "case": "CAN-004",
+  "caseDigest": "ca02eeb74e03c10b0e8cff38a509d5f9140743b3f61b143667a430253e2c83e9",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected parseObject: a repeated key is rejected before any encoding, including at depth and via an escaped spelling of the same key (\\u0061 vs a); the diagnostic names the duplicate; distinct keys that merely look similar are kept.",
+  "reviewedUtc": "2026-10-12T04:32:35.482629+00:00",
+  "records": [
+    "10df9a1330ea4218b9a60888db6175ff",
+    "76efc5cda6bb42e3a73da5d307c325fc",
+    "37297420fb2f461baf44eff1904d7dae",
+    "46f3353ce360438da46107dd812c882c"
+  ],
+  "recordDigests": {
+    "10df9a1330ea4218b9a60888db6175ff": "09506cb7d6600b7c178d2d39936492dddb8507b03caa0b1bd068bc15232bc1dd",
+    "76efc5cda6bb42e3a73da5d307c325fc": "b26fcd9ea136426a27e6ecf4bd24137fed3dcb27b243d914fdc8c98664c0e3f0",
+    "37297420fb2f461baf44eff1904d7dae": "c1dbc731626205286349197564e69b97530caf76cb4da11d31de466fbd8a8b49",
+    "46f3353ce360438da46107dd812c882c": "1f6417b37171c237016456ebfcf05f0ebae3888a01f7abcdb0252c0e0f1cbce1"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

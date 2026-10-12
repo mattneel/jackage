@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "92d2dcd41ee84877afb29b49bc2f5f11",
+  "case": "CLI-005",
+  "caseDigest": "ac2a8cdb29a88bd920edec2f78d1df8a73d854baa28ef22d4e53364b37250ef2",
+  "reviewer": "OMP agent (M01 work unit)",
+  "note": "Inspected src/cli/commands/echo.zig against the spawned client: spaces, quotes, semicolons, command substitution text, percent expansion, backticks, Unicode and flag-lookalike tokens after '--' reach the client byte for byte with origin 'passthrough' and shellEvaluation false.",
+  "reviewedUtc": "2026-10-12T04:21:26.280838+00:00",
+  "records": [
+    "849129584d36491c8881cfb987432a66",
+    "fa783bcb03b24ee2b2e33171df3e714a",
+    "12bc975d47804fc6bcfc36c1b31abd7c",
+    "07571c57fc944b03a4cff7aaa431bcfa"
+  ],
+  "recordDigests": {
+    "849129584d36491c8881cfb987432a66": "793270c809e1bc95df216b93bec17533a4a5ca191574064211cb38d713d55131",
+    "fa783bcb03b24ee2b2e33171df3e714a": "386ec953841b75ae5aa24f0c3f4bc6a87b141bef0e334898aa621b34dc457018",
+    "12bc975d47804fc6bcfc36c1b31abd7c": "37a9a2e0b5760f3505cb92040bd2be9b398171dc5cf2cc1d910d8a48b4405a6c",
+    "07571c57fc944b03a4cff7aaa431bcfa": "a26916b7e118f3c892be86cf9851ac418c334cc635a5ebb88283a691d2b19d0c"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

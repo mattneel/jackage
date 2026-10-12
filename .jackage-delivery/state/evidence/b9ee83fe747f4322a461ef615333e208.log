@@ -1,0 +1,66 @@
+test
++- run test jckg-tests 12 pass, 4 fail (16 total)
+JCKG_EVIDENCE TRUST-003
+JCKG_EVIDENCE TRUST-002
+JCKG_EVIDENCE TRUST-004
+JCKG_EVIDENCE TRUST-005
+JCKG_EVIDENCE TRUST-006
+JCKG_EVIDENCE TRUST-008
+JCKG_EVIDENCE TRUST-001
+JCKG_EVIDENCE TRUST-007
+error: 'trust.archive.test.m07/TRUST-010 reject portable archive attacks atomically' failed:
+       JCKG_EVIDENCE TRUST-010
+       expected null, found error.InvalidChecksum
+       C:\src\jackage\src\trust\archive.zig:225:44: 0x7ff723758e60 in parseHeader (jckg-tests_zcu.obj)
+           if (try octal(block[148..156]) == sum) return error.InvalidChecksum;
+                                                  ^
+       C:\src\jackage\src\trust\archive.zig:115:28: 0x7ff723734731 in extractReader (jckg-tests_zcu.obj)
+                   const header = try parseHeader(&block, &path_buffer, limits);
+                                  ^
+       C:\src\jackage\src\trust\archive.zig:71:5: 0x7ff7237394b4 in extractBytes (jckg-tests_zcu.obj)
+           return extractReader(gpa, io, &reader, parent, destination, limits);
+           ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:178:21: 0x7ff72373975e in expectEqualInner__func_1727 (jckg-tests_zcu.obj)
+                           return error.TestExpectedEqual;
+                           ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff72373a301 in expectEqual (jckg-tests_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\trust\archive.zig:414:9: 0x7ff72373a3c5 in test.m07/TRUST-010 reject portable archive attacks atomically (jckg-tests_zcu.obj)
+               try std.testing.expectEqual(@as(?anyerror, null), @as(?anyerror, err));
+               ^
+error: 'trust.download.test.m07/TRUST-009 bound and verify downloads' failed:
+       JCKG_EVIDENCE TRUST-009
+       expected error.IntegrityMismatch, found .{ .artifact = .{ .digest = .{ .bytes = { ... } }, .byte_length = 27 }, .not_modified = false, .attempts = 1, .etag = null, .gpa = .{ .ptr = anyopaque@7ff72386f980, .vtable = .{ .alloc = fn (*anyopaque, usize, mem.Alignment, usize) ?[*]u8@7ff7233e83c0, .resize = fn (*anyopaque, []u8, mem.Alignment, usize, usize) bool@7ff7233eef40, .remap = fn (*anyopaque, []u8, mem.Alignment, usize, usize) ?[*]u8@7ff7233e8c70, .free = fn (*anyopaque, []u8, mem.Alignment, usize) void@7ff7233ef640 } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff72348f51a in expectError__func_1152 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\trust\download.zig:613:5: 0x7ff7237299ab in test.m07/TRUST-009 bound and verify downloads (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.IntegrityMismatch, client.download(.{ .url = wrong_url, .expected = expected }));
+           ^
+error: 'trust.download.test.m07/TRUST-011 protect authorization redirects' failed:
+       JCKG_EVIDENCE TRUST-011
+       expected error.AuthRedirectRefused, found .{ .artifact = .{ .digest = .{ .bytes = { ... } }, .byte_length = 16 }, .not_modified = false, .attempts = 1, .etag = null, .gpa = .{ .ptr = anyopaque@7ff72386f980, .vtable = .{ .alloc = fn (*anyopaque, usize, mem.Alignment, usize) ?[*]u8@7ff7233e83c0, .resize = fn (*anyopaque, []u8, mem.Alignment, usize, usize) bool@7ff7233eef40, .remap = fn (*anyopaque, []u8, mem.Alignment, usize, usize) ?[*]u8@7ff7233e8c70, .free = fn (*anyopaque, []u8, mem.Alignment, usize) void@7ff7233ef640 } } }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff72348f51a in expectError__func_1152 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\trust\download.zig:713:5: 0x7ff723490714 in test.m07/TRUST-011 protect authorization redirects (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.AuthRedirectRefused, client.download(.{ .url = cross_url, .expected = expected, .authorization = token }));
+           ^
+error: 'trust.download.test.m07/TRUST-012 resist computation cache poisoning' failed:
+       JCKG_EVIDENCE TRUST-012
+       expected error.ProvenanceRequired, found .{ .inserted = void }
+       C:/src/jackage/tools/zig/lib/std/testing.zig:634:9: 0x7ff723474311 in expectError__func_1070 (jckg-tests_zcu.obj)
+               return error.TestExpectedError;
+               ^
+       C:\src\jackage\src\trust\download.zig:789:5: 0x7ff7234765a9 in test.m07/TRUST-012 resist computation cache poisoning (jckg-tests_zcu.obj)
+           try std.testing.expectError(error.ProvenanceRequired, importCacheClaim(fixture.store, &cache, request, claim, bytes));
+           ^
+failed command: ".\\.zig-cache\\o\\7f478319f41237da713864a7c08c5e24\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x5111b086 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 12/16 tests passed (4 failed)
+test transitive failure
++- run test jckg-tests 12 pass, 4 fail (16 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x5111b086 test -Dfilter=m07 --prefix C:\src\jackage\.zig-cache\test-prefix-m07

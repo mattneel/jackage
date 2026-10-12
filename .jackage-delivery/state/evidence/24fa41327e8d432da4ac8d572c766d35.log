@@ -1,0 +1,24 @@
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-001
+failed command: ".\\.zig-cache\\o\\b098c4457199089ba2560607ca0aa673\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x3c8e3ffd --listen=-
+
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-001
+failed command: ".\\.zig-cache\\o\\d554edc5f1ff44880b940ee5a30b50eb\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x3c8e3ffd --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-001 transform real TypeScript...JCKG_EVIDENCE EVAL-001
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-001 transform real TypeScript...JCKG_EVIDENCE EVAL-001
+OK
+All 5 tests passed.

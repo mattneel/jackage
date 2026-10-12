@@ -1,0 +1,406 @@
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-001
+JCKG_EVIDENCE EVAL-002
+JCKG_EVIDENCE EVAL-003
+JCKG_EVIDENCE EVAL-004
+JCKG_EVIDENCE EVAL-005
+JCKG_EVIDENCE EVAL-006
+JCKG_EVIDENCE EVAL-007
+JCKG_EVIDENCE EVAL-008
+JCKG_EVIDENCE EVAL-009
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+failed command: ".\\.zig-cache\\o\\8597cafa46b781ea71cb68a75a7745bc\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x139aaadd --listen=-
+
+test
++- run test jckg-tests w
+JCKG_EVIDENCE M00-REPORT
+JCKG_EVIDENCE AUD-002
+JCKG_EVIDENCE AUD-003
+JCKG_EVIDENCE AUD-006
+JCKG_EVIDENCE AUD-004
+JCKG_EVIDENCE AUD-007
+JCKG_EVIDENCE AUD-001
+JCKG_EVIDENCE AUD-005
+JCKG_EVIDENCE AUD-008
+JCKG_EVIDENCE CLI-009
+JCKG_EVIDENCE CAN-001
+JCKG_EVIDENCE CAN-002
+JCKG_EVIDENCE CAN-003
+JCKG_EVIDENCE CAN-004
+JCKG_EVIDENCE CAN-005
+JCKG_EVIDENCE CAN-006
+JCKG_EVIDENCE CLI-008
+JCKG_EVIDENCE CAN-007
+JCKG_EVIDENCE CAN-008
+JCKG_EVIDENCE CLI-006
+JCKG_EVIDENCE CLI-010
+JCKG_EVIDENCE CAS-001
+JCKG_EVIDENCE CAS-002
+JCKG_EVIDENCE CAS-003
+JCKG_EVIDENCE CAS-004
+JCKG_EVIDENCE CAS-005
+JCKG_EVIDENCE CAS-006
+JCKG_EVIDENCE CAS-007
+JCKG_EVIDENCE CAS-008
+JCKG_EVIDENCE CAN-009
+JCKG_EVIDENCE CAN-010
+JCKG_EVIDENCE CLI-001
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-004
+JCKG_EVIDENCE CLI-002
+JCKG_EVIDENCE CLI-003
+JCKG_EVIDENCE CLI-005
+JCKG_EVIDENCE CLI-007
+JCKG_EVIDENCE CLI-009
+error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff620d5e86a in CloseHandle (jckg-tests_zcu.obj)
+        else => |status| unexpectedStatus(status) catch {},
+                                         ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff620dabaf5 in childCleanupWindows (jckg-tests_zcu.obj)
+        windows.CloseHandle(stdin.handle);
+                           ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff620dac6ba in childWaitWindows (jckg-tests_zcu.obj)
+    childCleanupWindows(child);
+                       ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff620dac2b8 in childWait (jckg-tests_zcu.obj)
+        .windows => return childWaitWindows(child),
+                                           ^
+C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff620f1527b in wait (jckg-tests_zcu.obj)
+    return io.vtable.childWait(io.userdata, child);
+                              ^
+C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff620f782d7 in runCli (jckg-tests_zcu.obj)
+    const term = try child.wait(io);
+                               ^
+C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff620f7b76b in test.m01/CLI-009 respect cancellation (jckg-tests_zcu.obj)
+    const result = try runCli(
+                             ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff620cad2f4 in mainServer (jckg-tests_zcu.obj)
+                const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                   ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff620cad956 in main (jckg-tests_zcu.obj)
+        return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                         ^
+C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff620cab481 in callMain (jckg-tests_zcu.obj)
+    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+
+C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff620cab481 in main (jckg-tests_zcu.obj)
+            return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                           ^
+C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff621015c97 in __tmainCRTStartup (crt2.obj)
+    ret = _tmain (argc, argv, envp);
+
+???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+JCKG_EVIDENCE CLI-010
+JCKG_EVIDENCE PLAN-008
+JCKG_EVIDENCE PLAN-011
+JCKG_EVIDENCE PLAN-005
+JCKG_EVIDENCE PLAN-006
+JCKG_EVIDENCE PLAN-007
+JCKG_EVIDENCE PLAN-004
+JCKG_EVIDENCE PLAN-009
+JCKG_EVIDENCE PLAN-010
+JCKG_EVIDENCE PLAN-001
+JCKG_EVIDENCE PLAN-002
+JCKG_EVIDENCE PLAN-003
+JCKG_EVIDENCE EXE-001
+JCKG_EVIDENCE EXE-002
+JCKG_EVIDENCE EXE-003
+JCKG_EVIDENCE EXE-004
+JCKG_EVIDENCE EXE-005
+JCKG_EVIDENCE EXE-006
+JCKG_EVIDENCE EXE-007
+JCKG_EVIDENCE EXE-008
+JCKG_EVIDENCE EXE-009
+JCKG_EVIDENCE EXE-010
+JCKG_EVIDENCE EVAL-001
+JCKG_EVIDENCE EVAL-002
+JCKG_EVIDENCE EVAL-003
+JCKG_EVIDENCE EVAL-004
+JCKG_EVIDENCE EVAL-005
+JCKG_EVIDENCE EVAL-006
+JCKG_EVIDENCE EVAL-007
+JCKG_EVIDENCE EVAL-008
+JCKG_EVIDENCE EVAL-009
+JCKG_EVIDENCE EVAL-010
+JCKG_EVIDENCE EVAL-011
+failed command: ".\\.zig-cache\\o\\d5cb540b2c4addc823c28c6ea3b158b9\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x139aaadd --listen=-
+
+=== eval-tests.exe ===
+1/33 eval_tests.test_0...OK
+2/33 eval.mod.test_0...OK
+3/33 eval.tests.test.m04/EVAL-001 transform real TypeScript...JCKG_EVIDENCE EVAL-001
+OK
+4/33 eval.tests.test.m04/EVAL-002 separate semantic type checks...JCKG_EVIDENCE EVAL-002
+OK
+5/33 eval.tests.test.m04/EVAL-003 resolve exact locked imports...JCKG_EVIDENCE EVAL-003
+OK
+6/33 eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access...JCKG_EVIDENCE EVAL-004
+OK
+7/33 eval.tests.test.m04/EVAL-005 deny ambient effects and host secrets...JCKG_EVIDENCE EVAL-005
+OK
+8/33 eval.tests.test.m04/EVAL-006 produce repeatable canonical plans...JCKG_EVIDENCE EVAL-006
+OK
+9/33 eval.tests.test.m04/EVAL-007 interrupt infinite evaluation without publishing...JCKG_EVIDENCE EVAL-007
+OK
+10/33 eval.tests.test.m04/EVAL-008 bound heap allocation and release engine resources...JCKG_EVIDENCE EVAL-008
+OK
+11/33 eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks...JCKG_EVIDENCE EVAL-009
+OK
+12/33 eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode...JCKG_EVIDENCE EVAL-010
+OK
+13/33 eval.tests.test.m04/EVAL-011 key cache by engine transformer options and sources...JCKG_EVIDENCE EVAL-011
+OK
+14/33 core.canonical.test.m02/CAN-001 canonical object order...JCKG_EVIDENCE CAN-001
+OK
+15/33 core.canonical.test.m02/canonical encoding matches every fixture vector...OK
+16/33 core.canonical.test.m02/CAN-002 preserve array order...JCKG_EVIDENCE CAN-002
+OK
+17/33 core.canonical.test.m02/CAN-003 reject invalid numbers...JCKG_EVIDENCE CAN-003
+OK
+18/33 core.canonical.test.m02/CAN-004 reject duplicate keys...JCKG_EVIDENCE CAN-004
+OK
+19/33 core.canonical.test.m02/CAN-005 preserve Unicode bytes...JCKG_EVIDENCE CAN-005
+OK
+20/33 core.canonical.test.m02/CAN-006 reject invalid Unicode...JCKG_EVIDENCE CAN-006
+OK
+21/33 core.digest.test.m02/CAN-007 apply digest domains...JCKG_EVIDENCE CAN-007
+OK
+22/33 core.digest.test.m02/CAN-008 verify raw blob bytes...JCKG_EVIDENCE CAN-008
+OK
+23/33 core.digest.test.m02/digests match every canonical fixture vector...OK
+24/33 core.store.test.m02/CAS-001 publish verified bytes atomically...JCKG_EVIDENCE CAS-001
+OK
+25/33 core.store.test.m02/CAS-002 reject corrupt bytes...JCKG_EVIDENCE CAS-002
+OK
+26/33 core.store.test.m02/CAS-003 converge concurrent writes...JCKG_EVIDENCE CAS-003
+OK
+27/33 core.store.test.m02/CAS-004 recover interrupted import...JCKG_EVIDENCE CAS-004
+OK
+28/33 core.store.test.m02/CAS-005 protect immutable inputs...JCKG_EVIDENCE CAS-005
+OK
+29/33 core.store.test.m02/CAS-006 preserve runtime references...JCKG_EVIDENCE CAS-006
+OK
+30/33 core.store.test.m02/CAS-007 handle full disk...JCKG_EVIDENCE CAS-007
+OK
+31/33 core.store.test.m02/CAS-008 respect destination semantics...JCKG_EVIDENCE CAS-008
+OK
+32/33 core.tree.test.m02/CAN-009 reject unsafe portable paths...JCKG_EVIDENCE CAN-009
+OK
+33/33 core.tree.test.m02/CAN-010 validate tree structure...JCKG_EVIDENCE CAN-010
+OK
+All 33 tests passed.
+=== jckg-tests.exe ===
+1/81 jckg.test_0...OK
+2/81 audit.mod.test.m00/audit report assembles observed values...JCKG_EVIDENCE M00-REPORT
+OK
+3/81 audit.pin.test.AUD-002 honor the compiler pin...JCKG_EVIDENCE AUD-002
+OK
+4/81 audit.pin.test.AUD-003 reject pin mismatch...JCKG_EVIDENCE AUD-003
+OK
+5/81 audit.host.test.AUD-006 discover host capabilities...JCKG_EVIDENCE AUD-006
+OK
+6/81 audit.inventory.test.AUD-004 map the existing implementation...JCKG_EVIDENCE AUD-004
+OK
+7/81 audit.provenance.test.m00/AUD-007 inspect dependency provenance...JCKG_EVIDENCE AUD-007
+OK
+8/81 audit.manifest.test.AUD-001 preserve the existing checkout...JCKG_EVIDENCE AUD-001
+OK
+9/81 audit.baseline.test.m00/AUD-005 record baseline failures...JCKG_EVIDENCE AUD-005
+OK
+10/81 audit.hostenv.test.m00/AUD-008 preserve legacy WSL state...JCKG_EVIDENCE AUD-008
+OK
+11/81 core.cancel.test.m01/CLI-009 respect cancellation...JCKG_EVIDENCE CLI-009
+OK
+12/81 core.canonical.test.m02/CAN-001 canonical object order...JCKG_EVIDENCE CAN-001
+OK
+13/81 core.canonical.test.m02/canonical encoding matches every fixture vector...OK
+14/81 core.canonical.test.m02/CAN-002 preserve array order...JCKG_EVIDENCE CAN-002
+OK
+15/81 core.canonical.test.m02/CAN-003 reject invalid numbers...JCKG_EVIDENCE CAN-003
+OK
+16/81 core.canonical.test.m02/CAN-004 reject duplicate keys...JCKG_EVIDENCE CAN-004
+OK
+17/81 core.canonical.test.m02/CAN-005 preserve Unicode bytes...JCKG_EVIDENCE CAN-005
+OK
+18/81 core.canonical.test.m02/CAN-006 reject invalid Unicode...JCKG_EVIDENCE CAN-006
+OK
+19/81 core.capabilities.test.m01/CLI-008 diagnose honestly...JCKG_EVIDENCE CLI-008
+OK
+20/81 core.digest.test.m02/CAN-007 apply digest domains...JCKG_EVIDENCE CAN-007
+OK
+21/81 core.digest.test.m02/CAN-008 verify raw blob bytes...JCKG_EVIDENCE CAN-008
+OK
+22/81 core.digest.test.m02/digests match every canonical fixture vector...OK
+23/81 core.policy.test.m01/CLI-006 avoid implicit prompts...JCKG_EVIDENCE CLI-006
+OK
+24/81 core.redact.test.m01/CLI-010 keep secrets out of errors...JCKG_EVIDENCE CLI-010
+OK
+25/81 core.store.test.m02/CAS-001 publish verified bytes atomically...JCKG_EVIDENCE CAS-001
+OK
+26/81 core.store.test.m02/CAS-002 reject corrupt bytes...JCKG_EVIDENCE CAS-002
+OK
+27/81 core.store.test.m02/CAS-003 converge concurrent writes...JCKG_EVIDENCE CAS-003
+OK
+28/81 core.store.test.m02/CAS-004 recover interrupted import...JCKG_EVIDENCE CAS-004
+OK
+29/81 core.store.test.m02/CAS-005 protect immutable inputs...JCKG_EVIDENCE CAS-005
+OK
+30/81 core.store.test.m02/CAS-006 preserve runtime references...JCKG_EVIDENCE CAS-006
+OK
+31/81 core.store.test.m02/CAS-007 handle full disk...JCKG_EVIDENCE CAS-007
+OK
+32/81 core.store.test.m02/CAS-008 respect destination semantics...JCKG_EVIDENCE CAS-008
+OK
+33/81 core.tree.test.m02/CAN-009 reject unsafe portable paths...JCKG_EVIDENCE CAN-009
+OK
+34/81 core.tree.test.m02/CAN-010 validate tree structure...JCKG_EVIDENCE CAN-010
+OK
+35/81 core.version.test.m01/CLI-001 report real version...JCKG_EVIDENCE CLI-001
+OK
+36/81 cli.args.test.m01/CLI-004 reject invalid syntax...JCKG_EVIDENCE CLI-004
+OK
+37/81 cli.console.test.m01/console handler reports availability honestly...OK
+38/81 cli.exit.test.m01/exit codes are distinct and documented...JCKG_EVIDENCE CLI-004
+OK
+39/81 cli.output.test.m01/CLI-003 separate JSON output...OK
+40/81 cli.commands.help.test.m01/CLI-002 provide usable help...JCKG_EVIDENCE CLI-002
+OK
+41/81 cli.integration_tests.test.m01/CLI-003 separate JSON output...JCKG_EVIDENCE CLI-003
+OK
+42/81 cli.integration_tests.test.m01/CLI-005 preserve argument boundaries...JCKG_EVIDENCE CLI-005
+OK
+43/81 cli.integration_tests.test.m01/CLI-007 initialize safely...JCKG_EVIDENCE CLI-007
+OK
+44/81 cli.integration_tests.test.m01/CLI-009 respect cancellation...JCKG_EVIDENCE CLI-009
+error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff6b25fe86a in CloseHandle (jckg-tests_zcu.obj)
+        else => |status| unexpectedStatus(status) catch {},
+                                         ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff6b264baf5 in childCleanupWindows (jckg-tests_zcu.obj)
+        windows.CloseHandle(stdin.handle);
+                           ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff6b264c6ba in childWaitWindows (jckg-tests_zcu.obj)
+    childCleanupWindows(child);
+                       ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff6b264c2b8 in childWait (jckg-tests_zcu.obj)
+        .windows => return childWaitWindows(child),
+                                           ^
+C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff6b27b527b in wait (jckg-tests_zcu.obj)
+    return io.vtable.childWait(io.userdata, child);
+                              ^
+C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff6b28182d7 in runCli (jckg-tests_zcu.obj)
+    const term = try child.wait(io);
+                               ^
+C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff6b281b76b in test.m01/CLI-009 respect cancellation (jckg-tests_zcu.obj)
+    const result = try runCli(
+                             ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:295:25: 0x7ff6b254e36e in mainTerminal (jckg-tests_zcu.obj)
+        if (test_fn.func()) |_| {
+                        ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:74:28: 0x7ff6b254d96f in main (jckg-tests_zcu.obj)
+        return mainTerminal(init);
+                           ^
+C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff6b254b481 in callMain (jckg-tests_zcu.obj)
+    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+
+C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff6b254b481 in main (jckg-tests_zcu.obj)
+            return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                           ^
+C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff6b28b5c97 in __tmainCRTStartup (crt2.obj)
+    ret = _tmain (argc, argv, envp);
+
+???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+OK
+45/81 cli.integration_tests.test.m01/CLI-010 keep secrets out of errors...JCKG_EVIDENCE CLI-010
+OK
+46/81 eval.mod.test_0...OK
+47/81 exec.mod.test_0...OK
+48/81 plan.cache.test.m05/PLAN-008 separate action and artifact identity...JCKG_EVIDENCE PLAN-008
+OK
+49/81 plan.cache.test.m05/PLAN-011 preserve cache policy...JCKG_EVIDENCE PLAN-011
+OK
+50/81 plan.lockfile.test.m05/PLAN-005 lock complete inputs...JCKG_EVIDENCE PLAN-005
+OK
+51/81 plan.lockfile.test.m05/PLAN-006 refuse floating locked input...JCKG_EVIDENCE PLAN-006
+OK
+52/81 plan.lockfile.test.m05/PLAN-007 honor locked mode...JCKG_EVIDENCE PLAN-007
+OK
+53/81 plan.planner.test.m05/PLAN-004 reject graph cycles...JCKG_EVIDENCE PLAN-004
+OK
+54/81 plan.planner.test.m05/PLAN-009 schedule dependencies...JCKG_EVIDENCE PLAN-009
+OK
+55/81 plan.planner.test.m05/PLAN-010 separate platforms...JCKG_EVIDENCE PLAN-010
+OK
+56/81 plan.resolver.test.m05/PLAN-001 resolve exact closure...JCKG_EVIDENCE PLAN-001
+OK
+57/81 plan.resolver.test.m05/PLAN-002 explain conflicts...JCKG_EVIDENCE PLAN-002
+OK
+58/81 plan.resolver.test.m05/PLAN-003 preserve namespaces...JCKG_EVIDENCE PLAN-003
+OK
+59/81 plan.version.test.m05/version parsing and precedence...OK
+60/81 plan.version.test.m05/requirement satisfaction...OK
+61/81 exec.tests.test.m03/EXE-001 Execute exact argv...JCKG_EVIDENCE EXE-001
+OK
+62/81 exec.tests.test.m03/EXE-002 Clear ambient environment...JCKG_EVIDENCE EXE-002
+OK
+63/81 exec.tests.test.m03/EXE-003 Collect only declared outputs...JCKG_EVIDENCE EXE-003
+OK
+64/81 exec.tests.test.m03/EXE-004 Reject output escape...JCKG_EVIDENCE EXE-004
+OK
+65/81 exec.tests.test.m03/EXE-005 Retain action failure...JCKG_EVIDENCE EXE-005
+OK
+66/81 exec.tests.test.m03/EXE-006 Distinguish launch failure...JCKG_EVIDENCE EXE-006
+OK
+67/81 exec.tests.test.m03/EXE-007 Cancel descendants...JCKG_EVIDENCE EXE-007
+OK
+68/81 exec.tests.test.m03/EXE-008 Report native limitations...JCKG_EVIDENCE EXE-008
+OK
+69/81 exec.tests.test.m03/EXE-009 Bound diagnostics...JCKG_EVIDENCE EXE-009
+OK
+70/81 exec.tests.test.m03/EXE-010 Reconcile controller failure...JCKG_EVIDENCE EXE-010
+OK
+71/81 eval.tests.test.m04/EVAL-001 transform real TypeScript...JCKG_EVIDENCE EVAL-001
+OK
+72/81 eval.tests.test.m04/EVAL-002 separate semantic type checks...JCKG_EVIDENCE EVAL-002
+OK
+73/81 eval.tests.test.m04/EVAL-003 resolve exact locked imports...JCKG_EVIDENCE EVAL-003
+OK
+74/81 eval.tests.test.m04/EVAL-004 deny undeclared imports before loader access...JCKG_EVIDENCE EVAL-004
+OK
+75/81 eval.tests.test.m04/EVAL-005 deny ambient effects and host secrets...JCKG_EVIDENCE EVAL-005
+OK
+76/81 eval.tests.test.m04/EVAL-006 produce repeatable canonical plans...JCKG_EVIDENCE EVAL-006
+OK
+77/81 eval.tests.test.m04/EVAL-007 interrupt infinite evaluation without publishing...JCKG_EVIDENCE EVAL-007
+OK
+78/81 eval.tests.test.m04/EVAL-008 bound heap allocation and release engine resources...JCKG_EVIDENCE EVAL-008
+OK
+79/81 eval.tests.test.m04/EVAL-009 reject active values without invoking callbacks...JCKG_EVIDENCE EVAL-009
+OK
+80/81 eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode...JCKG_EVIDENCE EVAL-010
+OK
+81/81 eval.tests.test.m04/EVAL-011 key cache by engine transformer options and sources...JCKG_EVIDENCE EVAL-011
+OK
+All 81 tests passed.

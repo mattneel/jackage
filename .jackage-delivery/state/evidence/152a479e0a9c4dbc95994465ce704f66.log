@@ -1,0 +1,24 @@
+test
++- run test jckg-tests w
+JCKG_EVIDENCE EVAL-010
+failed command: ".\\.zig-cache\\o\\299176b499e1eb89014e5f5f95070797\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xa89d2a5e --listen=-
+
+test
++- run test eval-tests w
+JCKG_EVIDENCE EVAL-010
+failed command: ".\\.zig-cache\\o\\ef23d26748384e476896eadfbdd994d4\\eval-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0xa89d2a5e --listen=-
+
+=== eval-tests.exe ===
+1/3 eval_tests.test_0...OK
+2/3 eval.mod.test_0...OK
+3/3 eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode...JCKG_EVIDENCE EVAL-010
+OK
+All 3 tests passed.
+=== jckg-tests.exe ===
+1/5 jckg.test_0...OK
+2/5 eval.mod.test_0...OK
+3/5 exec.mod.test_0...OK
+4/5 profile.mod.test_0...OK
+5/5 eval.tests.test.m04/EVAL-010 refuse real untrusted engine bytecode...JCKG_EVIDENCE EVAL-010
+OK
+All 5 tests passed.

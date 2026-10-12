@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "7e78b155e1e549e495b7a28fcbb8e529",
+  "case": "AUD-002",
+  "caseDigest": "3f35a23109b8acc3f643cef775c208b7879ad0ef472b5cb0c71c010da5b6bfc3",
+  "reviewer": "OMP agent (M00 work unit)",
+  "note": "Inspected src/audit/pin.zig Pint.verify: exact comparison after trimming only whole-report whitespace, so the wrapper's LF/CRLF output is accepted and nothing else is. src/audit/mod.zig feeds the wrapper report into the audit and records matches=true.",
+  "reviewedUtc": "2026-10-12T03:57:22.359595+00:00",
+  "records": [
+    "71e4a48e73a04715b9c431ce90f2f9ee",
+    "7f9a30af35ec4ec89e35e5f42cbcfcb6",
+    "4042a71529fd4dcf893c4ee0a0c41c36",
+    "6986cf43754b4fbf85f721be23bc4e43"
+  ],
+  "recordDigests": {
+    "71e4a48e73a04715b9c431ce90f2f9ee": "73779f3d5aca2754cae51991bad3cebc74705ed2d19f17b069217fd0c8f09f5e",
+    "7f9a30af35ec4ec89e35e5f42cbcfcb6": "d8c11bcfd31c7d52810f01a9d08372160f2da688a35f7032888e7831acdb7783",
+    "4042a71529fd4dcf893c4ee0a0c41c36": "fa277ded53b9844d9daa1fb8aa8b6bc7fc11d590185d435760fc64a885439157",
+    "6986cf43754b4fbf85f721be23bc4e43": "d395343184a15b798ed34a20f122ac4e7a80fdb162427ed5c7bbcfd462b40c2f"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

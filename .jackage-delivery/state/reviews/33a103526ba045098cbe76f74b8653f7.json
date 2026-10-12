@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "33a103526ba045098cbe76f74b8653f7",
+  "case": "CAS-006",
+  "caseDigest": "cd4b48f4690ed90e09994bebb601e4c0f0e28f02c9de444cb43292f47ff3ea46",
+  "reviewer": "OMP agent (M02 work unit)",
+  "note": "Inspected the reference graph: an explicitly recorded runtime reference keeps its dependency reachable, collection retains it and quarantines only the unreferenced object, the retained closure is deleted from, and the retained program (the installed client, imported and materialized from the store) runs successfully with exit 0.",
+  "reviewedUtc": "2026-10-12T04:32:36.411718+00:00",
+  "records": [
+    "d7118361d3dc47b890253e95e5e0de70",
+    "4f4e11ed6d8740eaa007854681317f55",
+    "a0727b0981a9407498b4c1d849668d4d",
+    "a8482a2ef9654d68a565dcf0b21e11a0"
+  ],
+  "recordDigests": {
+    "d7118361d3dc47b890253e95e5e0de70": "c600d2e9f6609e469aaa0797e2ef80569975c252951b2f61dc43f0f21e2ca4a8",
+    "4f4e11ed6d8740eaa007854681317f55": "544c5b471b5be023c8a0c5b5d1c4f4e5057bacb0e52be6fa037acfb38b3b17be",
+    "a0727b0981a9407498b4c1d849668d4d": "4e6be2888c6b8d20d6d4662c154ab65a894dd6d891eb188fc7bc9036c743bdb4",
+    "a8482a2ef9654d68a565dcf0b21e11a0": "73a70b48eecd43caa6b98883a7a9e542f6ecfeeeb29a28fbbea275a4b655d665"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

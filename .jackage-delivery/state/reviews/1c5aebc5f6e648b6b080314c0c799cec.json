@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "1c5aebc5f6e648b6b080314c0c799cec",
+  "case": "PROFILE-007",
+  "caseDigest": "3acdf2f315ff9261c8c57657dd3360c7a5459167033f335a9787426725e9588c",
+  "reviewer": "OMP agent (M06 work unit)",
+  "note": "Inspected verified default entry point, real spawned transient execution, unchanged installed pointer/manifest/global PATH and ended workspace lease; deliberate parent PATH mutation fault was detected.",
+  "reviewedUtc": "2026-10-12T08:59:14.948614+00:00",
+  "records": [
+    "040fba2254e345968711b7953f32e5e6",
+    "920b7fb6789342c0bb3dcd33c121be77",
+    "3bb30393b4364ef599beb50fb577ec8c",
+    "b5f65365254e465d96d35de4de76f307"
+  ],
+  "recordDigests": {
+    "040fba2254e345968711b7953f32e5e6": "2f1cf9b4381f18955f9fd97f1e39f484237deb811841726362f1443a7b025375",
+    "920b7fb6789342c0bb3dcd33c121be77": "cf05a9597d2b88122ae854a27a9f81699dc34a712ef32696f4958ee88ef10d6d",
+    "3bb30393b4364ef599beb50fb577ec8c": "3a4c2fa5cb1e0d2f79347c4302782f95e94aa1f4387eda7652d1a978e8bbe803",
+    "b5f65365254e465d96d35de4de76f307": "1a4fed2b83f09edef4fc20faaccc3bcc288fc859b8c7e91a3a49fcfa11b841a3"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

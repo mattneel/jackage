@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "d3bc138e9c2a4a3bb1180514390cb1d5",
+  "case": "CLI-006",
+  "caseDigest": "d1a57ece8075106f64bc7c90bc1cd5f32806709efcc7fd6bc88d7db2a753f5e1",
+  "reviewer": "OMP agent (M01 work unit)",
+  "note": "Inspected src/core/policy.zig and src/cli/commands/init.zig: with a non-interactive stdin the replacement request is denied with a message naming --yes and stating nothing changed; --yes never approves trust enrollment, publication or privilege; the client behaviour is confirmed by the init --force test.",
+  "reviewedUtc": "2026-10-12T04:21:26.351055+00:00",
+  "records": [
+    "082bf121404143439a129f4c3c76734c",
+    "52a9fd3d274e4e2b944032a7bfe8a3a9",
+    "fe3ea7c084944d91b7aa32f7836f166d",
+    "86d386391c16434b99574a2cb78f450f"
+  ],
+  "recordDigests": {
+    "082bf121404143439a129f4c3c76734c": "0c34d86f4e8014bbbd29be838553381e5bd5955425400dd14d2573f68bdfff73",
+    "52a9fd3d274e4e2b944032a7bfe8a3a9": "db596bd6ef365bd92eaab8f01340a903fdb5a380aeb683d9798a01ecdfed1101",
+    "fe3ea7c084944d91b7aa32f7836f166d": "fbe4329669f240e148a43f4bc47098b3e78315be5c0e6269ac016ee41112051b",
+    "86d386391c16434b99574a2cb78f450f": "a50f064bf9dd338cf9d80fdf65630573a12d2e79ce4502bd4bcaff16132d6abf"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

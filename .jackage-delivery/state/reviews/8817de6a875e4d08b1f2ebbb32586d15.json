@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "8817de6a875e4d08b1f2ebbb32586d15",
+  "case": "TRUST-008",
+  "caseDigest": "3de900353bd0b222afc8e3769eb6287427473039913cf0d1b83d1e83993119fa",
+  "reviewer": "OMP agent (M07 trust work unit)",
+  "note": "Inspected the offline policy: installed and trusted artifacts remain usable offline, an artifact that was never installed is refused (OfflineUnknownArtifact, including an empty digest), and the policy states explicitly that new metadata is not accepted while offline. With the stale-refresh path: a rollback to an older version and an expired chain are refused with the same errors as online, and the trusted version is unchanged - so a failed refresh cannot be turned into stale acceptance.",
+  "reviewedUtc": "2026-10-12T05:25:09.188568+00:00",
+  "records": [
+    "09cc66ef70c045f598590d0f7fcc2a22",
+    "2d56de37c28e4c32a1702f1e15419840",
+    "cbd2427b51a543e696bb74b84fcec8f1",
+    "7c292c6232b840a8a583e532d1466bc4"
+  ],
+  "recordDigests": {
+    "09cc66ef70c045f598590d0f7fcc2a22": "4cb164809dfc2418b50487fe8c977fd93d0259264a32683ee90e84ec264fd659",
+    "2d56de37c28e4c32a1702f1e15419840": "22d51386ff05ad0d9581a541278d9a2640dc0ccea2f41e8a5ac87ff771a246ac",
+    "cbd2427b51a543e696bb74b84fcec8f1": "cc46b7936ece01e566e7bdd08b54aa8f2d3929fa726fd929768d65434ce36dc4",
+    "7c292c6232b840a8a583e532d1466bc4": "e219a464901d908d412a578c6045fd263fbaec4f0bb985f7b11fc7843dbc55ac"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

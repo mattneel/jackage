@@ -1,0 +1,83 @@
+test
++- run test jckg-tests 16 pass, 1 fail (17 total)
+JCKG_EVIDENCE CLI-002
+JCKG_EVIDENCE CLI-003
+JCKG_EVIDENCE CLI-005
+JCKG_EVIDENCE CLI-007
+JCKG_EVIDENCE CLI-009
+error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff70d6be86a in CloseHandle (jckg-tests_zcu.obj)
+        else => |status| unexpectedStatus(status) catch {},
+                                         ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff70d70baf5 in childCleanupWindows (jckg-tests_zcu.obj)
+        windows.CloseHandle(stdin.handle);
+                           ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff70d70c6ba in childWaitWindows (jckg-tests_zcu.obj)
+    childCleanupWindows(child);
+                       ^
+C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff70d70c2b8 in childWait (jckg-tests_zcu.obj)
+        .windows => return childWaitWindows(child),
+                                           ^
+C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff70d79425b in wait (jckg-tests_zcu.obj)
+    return io.vtable.childWait(io.userdata, child);
+                              ^
+C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff70d7893b7 in runCli (jckg-tests_zcu.obj)
+    const term = try child.wait(io);
+                               ^
+C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff70d7a0ebb in test.m01/CLI-009 respect cancellation (jckg-tests_zcu.obj)
+    const result = try runCli(
+                             ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff70d60d2f4 in mainServer (jckg-tests_zcu.obj)
+                const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                   ^
+C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff70d60d956 in main (jckg-tests_zcu.obj)
+        return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                         ^
+C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff70d60b481 in callMain (jckg-tests_zcu.obj)
+    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+
+C:/src/jackage/tools/zig/lib/std/start.zig:755:28: 0x7ff70d60b481 in main (jckg-tests_zcu.obj)
+            return callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global);
+                           ^
+C:\src\jackage\tools\zig\lib\libc\mingw\crt\crtexe.c:276: 0x7ff70d7f2907 in __tmainCRTStartup (crt2.obj)
+    ret = _tmain (argc, argv, envp);
+
+???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+JCKG_EVIDENCE CLI-010
+error: 'cli.commands.doctor.test.m01/CLI-008 diagnose honestly' failed:
+       JCKG_EVIDENCE CLI-009
+       JCKG_EVIDENCE CLI-006
+       JCKG_EVIDENCE CLI-010
+       JCKG_EVIDENCE CLI-001
+       JCKG_EVIDENCE CLI-004
+       JCKG_EVIDENCE CLI-008
+       
+       ====== expected this output: =========
+       unavailable␃
+       
+       ======== instead found this: =========
+       enforced␃
+       
+       ======================================
+       First difference occurs on line 1:
+       expected:
+       unavailable
+       ^ ('\x75')
+       found:
+       enforced
+       ^ ('\x65')
+       C:/src/jackage/tools/zig/lib/std/testing.zig:696:9: 0x7ff70d789a91 in expectEqualStrings (jckg-tests_zcu.obj)
+               return error.TestExpectedEqual;
+               ^
+       C:\src\jackage\src\cli\commands\doctor.zig:399:9: 0x7ff70d7db1ed in test.m01/CLI-008 diagnose honestly (jckg-tests_zcu.obj)
+               try std.testing.expectEqualStrings(capability.status.text(), document.status);
+               ^
+failed command: "C:\\src\\jackage\\.zig-cache\\test-prefix-CLI\\bin\\jckg-tests.exe" "--cache-dir=.\\.zig-cache" --seed=0x78baa700 --listen=-
+
+Build Summary: 14/16 steps succeeded (1 failed); 16/17 tests passed (1 failed)
+test transitive failure
++- run test jckg-tests 16 pass, 1 fail (17 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0x78baa700 test -Dfilter=CLI --prefix C:\src\jackage\.zig-cache\test-prefix-CLI

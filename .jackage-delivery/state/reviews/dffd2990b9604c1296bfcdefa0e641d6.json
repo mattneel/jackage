@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "dffd2990b9604c1296bfcdefa0e641d6",
+  "case": "CLI-008",
+  "caseDigest": "e34e8c1070af668f2032eac8055e1d19e99f13581df4b8b15e89506c09eb413a",
+  "reviewer": "OMP agent (M01 work unit)",
+  "note": "Inspected src/core/capabilities.zig and the client report: the native backend claims no enforced isolation (filesystem, network, bounds and collection are 'unavailable' with stated reasons and release-blocking flags), the boundary text names the missing sandbox, and doctor prints the release-blocking count.",
+  "reviewedUtc": "2026-10-12T04:21:26.490101+00:00",
+  "records": [
+    "e18d1ce76ec742ee99e57acaf51e62b7",
+    "9a95397b10214daa8534fe3586b2eda5",
+    "984717571c9741c8a0e032f78e181020",
+    "ea70149b43704a4eb2a5ae293964b59b"
+  ],
+  "recordDigests": {
+    "e18d1ce76ec742ee99e57acaf51e62b7": "27e032bd234451e7fc3615a1c5e4d3e8562166bc21d606a9ae49ac2a23be5bf4",
+    "9a95397b10214daa8534fe3586b2eda5": "9c55768fb948eb94edecc27392004401c3fba36ac30a0208aaa12072b83f1f11",
+    "984717571c9741c8a0e032f78e181020": "d16472340dbda632b2f906992239012f2ce4207eb0938c93d5c6d114364480b4",
+    "ea70149b43704a4eb2a5ae293964b59b": "80b607cc4ab5557cabb1667b117c98fd2fd7efe5874f318aaf39f7ec33a3f139"
+  },
+  "authority": "self-reported local review, not independent attestation"
+}

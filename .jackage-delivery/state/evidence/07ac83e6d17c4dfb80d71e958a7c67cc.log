@@ -1,0 +1,223 @@
+test
++- run test 1 pass, 12 fail, 1 crash (14 total)
+error: 'core.cancel.test.m01/CLI-009 respect cancellation' failed:
+       JCKG_EVIDENCE CLI-009
+       expected .canceled, found .completed
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff739c5a48c in expectEqualInner__func_1189 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff739c5a71b in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\core\cancel.zig:152:5: 0x7ff739c5a7ad in test.m01/CLI-009 respect cancellation (test_zcu.obj)
+           try std.testing.expectEqual(Stop.canceled, outcome.stop);
+           ^
+error: 'core.capabilities.test.m01/CLI-008 diagnose honestly' failed:
+       JCKG_EVIDENCE CLI-008
+       expected .unavailable, found .enforced
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff739c5901c in expectEqualInner__func_1179 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff739c5928c in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\core\capabilities.zig:157:5: 0x7ff739c592d2 in test.m01/CLI-008 diagnose honestly (test_zcu.obj)
+           try std.testing.expectEqual(Status.unavailable, filesystem.status);
+           ^
+error: 'core.policy.test.m01/CLI-006 avoid implicit prompts' failed:
+       JCKG_EVIDENCE CLI-006
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff739c03a4f in expect (test_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\core\policy.zig:116:5: 0x7ff739c56e70 in test.m01/CLI-006 avoid implicit prompts (test_zcu.obj)
+           try std.testing.expect(!denied.isApproved());
+error: 'core.redact.test.m01/CLI-010 keep secrets out of errors' failed:
+           ^
+       JCKG_EVIDENCE CLI-010
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff739c03a4f in expect (test_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\core\redact.zig:140:5: 0x7ff739c55a0b in test.m01/CLI-010 keep secrets out of errors (test_zcu.obj)
+           try std.testing.expect(std.mem.indexOf(u8, redacted, "***@github.com/org/repo.git") != null);
+           ^
+error: 'core.version.test.m01/CLI-001 report real version' failed:
+       JCKG_EVIDENCE CLI-001
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff739c03a4f in expect (test_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\core\version.zig:97:5: 0x7ff739c54cf8 in test.m01/CLI-001 report real version (test_zcu.obj)
+           try std.testing.expect(std.mem.indexOf(u8, identity.version, "0.0.0") == null);
+           ^
+error: 'cli.args.test.m01/CLI-004 reject invalid syntax' failed:
+       JCKG_EVIDENCE CLI-004
+       expected error.UnknownFlag, found error.UnknownCommand
+       C:\src\jackage\src\cli\args.zig:233:13: 0x7ff739c511eb in parse (test_zcu.obj)
+                   return error.UnknownCommand; // DELIBERATE FAULT: wrong usage class
+                   ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:641:13: 0x7ff739c4d7ee in expectError__func_1114 (test_zcu.obj)
+                   return error.TestUnexpectedError;
+                   ^
+       C:\src\jackage\src\cli\args.zig:302:9: 0x7ff739c4ddc8 in test.m01/CLI-004 reject invalid syntax (test_zcu.obj)
+               try std.testing.expectError(error.UnknownFlag, parse(gpa, &argv, &invocation, &diagnostic));
+               ^
+error: 'cli.output.test.m01/CLI-003 separate JSON output' exited with code 3 with stderr:
+       thread 42252 panic: start index 22 is larger than end index 21
+       C:\src\jackage\src\core\redact.zig:109:26: 0x7ff739c4ce8d in matchPattern (test_zcu.obj)
+               const tail = text[tail_start..];
+                                ^
+       C:\src\jackage\src\core\redact.zig:79:25: 0x7ff739c4c5b1 in redactInto (test_zcu.obj)
+               if (matchPattern(text, index)) |pattern| {
+                               ^
+       C:\src\jackage\src\cli\output.zig:49:34: 0x7ff739c49da6 in errorReport (test_zcu.obj)
+                   try redact.redactInto(&message_buffer.writer, message);
+                                        ^
+       C:\src\jackage\src\cli\output.zig:86:31: 0x7ff739c4a585 in test.m01/CLI-003 separate JSON output (test_zcu.obj)
+           try structured.errorReport(exit_code.Code.usage, "unknown flag '--jsno'", "run 'jckg doctor --help'");
+                                     ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff739bdb26d in mainServer (test_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff739bdb89b in main (test_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff739bd980d in callMain (test_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:576:17: 0x7ff739bd980d in WinStartup (test_zcu.obj)
+               callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global),
+                       ^
+       ???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+       ???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+error: 'cli.commands.help.test.m01/CLI-002 provide usable help' failed:
+       JCKG_EVIDENCE CLI-002
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff739c03a4f in expect (test_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\cli\commands\help.zig:127:13: 0x7ff739c43597 in test.m01/CLI-002 provide usable help (test_zcu.obj)
+                   try std.testing.expect(std.mem.indexOf(u8, text, flag.long) != null);
+                   ^
+error: 'cli.integration_tests.test.m01/CLI-003 separate JSON output' failed:
+       JCKG_EVIDENCE CLI-003
+       C:/src/jackage/tools/zig/lib/std/json/Scanner.zig:1104:29: 0x7ff739c34f1b in peekNextTokenType (test_zcu.obj)
+                           else => return error.SyntaxError,
+                                   ^
+       C:/src/jackage/tools/zig/lib/std/json/Scanner.zig:134:23: 0x7ff739c3165c in nextAllocMax (test_zcu.obj)
+               else => |err| return err,
+                             ^
+       C:/src/jackage/tools/zig/lib/std/json/dynamic.zig:88:21: 0x7ff739c24f81 in jsonParse__func_943 (test_zcu.obj)
+                   switch (try source.nextAllocMax(allocator, .alloc_always, options.max_value_len.?)) {
+                           ^
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:274:17: 0x7ff739c23ce6 in innerParse__func_942 (test_zcu.obj)
+                       return T.jsonParse(allocator, source, options);
+                       ^
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:150:19: 0x7ff739c1c358 in parseFromTokenSourceLeaky__func_941 (test_zcu.obj)
+           const value = try innerParse(T, allocator, scanner_or_reader, resolved_options);
+                         ^
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:117:20: 0x7ff739c1c16f in parseFromTokenSource__func_925 (test_zcu.obj)
+           parsed.value = try parseFromTokenSourceLeaky(T, parsed.arena.allocator(), scanner_or_reader, options);
+                          ^
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:83:5: 0x7ff739c1a093 in parseFromSlice__func_920 (test_zcu.obj)
+           return parseFromTokenSource(T, allocator, &scanner, options);
+           ^
+       C:\src\jackage\src\cli\integration_tests.zig:94:22: 0x7ff739c41977 in expectJsonLines (test_zcu.obj)
+               var parsed = try std.json.parseFromSlice(std.json.Value, gpa, line, .{});
+                            ^
+       C:\src\jackage\src\cli\integration_tests.zig:112:48: 0x7ff739c41cf0 in test.m01/CLI-003 separate JSON output (test_zcu.obj)
+           try std.testing.expectEqual(@as(usize, 1), try expectJsonLines(gpa, success.stdout));
+                                                      ^
+error: 'cli.integration_tests.test.m01/CLI-005 preserve argument boundaries' failed:
+       JCKG_EVIDENCE CLI-005
+       C:/src/jackage/tools/zig/lib/std/json/Scanner.zig:1317:34: 0x7ff739c1c7d7 in skipWhitespaceCheckEnd (test_zcu.obj)
+           if (self.stackHeight() == 0) return error.SyntaxError;
+                                        ^
+       C:/src/jackage/tools/zig/lib/std/json/Scanner.zig:390:21: 0x7ff739c1da44 in next (test_zcu.obj)
+                       if (try self.skipWhitespaceCheckEnd()) return .end_of_document;
+                           ^
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:152:32: 0x7ff739c1c409 in parseFromTokenSourceLeaky__func_941 (test_zcu.obj)
+           assert(.end_of_document == try scanner_or_reader.next());
+                                      ^
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:117:20: 0x7ff739c1c16f in parseFromTokenSource__func_925 (test_zcu.obj)
+           parsed.value = try parseFromTokenSourceLeaky(T, parsed.arena.allocator(), scanner_or_reader, options);
+                          ^
+       C:/src/jackage/tools/zig/lib/std/json/static.zig:83:5: 0x7ff739c1a093 in parseFromSlice__func_920 (test_zcu.obj)
+           return parseFromTokenSource(T, allocator, &scanner, options);
+           ^
+       C:\src\jackage\src\cli\integration_tests.zig:170:18: 0x7ff739c3ff68 in test.m01/CLI-005 preserve argument boundaries (test_zcu.obj)
+           var parsed = try std.json.parseFromSlice(std.json.Value, gpa, result.lastStdoutLine(), .{});
+                        ^
+error: 'cli.integration_tests.test.m01/CLI-007 initialize safely' failed:
+       JCKG_EVIDENCE CLI-007
+       expected 3, found 0
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff739c03a13 in expectEqualInner__func_831 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff739c3820d in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\cli\integration_tests.zig:227:5: 0x7ff739c383cd in test.m01/CLI-007 initialize safely (test_zcu.obj)
+           try std.testing.expectEqual(@as(u8, 3), conflicted.exit_code);
+           ^
+error: 'cli.integration_tests.test.m01/CLI-009 respect cancellation' failed:
+       JCKG_EVIDENCE CLI-009
+       error.Unexpected NTSTATUS=0xc0000008 (INVALID_HANDLE)
+       C:/src/jackage/tools/zig/lib/std/os/windows.zig:3607:42: 0x7ff739b2069a in CloseHandle (test_zcu.obj)
+               else => |status| unexpectedStatus(status) catch {},
+                                                ^
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15652:28: 0x7ff739b7c040 in childCleanupWindows (test_zcu.obj)
+               windows.CloseHandle(stdin.handle);
+                                  ^
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15624:24: 0x7ff739b7cab9 in childWaitWindows (test_zcu.obj)
+           childCleanupWindows(child);
+                              ^
+       C:/src/jackage/tools/zig/lib/std/Io/Threaded.zig:15558:44: 0x7ff739b7c791 in childWait (test_zcu.obj)
+               .windows => return childWaitWindows(child),
+                                                  ^
+       C:/src/jackage/tools/zig/lib/std/process/Child.zig:152:31: 0x7ff739c0ccb4 in wait (test_zcu.obj)
+           return io.vtable.childWait(io.userdata, child);
+                                     ^
+       C:\src\jackage\src\cli\integration_tests.zig:81:32: 0x7ff739c0379c in runCli (test_zcu.obj)
+           const term = try child.wait(io);
+                                      ^
+       C:\src\jackage\src\cli\integration_tests.zig:277:30: 0x7ff739c188b1 in test.m01/CLI-009 respect cancellation (test_zcu.obj)
+           const result = try runCli(
+                                    ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:143:68: 0x7ff739bdb26d in mainServer (test_zcu.obj)
+                       const status: TestResults.Status = if (test_fn.func()) |v| s: {
+                                                                          ^
+       C:/src/jackage/tools/zig/lib/compiler/test_runner.zig:72:26: 0x7ff739bdb89b in main (test_zcu.obj)
+               return mainServer(init) catch |err| panic("internal test runner failure: {t}", .{err});
+                                ^
+       C:/src/jackage/tools/zig/lib/std/start.zig:795: 0x7ff739bd980d in callMain (test_zcu.obj)
+           if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{
+       
+       C:/src/jackage/tools/zig/lib/std/start.zig:576:17: 0x7ff739bd980d in WinStartup (test_zcu.obj)
+               callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global),
+                       ^
+       ???:?:?: 0x7ffa3347cd86 in ??? (KERNEL32.DLL)
+       ???:?:?: 0x7ffa3422caeb in ??? (ntdll.dll)
+       expected 130, found 0
+       C:/src/jackage/tools/zig/lib/std/testing.zig:93:17: 0x7ff739c03a13 in expectEqualInner__func_831 (test_zcu.obj)
+                       return error.TestExpectedEqual;
+                       ^
+       C:/src/jackage/tools/zig/lib/std/testing.zig:57: 0x7ff739c18a35 in expectEqual (test_zcu.obj)
+           return expectEqualInner(T, expected, actual);
+       
+       C:\src\jackage\src\cli\integration_tests.zig:287:5: 0x7ff739c18ae9 in test.m01/CLI-009 respect cancellation (test_zcu.obj)
+           try std.testing.expectEqual(@as(u8, 130), result.exit_code);
+           ^
+error: 'cli.integration_tests.test.m01/CLI-010 keep secrets out of errors' failed:
+       JCKG_EVIDENCE CLI-010
+       C:/src/jackage/tools/zig/lib/std/testing.zig:584:14: 0x7ff739c03a4f in expect (test_zcu.obj)
+           if (!ok) return error.TestUnexpectedResult;
+                    ^
+       C:\src\jackage\src\cli\integration_tests.zig:331:5: 0x7ff739c04419 in test.m01/CLI-010 keep secrets out of errors (test_zcu.obj)
+           try std.testing.expect(std.mem.indexOf(u8, ok.stdout, "***@example.invalid/org/repo.git") != null);
+           ^
+failed command: ".\\.zig-cache\\o\\49553475bce9551df4faa7fd97eed0a7\\test.exe" "--cache-dir=.\\.zig-cache" --seed=0xfb7c08f5 --listen=-
+
+Build Summary: 10/12 steps succeeded (1 failed); 1/14 tests passed (12 failed, 1 crashed)
+test transitive failure
++- run test 1 pass, 12 fail, 1 crash (14 total)
+
+error: the following build command exited with code 1:
+C:\Users\requi\AppData\Local\zig\o\98b5fbb25491539716c26b1fde201ad4\maker.exe build --zig-lib=tools\zig\lib --zig=C:\src\jackage\tools\zig\zig.exe --global-cache=C:\Users\requi\AppData\Local\zig --seed=0xfb7c08f5 test -Dfilter=CLI
